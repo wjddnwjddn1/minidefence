@@ -6,7 +6,7 @@ class SimulationStress {
  static int Main(string[] args){try{
   int won=0,lost=0,maxAlive=0;
   for(int field=0;field<Balance.Fields.Length;field++)for(int seed=1;seed<=12;seed++){
-   var b=new Battle((uint)seed,field);if(args.Length>0&&args[0]=="fast")b.SetFastWaves(true);int ticks=0;
+   var b=new Battle((uint)seed,field);if(args.Length>0&&args[0]=="fast")b.SetDifficulty(1);else if(args.Length>0&&args[0]=="hard")b.SetDifficulty(2);else if(args.Length>0&&args[0]!="normal")throw new ArgumentException("Expected normal, fast or hard");int ticks=0;
    while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost&&ticks<240000){
     if(b.Phase==Phase.Preparation){
      if(b.HP<=45&&b.Gold>=120)b.Repair();

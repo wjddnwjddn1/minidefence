@@ -43,7 +43,7 @@ Unity 메뉴 `Ember Bastion > Build Mac playable (Universal)` 또는 CLI 진입�
 
 Unity 에디터의 `EmberBastion.Editor.TextureAudit.Run` 검사는 Resources 텍스처가 가져오기 과정에서 원본 크기와 달라지면 실패한다. 서리와 수리 시트는 2112픽셀 폭을 보존한다. 이 검사는 기기 GPU의 텍스처 크기 제한까지 보장하지는 않는다.
 
-`Tests/Run-SimulationStress.ps1`은 여러 시드의 자연 골드 전투가 종료되는지와 전투 상태에 비정상 숫자나 범위 오류가 없는지 주기적으로 검사한다.
+`Tests/Run-SimulationStress.ps1`은 여러 시드의 자연 골드 전투가 종료되는지와 전투 상태에 비정상 숫자나 범위 오류가 없는지 검사한다. `-Mode normal`, `-Mode fast`, `-Mode hard`로 난도를 선택한다.
 
 `Tests/Run-StrategyReplay.ps1`은 시작 골드와 일반 보상만 사용하는 자동 전략을 찾고 기록된 배치·강화·잔불 사용을 재생해 각 전장의 승리를 확인한다. 실제 사람의 조작이나 난도 평가는 아니다.
 
