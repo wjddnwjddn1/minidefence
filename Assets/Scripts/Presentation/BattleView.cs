@@ -35,7 +35,8 @@ namespace EmberBastion {
   bool HasCombat(){return CombatStore.AutoExists||CombatStore.Exists;}
   void ClearOwnedAuto(){if(!autoOwned)return;try{CombatStore.DeleteAuto();autoOwned=false;if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer)Debug.Log("AUTO_REMOVED");}catch(Exception){notice="자동 저장을 정리하지 못했습니다.";}}
   readonly WaveSaveRetry autoSaveRetry=new WaveSaveRetry();
-  void BindBattle(){autoSaveRetry.Reset();quickClear=false;decidedSeen=false;decidedUntil=0;pendingTouchSlot=-1;autoClearWave=-1;clearedWave=-1;progressHint.Reset();battle.WaveStarted=b=>{waveCheckpoint=b.CopyCombat();if(AutoAllowed())try{CombatStore.SaveAuto(b,waveCheckpoint,(int)SimulationSpeed);autoOwned=true;if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("fx-smoke=autosave"))Debug.Log("AUTO_SAVE "+b.Wave+" "+b.Gold);}catch(Exception){notice="자동 저장에 실패했습니다.";}};}
+  bool waveStartSaveFailed;
+  void BindBattle(){waveStartSaveFailed=false;autoSaveRetry.Reset();quickClear=false;decidedSeen=false;decidedUntil=0;pendingTouchSlot=-1;autoClearWave=-1;clearedWave=-1;progressHint.Reset();battle.WaveStarted=b=>{waveCheckpoint=b.CopyCombat();if(AutoAllowed())try{CombatStore.SaveAuto(b,waveCheckpoint,(int)SimulationSpeed);autoOwned=true;if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("fx-smoke=autosave"))Debug.Log("AUTO_SAVE "+b.Wave+" "+b.Gold);}catch(Exception){waveStartSaveFailed=true;}};}
   bool SideLayout(){return Screen.width>=480&&Screen.height<=Screen.width&&((Screen.width<1000&&Screen.height<=480)||Screen.width<850||Screen.width>=1500);}
   bool LargeSide(){return Screen.width>=1500&&Screen.height>=650;}
   float SideFactor(){return LargeSide()?Mathf.Clamp(Screen.width/1920f,1,1.5f):1;}
@@ -67,6 +68,7 @@ namespace EmberBastion {
    if(inspectedEnemy>=0&&battle.Enemies.Find(e=>e.Id==inspectedEnemy)==null)inspectedEnemy=-1;
    if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("fx-smoke=surrender")&&toolsMenu&&Time.realtimeSinceStartup>=debugSurrenderClock){debugSurrenderClock=Time.realtimeSinceStartup+.4f;Debug.Log("SURRENDER_CLOCK "+battle.Time.ToString("F4",System.Globalization.CultureInfo.InvariantCulture));}
    if(!battle.CanCallEarly())earlyUntil=0;
+   if(waveStartSaveFailed){notice="웨이브 자동 저장 실패 · 전투를 직접 저장하세요.";waveStartSaveFailed=false;}
    if(battle.Phase!=Phase.Fighting){paused=false;aiming=false;queued=null;}
   }
   void OnApplicationFocus(bool focus){if(!focus){held.Clear();pressed=false;panelPressed=false;panelDragging=false;guidePressed=false;guideDragging=false;}if(!focus&&battle.Phase==Phase.Fighting&&!(Debug.isDebugBuild&&AutomationSmoke())){paused=true;notice="화면을 벗어나 정지했습니다. 직접 이어가세요.";}}
