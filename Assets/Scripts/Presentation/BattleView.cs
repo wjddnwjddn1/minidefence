@@ -44,12 +44,13 @@ namespace EmberBastion {
   Point Map(Vector2 screen){return new Point((screen.x-ox)/scale,(screen.y-oy)/scale);}
   bool OnMap(Point p){return p.X>=0&&p.X<=1280&&p.Y>=0&&p.Y<=768;}
   float EffectiveSpeed {get{return quickClear&&battle.Decided?6:SimulationSpeed;}}
+  readonly List<Cue> frameCues=new List<Cue>();
   // Clamp wall time before scaling, then preserve every cue across bounded steps.
   void AdvanceBattle(float wallDelta,float speed){
    double remaining=Math.Min(wallDelta,.25f)*speed;
-   var cues=new List<Cue>();
-   while(remaining>0&&battle.Phase==Phase.Fighting){double step=Math.Min(remaining,.25);battle.Step(step);cues.AddRange(battle.Cues);remaining-=step;}
-   battle.Cues.Clear();battle.Cues.AddRange(cues);
+   frameCues.Clear();
+   while(remaining>0&&battle.Phase==Phase.Fighting){double step=Math.Min(remaining,.25);battle.Step(step);frameCues.AddRange(battle.Cues);remaining-=step;}
+   battle.Cues.Clear();battle.Cues.AddRange(frameCues);
   }
   void Update(){Layout();if(saleSlot>=0&&(selected!=saleSlot||battle.Phase!=Phase.Fighting||Time.unscaledTime>=saleUntil))saleSlot=-1;
    // OnGUI handles pointer/keyboard once using Event.Use; no parallel touch listener.
