@@ -71,8 +71,8 @@ namespace EmberBastion {
    if(waveStartSaveFailed){notice="웨이브 자동 저장 실패 · 전투를 직접 저장하세요.";waveStartSaveFailed=false;}
    if(battle.Phase!=Phase.Fighting){paused=false;aiming=false;queued=null;}
   }
-  void OnApplicationFocus(bool focus){if(!focus){held.Clear();pressed=false;panelPressed=false;panelDragging=false;guidePressed=false;guideDragging=false;}if(!focus&&battle.Phase==Phase.Fighting&&!(Debug.isDebugBuild&&AutomationSmoke())){paused=true;notice="화면을 벗어나 정지했습니다. 직접 이어가세요.";}}
-  void OnApplicationPause(bool stop){if(stop&&battle.Phase==Phase.Fighting)paused=true;}
+  void OnApplicationFocus(bool focus){if(!focus){held.Clear();pressed=false;pendingTouchSlot=-1;hoverSlot=-1;panelPressed=false;panelDragging=false;guidePressed=false;guideDragging=false;}if(!focus&&battle.Phase==Phase.Fighting&&!(Debug.isDebugBuild&&AutomationSmoke())){paused=true;notice="화면을 벗어나 정지했습니다. 직접 이어가세요.";}}
+  void OnApplicationPause(bool stop){if(stop){held.Clear();pressed=false;pendingTouchSlot=-1;hoverSlot=-1;panelPressed=false;panelDragging=false;guidePressed=false;guideDragging=false;if(battle.Phase==Phase.Fighting)paused=true;}}
   const string TutorialKey="snomet.ember-bastion.unity-comparison.tutorial.v1";
   bool TutorialAllowed(){return !AutomationSmoke()&&!(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&!Application.absoluteURL.Contains("fx-smoke=tutorial"));}
   void InitTutorial(){if(!TutorialAllowed())return;try{if(PlayerPrefs.GetInt(TutorialKey,0)!=0||CombatStore.Exists||CombatStore.AutoExists||PreparationStore.Exists)return;for(int f=0;f<Balance.Fields.Length;f++)if(ProgressStore.Cleared(f)||ProgressStore.Cleared(f,true)||ProgressStore.Cleared(f,true,true))return;tutorialStage=1;}catch(Exception){}}
