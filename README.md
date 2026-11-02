@@ -33,6 +33,10 @@
 
 `준비 저장`은 현재 준비를 이 Unity 비교판의 별도 저장소에 기록한다. `준비 불러오기`는 게임을 새로 연 직후 같은 빈 준비에서 사용할 수 있다. `전투 저장`은 적과 대기열, 병력, 시간, 난수, 배속 및 웨이브 재도전 상태를 별도 슬롯에 기록한다. 게임을 다시 연 직후 빈 준비 화면에서 `전투 이어하기`를 선택하면 정지 상태로 복원된다. 준비 저장과 전투 저장은 서로 다른 슬롯이며 명시적으로 저장할 때만 갱신한다. 잔불 조준 또는 예약을 끝낸 뒤 저장할 수 있다. 웹 브라우저 데이터 삭제나 사이트 저장 제한에 따라 Web 저장이 지워지거나 실패할 수 있다.
 
+## macOS 실행판
+
+Unity 메뉴 `Ember Bastion > Build Mac playable (Universal)` 또는 CLI 진입점 `EmberBastion.Editor.ComparisonBuild.MacPlayable`로 프로젝트 상위의 `실행용/EmberBastion.app`을 만든다. Intel과 Apple Silicon 코드를 함께 포함하는 Universal 앱이며, Windows 실행판과 별도로 생성된다. Apple Silicon에서의 실제 실행은 해당 기기에서 확인해야 한다.
+
 ## 검증
 
 `Tests/Run-CoreChecks.ps1`은 .NET Framework C# 컴파일러로 독립 전투 규칙을 컴파일하고 검사한다. `Tests/Compare-Web.mjs`는 로컬 웹판 모듈을 읽어 시드1의 60초 전투를 C# 실행과 대조한다. `Tests/Compare-Frost.mjs`와 `Tests/Compare-Mixed*.mjs`, `Tests/Compare-Strong*.mjs`, `Tests/Compare-Aggregate*.mjs`는 서리와 다른 병과의 편성을 각 전장의 웹 규칙과 대조한다. 공통 비교 코드는 `Tests/FrostParity.mjs`다. 이 비교 도구들은 이전 체력 기반 규칙의 기록이며, 100마리 패배 규칙을 적용한 현재 버전의 결과와 일치하지 않을 수 있다. `Tests/Compare-Smith.mjs`는 기술자 지원 효과와 분기를 세 전장의 웹 규칙과 대조한다. 웹판과 사용자 저장을 변경하지 않는다.

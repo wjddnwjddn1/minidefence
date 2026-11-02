@@ -13,6 +13,10 @@ namespace EmberBastion.Editor {
   public static void Windows(){Build(BuildTarget.StandaloneWindows64,"Builds/Windows/EmberBastion.exe");}
   [MenuItem("Ember Bastion/Build Windows playable")]
   public static void WindowsPlayable(){Build(BuildTarget.StandaloneWindows64,"Builds/Playable/EmberBastion.exe",false);}
+#if UNITY_EDITOR_OSX
+  [MenuItem("Ember Bastion/Build Mac playable (Universal)")]
+  public static void MacPlayable(){UnityEditor.OSXStandalone.UserBuildSettings.architecture=UnityEditor.Build.OSArchitecture.x64ARM64;string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../실행용/EmberBastion.app"));Directory.CreateDirectory(Path.GetDirectoryName(output));Build(BuildTarget.StandaloneOSX,output,false);}
+#endif
   [MenuItem("Ember Bastion/Build Web comparison")]
   public static void Web(){PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Disabled;Build(BuildTarget.WebGL,"Builds/Web");}
   static void Build(BuildTarget target,string output,bool development=true){if(!File.Exists(ScenePath))Scene();PlayerSettings.companyName="SnometComparison";PlayerSettings.productName="EmberBastionUnityComparison";PlayerSettings.defaultScreenWidth=1280;PlayerSettings.defaultScreenHeight=720;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;PlayerSettings.resizableWindow=true;PlayerSettings.runInBackground=false;var report=BuildPipeline.BuildPlayer(new[]{ScenePath},output,target,development?BuildOptions.Development:BuildOptions.None);if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Comparison build failed: "+report.summary.result);}
