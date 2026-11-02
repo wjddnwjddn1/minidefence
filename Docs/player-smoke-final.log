@@ -1,0 +1,54 @@
+Mono path[0] = 'C:/Users/snome/Downloads/EmberBastion-Unity-20261027/Builds/Windows/EmberBastion_Data/Managed'
+Mono config path = 'C:/Users/snome/Downloads/EmberBastion-Unity-20261027/Builds/Windows/MonoBleedingEdge/etc'
+CodeReloadManager initialized
+Found 3 interfaces on host : 0) 192.168.0.3 1) 192.168.174.1 2) 192.168.190.1
+Player connection [85608]  Target information:
+
+Player connection [85608]  * "[IP] 192.168.0.3 [Port] 55000 [Flags] 2 [Guid] 155405586 [EditorId] 2723911497 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionUnityComparison" 
+
+Player connection [85608]  * "[IP] 192.168.174.1 [Port] 55000 [Flags] 2 [Guid] 155405586 [EditorId] 2723911497 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionUnityComparison" 
+
+Player connection [85608]  * "[IP] 192.168.190.1 [Port] 55000 [Flags] 2 [Guid] 155405586 [EditorId] 2723911497 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionUnityComparison" 
+
+Player connection [85608] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.6.7f1 (b22767f04f04)
+[EntityIdStore] init: VM path (explicit commit), pageSize=4096, blockCount=262144, entitiesPerBlock=1024, blocksPerSlotPage=0, slots reserved=4294967296 bytes
+[Subsystems] Discovering subsystems at path C:/Users/snome/Downloads/EmberBastion-Unity-20261027/Builds/Windows/EmberBastion_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 5080
+[D3D12 Device Filter] Driver Version: 32.0.16.1714
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 15977 MB
+[D3D12 Device Filter] Processor Count: 16
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 5080 (ID=0x2c02)
+    Vendor:          NVIDIA
+    VRAM:            15977 MB
+    App VRAM Budget: 15209 MB
+    Driver:          32.0.16.1714
+Begin MonoManager ReloadAssembly
+- Finished resetting the current domain, in  0.007 seconds
+[Physics::Module] Selected backend (deferred post-plugins).
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+<RI> Input initialized.
+UnloadTime: 1.373400 ms
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+CodeReloadManager destroyed
+PlayerConnection::Cleanup##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1793103348617,"processId":84244,"allocatedMemory":40942,"memoryLabels":[{"Default":5368},{"NewDelete":760},{"Thread":7616},{"Manager":14679},{"GfxDevice":2448},{"Audio":752},{"Serialization":408},{"String":502},{"PoolAlloc":96},{"ScriptManager":5696},{"CodeReload":440},{"CloudService":144},{"VR":1928},{"Video":144},{"Subsystems":96},{"Gui":105},{"CoreBusinessMetrics":128}]}

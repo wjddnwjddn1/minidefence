@@ -1,0 +1,20 @@
+using System;
+using EmberBastion;
+class HardLapGrowthChecks {
+ static int checks;static void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
+ static int probeId;static Enemy Probe(Battle b){foreach(var e in b.Enemies)if(e.Id==probeId)return e;return null;}
+ static Battle Setup(int mode,int field){var b=new Battle(1,field);Check(b.SetDifficulty(mode),"difficulty");Check(b.Place(0,0)&&b.Start(),"start");
+  for(int i=0;i<600&&b.Enemies.Count==0;i++)b.Step(1.0/60);Check(b.Enemies.Count>0,"spawn");var e=b.Enemies[0];probeId=e.Id;e.Kind=0;e.HP=1e6;e.MaxHP=1e6;e.Speed=600;e.Laps=0;e.Travel=b.Field.Perimeter-1;return b;}
+ static void Main(){try{for(int field=0;field<3;field++){
+  // Normal and challenge: lap crossings never change health.
+  foreach(int mode in new[]{0,1}){var b=Setup(mode,field);b.Step(1.0/60);var e=Probe(b);Check(e!=null&&e.Laps==1&&e.MaxHP==1e6,"non-hard lap keeps health");}
+  // Hard: one crossing multiplies MaxHP once; later steps inside the same lap do not.
+  var h=Setup(2,field);double hp=Probe(h).HP;h.Step(1.0/60);var p=Probe(h);
+  Check(p.Laps==1&&Math.Abs(p.MaxHP-1.5e6)<1e-6,"hard lap grows once");Check(p.HP>hp,"current health grows too");
+  for(int i=0;i<10;i++)h.Step(1.0/60);Check(Math.Abs(Probe(h).MaxHP-1.5e6)<1e-6,"no repeat inside lap");
+  // Combat save/restore keeps grown health and lap count, so restored runs never re-apply growth.
+  var r=Battle.ImportCombat(h.ExportCombat());var q=Probe(r);Check(q!=null&&q.Laps==1&&Math.Abs(q.MaxHP-1.5e6)<1e-6,"restore keeps growth");
+  for(int i=0;i<10;i++)r.Step(1.0/60);Check(Math.Abs(Probe(r).MaxHP-1.5e6)<1e-6,"restore does not re-apply");
+ }Console.WriteLine("PASS hard-mode lap growth x"+Balance.HardLapGrowth+" once per lap, normal/challenge unchanged, combat save safe ("+checks+")");}
+ catch(Exception ex){Console.Error.WriteLine(ex);Environment.Exit(1);}}
+}

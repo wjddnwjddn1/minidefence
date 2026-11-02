@@ -1,0 +1,6 @@
+<linker>
+  <!-- Unity 6000.6 Web player calls this from native code. Keep it during IL2CPP stripping. -->
+  <assembly fullname="UnityEngine.ContentLoadModule" ignoreIfMissing="1">
+    <type fullname="Unity.Loading.ContentLoadingSystem" preserve="all" />
+  </assembly>
+</linker>

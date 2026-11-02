@@ -1,0 +1,24 @@
+[
+  {
+    "name": "desktop-forest",
+    "loadedMs": 1362,
+    "canvas": {
+      "width": 960,
+      "height": 600
+    },
+    "input": {
+      "world": [
+        640,
+        256
+      ],
+      "local": [
+        480,
+        208.66666666666666
+      ],
+      "kind": "mouse click"
+    },
+    "rotated": null,
+    "errors": [],
+    "consoleErrors": []
+  }
+]

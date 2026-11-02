@@ -1,0 +1,6 @@
+repair=False field=0 trials=24 wins=8 furthest=10 trial=1 phase=Won hp=90 gold=212 kills=141
+repair=False field=1 trials=24 wins=6 furthest=8 trial=0 phase=Won hp=15 gold=204 kills=155
+repair=False field=2 trials=24 wins=9 furthest=8 trial=0 phase=Won hp=25 gold=206 kills=169
+repair=True field=0 trials=24 wins=17 furthest=10 trial=0 phase=Lost hp=0 gold=52 kills=135
+repair=True field=1 trials=24 wins=8 furthest=8 trial=0 phase=Won hp=40 gold=229 kills=155
+repair=True field=2 trials=24 wins=9 furthest=8 trial=0 phase=Lost hp=0 gold=111 kills=163

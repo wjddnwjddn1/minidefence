@@ -1,0 +1,143 @@
+[
+  {
+    "name": "desktop",
+    "loadedMs": 949,
+    "canvas": {
+      "width": 960,
+      "height": 600
+    },
+    "input": {
+      "world": [
+        320,
+        218
+      ],
+      "local": [
+        309.1666666666667,
+        188.38020833333331
+      ],
+      "kind": "mouse click"
+    },
+    "rotated": null,
+    "errors": [],
+    "consoleErrors": []
+  },
+  {
+    "name": "desktop-forest",
+    "loadedMs": 606,
+    "canvas": {
+      "width": 960,
+      "height": 600
+    },
+    "input": {
+      "world": [
+        640,
+        256
+      ],
+      "local": [
+        480,
+        208.66666666666666
+      ],
+      "kind": "mouse click"
+    },
+    "rotated": null,
+    "errors": [],
+    "consoleErrors": []
+  },
+  {
+    "name": "desktop-pass",
+    "loadedMs": 513,
+    "canvas": {
+      "width": 960,
+      "height": 600
+    },
+    "input": {
+      "world": [
+        320,
+        232
+      ],
+      "local": [
+        309.1666666666667,
+        195.85416666666666
+      ],
+      "kind": "mouse click"
+    },
+    "rotated": null,
+    "errors": [],
+    "consoleErrors": []
+  },
+  {
+    "name": "mobile-simulated",
+    "loadedMs": 496,
+    "canvas": {
+      "width": 390,
+      "height": 844
+    },
+    "input": {
+      "world": [
+        320,
+        218
+      ],
+      "local": [
+        97.5,
+        150.421875
+      ],
+      "kind": "synthetic tap"
+    },
+    "rotated": {
+      "width": 844,
+      "height": 390
+    },
+    "errors": [],
+    "consoleErrors": []
+  },
+  {
+    "name": "mobile-forest",
+    "loadedMs": 505,
+    "canvas": {
+      "width": 390,
+      "height": 844
+    },
+    "input": {
+      "world": [
+        640,
+        256
+      ],
+      "local": [
+        195,
+        162
+      ],
+      "kind": "synthetic tap"
+    },
+    "rotated": {
+      "width": 844,
+      "height": 390
+    },
+    "errors": [],
+    "consoleErrors": []
+  },
+  {
+    "name": "mobile-small",
+    "loadedMs": 559,
+    "canvas": {
+      "width": 320,
+      "height": 568
+    },
+    "input": {
+      "world": [
+        320,
+        218
+      ],
+      "local": [
+        91,
+        138.5
+      ],
+      "kind": "synthetic tap"
+    },
+    "rotated": {
+      "width": 844,
+      "height": 390
+    },
+    "errors": [],
+    "consoleErrors": []
+  }
+]

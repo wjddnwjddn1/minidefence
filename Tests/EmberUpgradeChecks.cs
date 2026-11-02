@@ -1,0 +1,10 @@
+using System;
+using EmberBastion;
+class EmberUpgradeChecks {
+ static int checks;static void Check(bool ok,string text){checks++;if(!ok)throw new Exception(text);}
+ static Battle Start(int branch){var b=new Battle(1,0);Check(b.Place(0,0),"place");int gold=b.Gold;if(branch>0){Check(b.UpgradeEmber(branch),"upgrade");Check(b.Gold==gold-100&&b.EmberBranch==branch,"price and branch");Check(!b.UpgradeEmber(1),"only one branch");}Check(b.Start(),"start");return b;}
+ static Enemy EnemyAt(double x){return new Enemy{Id=999,Kind=0,Gate=0,HP=150,MaxHP=150,Position=new Point(x,384)};}
+ static void Main(){foreach(int branch in new[]{0,1,2}){var b=Start(branch);var near=EnemyAt(640);var far=EnemyAt(760);b.Enemies.Add(near);b.Enemies.Add(far);Check(b.Ember(new Point(640,384)),"cast");Check(!b.UpgradeEmber(1),"no upgrade while queued");b.Step(1.0/60);Check(Math.Abs(near.HP-(branch==1?52.5:85))<.0001,"damage");Check(Math.Abs(far.HP-(branch==2?85:150))<.0001,"radius");Check(Math.Abs(b.EmberRadius-(branch==2?130:90))<.0001,"display radius");Check(b.Cues.Exists(c=>c.Kind=="ember"&&Math.Abs(c.Radius-b.EmberRadius)<.001),"cue radius");}
+ foreach(int branch in new[]{1,2}){var b=new Battle(1,0);Check(b.UpgradeEmber(branch),"prep upgrade");var prep=Battle.RestorePreparation(b.SavePreparation());Check(prep.EmberBranch==branch&&prep.Gold==100,"prep save");Check(prep.Place(0,0)&&prep.Start(),"prep start");Check(prep.CopyCombat().EmberBranch==branch,"checkpoint");Check(Battle.ImportCombat(prep.ExportCombat()).EmberBranch==branch,"combat save");}
+ var no=new Battle();Check(!no.UpgradeEmber(0)&&!no.UpgradeEmber(3),"invalid branch");no.Gold=99;Check(!no.UpgradeEmber(1),"insufficient gold");var legacy=new Battle().SavePreparation();Check(Battle.RestorePreparation(legacy).EmberBranch==0,"old save default");legacy.emberBranch=3;bool failed=false;try{Battle.RestorePreparation(legacy);}catch(ArgumentException){failed=true;}Check(failed,"invalid save");Console.WriteLine("PASS "+checks+" ember upgrade, impact, radius, save and legacy checks");}
+}

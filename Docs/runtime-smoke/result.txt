@@ -1,0 +1,5 @@
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.9833333333333
+automatic-wave=2 gold=63
+outcome=Won wave=10 hp=100 gold=142 kills=141 cause=
+retry=Preparation field=0 gold=200 units=0

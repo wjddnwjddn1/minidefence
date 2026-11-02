@@ -1,0 +1,3527 @@
+VBCSCompilerPreWarmer: watching VBCSCompiler (PID 93644)
+VBCSCompilerPreWarmer: pre-warm launched (dotnet PID 86836)
+VBCSCompiler prewarm took 17.96 ms
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.6/staging' branch; Version is '6000.6.7f1 (b22767f04f04) revision 11675495'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-snome" at "2026-10-28T10:58:03.1729977Z"
+OS: 'Windows 11  (10.0.22631) Professional' Language: 'ko' Physical Memory: 31862 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-28T10:58:03Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 61168, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              7f092e32704346b690443cea7e235d3d
+  Correlation Id:          1675987ce0c0e7df4083dbaef102eb16
+  External correlation Id: 2525361047639459788
+  Machine Id:              VewqzpEFFVxPrJMeAMPP2e9uBP8=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-snome" (connect: 0.00s, validation: 0.00s, handshake: 0.07s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-snome-notifications" at "2026-10-28T10:58:03.2462123Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 14569823761370-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.08s
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+C:\Users\snome\Downloads\EmberBastion-Unity-20261027
+-executeMethod
+EmberBastion.Editor.ComparisonBuild.Windows
+-logFile
+C:\Users\snome\Downloads\EmberBastion-Unity-20261027\Docs\windows-build.log
+Successfully changed project path to: C:\Users\snome\Downloads\EmberBastion-Unity-20261027
+C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-remapper-allocator-initial-capacity=32768"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-main-allocator-mimalloc-enabled=1"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Logging is directed to a specific file, skipping project log.
+Player connection [93708]  Target information:
+
+Player connection [93708]  * "[IP] 192.168.0.3 [Port] 55504 [Flags] 2 [Guid] 1384140472 [EditorId] 1384140472 [Version] 1048832 [Id] WindowsEditor(7,snomet) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [93708]  * "[IP] 192.168.174.1 [Port] 55504 [Flags] 2 [Guid] 1384140472 [EditorId] 1384140472 [Version] 1048832 [Id] WindowsEditor(7,snomet) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [93708]  * "[IP] 192.168.190.1 [Port] 55504 [Flags] 2 [Guid] 1384140472 [EditorId] 1384140472 [Version] 1048832 [Id] WindowsEditor(7,snomet) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [93708] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [93708] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-63012" after 0.2 seconds.
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+Launching Unity Data Store - C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/Tools/Unity.DataStore.exe 
+Unity Data Store artifact dir = Library/DataStore, working dir = C:/Users/snome/Downloads/EmberBastion-Unity-20261027Unity Data Store running and initialised
+[Physics::Module] Selected backend (deferred post-plugins).
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Initialize engine version: 6000.6.7f1 (b22767f04f04)
+[EntityIdStore] init: VM path (explicit commit), pageSize=4096, blockCount=262144, entitiesPerBlock=1024, blocksPerSlotPage=0, slots reserved=4294967296 bytes
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/snome/Downloads/EmberBastion-Unity-20261027/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 5080 (ID=0x2c02)
+    Vendor:          NVIDIA
+    VRAM:            15977 MB
+    App VRAM Budget: 15209 MB
+    Driver:          32.0.16.1714
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/BCLExtensions/runtime/netstandard2.1'
+Mono path[2] = 'C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56012
+CodeReloadManager initialized
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002302 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:False
+Scripting: successfully reloaded assembly
+- Finished resetting the current domain, in  0.641 seconds
+Domain Reload Profiling: 1205ms
+	BeginReloadAssembly (156ms)
+		CreateAndSetChildDomain (13ms)
+	RebuildCommonClasses (5ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (316ms)
+		LoadAssemblies (139ms)
+		TypeCache.Refresh (205ms)
+			TypeCache.ScanAssembly (191ms)
+		AnalyzeDomain (1ms)
+	FinalizeReload (643ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			BeforeProcessingInitializeOnLoad (94ms)
+			ProcessInitializeOnLoadAttributes (84ms)
+			ProcessInitializeOnLoadMethodAttributes (243ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 4 packages:
+  Built-in packages:
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\snome\Downloads\EmberBastion-Unity-20261027\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\snome\Downloads\EmberBastion-Unity-20261027\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\snome\Downloads\EmberBastion-Unity-20261027\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\snome\Downloads\EmberBastion-Unity-20261027\Library\PackageCache\com.unity.modules.imageconversion)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.00 seconds
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 0s725ms
+[174/183    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[175/183    0s] Csc Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Presentation\DevelopmentSmoke.cs(1,5): warning UAC0009: DEVELOPMENT_BUILD preprocessor directive has been deprecated. Please use one of the managed code variant directives (such as DEBUG, UNITY_ENABLE_CHECKS or UNITY_INCLUDE_INSTRUMENTATION) if different code paths are desired for different managed code variants. Checking for development build is possible at runtime using Debug.isDebugBuild. See the Conditional Compilation manual page for more details.
+[177/183    0s] ILPostProcess Library/Bee/artifacts/2000b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.dll, with 124 defines and 248 references
+
+processors: zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+1 processor(s) skipped this assembly
+[178/183    0s] ILPostProcess Library/Bee/artifacts/2000b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp-Editor.dll, with 122 defines and 297 references
+
+processors: zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+1 processor(s) skipped this assembly
+[179/183    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[180/183    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[181/183    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[182/183    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+*** Tundra build success (0.69 seconds), 8 items updated, 183 evaluated
+Total cache size 4691475
+Assets\Scripts\Presentation\DevelopmentSmoke.cs(1,5): warning UAC0009: DEVELOPMENT_BUILD preprocessor directive has been deprecated. Please use one of the managed code variant directives (such as DEBUG, UNITY_ENABLE_CHECKS or UNITY_INCLUDE_INSTRUMENTATION) if different code paths are desired for different managed code variants. Checking for development build is possible at runtime using Debug.isDebugBuild. See the Conditional Compilation manual page for more details.
+Total cache size after purge 4691475, took 00:00:00.0128645
+AssetDatabase: script compilation time: 1.194396s
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Scripting: successfully reloaded assembly
+- Finished resetting the current domain, in  0.416 seconds
+Domain Reload Profiling: 877ms
+	BeginReloadAssembly (252ms)
+		DisableScriptedObjects (24ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (10ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (56ms)
+	LoadAllAssembliesAndSetupDomain (126ms)
+		LoadAssemblies (127ms)
+		TypeCache.Refresh (5ms)
+		AnalyzeDomain (4ms)
+	FinalizeReload (417ms)
+		SetupLoadedEditorAssemblies (0ms)
+			BeforeProcessingInitializeOnLoad (94ms)
+			ProcessInitializeOnLoadAttributes (57ms)
+			ProcessInitializeOnLoadMethodAttributes (41ms)
+			AfterProcessingInitializeOnLoad (12ms)
+		AwakeInstancesAfterBackupRestoration (32ms)
+Starting new worker id: 0 with log in C:/Users/snome/Downloads/EmberBastion-Unity-20261027/Logs/AssetImportWorkerHW0.log
+
+Asset Pipeline Refresh (id=4e0cb7e369971c042bceb74795805781): Total: 2.332 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	(Values over 0.05ms)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=546 ms
+		Asset DB Callback time: managed=57 ms, native=9 ms
+		Scripting: domain reloads=1, domain reload time=511 ms, compile time=1197 ms, other=9 ms
+		Project Asset Count: scripts=37, non-scripts=45
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokePackagesCallback: 7.952ms
+	ApplyChangesToAssetFolders: 0.254ms
+	Scan: 20.167ms
+	Collect global state as custom dependencies: 9.137ms
+	OnSourceAssetsModified: 0.864ms
+	CategorizeScriptCompilationAssets: 0.078ms
+	ProcessAssetsWithTransientArtifactChanges: 0.638ms
+	CategorizeAssets: 0.539ms
+	CompileScripts: 1197.405ms
+	ImportOutOfDateAssets: 428.982ms (417.718ms without children)
+		UnloadImportedAssets: 1.175ms
+		ImportSchedulerStart: 10.070ms
+	PostProcessAllAssets: 58.318ms
+		VCAutoAddAssetPostprocess 0.622ms
+		MonoPostProcessAllAssets: 57.183ms
+			AssetPostprocessor.OnPostprocessAllAssets 11.963ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 7.829ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 7.753ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 6.047ms
+			SyncVS.PostprocessSyncProject 1.470ms
+			AssetChangedListener.OnPostprocessAllAssets 1.391ms
+			EditModeScopePostprocessor.OnPostprocessAllAssets 1.338ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 1.291ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 1.017ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 0.923ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.615ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.460ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.418ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.236ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.234ms
+			AssetEvents.OnPostprocessAllAssets 0.228ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.182ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.173ms
+			ThemePostprocessor.OnPostprocessAllAssets 0.162ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.118ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.094ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.090ms
+	PostAssetChangesProfiler: 2.638ms
+	UnloadStreamsBegin: 2.209ms
+	Untracked: 580.101ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Scanning for USB devices : 35.455ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-EmberBastionUnityComparison
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (475.5 KB). Loaded Objects now: 757.
+Memory consumption went from 220.4 MB to 219.9 MB.
+Total: 4.741300 ms (FindLiveObjects: 0.092700 ms CreateObjectMapping: 0.004900 ms MarkObjects: 4.403600 ms  DeleteObjects: 0.180600 ms)
+
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/2000b0aESkipCompile.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+ExitCode: 0 Duration: 0s174ms
+[2/3        0s] BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json
+*** Tundra build success (0.14 seconds), 1 items updated, 3 evaluated
+Total cache size 4691475
+Total cache size after purge 4691475, took 00:00:00.0111718
+Asset Pipeline Refresh (id=d310b0769acce22419c1f159a058eb7c): Total: 0.003 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+[ScriptCompilation] Requested script compilation because: Recompiling scripts for player build.
+BuildPlayer: start building target 19
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aPDev.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssembliesAndTypeDB
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+ExitCode: 0 Duration: 0s832ms
+[53/60      0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[54/60      0s] Csc Library/Bee/artifacts/1900b0aPDev.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Presentation\DevelopmentSmoke.cs(1,5): warning UAC0009: DEVELOPMENT_BUILD preprocessor directive has been deprecated. Please use one of the managed code variant directives (such as DEBUG, UNITY_ENABLE_CHECKS or UNITY_INCLUDE_INSTRUMENTATION) if different code paths are desired for different managed code variants. Checking for development build is possible at runtime using Debug.isDebugBuild. See the Conditional Compilation manual page for more details.
+[55/60      0s] ILPostProcess Library/Bee/artifacts/1900b0aPDev.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aPDev.dag/Assembly-CSharp.dll, with 140 defines and 178 references
+
+processors: zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+1 processor(s) skipped this assembly
+[56/60      0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.pdb
+[57/60      0s] CopyFiles Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll
+[59/60      0s] BuildPlayerDataGenerator Library/BuildPlayerData/Player/RuntimeInitializeOnLoads.json (+1 other)
+*** Tundra build success (0.81 seconds), 6 items updated, 60 evaluated
+Total cache size 4691475
+Total cache size after purge 4691475, took 00:00:00.0029961
+Assets\Scripts\Presentation\DevelopmentSmoke.cs(1,5): warning UAC0009: DEVELOPMENT_BUILD preprocessor directive has been deprecated. Please use one of the managed code variant directives (such as DEBUG, UNITY_ENABLE_CHECKS or UNITY_INCLUDE_INSTRUMENTATION) if different code paths are desired for different managed code variants. Checking for development build is possible at runtime using Debug.isDebugBuild. See the Conditional Compilation manual page for more details.
+Rebuilding Data files because Assets/Resources/Fonts/NanumGothic-Regular.ttf is dirty (hash)
+Importing 'GUID: b36e5d952f54b1241962400174a1a40b - Path: Assets/Resources/Fonts/NanumGothic-Regular.ttf' with importer (TrueTypeFontImporter)
+Imported 'GUID: b36e5d952f54b1241962400174a1a40b' -> (Import Result ID: '8ba4c601179b53d147e4a98fd2c04298') in 0.014 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c63d26259549bc54ff10c8377931048d DependenciesID=772d551a874a65a3529abf11e16ad533 StaticDependenciesID=feaeff297816af077de4d06230eb43e7 
+Asset Pipeline Refresh (id=187a7446814249d4f80f951e6612a95c): Total: 0.050 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b614844923bd702498e47df03f0bb472): Total: 0.003 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+
+
+Mono dependencies included in the build
+Dependency assembly - Mono.CompilerServices.SymbolWriter.dll
+Dependency assembly - Novell.Directory.Ldap.dll
+Dependency assembly - System.Security.Cryptography.DeriveBytes.dll
+Dependency assembly - System.IO.MemoryMappedFiles.dll
+Dependency assembly - System.Xml.Serialization.dll
+Dependency assembly - I18N.MidEast.dll
+Dependency assembly - System.Web.ApplicationServices.dll
+Dependency assembly - Mono.Messaging.dll
+Dependency assembly - Mono.Security.dll
+Dependency assembly - System.ComponentModel.TypeConverter.dll
+Dependency assembly - Microsoft.VisualC.dll
+Dependency assembly - System.Runtime.Caching.dll
+Dependency assembly - System.Runtime.Serialization.Json.dll
+Dependency assembly - System.IO.UnmanagedMemoryStream.dll
+Dependency assembly - System.Diagnostics.Debug.dll
+Dependency assembly - SMDiagnostics.dll
+Dependency assembly - WebMatrix.Data.dll
+Dependency assembly - Mono.Options.dll
+Dependency assembly - System.Deployment.dll
+Dependency assembly - System.Net.Http.Formatting.dll
+Dependency assembly - System.Net.Sockets.dll
+Dependency assembly - System.Diagnostics.TextWriterTraceListener.dll
+Dependency assembly - System.Net.Http.Rtc.dll
+Dependency assembly - System.Data.OracleClient.dll
+Dependency assembly - System.ComponentModel.Annotations.dll
+Dependency assembly - System.Reflection.Emit.dll
+Dependency assembly - System.Security.Cryptography.Algorithms.dll
+Dependency assembly - I18N.CJK.dll
+Dependency assembly - System.IdentityModel.Selectors.dll
+Dependency assembly - Mono.Simd.dll
+Dependency assembly - System.Numerics.dll
+Dependency assembly - System.Data.Services.Client.dll
+Dependency assembly - Mono.Security.Win32.dll
+Dependency assembly - System.Runtime.Serialization.dll
+Dependency assembly - Microsoft.Win32.Primitives.dll
+Dependency assembly - System.Threading.ThreadPool.dll
+Dependency assembly - System.Management.dll
+Dependency assembly - I18N.Other.dll
+Dependency assembly - System.Web.dll
+Dependency assembly - I18N.dll
+Dependency assembly - System.Security.dll
+Dependency assembly - System.Data.DataSetExtensions.dll
+Dependency assembly - System.Windows.dll
+Dependency assembly - System.Net.WebSockets.Client.dll
+Dependency assembly - System.Configuration.Install.dll
+Dependency assembly - System.Memory.dll
+Dependency assembly - Assembly-CSharp.dll
+Dependency assembly - SystemWebTestShim.dll
+Dependency assembly - System.Reactive.Windows.Forms.dll
+Dependency assembly - System.Runtime.DurableInstancing.dll
+Dependency assembly - System.Diagnostics.FileVersionInfo.dll
+Dependency assembly - System.Data.Linq.dll
+Dependency assembly - System.Reactive.Core.dll
+Dependency assembly - System.ComponentModel.EventBasedAsync.dll
+Dependency assembly - netstandard.dll
+Dependency assembly - System.Web.Razor.dll
+Dependency assembly - System.Threading.Tasks.dll
+Dependency assembly - System.Reflection.Primitives.dll
+Dependency assembly - System.Runtime.Handles.dll
+Dependency assembly - System.Dynamic.dll
+Dependency assembly - System.IO.Hashing.dll
+Dependency assembly - System.ServiceModel.Security.dll
+Dependency assembly - System.Threading.Overlapped.dll
+Dependency assembly - System.Web.Http.WebHost.dll
+Dependency assembly - System.Collections.Immutable.dll
+Dependency assembly - System.ObjectModel.dll
+Dependency assembly - System.Reflection.Emit.Lightweight.dll
+Dependency assembly - System.Xml.ReaderWriter.dll
+Dependency assembly - System.ComponentModel.dll
+Dependency assembly - System.Console.dll
+Dependency assembly - monodoc.dll
+Dependency assembly - System.Windows.Forms.dll
+Dependency assembly - Mono.Cairo.dll
+Dependency assembly - System.Buffers.dll
+Dependency assembly - System.Collections.Concurrent.dll
+Dependency assembly - System.Threading.Tasks.Extensions.dll
+Dependency assembly - System.DirectoryServices.dll
+Dependency assembly - System.Collections.Specialized.dll
+Dependency assembly - System.Text.Encoding.dll
+Dependency assembly - Mono.Messaging.RabbitMQ.dll
+Dependency assembly - System.Security.Cryptography.RSA.dll
+Dependency assembly - System.Workflow.Activities.dll
+Dependency assembly - System.Security.Cryptography.Cng.dll
+Dependency assembly - RabbitMQ.Client.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDsa.dll
+Dependency assembly - System.IO.FileSystem.AccessControl.dll
+Dependency assembly - I18N.Rare.dll
+Dependency assembly - System.Web.Abstractions.dll
+Dependency assembly - System.Security.Cryptography.Pkcs.dll
+Dependency assembly - System.Reactive.Linq.dll
+Dependency assembly - System.Diagnostics.Tracing.dll
+Dependency assembly - System.Diagnostics.Process.dll
+Dependency assembly - System.Json.Microsoft.dll
+Dependency assembly - System.IO.dll
+Dependency assembly - System.Net.NameResolution.dll
+Dependency assembly - System.ServiceModel.Http.dll
+Dependency assembly - System.Reactive.Providers.dll
+Dependency assembly - System.EnterpriseServices.dll
+Dependency assembly - System.Web.RegularExpressions.dll
+Dependency assembly - System.Xml.XPath.XmlDocument.dll
+Dependency assembly - System.IO.FileSystem.DriveInfo.dll
+Dependency assembly - System.Diagnostics.StackTrace.dll
+Dependency assembly - System.Runtime.InteropServices.dll
+Dependency assembly - System.Security.Cryptography.Csp.dll
+Dependency assembly - System.Globalization.dll
+Dependency assembly - System.Security.AccessControl.dll
+Dependency assembly - System.Linq.dll
+Dependency assembly - System.Reactive.Interfaces.dll
+Dependency assembly - System.Drawing.Primitives.dll
+Dependency assembly - Microsoft.CSharp.dll
+Dependency assembly - System.Web.WebPages.dll
+Dependency assembly - Microsoft.Build.Engine.dll
+Dependency assembly - System.Net.NetworkInformation.dll
+Dependency assembly - System.Data.dll
+Dependency assembly - System.Reflection.Emit.ILGeneration.dll
+Dependency assembly - System.Globalization.Calendars.dll
+Dependency assembly - System.Diagnostics.TraceEvent.dll
+Dependency assembly - System.Security.Cryptography.X509Certificates.dll
+Dependency assembly - System.Net.Http.WebRequest.dll
+Dependency assembly - System.Collections.NonGeneric.dll
+Dependency assembly - System.Net.WebSockets.dll
+Dependency assembly - System.Drawing.Design.dll
+Dependency assembly - System.Xml.dll
+Dependency assembly - Mono.Profiler.Log.dll
+Dependency assembly - System.Text.RegularExpressions.dll
+Dependency assembly - System.Xml.Xsl.Primitives.dll
+Dependency assembly - System.Net.HttpListener.dll
+Dependency assembly - System.Net.Ping.dll
+Dependency assembly - System.Reflection.DispatchProxy.dll
+Dependency assembly - System.Reactive.Experimental.dll
+Dependency assembly - System.Net.ServicePoint.dll
+Dependency assembly - System.Runtime.InteropServices.WindowsRuntime.dll
+Dependency assembly - System.Xml.XPath.XDocument.dll
+Dependency assembly - System.Text.Encodings.Web.dll
+Dependency assembly - System.Reflection.Metadata.dll
+Dependency assembly - System.Reactive.Debugger.dll
+Dependency assembly - System.Reflection.Context.dll
+Dependency assembly - System.Web.Mobile.dll
+Dependency assembly - Mono.CSharp.dll
+Dependency assembly - System.Diagnostics.Tools.dll
+Dependency assembly - System.IO.IsolatedStorage.dll
+Dependency assembly - System.ServiceModel.Routing.dll
+Dependency assembly - System.Xml.XmlDocument.dll
+Dependency assembly - System.Linq.Queryable.dll
+Dependency assembly - System.ServiceModel.Primitives.dll
+Dependency assembly - System.Diagnostics.Contracts.dll
+Dependency assembly - System.ServiceModel.Web.dll
+Dependency assembly - System.Runtime.InteropServices.RuntimeInformation.dll
+Dependency assembly - System.IO.Compression.ZipFile.dll
+Dependency assembly - System.Text.Encoding.Extensions.dll
+Dependency assembly - System.Xml.Linq.dll
+Dependency assembly - System.Net.Mail.dll
+Dependency assembly - System.Threading.Tasks.Dataflow.dll
+Dependency assembly - System.Linq.Parallel.dll
+Dependency assembly - System.Reactive.Windows.Threading.dll
+Dependency assembly - System.Reflection.Extensions.dll
+Dependency assembly - System.Data.Common.dll
+Dependency assembly - Mono.Btls.Interface.dll
+Dependency assembly - System.DirectoryServices.Protocols.dll
+Dependency assembly - System.Net.Http.dll
+Dependency assembly - System.Net.dll
+Dependency assembly - System.Web.Extensions.dll
+Dependency assembly - Mono.C5.dll
+Dependency assembly - mscorlib.dll
+Dependency assembly - System.Reflection.TypeExtensions.dll
+Dependency assembly - System.Diagnostics.TraceSource.dll
+Dependency assembly - System.Net.Security.dll
+Dependency assembly - System.Resources.Reader.dll
+Dependency assembly - System.IO.FileSystem.Watcher.dll
+Dependency assembly - System.Net.AuthenticationManager.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.Soap.dll
+Dependency assembly - Mono.Data.Tds.dll
+Dependency assembly - System.Windows.Forms.DataVisualization.dll
+Dependency assembly - System.Resources.Writer.dll
+Dependency assembly - System.Security.SecureString.dll
+Dependency assembly - System.Reflection.dll
+Dependency assembly - Mono.Parallel.dll
+Dependency assembly - System.Web.WebPages.Deployment.dll
+Dependency assembly - System.Web.Routing.dll
+Dependency assembly - Microsoft.Win32.Registry.dll
+Dependency assembly - System.Messaging.dll
+Dependency assembly - System.IO.Pipes.dll
+Dependency assembly - System.Design.dll
+Dependency assembly - System.Security.Claims.dll
+Dependency assembly - System.Diagnostics.DiagnosticSource.dll
+Dependency assembly - Microsoft.Win32.Registry.AccessControl.dll
+Dependency assembly - System.Configuration.dll
+Dependency assembly - Mono.Tasklets.dll
+Dependency assembly - System.Numerics.Vectors.dll
+Dependency assembly - System.Collections.dll
+Dependency assembly - CustomMarshalers.dll
+Dependency assembly - System.Xml.XmlSerializer.dll
+Dependency assembly - Microsoft.Bcl.AsyncInterfaces.dll
+Dependency assembly - Commons.Xml.Relaxng.dll
+Dependency assembly - System.Runtime.Serialization.Primitives.dll
+Dependency assembly - ICSharpCode.SharpZipLib.dll
+Dependency assembly - System.Security.Principal.Windows.dll
+Dependency assembly - System.Web.Http.SelfHost.dll
+Dependency assembly - System.Web.WebPages.Razor.dll
+Dependency assembly - Mono.Management.dll
+Dependency assembly - System.Security.Cryptography.Encoding.dll
+Dependency assembly - System.ValueTuple.dll
+Dependency assembly - System.Threading.dll
+Dependency assembly - System.IO.FileSystem.Primitives.dll
+Dependency assembly - System.Security.Cryptography.Encryption.Aes.dll
+Dependency assembly - System.Threading.AccessControl.dll
+Dependency assembly - Microsoft.Build.Tasks.v4.0.dll
+Dependency assembly - System.Web.Extensions.Design.dll
+Dependency assembly - System.Runtime.CompilerServices.Unsafe.dll
+Dependency assembly - IBM.Data.DB2.dll
+Dependency assembly - System.Json.dll
+Dependency assembly - System.Data.SqlClient.dll
+Dependency assembly - System.Xml.XPath.dll
+Dependency assembly - System.Data.Services.dll
+Dependency assembly - System.Net.Requests.dll
+Dependency assembly - System.Reactive.Observable.Aliases.dll
+Dependency assembly - System.Net.Primitives.dll
+Dependency assembly - System.Security.Cryptography.Hashing.dll
+Dependency assembly - System.Security.Principal.dll
+Dependency assembly - System.Runtime.Serialization.Formatters.dll
+Dependency assembly - System.Text.Json.dll
+Dependency assembly - System.Xml.XDocument.dll
+Dependency assembly - System.Runtime.Numerics.dll
+Dependency assembly - System.ServiceProcess.ServiceController.dll
+Dependency assembly - System.ServiceModel.Duplex.dll
+Dependency assembly - PEAPI.dll
+Dependency assembly - System.Security.Cryptography.Primitives.dll
+Dependency assembly - System.IO.Compression.dll
+Dependency assembly - System.Runtime.Remoting.dll
+Dependency assembly - System.Resources.ResourceManager.dll
+Dependency assembly - System.Runtime.Extensions.dll
+Dependency assembly - System.ComponentModel.Primitives.dll
+Dependency assembly - System.Data.Entity.dll
+Dependency assembly - System.AppContext.dll
+Dependency assembly - System.Security.Cryptography.RandomNumberGenerator.dll
+Dependency assembly - System.Threading.Timer.dll
+Dependency assembly - Microsoft.Build.Framework.dll
+Dependency assembly - System.Web.DynamicData.dll
+Dependency assembly - Mono.WebBrowser.dll
+Dependency assembly - System.Text.Encoding.CodePages.dll
+Dependency assembly - System.Security.Cryptography.ProtectedData.dll
+Dependency assembly - System.ServiceProcess.dll
+Dependency assembly - System.Reactive.Runtime.Remoting.dll
+Dependency assembly - System.Core.dll
+Dependency assembly - System.Linq.Expressions.dll
+Dependency assembly - System.Web.Mvc.dll
+Dependency assembly - System.IO.FileSystem.dll
+Dependency assembly - System.Web.Http.dll
+Dependency assembly - System.ServiceModel.Internals.dll
+Dependency assembly - Mono.XBuild.Tasks.dll
+Dependency assembly - System.dll
+Dependency assembly - System.Net.Cache.dll
+Dependency assembly - System.Runtime.dll
+Dependency assembly - System.Web.Services.dll
+Dependency assembly - System.Workflow.ComponentModel.dll
+Dependency assembly - Accessibility.dll
+Dependency assembly - System.Transactions.dll
+Dependency assembly - Microsoft.Build.dll
+Dependency assembly - WindowsBase.dll
+Dependency assembly - Mono.Posix.dll
+Dependency assembly - cscompmgd.dll
+Dependency assembly - System.IO.Compression.FileSystem.dll
+Dependency assembly - System.Net.WebHeaderCollection.dll
+Dependency assembly - System.Security.Cryptography.Encryption.ECDiffieHellman.dll
+Dependency assembly - System.Resources.ReaderWriter.dll
+Dependency assembly - System.Workflow.Runtime.dll
+Dependency assembly - System.Runtime.CompilerServices.VisualC.dll
+Dependency assembly - System.Runtime.Serialization.Xml.dll
+Dependency assembly - System.ComponentModel.Composition.dll
+Dependency assembly - System.ServiceModel.Discovery.dll
+Dependency assembly - Microsoft.Web.Infrastructure.dll
+Dependency assembly - I18N.West.dll
+Dependency assembly - System.Reactive.PlatformServices.dll
+Dependency assembly - System.Security.Cryptography.Encryption.dll
+Dependency assembly - System.ServiceModel.dll
+Dependency assembly - System.ServiceModel.NetTcp.dll
+Dependency assembly - Microsoft.Extensions.Logging.Abstractions.dll
+Dependency assembly - Microsoft.Extensions.DependencyInjection.Abstractions.dll
+Dependency assembly - System.Xaml.dll
+Dependency assembly - Mono.Http.dll
+Dependency assembly - System.Security.Cryptography.Hashing.Algorithms.dll
+Dependency assembly - System.ComponentModel.DataAnnotations.dll
+Dependency assembly - System.Threading.Tasks.Parallel.dll
+Dependency assembly - System.Drawing.dll
+Dependency assembly - System.ServiceModel.Activation.dll
+Dependency assembly - Mono.Data.Sqlite.dll
+Dependency assembly - System.Dynamic.Runtime.dll
+Dependency assembly - System.IdentityModel.dll
+Dependency assembly - System.Globalization.Extensions.dll
+Dependency assembly - System.Net.Utilities.dll
+Dependency assembly - System.Runtime.Loader.dll
+Dependency assembly - System.Threading.Thread.dll
+Dependency assembly - System.Security.Cryptography.OpenSsl.dll
+Dependency assembly - Microsoft.Build.Utilities.v4.0.dll
+
+Opening scene 'Assets/Scenes/Comparison.unity'
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/Comparison.unity'
+	Deserialize:            3.628 ms
+	Integration:            5.778 ms
+	Integration of assets:  0.004 ms
+	Thread Wait Time:       18.672 ms
+	Total Operation Time:   28.082 ms
+Unloading 25 unused Assets / (0.8 MB). Loaded Objects now: 793.
+Memory consumption went from 231.7 MB to 230.8 MB.
+Total: 4.716900 ms (FindLiveObjects: 0.116900 ms CreateObjectMapping: 0.006900 ms MarkObjects: 4.110600 ms  DeleteObjects: 0.407700 ms)
+
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 60 unused Assets / (2.9 MB). Loaded Objects now: 794.
+Memory consumption went from 277.4 MB to 274.5 MB.
+Total: 5.222900 ms (FindLiveObjects: 0.085900 ms CreateObjectMapping: 0.004000 ms MarkObjects: 4.640700 ms  DeleteObjects: 0.418200 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Worker ready: AssetImportWorkerHW0 0
+Unloading 0 unused Assets / (Unknown). Loaded Objects now: 794.
+Memory consumption went from 228.4 MB to 228.4 MB.
+Total: 3.238100 ms (FindLiveObjects: 0.096800 ms CreateObjectMapping: 0.004400 ms MarkObjects: 3.066700 ms  DeleteObjects: 0.002300 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 185 unused Assets / (150.2 MB). Loaded Objects now: 794.
+Memory consumption went from 379.7 MB to 229.5 MB.
+Total: 20.162900 ms (FindLiveObjects: 0.106200 ms CreateObjectMapping: 0.006800 ms MarkObjects: 7.023600 ms  DeleteObjects: 12.946700 ms)
+
+Compiling shader "Sprites/Default"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         8
+    After settings filtering:   8
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.01 seconds
+    Target graphics API: dx12
+    Full variant space:         8
+    After settings filtering:   8
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         8
+    After settings filtering:   8
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         8
+    After settings filtering:   8
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Sprites/Default in 0.00s
+    dx11 (total internal programs: 8, unique: 8)
+    dx12 (total internal programs: 8, unique: 8)
+Compiling shader "Skybox/Procedural"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         3
+    After settings filtering:   3
+    After built-in stripping:   3
+    After scriptable stripping: 3
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         3
+    After settings filtering:   3
+    After built-in stripping:   3
+    After scriptable stripping: 3
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         3
+    After settings filtering:   3
+    After built-in stripping:   3
+    After scriptable stripping: 3
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         3
+    After settings filtering:   3
+    After built-in stripping:   3
+    After scriptable stripping: 3
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 3 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Skybox/Procedural in 0.00s
+    dx11 (total internal programs: 6, unique: 6)
+    dx12 (total internal programs: 6, unique: 6)
+Compiling shader "Hidden/Internal-StencilWrite"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-StencilWrite in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Internal-DepthNormalsTexture"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-DepthNormalsTexture in 0.00s
+    dx11 (total internal programs: 20, unique: 17)
+    dx12 (total internal programs: 20, unique: 17)
+Compiling shader "Hidden/Internal-ScreenSpaceShadows"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-ScreenSpaceShadows in 0.00s
+    dx11 (total internal programs: 32, unique: 20)
+    dx12 (total internal programs: 32, unique: 20)
+Compiling shader "Hidden/Internal-CombineDepthNormals"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-CombineDepthNormals in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitCopy"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitCopy in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitCopyDepth"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitCopyDepth in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/ConvertTexture"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/ConvertTexture in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Internal-DeferredShading"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         94
+    After settings filtering:   94
+    After built-in stripping:   26
+    After scriptable stripping: 26
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         94
+    After settings filtering:   94
+    After built-in stripping:   26
+    After scriptable stripping: 26
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         94
+    After settings filtering:   94
+    After built-in stripping:   26
+    After scriptable stripping: 26
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         94
+    After settings filtering:   94
+    After built-in stripping:   26
+    After scriptable stripping: 26
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 26 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 26 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 26 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 26 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-DeferredShading in 0.00s
+    dx11 (total internal programs: 54, unique: 54)
+    dx12 (total internal programs: 54, unique: 54)
+Compiling shader "Hidden/Internal-DeferredReflections"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-DeferredReflections in 0.00s
+    dx11 (total internal programs: 6, unique: 6)
+    dx12 (total internal programs: 6, unique: 6)
+Compiling shader "Hidden/Internal-MotionVectors"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-MotionVectors in 0.00s
+    dx11 (total internal programs: 6, unique: 5)
+    dx12 (total internal programs: 6, unique: 5)
+Compiling shader "Hidden/Internal-Flare"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-Flare in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Internal-Halo"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-Halo in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitCopyWithDepth"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitCopyWithDepth in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitToDepth"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitToDepth in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitToDepth_MSAA"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitToDepth_MSAA in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/BlitCopyHDRTonemap"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/BlitCopyHDRTonemap in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Internal-DebugPattern"
+  Pass "Target Color and DepthStencil" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Target Color and DepthStencil" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Target only Color" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Target only Color" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Target only DepthStencil" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Target only DepthStencil" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass Target Color and DepthStencil (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target Color and DepthStencil (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Target Color and DepthStencil (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target Color and DepthStencil (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Target only Color (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target only Color (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Target only Color (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target only Color (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Target only DepthStencil (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target only DepthStencil (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Target only DepthStencil (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Target only DepthStencil (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-DebugPattern in 0.00s
+    dx11 (total internal programs: 6, unique: 4)
+    dx12 (total internal programs: 6, unique: 4)
+Compiling shader "Hidden/Internal-GUITextureClip"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUITextureClip in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-GUITextureClipText"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUITextureClipText in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-GUITexture"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUITexture in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-GUITextureBlit"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUITextureBlit in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-GUIRoundedRect"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUIRoundedRect in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-GUIRoundedRectWithColorPerBorder"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-GUIRoundedRectWithColorPerBorder in 0.00s
+    dx11 (total internal programs: 4, unique: 2)
+    dx12 (total internal programs: 4, unique: 2)
+Compiling shader "Hidden/Internal-UIRDefault"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         40
+    After settings filtering:   40
+    After built-in stripping:   40
+    After scriptable stripping: 40
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         40
+    After settings filtering:   40
+    After built-in stripping:   40
+    After scriptable stripping: 40
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         40
+    After settings filtering:   40
+    After built-in stripping:   40
+    After scriptable stripping: 40
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         40
+    After settings filtering:   40
+    After built-in stripping:   40
+    After scriptable stripping: 40
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 40 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 40 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 40 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 40 (0.01s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-UIRDefault in 0.00s
+    dx11 (total internal programs: 80, unique: 80)
+    dx12 (total internal programs: 80, unique: 80)
+Compiling shader "Hidden/Internal-UIRAtlasBlitCopy"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-UIRAtlasBlitCopy in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Sprites/Mask"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         4
+    After settings filtering:   4
+    After built-in stripping:   4
+    After scriptable stripping: 4
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 4 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Sprites/Mask in 0.00s
+    dx11 (total internal programs: 8, unique: 8)
+    dx12 (total internal programs: 8, unique: 8)
+Compiling shader "Hidden/VR/BlitTexArraySlice"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/VR/BlitTexArraySlice in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Internal-ODSWorldTexture"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.03 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.02 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-ODSWorldTexture in 0.00s
+    dx11 (total internal programs: 20, unique: 15)
+    dx12 (total internal programs: 20, unique: 15)
+Compiling shader "Hidden/Internal-CubemapToEquirect"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Internal-CubemapToEquirect in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/VR/BlitFromTex2DToTexArraySlice"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (gp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (vp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.01 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (gp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (gp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/VR/BlitFromTex2DToTexArraySlice in 0.00s
+    dx11 (total internal programs: 5, unique: 5)
+    dx12 (total internal programs: 5, unique: 5)
+Compiling shader "Hidden/VideoComposite"
+  Pass "Default" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Default" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass Default (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Default (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Default (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Default (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/VideoComposite in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/VideoDecode"
+  Pass "YCbCr_To_RGB1" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "YCbCr_To_RGB1" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "YCbCrA_To_RGBAFull" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "YCbCrA_To_RGBAFull" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "YCbCrA_To_RGBA" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "YCbCrA_To_RGBA" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_RGBA_To_RGBA" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_RGBA_To_RGBA" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_RGBASplit_To_RGBA" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_RGBASplit_To_RGBA" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_NV12_To_RGB1" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_NV12_To_RGB1" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_NV12_To_RGBA" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_NV12_To_RGBA" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   2
+    After scriptable stripping: 2
+    Processed in 0.00 seconds
+  Pass "Flip_P010_To_RGB1" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "Flip_P010_To_RGB1" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass YCbCr_To_RGB1 (vp, dx11) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCr_To_RGB1 (vp, dx12) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass YCbCr_To_RGB1 (fp, dx11) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCr_To_RGB1 (fp, dx12) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass YCbCrA_To_RGBAFull (vp, dx11) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCrA_To_RGBAFull (vp, dx12) finished in 0.02 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass YCbCrA_To_RGBAFull (fp, dx11) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCrA_To_RGBAFull (fp, dx12) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass YCbCrA_To_RGBA (vp, dx11) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCrA_To_RGBA (vp, dx12) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass YCbCrA_To_RGBA (fp, dx11) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass YCbCrA_To_RGBA (fp, dx12) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_RGBA_To_RGBA (vp, dx11) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_RGBA_To_RGBA (vp, dx12) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_RGBA_To_RGBA (fp, dx11) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_RGBA_To_RGBA (fp, dx12) finished in 0.01 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_RGBASplit_To_RGBA (vp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_RGBASplit_To_RGBA (vp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_RGBASplit_To_RGBA (fp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_RGBASplit_To_RGBA (fp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_NV12_To_RGB1 (vp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_NV12_To_RGB1 (vp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_NV12_To_RGB1 (fp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_NV12_To_RGB1 (fp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_NV12_To_RGBA (vp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_NV12_To_RGBA (vp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_NV12_To_RGBA (fp, dx11) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_NV12_To_RGBA (fp, dx12) finished in 0.00 seconds. Local cache hits 2 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_P010_To_RGB1 (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_P010_To_RGB1 (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass Flip_P010_To_RGB1 (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass Flip_P010_To_RGB1 (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/VideoDecode in 0.00s
+    dx11 (total internal programs: 30, unique: 19)
+    dx12 (total internal programs: 30, unique: 19)
+Compiling shader "Hidden/TextCore/Distance Field SSD"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         1
+    After settings filtering:   1
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/TextCore/Distance Field SSD in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Physics2D/SDF_CircleGeometry"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Physics2D/SDF_CircleGeometry in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Physics2D/SDF_CapsuleGeometry"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Physics2D/SDF_CapsuleGeometry in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Physics2D/SDF_PolygonGeometry"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Physics2D/SDF_PolygonGeometry in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Physics2D/SDF_Line"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Physics2D/SDF_Line in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+Compiling shader "Hidden/Physics2D/SDF_Point"
+  Pass "" (vp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass "" (fp)
+    Target graphics API: dx11
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+    Target graphics API: dx12
+    Full variant space:         2
+    After settings filtering:   2
+    After built-in stripping:   1
+    After scriptable stripping: 1
+    Processed in 0.00 seconds
+  Pass  (vp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (vp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+  Pass  (fp, dx11) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+  Pass  (fp, dx12) finished in 0.00 seconds. Local cache hits 1 (0.00s CPU time), remote cache hits 0 (0.00s CPU time), compiled 0 variants (0.00s CPU time), skipped 0 variants.
+    Prepared data for serialisation in 0.00s
+Serialized binary data for shader Hidden/Physics2D/SDF_Point in 0.00s
+    dx11 (total internal programs: 2, unique: 2)
+    dx12 (total internal programs: 2, unique: 2)
+SpriteAtlasDatabase::Cleanup
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3742eacd.dag" --profile="Library/Bee/backend1.traceevents" Player
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+DisplayProgressbar: Incremental Player Build
+ExitCode: 4 Duration: 1s219ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\DotNetSdk\dotnet.exe "C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\WinPlayerBuildProgram.exe" "C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Bee;C:/Program Files/Unity/Hub/Editor/6000.6.7f1/Editor/Data/Tools/BuildPipeline" "Library/Bee/Player3742eacd.dag.json" "Library/Bee/Player3742eacd-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+ExitCode: 0 Duration: 0s273ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.6.7f1\Editor\Data\Tools\BuildPipeline\bee_backend.exe --ipc --dagfile="Library/Bee/Player3742eacd.dag" --dagfilejson="Library\Bee\Player3742eacd.dag.json" --profile="Library/Bee/backend2.traceevents" Player
+WorkingDir: C:/Users/snome/Downloads/EmberBastion-Unity-20261027
+ExitCode: 0 Duration: 0s127ms
+Total cache size 4691475
+Total cache size after purge 4691475, took 00:00:00.0025539
+
+-------------------------------------------------------------------------------
+Build Report
+Uncompressed usage by category (Percentages based on user generated assets only):
+Textures               49.2 mb	 96.1% 
+Meshes                 0.0 kb	 0.0% 
+Animations             0.0 kb	 0.0% 
+Sounds                 0.0 kb	 0.0% 
+Shaders                16.9 kb	 0.0% 
+Other Assets           2.0 mb	 3.8% 
+Levels                 1.5 kb	 0.0% 
+File headers           3.2 kb	 0.0% 
+Total User Assets      51.2 mb	 100.0% 
+Complete build size    198.4 mb
+Used Assets and files from the Resources folder, sorted by uncompressed size:
+ 7.9 mb	 4.0% Assets/Resources/Archer_Blue.png
+ 6.8 mb	 3.4% Assets/Resources/Warrior_Blue.png
+ 5.1 mb	 2.6% Assets/Resources/Pawn_Blue.png
+ 4.9 mb	 2.5% Assets/Resources/Torch_Red.png
+ 3.0 mb	 1.5% Assets/Resources/TNT_Red.png
+ 2.7 mb	 1.3% Built-in Texture2D: Splash Screen Unity Logo
+ 2.0 mb	 1.0% Assets/Resources/Fonts/NanumGothic-Regular.ttf
+ 1.7 mb	 0.9% Assets/Resources/Tree.png
+ 1.5 mb	 0.7% Assets/Resources/FrostCast.png
+ 1.3 mb	 0.6% Assets/Resources/Explosions.png
+ 1.1 mb	 0.6% Assets/Resources/WarriorIdle.png
+ 1.1 mb	 0.6% Assets/Resources/FxExplosion.png
+ 1.1 mb	 0.6% Assets/Resources/ForestTree.png
+ 1.1 mb	 0.6% Assets/Resources/ArcherShoot.png
+ 1.1 mb	 0.6% Assets/Resources/Foam.png
+ 864.1 kb	 0.4% Assets/Resources/PassGround.png
+ 864.1 kb	 0.4% Assets/Resources/FrostIdle.png
+ 864.1 kb	 0.4% Assets/Resources/ForestGround.png
+ 864.1 kb	 0.4% Assets/Resources/ArcherIdle.png
+ 800.1 kb	 0.4% Assets/Resources/UIRibbons.png
+ 784.1 kb	 0.4% Assets/Resources/WoodTable.png
+ 640.1 kb	 0.3% Assets/Resources/Tilemap_Flat.png
+ 576.1 kb	 0.3% Assets/Resources/WarriorAttack.png
+ 531.8 kb	 0.3% Resources/unity_builtin_extra
+ 512.2 kb	 0.3% Assets/Resources/Tilemap_Elevation.png
+ 384.1 kb	 0.2% Assets/Resources/SheepIdle.png
+ 368.2 kb	 0.2% Assets/Resources/map-decor-runtime.png
+ 320.1 kb	 0.2% Assets/Resources/Castle_Blue.png
+ 144.1 kb	 0.1% Assets/Resources/Shadows.png
+ 128.1 kb	 0.1% Assets/Resources/FxFire.png
+ 96.1 kb	 0.0% Assets/Resources/BlueHouse.png
+ 96.1 kb	 0.0% Assets/Resources/Dynamite.png
+ 80.1 kb	 0.0% Assets/Resources/UIBarBase.png
+ 48.1 kb	 0.0% Assets/Resources/Button_Pressed.png
+ 48.1 kb	 0.0% Assets/Resources/Button_Disable.png
+ 48.1 kb	 0.0% Assets/Resources/Button_Blue.png
+ 32.1 kb	 0.0% Assets/Resources/Arrow.png
+ 16.1 kb	 0.0% Assets/Resources/UIBarFill.png
+ 16.1 kb	 0.0% Assets/Resources/IconSword.png
+ 12.1 kb	 0.0% Assets/Resources/Water.png
+ 0.9 kb	 0.0% Assets/Scenes/Comparison.unity
+ 0.4 kb	 0.0% Built-in Sprite: 
+ 0.1 kb	 0.0% Assets/Scripts/Presentation/PreparationStore.cs
+ 0.1 kb	 0.0% Assets/Scripts/Presentation/DevelopmentSmoke.cs
+ 0.1 kb	 0.0% Assets/Scripts/Presentation/TerrainView.cs
+ 0.1 kb	 0.0% Assets/Scripts/Presentation/PathFacing.cs
+ 0.1 kb	 0.0% Assets/Scripts/Presentation/BattleView.cs
+ 0.1 kb	 0.0% Assets/Scripts/Core/Battle.cs
+ 0.1 kb	 0.0% Assets/Scripts/Core/Balance.cs
+-------------------------------------------------------------------------------
+Unloading 40 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6 unused Assets / (4.7 MB). Loaded Objects now: 825.
+Memory consumption went from 237.0 MB to 232.3 MB.
+Total: 4.778900 ms (FindLiveObjects: 0.122300 ms CreateObjectMapping: 0.016600 ms MarkObjects: 4.524700 ms  DeleteObjects: 0.050600 ms)
+
+DisplayProgressNotification: Build Successful
+Build Finished, Result: Success.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.441 ms
+	Integration:            3.991 ms
+	Integration of assets:  0.001 ms
+	Thread Wait Time:       0.007 ms
+	Total Operation Time:   4.441 ms
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 817.
+Memory consumption went from 232.3 MB to 232.3 MB.
+Total: 3.181000 ms (FindLiveObjects: 0.074400 ms CreateObjectMapping: 0.003000 ms MarkObjects: 3.038100 ms  DeleteObjects: 0.002300 ms)
+
+##utp:{"success":true,"type":"PlayerBuildInfo","version":2,"phase":"Immediate","time":1793185092230,"processId":63012,"steps":[{"description":"Call PrepareForBuild callbacks","duration":0},{"description":"Call internal build started callbacks","duration":0},{"description":"Preprocess Player","duration":9},{"description":"Save scenes before build","duration":0},{"description":"Prepare For Build","duration":8},{"description":"ProducePlayerScriptAssemblies","duration":1224},{"description":"Verify Build setup","duration":26},{"description":"Prepare assets for target platform","duration":89},{"description":"Prepare splash screen","duration":0},{"description":"Build scripts DLLs","duration":54},{"description":"Building scenes","duration":118},{"description":"Build GlobalGameManagers file","duration":120},{"description":"Writing asset files","duration":72},{"description":"Building Resources/unity_builtin_extra","duration":240},{"description":"Write data build dirty tracking information","duration":10},{"description":"Postprocess built player","duration":1838},{"description":"Call Post-Process callbacks","duration":16}],"duration":3824}
+Batchmode quit successfully invoked - shutting down!
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-snome-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-snome channel disconnected successfully.
+Lingering sessions upon destruction of worker manager
+Unity Data Store service was successfully shut down
+UDS shutting down local client system
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+CodeReloadManager destroyed
+Exiting batchmode successfully now!
+[ExitDontLaunchBugReporter] Exiting without the bug reporter. Application will exit with return code 0

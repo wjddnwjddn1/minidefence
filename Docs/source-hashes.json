@@ -1,0 +1,32 @@
+[
+  {
+    "path": "C:\\퍼블리싱\\htdocs\\static\\ai\\ember-bastion\\v2-campaign\\rules\\base-data.mjs",
+    "bytes": 4279,
+    "sha256": "50A44B057F8FAB297163AA9338F79ACF7AF9B22CB5994A7D928712D642411405"
+  },
+  {
+    "path": "C:\\퍼블리싱\\htdocs\\static\\ai\\ember-bastion\\v2-campaign\\rules\\path.mjs",
+    "bytes": 1715,
+    "sha256": "CD37C14B5FC4B0AFA0DFA81041B53832911164C89D8608426744AA1F4D93845E"
+  },
+  {
+    "path": "C:\\퍼블리싱\\htdocs\\static\\ai\\ember-bastion\\v2-campaign\\rules\\sim.mjs",
+    "bytes": 20689,
+    "sha256": "A05BD58EA203CFE8EEFD80E768E78AE59FC5499B73ABF993C9D894CFEE716C08"
+  },
+  {
+    "path": "C:\\퍼블리싱\\htdocs\\static\\ai\\ember-bastion\\play\\ASSET-CREDITS.md",
+    "bytes": 12173,
+    "sha256": "CDAC377319F40564E59FA2BFBAE179D61B534435326ACDBD0356963BDD8B6584"
+  },
+  {
+    "path": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Warrior_Blue.png",
+    "bytes": 84367,
+    "sha256": "593A40DA14B136374D55044FD3BA3AC11E621D645BE9C75A2A6032741AB24C80"
+  },
+  {
+    "path": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Archer_Blue.png",
+    "bytes": 64044,
+    "sha256": "0A2E1EFFF6D653D32777B99CA01F9018FBF27080F2AFF645F0FAFDE175E8B7EC"
+  }
+]

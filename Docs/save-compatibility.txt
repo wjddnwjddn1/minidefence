@@ -1,0 +1,2 @@
+PASS legacy version-1 JSON without hitCount restores an archer and 115G
+PASS frost hit count and target priority round trip; no PlayerPrefs used

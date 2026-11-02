@@ -1,0 +1,37 @@
+using UnityEngine;
+using System.Collections.Generic;
+namespace EmberBastion {
+ // Renders the first battlefield from the selected Pixel Frog runtime atlases.
+ // Coordinates are the same fixed world coordinates as Balance.Path and Slots.
+ public sealed class TerrainView {
+  readonly Texture2D water=Resources.Load<Texture2D>("Water"),foam=Resources.Load<Texture2D>("Foam"),flat=Resources.Load<Texture2D>("Tilemap_Flat"),elevation=Resources.Load<Texture2D>("Tilemap_Elevation"),shadows=Resources.Load<Texture2D>("Shadows"),tree=Resources.Load<Texture2D>("Tree"),castle=Resources.Load<Texture2D>("Castle_Blue"),decor=Resources.Load<Texture2D>("map-decor-runtime"),forestGround=Resources.Load<Texture2D>("ForestGround"),passGround=Resources.Load<Texture2D>("PassGround"),sheep=Resources.Load<Texture2D>("SheepIdle"),forestTree=Resources.Load<Texture2D>("ForestTree"),house=Resources.Load<Texture2D>("BlueHouse"),tower=Resources.Load<Texture2D>("BlueTower");
+  public static void Image(Texture2D image,Rect destination,int sx,int sy,int sw,int sh,bool flip=false){if(image==null)return;float x=(float)sx/image.width,w=(float)sw/image.width;if(flip){x+=w;w=-w;}GUI.DrawTextureWithTexCoords(destination,image,new Rect(x,1f-(float)(sy+sh)/image.height,w,(float)sh/image.height),true);}
+  // Extend adjacent tiles by at least one screen pixel at fractional scales.
+  float tileOverlap=1;
+  void Tile(Texture2D image,int sx,int sy,float x,float y){Image(image,new Rect(x,y,64+tileOverlap,64+tileOverlap),sx*64,sy*64,64,64);}
+  struct RoadCell {public int X,Y,SX,SY;}
+  void DrawWaterAccents(float t){if(decor==null)return;float[,] stones={{18,230},{1230,385},{20,575},{1218,690}};for(int i=0;i<stones.GetLength(0);i++){bool large=i%2==1;Image(decor,new Rect(stones[i,0],stones[i,1],large?48:38,large?36:31),large?786:752,2,large?39:32,large?29:26);}int frame=(int)(t/.22f)%3;for(int i=0;i<2;i++){float x=(i==0?315:890)+Mathf.Sin(t*.45f+i*2)*18;Image(decor,new Rect(x-24,716,48,35),827+34*frame,2,32,23,i==1);}}
+  void DrawTower(float x,float y){if(tower!=null)GUI.DrawTexture(new Rect(x,y,112,224),tower,ScaleMode.StretchToFill,true);}
+  void DrawSheep(float t){for(int i=0;i<2;i++){int frame=((int)(t/.22f)+i*3)%6;float x=i==0?390:880;Image(sheep,new Rect(x-48,282,96,96),frame*128,0,128,128,i==1);}}
+  void DrawPassCliff(){for(int y=0;y<2;y++)for(int x=0;x<2;x++)Image(shadows,new Rect(1024+x*64-32,416+y*64+32,128,128),32,32,128,128);for(int y=0;y<2;y++)for(int x=0;x<2;x++)Tile(passGround,x==0?5:7,y==0?0:3,1024+x*64,416+y*64);for(int y=0;y<2;y++)for(int x=0;x<2;x++)Tile(passGround,x==0?5:7,4+y,1024+x*64,544+y*64);if(house!=null)GUI.DrawTexture(new Rect(1040,382,96,144),house);}
+  readonly List<RoadCell> road=new List<RoadCell>();FieldDef prepared;
+  void PrepareRoad(FieldDef field){if(prepared==field)return;prepared=field;road.Clear();var cells=new HashSet<Vector2Int>();for(int i=0;i<field.Points.Length;i++){Point a=field.Points[i],b=field.Points[(i+1)%field.Points.Length];double len=Point.Distance(a,b);for(int step=0;step<=len;step+=64)cells.Add(new Vector2Int((int)(a.X+(b.X-a.X)*step/len),(int)(a.Y+(b.Y-a.Y)*step/len)));}foreach(var c in cells){bool l=cells.Contains(c+Vector2Int.left*64),r=cells.Contains(c+Vector2Int.right*64),u=cells.Contains(c+Vector2Int.down*64),d=cells.Contains(c+Vector2Int.up*64);int sx,sy;if(l&&r){sx=6;sy=3;}else if(u&&d){sx=8;sy=1;}else if(r&&d){sx=5;sy=0;}else if(l&&d){sx=7;sy=0;}else if(r&&u){sx=5;sy=2;}else{sx=7;sy=2;}road.Add(new RoadCell{X=c.x,Y=c.y,SX=sx,SY=sy});}}
+  void DrawForest(float t,FieldDef field,int fieldIndex){PrepareRoad(field);for(int y=0;y<768;y+=64)for(int x=0;x<1280;x+=64)GUI.DrawTexture(new Rect(x,y,64+tileOverlap,64+tileOverlap),water);for(int y=1;y<=10;y++)for(int x=1;x<=18;x++)if(x==1||x==18||y==1||y==10){int frame=((int)(t*10)+x*3+y*5)%8;Image(foam,new Rect(x*64-32,y*64-32,128,128),frame*192+32,32,128,128);}DrawWaterAccents(t);Texture2D ground=fieldIndex==1?forestGround:passGround;for(int y=0;y<10;y++)for(int x=0;x<18;x++)Tile(ground,x==0?0:x==17?2:1,y==0?0:y==9?2:1,(x+1)*64,(y+1)*64);foreach(var c in road)Tile(flat,c.SX,c.SY,c.X-32,c.Y-32);if(fieldIndex==2)DrawPassCliff();if(fieldIndex==1){int f=(int)(t/.18f)%4;float[,] trees={{84,260},{84,520},{1194,260},{1194,520}};for(int i=0;i<trees.GetLength(0);i++){Texture2D variant=i%2==1&&forestTree!=null?forestTree:tree;int frame=variant==forestTree?((int)(t/.18f)+i*2)%8:f;Image(variant,new Rect(trees[i,0]-55,trees[i,1]-55,110,110),frame*192,0,192,192);}float[,] bushes={{400,400},{400,470},{880,400},{880,470}};for(int i=0;i<bushes.GetLength(0);i++){int frame=((int)(t*10)+i*2)%8;Image(decor,new Rect(bushes[i,0]-27,bushes[i,1]-37,54,37),200+69*frame,2,67,46);}}else{float[,] rocks={{88,190,1.8f,0},{88,370,1.8f,1},{88,600,1.8f,0},{1184,240,1.8f,1},{1184,480,1.8f,0},{1184,650,1.8f,1},{960,576,1.4f,0}};for(int i=0;i<rocks.GetLength(0);i++){float x=rocks[i,0],y=rocks[i,1],s=rocks[i,2];bool second=rocks[i,3]>0;int w=second?39:32,h=second?29:26;Image(decor,new Rect(x-w*s/2,y-h*s,w*s,h*s),second?786:752,2,w,h);}}if(fieldIndex==1){DrawTower(38,258);DrawSheep(t);if(house!=null)GUI.DrawTexture(new Rect(1120,338,96,128),house,ScaleMode.ScaleToFit,true);}GUI.DrawTexture(new Rect((float)field.Castle.X,(float)field.Castle.Y,(float)field.CastleWidth,(float)field.CastleHeight),castle,ScaleMode.StretchToFill,true);}
+  public void Draw(float t,FieldDef field,int fieldIndex,float viewScale){
+   tileOverlap=Mathf.Max(1,1.1f/Mathf.Max(.01f,viewScale));
+   if(fieldIndex!=0){DrawForest(t,field,fieldIndex);return;}
+   for(int y=0;y<768;y+=64)for(int x=0;x<1280;x+=64)GUI.DrawTexture(new Rect(x,y,64+tileOverlap,64+tileOverlap),water);
+   for(int y=1;y<=10;y++)for(int x=1;x<=18;x++)if(x==1||x==18||y==1||y==10){int f=((int)(t*10)+x*3+y*5)%8;Image(foam,new Rect(x*64-32,y*64-32,128,128),f*192+32,32,128,128);}
+   DrawWaterAccents(t);
+   for(int y=0;y<10;y++)for(int x=0;x<18;x++)Tile(flat,x==0?0:x==17?2:1,y==0?0:y==9?2:1,(x+1)*64,(y+1)*64);
+   for(int y=0;y<9;y++)for(int x=0;x<15;x++){if(x>0&&x<14&&y>0&&y<8)continue;int sx,sy;if(y==0&&x==0){sx=5;sy=0;}else if(y==0&&x==14){sx=7;sy=0;}else if(y==8&&x==0){sx=5;sy=2;}else if(y==8&&x==14){sx=7;sy=2;}else if(y==0||y==8){sx=6;sy=3;}else{sx=8;sy=1;}Tile(flat,sx,sy,160+x*64,96+y*64);}
+   for(int y=0;y<3;y++)for(int x=0;x<6;x++)Image(shadows,new Rect((x+7)*64-32,(y+4)*64+32,128,128),32,32,128,128);
+   for(int y=0;y<3;y++)for(int x=0;x<6;x++)Tile(elevation,x==0?0:x==5?2:1,y==0?0:y==2?2:1,(x+7)*64,(y+4)*64);
+   for(int x=0;x<6;x++)Tile(elevation,x==0?0:x==5?2:1,3,(x+7)*64,7*64);
+   Tile(elevation,0,6,9*64,6*64);Tile(elevation,2,6,10*64,6*64);Tile(elevation,0,7,9*64,7*64);Tile(elevation,2,7,10*64,7*64);
+   int frame=(int)(t/0.18f)%4;float[,] positions={{92,210},{92,490},{1160,210},{1160,490},{436,334},{816,334}};for(int i=0;i<positions.GetLength(0);i++)Image(tree,new Rect(positions[i,0]-78,positions[i,1]-78,156,156),frame*192,0,192,192);
+   DrawTower(38,258);DrawTower(1130,258);
+   if(castle!=null)GUI.DrawTexture(new Rect(528,218,224,180),castle,ScaleMode.StretchToFill,true);
+  }
+ }
+}

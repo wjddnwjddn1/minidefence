@@ -1,0 +1,3 @@
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.75
+first-wave-cleared gold=277 hp=45

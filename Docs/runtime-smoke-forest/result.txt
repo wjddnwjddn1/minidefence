@@ -1,0 +1,5 @@
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.9666666666667
+first-wave-cleared gold=137 hp=20
+outcome=Lost wave=2 hp=0 gold=20 kills=20 cause=성채 체력 소진
+retry=Preparation field=1 gold=200 units=0

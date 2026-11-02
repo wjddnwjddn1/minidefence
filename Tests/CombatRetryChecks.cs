@@ -1,0 +1,19 @@
+using System;
+using EmberBastion;
+class CombatRetryChecks {
+ static int count;
+ static void Check(bool value,string message){if(!value)throw new Exception(message);count++;}
+ static void Advance(Battle b,double seconds){for(int i=0;i<(int)(seconds*60);i++)b.Step(1.0/60);}
+ static bool Near(double a,double b){return Math.Abs(a-b)<1e-8;}
+ static void Same(Battle a,Battle b){Check(a.Phase==b.Phase&&a.Wave==b.Wave&&a.Gold==b.Gold&&a.Kills==b.Kills&&a.Pending==b.Pending&&a.Enemies.Count==b.Enemies.Count&&a.Shots.Count==b.Shots.Count&&Near(a.Time,b.Time)&&Near(a.WaveTime,b.WaveTime),"combat diverged");for(int i=0;i<a.Enemies.Count;i++){var x=a.Enemies[i];var y=b.Enemies[i];Check(x.Id==y.Id&&x.Kind==y.Kind&&Near(x.HP,y.HP)&&Near(x.Travel,y.Travel)&&Near(x.Position.X,y.Position.X)&&Near(x.Position.Y,y.Position.Y)&&Near(x.SlowTime,y.SlowTime)&&Near(x.Shield,y.Shield)&&Near(x.Burn,y.Burn)&&Near(x.NextCharge,y.NextCharge),"enemy diverged");}for(int i=0;i<a.Shots.Count;i++){var x=a.Shots[i];var y=b.Shots[i];Check(x.Kind==y.Kind&&x.Target==y.Target&&Near(x.Position.X,y.Position.X)&&Near(x.Position.Y,y.Position.Y)&&Near(x.Damage,y.Damage),"projectile diverged");}}
+ static int Main(){try{
+  foreach(int field in new[]{0,1,2})foreach(bool fast in new[]{false,true}){
+   var b=new Battle(42,field);b.SetFastWaves(fast);b.Place(1,0);b.Start();Advance(b,2);Check(b.Enemies.Count>0&&b.Pending>0,"fixture has live and pending enemies");b.Ember(new Point(192,128));var saved=b.CopyCombat();Check(saved.FastWaves==fast&&saved.Wave==1&&saved.Pending==b.Pending,"wave state copied");var retry=saved.CopyCombat();double hp=saved.Enemies[0].HP;retry.Enemies[0].HP-=1;Check(Near(saved.Enemies[0].HP,hp),"enemy copy is independent");retry=saved.CopyCombat();retry.Units[0].Level=3;Check(saved.Units[0].Level==1,"unit copy is independent");retry=saved.CopyCombat();
+   for(int i=0;i<1800&&b.Phase==Phase.Fighting;i++){b.Step(1.0/60);retry.Step(1.0/60);if(i%60==0)Same(b,retry);}Same(b,retry);
+  }
+  Battle earlyStart=null;var early=new Battle();early.Place(0,0);early.WaveStarted=x=>earlyStart=x.CopyCombat();early.Start();early.Units.Clear();Advance(early,8);int before=early.Enemies.Count;Check(early.CanCallEarly()&&early.CallEarly()&&earlyStart.Wave==2&&earlyStart.Enemies.Count==before,"early call snapshots survivors at the next wave");
+  Battle waveStart=null;var boundary=new Battle(1);boundary.Place(0,0);boundary.WaveStarted=x=>waveStart=x.CopyCombat();boundary.Start();Check(waveStart!=null&&waveStart.Wave==1,"initial wave checkpoint");boundary.Units.Clear();Advance(boundary,8);boundary.Enemies.Clear();for(int i=0;i<99;i++)boundary.Enemies.Add(new Enemy{Id=1000+i,Kind=0,HP=10000,MaxHP=10000,Speed=0});boundary.WaveTime=31.99;boundary.Step(.1);Check(boundary.Phase==Phase.Lost&&boundary.Wave==2,"new wave can lose within same frame");Check(waveStart!=null&&waveStart.Wave==2&&waveStart.Phase==Phase.Fighting&&waveStart.Enemies.Count==99&&waveStart.Pending>0,"checkpoint captured before immediate loss");var restored=waveStart.CopyCombat();restored.Enemies.Clear();Check(waveStart.Enemies.Count==99,"retry cannot mutate checkpoint");
+  var rescue=new Battle();rescue.Place(0,0);rescue.Start();rescue.Units.Clear();for(int i=0;i<99;i++)rescue.Enemies.Add(new Enemy{Id=2000+i,Kind=0,HP=1,MaxHP=1,Position=new Point(192,128)});Check(rescue.Ember(new Point(192,128)),"paused skill can be queued");rescue.Step(1.0/60);Check(rescue.Phase==Phase.Fighting&&rescue.Kills==99&&rescue.Enemies.Count==1,"queued skill clears living enemies before the next spawn");
+  bool rejected=false;try{new Battle().CopyCombat();}catch(InvalidOperationException){rejected=true;}Check(rejected,"noncombat copy rejected");Console.WriteLine("PASS "+count+" retry-state checks across fields, difficulty and immediate defeat");return 0;
+ }catch(Exception e){Console.Error.WriteLine("FAIL "+e.Message);return 1;}}
+}

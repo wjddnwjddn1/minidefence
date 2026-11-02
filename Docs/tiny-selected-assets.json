@@ -1,0 +1,121 @@
+[
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Archer_Blue.png",
+    "sha256": "0A2E1EFFF6D653D32777B99CA01F9018FBF27080F2AFF645F0FAFDE175E8B7EC",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Knights\\Troops\\Archer\\Blue\\Archer_Blue.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Arrow.png",
+    "sha256": "BA35A379A56693FE997A30D7ED6A49ADD03F10876D98ABF5A89889F08BA9AF74",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Knights\\Troops\\Archer\\Arrow\\Arrow.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Button_Blue.png",
+    "sha256": "E49DAEBB8844D601850E8290E413AA150B09272435EEE20F0B98F7CD14F67268",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\UI\\Buttons\\Button_Blue_3Slides.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Button_Disable.png",
+    "sha256": "115BF5FDF0FAAFF6B2D4AAC4E943EF2727AF1EF9250897678549568333ED5809",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\UI\\Buttons\\Button_Disable_3Slides.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Button_Pressed.png",
+    "sha256": "245DD607087B9972488C466994DC5D4BEB627F713B5DEBE760C051B3F140EF53",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\UI\\Buttons\\Button_Blue_3Slides_Pressed.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Castle_Blue.png",
+    "sha256": "616CFEEC6287EDE0B368A14332AFC9AC34462DEE5BB3F5A8F7595464C8B2CA53",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Knights\\Buildings\\Castle\\Castle_Blue.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Explosions.png",
+    "sha256": "FA3BCFBF05C3C1CEF0E5F06976E2431C24C4AD05CDD71D7242E0B436F4E5EC8E",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Effects\\Explosion\\Explosions.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Foam.png",
+    "sha256": "EAEAAB4C2211CE5BABAC0DA55D3DA096EB68EAD4137A1FA060CBD93AECE995C9",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Terrain\\Water\\Foam\\Foam.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Pawn_Blue.png",
+    "sha256": "38C47FC4766FA1FAD73C188E5C6A1F2D2257AEBC9DFDD5B37F1C8DAD913E8CFE",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Knights\\Troops\\Pawn\\Blue\\Pawn_Blue.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Shadows.png",
+    "sha256": "E6B60E7445C67F3D42F50113353E3065E790168550DD07E7E0B54B9F2A4D9EB8",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Terrain\\Ground\\Shadows.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Tilemap_Elevation.png",
+    "sha256": "DAB562D922D81E4DE500DC9E2CB480E35825E6202728B2A0825714B8885DAEE1",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Terrain\\Ground\\Tilemap_Elevation.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Tilemap_Flat.png",
+    "sha256": "683B4EBC6DFF10D2BF6E2BD34C24D732DEFDC65ABCB0F5B9F509655AFF8BEC56",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Terrain\\Ground\\Tilemap_Flat.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\TNT_Red.png",
+    "sha256": "FCF80953138170E9EA3EA9B93E6007869C7F1DD05EE51034429D92C54E0B0F66",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Goblins\\Troops\\TNT\\Red\\TNT_Red.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Torch_Red.png",
+    "sha256": "0612B50E25F5B5FE97600693CECA88BE5244A54049CCE9EB5F7A8DED437F00A6",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Goblins\\Troops\\Torch\\Red\\Torch_Red.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Tree.png",
+    "sha256": "63A1AE03991621528EAB44D0840A75A923583A7BBB999311DE27799AB21B4D3E",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Resources\\Trees\\Tree.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Warrior_Blue.png",
+    "sha256": "593A40DA14B136374D55044FD3BA3AC11E621D645BE9C75A2A6032741AB24C80",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Factions\\Knights\\Troops\\Warrior\\Blue\\Warrior_Blue.png"
+    ]
+  },
+  {
+    "destination": "C:\\Users\\snome\\Downloads\\EmberBastion-Unity-20261027\\Assets\\Resources\\Water.png",
+    "sha256": "5EF30A00BBFF22590EABB5ACABB8ACA6CC415557E7AB5F60DB07714F01A4DBA1",
+    "matchingSource": [
+      "C:\\ai로 만든 프로그램\\tiny assets\\Tiny Swords\\Tiny Swords (Update 010)\\Terrain\\Water\\Water.png"
+    ]
+  }
+]

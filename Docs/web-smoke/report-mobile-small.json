@@ -1,0 +1,27 @@
+[
+  {
+    "name": "mobile-small",
+    "loadedMs": 729,
+    "canvas": {
+      "width": 320,
+      "height": 568
+    },
+    "input": {
+      "world": [
+        320,
+        218
+      ],
+      "local": [
+        91,
+        138.5
+      ],
+      "kind": "synthetic tap"
+    },
+    "rotated": {
+      "width": 844,
+      "height": 390
+    },
+    "errors": [],
+    "consoleErrors": []
+  }
+]

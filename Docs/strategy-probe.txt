@@ -1,0 +1,65 @@
+WIN field=0 trial=0 hp=100 kills=179 peak=69 ticks=37297
+prepare wave=1 hp=100 gold=200
+place kind=0 slot=13 gold=135
+place kind=1 slot=5 gold=50
+upgrade slot=5 level=2 gold=0
+ember tick=106 x=268.1044 y=128.0000 targets=3
+ember tick=2018 x=262.6372 y=128.0000 targets=3
+ember tick=3876 x=241.7915 y=128.0000 targets=3
+ember tick=5377 x=1012.7062 y=640.0000 targets=7
+ember tick=6878 x=1088.0000 y=447.9994 targets=9
+ember tick=8379 x=369.9929 y=128.0000 targets=4
+ember tick=9880 x=295.1658 y=128.0000 targets=8
+ember tick=11381 x=263.4796 y=640.0000 targets=6
+ember tick=12882 x=798.4992 y=640.0000 targets=5
+ember tick=14383 x=1088.0000 y=337.5049 targets=9
+ember tick=15884 x=804.1472 y=128.0000 targets=24
+ember tick=17385 x=1088.0000 y=560.5822 targets=11
+ember tick=18886 x=617.1558 y=128.0000 targets=13
+ember tick=20387 x=263.7989 y=640.0000 targets=14
+ember tick=21888 x=1060.2170 y=128.0000 targets=5
+ember tick=23389 x=192.0000 y=516.2312 targets=3
+ember tick=24890 x=800.8014 y=128.0000 targets=4
+ember tick=26391 x=993.9373 y=128.0000 targets=3
+ember tick=27949 x=670.6417 y=640.0000 targets=3
+WIN field=1 trial=1 hp=100 kills=193 peak=74 ticks=31886
+prepare wave=1 hp=100 gold=200
+place kind=0 slot=10 gold=135
+place kind=1 slot=5 gold=50
+upgrade slot=10 level=2 gold=0
+ember tick=87 x=254.0110 y=128.0000 targets=3
+ember tick=1588 x=1088.0000 y=560.0545 targets=5
+ember tick=3089 x=768.0000 y=209.1418 targets=6
+ember tick=4590 x=512.0000 y=193.7360 targets=5
+ember tick=6091 x=461.8545 y=640.0000 targets=4
+ember tick=7592 x=600.3331 y=640.0000 targets=6
+ember tick=9093 x=742.9781 y=384.0000 targets=8
+ember tick=10594 x=579.3865 y=384.0000 targets=9
+ember tick=12095 x=297.8357 y=128.0000 targets=10
+ember tick=13596 x=768.0000 y=198.9179 targets=9
+ember tick=15097 x=1088.0000 y=525.3329 targets=14
+ember tick=16598 x=428.5199 y=128.0000 targets=15
+ember tick=18099 x=908.2837 y=640.0000 targets=10
+ember tick=19600 x=1088.0000 y=326.3269 targets=4
+ember tick=21101 x=461.4056 y=640.0000 targets=3
+WIN field=2 trial=0 hp=100 kills=212 peak=72 ticks=27323
+prepare wave=1 hp=100 gold=340
+place kind=0 slot=5 gold=275
+place kind=1 slot=4 gold=190
+upgrade slot=5 level=2 gold=140
+place kind=4 slot=6 gold=50
+ember tick=77 x=246.9643 y=128.0000 targets=3
+ember tick=1578 x=542.8969 y=640.0000 targets=5
+ember tick=3079 x=192.0000 y=170.7990 targets=5
+ember tick=4580 x=737.2234 y=128.0000 targets=7
+ember tick=6081 x=832.0000 y=572.9637 targets=9
+ember tick=7582 x=801.9238 y=640.0000 targets=15
+ember tick=9083 x=1021.9440 y=320.0000 targets=16
+ember tick=10584 x=660.6751 y=128.0000 targets=15
+ember tick=12085 x=340.4757 y=128.0000 targets=12
+ember tick=13586 x=448.0000 y=496.6639 targets=16
+ember tick=15087 x=832.0000 y=399.7178 targets=13
+ember tick=16588 x=448.0000 y=589.8251 targets=12
+ember tick=18089 x=1088.0000 y=258.4612 targets=8
+ember tick=19590 x=261.4479 y=128.0000 targets=6
+ember tick=21091 x=861.5763 y=320.0000 targets=3

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "desktop",
+    "loadedMs": 981,
+    "canvas": {
+      "width": 960,
+      "height": 600
+    },
+    "input": {
+      "world": [
+        320,
+        218
+      ],
+      "local": [
+        309.1666666666667,
+        188.38020833333331
+      ],
+      "kind": "mouse click"
+    },
+    "rotated": null,
+    "errors": [],
+    "consoleErrors": []
+  }
+]
