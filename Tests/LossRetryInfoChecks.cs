@@ -1,0 +1,6 @@
+using System;
+using EmberBastion;
+class LossRetryInfoChecks {
+ static void Check(bool ok,string msg){if(!ok)throw new Exception(msg);}
+ static void Main(){var original=new Battle(1,0);Check(original.Place(0,0),"place");var prep=original.SavePreparation();Check(original.Start(),"start");var wave=original.CopyCombat();original.Gold=500;var info=LossRetryInfo.For(original,wave,prep);Check(info.Restores&&info.Gold==135&&info.Empty==wave.Field.Slots.Length-1&&info.Advice()=="빈 자리에 병력 추가","wave checkpoint wins");wave.Gold=20;info=LossRetryInfo.For(original,wave,prep);Check(info.Gold==20&&info.Advice()=="병과와 배치를 바꿔 보세요","checkpoint affordability");info=LossRetryInfo.For(original,null,prep);Check(info.Gold==135&&info.Restores,"preparation checkpoint");info=LossRetryInfo.For(original,null,null);Check(info.Gold==500&&!info.Restores&&info.Advice()=="새 전투에서 편성을 바꿔 보세요","no checkpoint");Console.WriteLine("PASS loss advice uses actual retry resources");}
+}
