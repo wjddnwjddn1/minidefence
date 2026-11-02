@@ -54,7 +54,7 @@ namespace EmberBastion {
    while(remaining>0&&battle.Phase==Phase.Fighting){double step=Math.Min(remaining,.25);battle.Step(step);frameCues.AddRange(battle.Cues);remaining-=step;}
    battle.Cues.Clear();battle.Cues.AddRange(frameCues);
   }
-  void Update(){Layout();if(saleSlot>=0&&(selected!=saleSlot||battle.Phase!=Phase.Fighting||Time.unscaledTime>=saleUntil))saleSlot=-1;
+  void Update(){Layout();sound.MusicState(battle.Phase==Phase.Fighting,paused||aiming||branchMenu||toolsMenu||guideMenu||fieldMenu||titleMenu,battle.Enemies.Count,battle.Decided);if(saleSlot>=0&&(selected!=saleSlot||battle.Phase!=Phase.Fighting||Time.unscaledTime>=saleUntil))saleSlot=-1;
    // OnGUI handles pointer/keyboard once using Event.Use; no parallel touch listener.
    // Age existing effects before adding this frame's cues, so new effects render at least once.
    if(!paused&&!aiming&&!branchMenu&&!toolsMenu&&!guideMenu&&!WindowTooSmall()){float visualDelta=Mathf.Min(Time.unscaledDeltaTime,.25f)*(battle.Phase==Phase.Fighting?EffectiveSpeed:1);visualClock+=visualDelta;for(int i=visuals.Count-1;i>=0;i--){visuals[i].Age+=visualDelta;if(visuals[i].Age>1)visuals.RemoveAt(i);}}
