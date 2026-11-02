@@ -17,7 +17,7 @@ namespace EmberBastion {
   }
   public static string Hint(IList<Enemy> enemies,string endCause){
    int count;switch(Dominant(enemies,endCause,out count)){
-    case 0:return "모인 적에는 범위 공격 검토";
+    case 0:return "횃불병 다수 · 범위 공격 검토";
     case 1:return "빠른 적은 서리 둔화 검토";
     case 2:return "방패병에는 관통 공격 검토";
     case 3:return "폭약병 처치 시 기절 주의";
