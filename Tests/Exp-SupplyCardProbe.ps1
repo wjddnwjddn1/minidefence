@@ -6,13 +6,13 @@ $bin=Join-Path $PSScriptRoot 'bin'
 New-Item -ItemType Directory -Path $bin -Force | Out-Null
 $s=[System.IO.File]::ReadAllText((Join-Path $root 'Assets\Scripts\Core\Battle.cs'),[System.Text.Encoding]::UTF8)
 function Patch($old,$new){if(-not $script:s.Contains($old)){throw "Missing: $old"};$script:s=$script:s.Replace($old,$new)}
-Patch 'damage=d.Damage*(u.Level>=2?1.4:1)' 'if(u.Kind==1)interval/=Card.ArcherHaste;damage=(u.Kind==0?Card.SwordDamage:1)*d.Damage*(u.Level>=2?1.4:1)'
+Patch 'if(u.Kind==1)interval/=Math.Pow(1.2,CardCount(ReinforcementDraft.ArcherHaste));damage=(u.Kind==0?Math.Pow(1.15,CardCount(ReinforcementDraft.SwordDamage)):1)*d.Damage*(u.Level>=2?1.4:1)' 'if(u.Kind==1)interval/=Card.ArcherHaste;damage=(u.Kind==0?Card.SwordDamage:1)*d.Damage*(u.Level>=2?1.4:1)'
 Patch 'u.Branch==1?5:d.Targets' '(u.Branch==1?5:d.Targets)+Card.SwordTargets'
-Patch 'Radius=u.Kind==2&&u.Branch==1?75:d.Radius' 'Radius=(u.Kind==2&&u.Branch==1?75:d.Radius)*(u.Kind==2?Card.BombRadius:1)'
-Patch 'EmberCD=Balance.EmberCooldown' 'EmberCD=Balance.EmberCooldown*Card.EmberCool'
+Patch 'Radius=(u.Kind==2&&u.Branch==1?75:d.Radius)*(u.Kind==2?Math.Pow(1.25,CardCount(ReinforcementDraft.BombRadius)):1)' 'Radius=(u.Kind==2&&u.Branch==1?75:d.Radius)*(u.Kind==2?Card.BombRadius:1)'
+Patch 'EmberCD=Balance.EmberCooldown*Math.Pow(.7,CardCount(ReinforcementDraft.EmberCooldown))' 'EmberCD=Balance.EmberCooldown*Card.EmberCool'
 Patch 'Gold+=reward;' 'Gold+=(int)Math.Round(reward*Card.GoldMult);'
-Patch 'Gold+=40+5*Wave;BeginWave();' 'Gold+=(int)Math.Round((40+5*Wave)*Card.GoldMult);BeginWave();'
-Patch '<=UnitRange(u)' '<=UnitRange(u)*Card.RangeMult'
+Patch 'Gold+=Reward(40+5*Wave);BeginWave();' 'Gold+=(int)Math.Round(Reward(40+5*Wave)*Card.GoldMult);BeginWave();'
+Patch '<=AttackRange(u)' '<=AttackRange(u)*Card.RangeMult'
 $copy=Join-Path $bin 'BattleCard.cs'
 [System.IO.File]::WriteAllText($copy,$s,[System.Text.UTF8Encoding]::new($false))
 $compiler=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
