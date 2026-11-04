@@ -1,3 +1,7 @@
+## 2026-11-05 · 작은 창 기술자 안내
+
+- 700px 미만 가로 창에서 기술자 배치 미리보기 안내가 생략되던 조건을 수정했다. 320×300 격리 Web에서 `새 지원 1명 · 기존 지원 0명`이 나타나며 브라우저 오류가 없음을 확인했다. 핵심 전투 199건 및 Web·Windows 빌드 통과(`Logs/smith-small-web.log`, `Logs/smith-small-windows.log`). 터치 실기기와 사람 가독성은 미확인이다. 캡처 `C:/Users/snome/Downloads/smith-small-preview-codex.png`.
+
 ## 2026-11-05 · 기술자 중복 지원 화면 확인
 
 - 검사와 기술자를 먼저 배치하고 다른 빈 자리를 가리킨 격리 Web 800×500 화면에서 `새 지원 0명 · 기존 지원 1명`과 브라우저 오류 없음을 확인했다. 캡처는 `C:/Users/snome/Downloads/smith-overlap-preview-codex.png`. 사람 조작은 확인하지 않았다.
