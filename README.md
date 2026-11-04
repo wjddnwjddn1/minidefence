@@ -9,7 +9,7 @@
 3. 저장 장면은 메뉴 `Ember Bastion > Create comparison scene`으로 생성한다. 기존 장면을 덮기 전 변경사항을 저장한다.
 4. `Build Windows playable`은 개발 표시가 없는 플레이용 실행판을, `Build Windows comparison`과 `Build Web comparison`은 검사용 개발 빌드를 만든다. CLI 진입점은 `EmberBastion.Editor.ComparisonBuild.WindowsPlayable`, `.Windows`, `.Web`이다.
 
-전투 메뉴에서 효과음을 끔·작게·크게로 바꿀 수 있으며 설정은 비교판 전용 저장소에 유지된다. 도움말에서는 화면 흔들림을 켜거나 끌 수 있다. 효과음은 이 게임에서 직접 합성한다.
+전투 메뉴에서 소리를 끔·작게·크게로 바꿀 수 있으며 효과음과 배경음에 함께 적용된다. 설정은 비교판 전용 저장소에 유지된다. 도움말에서는 화면 흔들림을 켜거나 끌 수 있다. 효과음과 배경음은 이 게임에서 직접 합성하며, 마지막 적이 등장하면 소탕 선율로 전환한다.
 
 게임의 전투 메뉴 안 `도움말` 버튼에서 배치, 승패 조건, 잔불과 저장 방법을 확인할 수 있다. 도움말을 여는 동안 전투가 잠시 멈춘다.
 
