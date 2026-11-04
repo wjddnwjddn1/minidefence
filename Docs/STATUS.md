@@ -1,3 +1,7 @@
+## 2026-11-05 · 세로 창 기술자 안내
+
+- 작은 세로 창에서도 기술자 지원 미리보기가 표시되도록 했다. 320×480과 320×300 격리 Web에서 문구와 브라우저 오류 없음을 확인했고 Web·Windows 빌드가 통과했다(`Logs/smith-portrait-web.log`, `Logs/smith-portrait-windows.log`). 사람의 가독성 평가와 터치 실기기는 미확인이다.
+
 ## 2026-11-05 · 작은 창 기술자 안내
 
 - 700px 미만 가로 창에서 기술자 배치 미리보기 안내가 생략되던 조건을 수정했다. 320×300 격리 Web에서 `새 지원 1명 · 기존 지원 0명`이 나타나며 브라우저 오류가 없음을 확인했다. 핵심 전투 199건 및 Web·Windows 빌드 통과(`Logs/smith-small-web.log`, `Logs/smith-small-windows.log`). 터치 실기기와 사람 가독성은 미확인이다. 캡처 `C:/Users/snome/Downloads/smith-small-preview-codex.png`.
