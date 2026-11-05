@@ -1,3 +1,7 @@
+## 2026-11-06 · Windows 플레이용 압축 파일
+
+- Unity 6000.6.7f1의 `WindowsPlayable`로 개발 표시 없는 Windows 빌드를 만들고 Downloads의 `EmberBastion-Windows-20261106.zip`에 압축했다. 빌드 성공 로그와 압축 내부 실행 파일·UnityPlayer·데이터 설정을 확인했다. 실제 실행과 사람 플레이는 이번에 확인하지 않았다.
+
 ## 2026-11-06 · Claude 작업 전달서
 
 - `Docs/CLAUDE-WORK-BRIEF.md`에 최근 변경, 자동 검증의 범위와 한계, 독립 검수 및 향후 작업 우선순위를 정리했다. 문서 작성만 했으며 Claude 검수와 사람 플레이·청취는 아직 수행하지 않았다.

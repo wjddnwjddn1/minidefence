@@ -1,3 +1,7 @@
+## 2026-11-06 · Windows 플레이용 압축 파일
+
+- 사용자 요청으로 플레이용 Windows 빌드를 새로 만들어 Downloads의 `EmberBastion-Windows-20261106.zip`에 압축했다. 빌드 성공과 압축 내 주요 파일을 확인했다. 이번에 실행·사람 플레이는 확인하지 않았다.
+
 ## 2026-11-06 · Claude 작업 전달서
 
 - `Docs/CLAUDE-WORK-BRIEF.md`에 최근 작업과 검증 한계, Claude에게 요청할 독립 검수와 후속 우선순위를 정리했다. 실제 Claude 검수는 아직 이뤄지지 않았다.
