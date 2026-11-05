@@ -5,6 +5,7 @@ namespace EmberBastion {
   double since,lastHealth;
   bool tracking,notified;
   public bool Visible {get{return tracking&&notified;}}
+  public static string Message(bool hasAttackers){return hasAttackers?"피해 없음 · 사거리 확인":"피해 없음 · 공격 병력 필요";}
   public void Reset(){tracking=false;notified=false;since=0;lastHealth=0;}
   public bool Observe(double time,bool finalWaveActive,double remainingHealth){
    if(!finalWaveActive){Reset();return false;}
