@@ -12,7 +12,7 @@ namespace EmberBastion {
   }
   public static string Describe(IList<Enemy> enemies,string endCause){
    int count;int kind=Dominant(enemies,endCause,out count);
-   if(kind==-2){int shown=0,tied=0;string names="";for(int i=0;i<Balance.Enemies.Length;i++){int n=0;foreach(var enemy in enemies)if(enemy!=null&&enemy.HP>0&&enemy.Kind==i)n++;if(n!=count)continue;tied++;if(shown<2){if(shown>0)names+="·";names+=i==4?"대장":Balance.Enemies[i].Name.Replace("병","");shown++;}}return "최다 "+names+(tied>shown?" 등":"")+" 각"+count+"명";}
+   if(kind==-2){int shown=0,tied=0;string names="";for(int i=0;i<Balance.Enemies.Length;i++){int n=0;foreach(var enemy in enemies)if(enemy!=null&&enemy.HP>0&&enemy.Kind==i)n++;if(n!=count)continue;tied++;if(shown<2){if(shown>0)names+="·";names+=i==4?"대장":Balance.Enemies[i].Name.Replace("병","");shown++;}}return "최다 "+names+(tied>shown?" 등":"")+" 각 "+count+"명";}
    return kind<0?"":"가장 많은 적 · "+Balance.Enemies[kind].Name+" "+count+"명";
   }
   public static string Hint(IList<Enemy> enemies,string endCause){
