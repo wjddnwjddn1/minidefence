@@ -24,5 +24,10 @@ const server=http.createServer((req,res)=>{const rel=decodeURIComponent(new URL(
  const before=messages.filter(m=>m.includes('MANUAL_SAVE_BUTTON_FAILURE')).length;
  await page.mouse.click(608,24);await page.waitForTimeout(2300);
  if(messages.filter(m=>m.includes('MANUAL_SAVE_BUTTON_FAILURE')).length<=before)throw Error('combat failure was lost after blocked save');
+ // Once the temporary message has expired, a later aim alone must not revive it.
+ await page.mouse.click(400,404);await page.waitForTimeout(250);await page.keyboard.press('e');await page.waitForTimeout(250);
+ messages.length=0;await page.mouse.click(608,24);await page.waitForTimeout(2300);
+ if(messages.some(m=>m.includes('SAVE_BLOCKED_BUTTON')))throw Error('old blocked message reappeared on a later aim');
+ if(!messages.some(m=>m.includes('MANUAL_SAVE_BUTTON_FAILURE')))throw Error('failure feedback disappeared on a later aim');
  if(errors.length)throw Error(errors.join(' | '));await context.close();console.log('PASS failed save survives blocked aiming and cancel');
 }catch(error){console.error(error);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();
