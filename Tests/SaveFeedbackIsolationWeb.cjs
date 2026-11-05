@@ -1,0 +1,28 @@
+// Reproduce a failed combat save followed by a blocked save in an isolated profile.
+const fs=require('fs'),path=require('path'),http=require('http');
+const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'../Builds/Web');
+const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};
+const server=http.createServer((req,res)=>{const rel=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).replace(/^\/+/,''),file=path.resolve(root,rel||'index.html');if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}fs.readFile(file,(error,data)=>{if(error){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
+(async()=>{let browser;try{
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
+ const width=800,height=500,context=await browser.newContext({viewport:{width,height}}),page=await context.newPage(),messages=[],errors=[];
+ page.on('pageerror',error=>errors.push(error.message));page.on('console',message=>{messages.push(message.text());if(message.type()==='error')errors.push(message.text());});
+ await page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=wave-savefail&fx-smoke=manual-savefail&fx-smoke=save-aim',{waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>[...document.querySelectorAll('#unity-build-title button')].some(button=>button.textContent==='Unload'),null,{timeout:120000});
+ await page.evaluate(({width,height})=>{const c=document.querySelector('#unity-container'),v=document.querySelector('#unity-canvas'),f=document.querySelector('#unity-fullscreen-container'),size='width:'+width+'px;height:'+height+'px';c.style.cssText='position:fixed;left:0;top:0;transform:none;'+size;f.style.cssText=size;v.style.cssText=size;document.querySelector('#unity-footer').style.display='none';},{width,height});
+ await page.waitForTimeout(3500);
+ // The save-aim fixture begins in aiming mode; cancel before injecting the failure.
+ await page.keyboard.press('Escape');await page.waitForTimeout(250);
+ await page.mouse.click(608,24);await page.waitForTimeout(250);await page.mouse.click(270,174);await page.waitForTimeout(500);
+ if(!messages.some(m=>m.includes('MANUAL_SAVE_FEEDBACK failure')))throw Error('combat save failure missing');
+ await page.mouse.click(400,404);await page.waitForTimeout(250);await page.keyboard.press('e');await page.waitForTimeout(250);
+ await page.mouse.click(608,24);await page.waitForTimeout(250);await page.mouse.click(270,174);await page.waitForTimeout(2300);
+ if(!messages.some(m=>m.includes('SAVE_BLOCKED_BUTTON 조준 취소 필요')))throw Error('blocked explanation missing');
+ await page.mouse.click(400,404);await page.waitForTimeout(250);await page.keyboard.press('Escape');await page.waitForTimeout(250);
+ const before=messages.filter(m=>m.includes('MANUAL_SAVE_BUTTON_FAILURE')).length;
+ await page.mouse.click(608,24);await page.waitForTimeout(2300);
+ if(messages.filter(m=>m.includes('MANUAL_SAVE_BUTTON_FAILURE')).length<=before)throw Error('combat failure was lost after blocked save');
+ if(errors.length)throw Error(errors.join(' | '));await context.close();console.log('PASS failed save survives blocked aiming and cancel');
+}catch(error){console.error(error);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();
