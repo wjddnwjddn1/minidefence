@@ -1,0 +1,259 @@
+{
+ "frames": [
+  {
+   "filename": "HitSteel 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 1",
+   "frame": {
+    "x": 72,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 2",
+   "frame": {
+    "x": 144,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 3",
+   "frame": {
+    "x": 0,
+    "y": 52,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 4",
+   "frame": {
+    "x": 72,
+    "y": 52,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 5",
+   "frame": {
+    "x": 144,
+    "y": 52,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 6",
+   "frame": {
+    "x": 0,
+    "y": 104,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 7",
+   "frame": {
+    "x": 72,
+    "y": 104,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 8",
+   "frame": {
+    "x": 144,
+    "y": 104,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  },
+  {
+   "filename": "HitSteel 9",
+   "frame": {
+    "x": 0,
+    "y": 156,
+    "w": 72,
+    "h": 52
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 52
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 52
+   },
+   "duration": 50
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "HitSteel.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 216,
+   "h": 208
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "HitSteel",
+    "from": 0,
+    "to": 9,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "impacts/eb-hit",
+   "name": "Ember Bastion hit",
+   "fps": 20,
+   "loop": false,
+   "frames": 10,
+   "frameSize": [
+    72,
+    52
+   ],
+   "pivot": [
+    36,
+    44
+   ],
+   "columns": 3
+  }
+ }
+}

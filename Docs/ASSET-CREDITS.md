@@ -67,3 +67,4 @@
 - [PixelFX](https://github.com/patch-gg/pixelfx), version 0.3.0, commit `a84159688af3ca37a4be05a0d422b94451b2e24e`: Copyright (c) 2026 Patch and Hugo Duprez, MIT License. Full license: `ThirdParty/PixelFX/LICENSE`.
 - Portions adapt Sprite Fusion VFX, Copyright (c) 2026 Hugo Duprez, and Hollow Crown, Copyright (c) 2026 rehan-remade, both MIT; see `ThirdParty/PixelFX/NOTICE.md`.
 - Patch Pixel and other gallery fonts are not included or used. Generated `impacts/hit-spark` sprite sheet derives from PixelFX.
+- `Tools/PixelFX/fx/impacts/eb-hit.js` (project effect, rendered to `Assets/Resources/PixelFX/HitSteel`, `HitArrow`, `HitFrost`) is original project code that uses the PixelFX core and follows the inked-wedge approach of PixelFX `impacts/blunt-hit` (MIT).
