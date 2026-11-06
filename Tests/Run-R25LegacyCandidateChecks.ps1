@@ -12,8 +12,10 @@ $exe=Join-Path $bin 'R25LegacyCandidate.exe'
 & $compiler /nologo /utf8output /codepage:65001 "/out:$exe" (Join-Path $root 'Assets\Scripts\Core\Balance.cs') $copy (Join-Path $root 'Assets\Scripts\Core\CombatSave.cs') (Join-Path $PSScriptRoot 'R25CandidateProbe.cs')
 if($LASTEXITCODE -ne 0){throw 'Compilation failed'}
 $prior=$env:R25_CANDIDATE_FACTOR
+$priorVariation=$env:R25_CANDIDATE_VARIATION
 try {
  $env:R25_CANDIDATE_FACTOR='2.5'
+ $env:R25_CANDIDATE_VARIATION='0'
  $baseline=@(Get-Content -Encoding utf8 (Join-Path $root 'Docs\r24-gameplay-baseline.csv'))
  foreach($mode in @(0,1,2)){
   $actual=@(& $exe $mode 100 on 4)
@@ -23,4 +25,4 @@ try {
   for($i=0;$i -lt $actual.Count;$i++){if($actual[$i] -cne $expected[$i]){throw "Legacy result mismatch at mode $mode row $i"}}
  }
  'PASS 648 legacy battles across all difficulties match baseline with four extra candidate waves' 
-} finally {$env:R25_CANDIDATE_FACTOR=$prior}
+} finally {$env:R25_CANDIDATE_FACTOR=$prior; $env:R25_CANDIDATE_VARIATION=$priorVariation}
