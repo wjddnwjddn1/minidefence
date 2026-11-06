@@ -1,3 +1,9 @@
+## 2026-11-06 · Web 프레임 간격 표본
+
+- Claude 18차가 언급한 `GUIContent` 할당 우려를 바로 최적화하지 않고, 현재 Web 개발 빌드의 격리 자동 진행 장면을 먼저 표본 측정했다. `Tests/WebFrameSample.cjs`는 headless Edge·SwiftShader에서 해상도별 5초 예열 후 `requestAnimationFrame` 간격을 15초 수집한다.
+- 이번 단일 실행: 1280×720은 750개 간격의 중앙값 20.8ms, p95 25.4ms, p99 27.8ms, 최대 28.6ms, 50ms 초과 0회. 1920×1080은 364개 간격의 중앙값 41.7ms, p95 48.6ms, p99 49.0ms, 최대 55.4ms, 50ms 초과 1회.
+- 이 수치는 소프트웨어 렌더러와 브라우저 프레임 콜백의 간격으로, 실제 Windows GPU 성능이나 Unity 프레임별 GC 할당량을 측정하지 않는다. 원인·회귀·개선 효과를 결론낼 근거가 아니므로 `GUIContent` 최적화는 하지 않았다. Unity 프로파일러의 GC Alloc 및 프레임 타임을 실제 플레이 환경에서 측정해야 한다.
+
 ## 2026-11-06 · 넓은 화면 첫 판 안내 크기
 
 - Claude 19차 독립 검수에 따라 넓은 화면에서 말풍선과 글자·건너뛰기 버튼을 화면 높이에 맞춰 함께 키웠다. 1920×1080 세 단계 전장 경계·진행·완료 및 건너뛰기 저장을 새 `Tests/TutorialLargeWeb.cjs`, `Tests/TutorialSkipLargeWeb.cjs`로 확인하고 `Docs/r22-large-evidence/`에 화면을 남겼다. 320·640·1280 단계와 건너뛰기, 저장 실패 동시 표시도 재검사했다.
