@@ -1,3 +1,9 @@
+## 2026-11-06 · PixelFX 타격 효과 가시성 조정
+
+- 사용자 의견에 따라 기존 타격 이펙트 표시 크기를 1.6배로 늘리고 재생 속도를 30fps에서 20fps로 낮췄다. 효과의 원점을 타격 위치에 유지하며 전투 규칙은 바꾸지 않았다.
+- Web 개발 빌드에서 타격 효과가 7개 프레임을 진행하는 검사 통과, Windows 플레이용 빌드 성공. Windows 실제 화면에서의 시각 검증 및 사용자 평가는 아직 필요하다.
+- 플레이용 ZIP: `C:/Users/snome/Downloads/EmberBastion-Windows-VisibleFX-20261106-225923.zip` (158개 파일, 무결성 통과, SHA-256 `89F3E8F7DEA58E55578E4A08F49833183A7A7674D9A35D282FEC6011042AFE41`). Claude 독립 검수는 아직 없다.
+
 ## 2026-11-06 · PixelFX Windows 플레이용 빌드
 
 - 제한된 환경에서는 Unity 라이선스 IPC가 거부됐으나, 권한을 적용한 재시도에서 Unity 6000.6.7f1 Windows 플레이용 빌드가 성공했다(`Logs/pixelfx-windows-retry.log`). 새 실행 파일은 무화면 시작 검사에서 8초간 실행됐다. Windows 화면과 소리는 사람이 아직 확인하지 않았다.
