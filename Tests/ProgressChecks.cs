@@ -50,6 +50,7 @@ class ProgressChecks {
   Check(ProgressStore.RecordClearForRules(0,false,false,2)&&!ProgressStore.RecordClearForRules(0,false,false,2)&&ProgressStore.Cleared(0),"v2 clear and global unlock distinct");
   Check(ProgressStore.RecordReinforcementBest(2,55,0,1)&&!ProgressStore.ReinforcementBest(2,0,2).HasValue,"reinforcement v2 separate");
   Check(ProgressStore.RecordReinforcementBest(2,70,0,2)&&ProgressStore.ReinforcementBest(2,0,1)==55&&ProgressStore.ReinforcementBest(2,0,2)==70,"reinforcement records preserved");
+  ProgressStore.SnapshotPreviousClear(1,false,false);Check(ProgressStore.Record(1),"v2 global unlock");Check(!ProgressStore.ClearedForRules(1,false,false,1),"new unlock does not fabricate old clear");Check(ProgressStore.RecordClearForRules(1,false,false,2),"v2 clear recorded");Check(ProgressStore.RecordClearForRules(1,false,false,1)&&ProgressStore.ClearedForRules(1,false,false,1),"restored old battle records old clear");
   bool invalidSupply=false;try{ProgressStore.RecordBest(0,false,false,20,30);}catch(ArgumentException){invalidSupply=true;}Check(invalidSupply,"invalid supply rejected");
   bool invalidPeak=false;try{ProgressStore.RecordBest(0,false,false,100);}catch(ArgumentException){invalidPeak=true;}Check(invalidPeak,"invalid peak rejected");
 
