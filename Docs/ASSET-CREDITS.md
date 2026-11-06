@@ -68,3 +68,4 @@
 - Portions adapt Sprite Fusion VFX, Copyright (c) 2026 Hugo Duprez, and Hollow Crown, Copyright (c) 2026 rehan-remade, both MIT; see `ThirdParty/PixelFX/NOTICE.md`.
 - Patch Pixel and other gallery fonts are not included or used. Generated `impacts/hit-spark` sprite sheet derives from PixelFX.
 - `Tools/PixelFX/fx/impacts/eb-hit.js` (project effect, rendered to `Assets/Resources/PixelFX/HitSteel`, `HitArrow`, `HitFrost`) is original project code that uses the PixelFX core and follows the inked-wedge approach of PixelFX `impacts/blunt-hit` (MIT).
+- `Tools/PixelFX/fx/status/eb-burn.js` (project effect, rendered to `Assets/Resources/PixelFX/Burn`) draws its flame tongues with PixelFX `status/_lib.js`, which adapts Sprite Fusion's open-source fire (MIT, Copyright (c) 2026 Hugo Duprez).

@@ -3,6 +3,7 @@
  "effects": [
   { "name": "HitSteel", "id": "impacts/eb-hit", "use": "sword hits", "opts": { "seed": 7 } },
   { "name": "HitArrow", "id": "impacts/eb-hit", "use": "arrow hits", "opts": { "palette": ["#1d1012", "#4a1a14", "#a8321c", "#e8662a", "#ffa64a", "#ffe0a0", "#ffffff"], "seed": 3 } },
-  { "name": "HitFrost", "id": "impacts/eb-hit", "use": "frost bolt hits", "opts": { "palette": ["#0e1830", "#1e3a66", "#2f6aa8", "#58b4e6", "#a8e8ff", "#e6fbff", "#ffffff"], "seed": 11 } }
+  { "name": "HitFrost", "id": "impacts/eb-hit", "use": "frost bolt hits", "opts": { "palette": ["#0e1830", "#1e3a66", "#2f6aa8", "#58b4e6", "#a8e8ff", "#e6fbff", "#ffffff"], "seed": 11 } },
+  { "name": "Burn", "id": "status/eb-burn", "use": "burning enemies (loop)", "opts": {} }
  ]
 }
