@@ -8,7 +8,7 @@ namespace EmberBastion.Editor {
  public static class ComparisonBuild {
   const string ScenePath="Assets/Scenes/Comparison.unity";
   [MenuItem("Ember Bastion/Create comparison scene")]
-  public static void Scene(){Directory.CreateDirectory("Assets/Scenes");var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);new GameObject("Battle").AddComponent<BattleView>();var camera=new GameObject("Camera").AddComponent<Camera>();camera.orthographic=true;camera.backgroundColor=new Color(.08f,.13f,.12f);EditorSceneManager.SaveScene(scene,ScenePath);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true)};}
+  public static void Scene(){Directory.CreateDirectory("Assets/Scenes");var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);new GameObject("Battle").AddComponent<BattleView>();var camera=new GameObject("Camera").AddComponent<Camera>();camera.gameObject.AddComponent<AudioListener>();camera.orthographic=true;camera.backgroundColor=new Color(.08f,.13f,.12f);EditorSceneManager.SaveScene(scene,ScenePath);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true)};}
   [MenuItem("Ember Bastion/Build Windows comparison")]
   public static void Windows(){Build(BuildTarget.StandaloneWindows64,"Builds/Windows/EmberBastion.exe");}
   [MenuItem("Ember Bastion/Build Windows playable")]
