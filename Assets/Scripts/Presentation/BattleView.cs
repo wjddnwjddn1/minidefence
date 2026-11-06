@@ -147,7 +147,11 @@ namespace EmberBastion {
   void Box(Rect r,Color c){Color old=GUI.color;GUI.color=c;GUI.DrawTexture(r,Texture2D.whiteTexture);GUI.color=old;}
   static readonly Color uiPlate=new Color32(27,32,38,240),uiInner=new Color32(35,42,49,255),uiGold=new Color32(201,161,74,255),uiAccent=new Color32(240,199,94,255),uiTitle=new Color32(243,227,181,255),uiText=new Color32(232,237,242,255),uiDisabled=new Color32(125,133,140,255),uiButton=new Color32(59,70,82,255),uiButtonEdge=new Color32(74,85,96,255),uiButtonBottom=new Color32(37,44,52,255),uiPrimary=new Color32(192,57,43,255),uiPrimaryBottom=new Color32(125,36,27,255),uiDisabledFill=new Color32(42,47,53,255);
   readonly GUIContent measureContent=new GUIContent();
-  Vector2 MeasureText(GUIStyle style,string value){measureContent.text=value;return style.CalcSize(measureContent);}
+  Vector2 MeasureText(GUIStyle style,string value){
+#if DEVELOPMENT_BUILD && UNITY_WEBGL
+   if(Presentation.AllocationProbe.Baseline)return style.CalcSize(new GUIContent(value));
+#endif
+   measureContent.text=value;return style.CalcSize(measureContent);}
   GUIStyle uiButtonLabel;
   void UiPlate(Rect r){Box(r,uiPlate);Box(new Rect(r.x,r.y,r.width,2),uiGold);Box(new Rect(r.x,r.yMax-2,r.width,2),uiGold);Box(new Rect(r.x,r.y,2,r.height),uiGold);Box(new Rect(r.xMax-2,r.y,2,r.height),uiGold);}
   void UiTitle(Rect r,string value,GUIStyle style,Texture2D icon=null){Box(new Rect(r.x,r.y+3,4,r.height-6),uiAccent);float left=r.x+10;if(icon!=null&&r.width>=100){GUI.DrawTexture(new Rect(left,r.y+3,26,26),icon);left+=34;}float width=Mathf.Max(0,r.xMax-left-4);int old=style.fontSize;bool wrap=style.wordWrap;Color color=style.normal.textColor;style.wordWrap=false;style.normal.textColor=uiTitle;while(style.fontSize>12&&MeasureText(style,value).x>width)style.fontSize--;if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("fx-smoke=ribbon-layout")&&Event.current.type==EventType.Repaint&&debugRibbonLogged.Add("ui-title|"+value+"|"+Screen.width+"x"+Screen.height)){var inv=System.Globalization.CultureInfo.InvariantCulture;Debug.Log("UI_HEADER_TITLE|"+Screen.width+"x"+Screen.height+"|"+left.ToString("F2",inv)+"|"+(r.xMax-4).ToString("F2",inv)+"|"+MeasureText(style,value).x.ToString("F2",inv)+"|"+style.fontSize);Debug.Log("UI_WINDOW_TITLE|"+value+"|"+Screen.width+"x"+Screen.height);}GUI.Label(new Rect(left,r.y+2,width,r.height-4),value,style);style.fontSize=old;style.wordWrap=wrap;style.normal.textColor=color;}
