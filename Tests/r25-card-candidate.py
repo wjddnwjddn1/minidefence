@@ -35,7 +35,6 @@ if strategy not in ('first','last','branches'):
 if strategy == 'last':
     probe = once(probe, 'b.Reinforcements.Choices()[0]', 'b.Reinforcements.Choices()[b.Reinforcements.Choices().Length-1]')
 if strategy == 'branches':
-    probe = once(probe, 'new uint[]{29,41,57,73}', 'new uint[]{29}')
     probe = once(probe, 'new[]{"sword","archer","bomb","swordB","smart","smartB","bombA","bombB","sniper"}', 'new[]{"smartB"}')
     probe = once(probe, '(idle?new[]{false}:new[]{false,true})', '(idle?new[]{false}:new[]{true})')
     probe = once(probe, 'var b=new Battle(seed,field);', 'string cardSequence="";var b=new Battle(seed,field);')
@@ -62,7 +61,7 @@ for mode in range(3):
         if branch is not None:
             args += ['branch', str(branch)]
         rows = subprocess.check_output(args, cwd=ROOT, env=env).decode('utf-8').splitlines()
-        expected = 4 if strategy == 'branches' else 217
+        expected = 13 if strategy == 'branches' else 217
         if len(rows) != expected:
             raise RuntimeError(f'Unexpected row count: {len(rows)}')
         all_rows.extend(rows if not all_rows else rows[1:])
