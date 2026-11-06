@@ -51,6 +51,11 @@ class ProgressChecks {
   Check(ProgressStore.RecordReinforcementBest(2,55,0,1)&&!ProgressStore.ReinforcementBest(2,0,2).HasValue,"reinforcement v2 separate");
   Check(ProgressStore.RecordReinforcementBest(2,70,0,2)&&ProgressStore.ReinforcementBest(2,0,1)==55&&ProgressStore.ReinforcementBest(2,0,2)==70,"reinforcement records preserved");
   ProgressStore.SnapshotPreviousClear(1,false,false);Check(ProgressStore.Record(1),"v2 global unlock");Check(!ProgressStore.ClearedForRules(1,false,false,1),"new unlock does not fabricate old clear");Check(ProgressStore.RecordClearForRules(1,false,false,2),"v2 clear recorded");Check(ProgressStore.RecordClearForRules(1,false,false,1)&&ProgressStore.ClearedForRules(1,false,false,1),"restored old battle records old clear");
+  Check(!ProgressStore.BestPeak(2,false,false,20,3).HasValue,"v3 best separate from v1 and v2");
+  Check(ProgressStore.RecordBest(2,false,false,65,20,3)&&ProgressStore.BestPeak(2,false,false,20,2)==70&&ProgressStore.BestPeak(2,false,false,20,3)==65,"v3 records preserve v2");
+  Check(!ProgressStore.ClearedForRules(0,false,false,3)&&ProgressStore.RecordClearForRules(0,false,false,3)&&ProgressStore.ClearedForRules(0,false,false,2),"v3 completion separate");
+  ProgressStore.RecordBadges(2,false,false,5,3);Check(!ProgressStore.HasBadge(2,false,false,2,2)&&ProgressStore.HasBadge(2,false,false,4,2)&&ProgressStore.HasBadge(2,false,false,4,3),"v3 badge separate");
+  Check(!ProgressStore.ReinforcementBest(2,0,3).HasValue&&ProgressStore.RecordReinforcementBest(2,72,0,3)&&ProgressStore.ReinforcementBest(2,0,2)==70,"v3 reinforcement best separate");
   bool invalidSupply=false;try{ProgressStore.RecordBest(0,false,false,20,30);}catch(ArgumentException){invalidSupply=true;}Check(invalidSupply,"invalid supply rejected");
   bool invalidPeak=false;try{ProgressStore.RecordBest(0,false,false,100);}catch(ArgumentException){invalidPeak=true;}Check(invalidPeak,"invalid peak rejected");
 
