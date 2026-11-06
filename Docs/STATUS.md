@@ -1,3 +1,8 @@
+## 2026-11-06 · Windows 개발 실행판 격리 스모크
+
+- Windows 개발 실행판 복사본을 `--comparison-smoke`, `--forest-smoke`, `--pass-smoke`, `--branch-smoke`로 각각 실행해 모두 종료 코드 0을 확인했다. 첫 세 전장에서 일시정지 중 시간 정지, 예약 잔불 후 재개, 2웨이브 자동 진행, 승리 및 초기 준비 상태 재도전이 기록됐다. 분기 화면 fixture도 2레벨·골드 상태를 기록했다. 원본은 `Docs/r23-windows-smoke.txt`다. 자동 저장·진행 기록은 스모크 모드에서 비활성화했다.
+- 숨김 실행에서 Unity 화면 캡처는 실패했다. 따라서 화면 배치·실제 소리 청취·터치와 사람의 Windows 플레이는 통과로 간주하지 않는다. 플레이용 ZIP 자체가 아닌 개발 실행판의 자동 경로를 검사했다.
+
 ## 2026-11-06 · 동일 개발 빌드 할당 A/B
 
 - Web 개발 빌드에서만 `fx-smoke=alloc-baseline`을 켜면 글자 폭 측정 시 예전처럼 매번 `GUIContent`를 만든다. 기본 모드는 재사용이며 일반 플레이와 Windows 실행판에는 비교 분기가 없다. `Tests/WebAllocationSample.cjs`에서 `ALLOC_BASELINE=1`로 이전 방식을 선택한다. 같은 자동 진행 fixture·예열 5초·표본 15초, headless Edge·SwiftShader에서 이전→재사용→이전→재사용 순으로 실행했다. 원본 8개 로그는 `Docs/r23-allocation-ab.jsonl`에 있다.

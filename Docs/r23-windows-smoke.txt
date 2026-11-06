@@ -1,0 +1,29 @@
+Windows 개발 실행판 격리 스모크 (2026-11-06)
+실행 인자: --comparison-smoke, --forest-smoke, --pass-smoke, --branch-smoke
+숨김 실행으로 Unity 화면 캡처는 실패했다. 아래 결과는 자동 검사 로그이며 사람 플레이 검수가 아니다.
+
+[runtime-smoke]
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.9833333333333
+automatic-wave=2 gold=57
+outcome=Won wave=10 hp=100 gold=156 kills=179 cause=
+retry=Preparation field=0 gold=200 units=0
+
+[runtime-smoke-forest]
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.9833333333333
+automatic-wave=2 gold=51
+outcome=Won wave=8 hp=100 gold=158 kills=193 cause=
+retry=Preparation field=1 gold=200 units=0
+
+[runtime-smoke-pass]
+pause-time-frozen=True cooldown-before-resume=0
+resumed=True ember-cooldown=24.9833333333333
+automatic-wave=2 gold=54
+outcome=Won wave=8 hp=100 gold=490 kills=212 cause=
+retry=Preparation field=2 gold=340 units=0
+
+[runtime-smoke-branch]
+fixture-level=2 gold=365; isolated memory only
+
+EXE SHA256 E25BA9EF924D9D89B411543580D8D521A6AE94EE1D43DE56BC002F52E557F70A
