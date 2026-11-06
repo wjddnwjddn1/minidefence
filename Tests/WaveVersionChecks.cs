@@ -13,6 +13,7 @@ class WaveVersionChecks {
     var restored=Battle.RestorePreparation(prep);Check(restored.WaveCount==old&&restored.Start(),"legacy last wave restore");
     var save=restored.ExportCombat();Check(Battle.ImportCombat(save).WaveCount==old,"legacy combat restore");
     save.pending=new SpawnSave[0];save.enemies=new Enemy[0];var last=Battle.ImportCombat(save);last.Step(.1);Check(last.Phase==Phase.Won,"legacy last wave completes without new waves");
+    var newer=oldBattle.SavePreparation();newer.rulesVersion=2;newer.wave=old;var newBattle=Battle.RestorePreparation(newer);Check(newBattle.WaveCount==old+4&&newBattle.Start(),"v2 extended wave starts");var newSave=newBattle.ExportCombat();Check(Battle.ImportCombat(newSave).RulesVersion==2,"v2 combat round trip");newer.rulesVersion=3;bool futureRejected=false;try{Battle.RestorePreparation(newer);}catch(ArgumentException){futureRejected=true;}Check(futureRejected,"future rules rejected");
     save.wave=old+1;bool rejected=false;try{Battle.ImportCombat(save);}catch(ArgumentException){rejected=true;}Check(rejected,"reject extended wave for legacy");
    } finally {field.Waves=original;}
   }

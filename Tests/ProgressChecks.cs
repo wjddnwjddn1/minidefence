@@ -37,6 +37,19 @@ class ProgressChecks {
   ProgressStore.RecordBadges(0,true,false,7);ProgressStore.RecordBadges(0,true,false,7);
   Check(ProgressStore.HasBadge(0,true,false,2)&&ProgressStore.HasBadge(0,true,false,4),"badges persist idempotently");
   Check(!ProgressStore.HasBadge(0,false,false,2)&&!ProgressStore.HasBadge(1,true,false,4)&&!ProgressStore.HasBadge(0,true,true,2),"badges independent by field and difficulty");
+  for(int mode=0;mode<3;mode++){
+   bool fast=mode>0,hard=mode==2;int field=2;
+   Check(ProgressStore.RecordBest(field,fast,hard,60,20,1),"v1 best set");
+   Check(!ProgressStore.BestPeak(field,fast,hard,20,2).HasValue,"v2 starts separate");
+   Check(ProgressStore.RecordBest(field,fast,hard,70,20,2),"v2 best set");
+   Check(ProgressStore.BestPeak(field,fast,hard,20,1)==60&&ProgressStore.BestPeak(field,fast,hard,20,2)==70,"versioned best preserved");
+   ProgressStore.RecordBadges(field,fast,hard,3,1);Check(!ProgressStore.HasBadge(field,fast,hard,2,2),"v2 badge separate");
+   ProgressStore.RecordBadges(field,fast,hard,5,2);Check(ProgressStore.HasBadge(field,fast,hard,2,1)&&!ProgressStore.HasBadge(field,fast,hard,4,1)&&ProgressStore.HasBadge(field,fast,hard,4,2),"badges preserve versions");
+  }
+  Check(ProgressStore.Cleared(0)&&!ProgressStore.ClearedForRules(0,false,false,2),"global unlock does not imply v2 win");
+  Check(ProgressStore.RecordClearForRules(0,false,false,2)&&!ProgressStore.RecordClearForRules(0,false,false,2)&&ProgressStore.Cleared(0),"v2 clear and global unlock distinct");
+  Check(ProgressStore.RecordReinforcementBest(2,55,0,1)&&!ProgressStore.ReinforcementBest(2,0,2).HasValue,"reinforcement v2 separate");
+  Check(ProgressStore.RecordReinforcementBest(2,70,0,2)&&ProgressStore.ReinforcementBest(2,0,1)==55&&ProgressStore.ReinforcementBest(2,0,2)==70,"reinforcement records preserved");
   bool invalidSupply=false;try{ProgressStore.RecordBest(0,false,false,20,30);}catch(ArgumentException){invalidSupply=true;}Check(invalidSupply,"invalid supply rejected");
   bool invalidPeak=false;try{ProgressStore.RecordBest(0,false,false,100);}catch(ArgumentException){invalidPeak=true;}Check(invalidPeak,"invalid peak rejected");
 
