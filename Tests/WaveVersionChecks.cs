@@ -3,7 +3,8 @@ using EmberBastion;
 class WaveVersionChecks {
  static void Check(bool ok,string what){if(!ok)throw new Exception(what);}
  static void Main(){
-  for(int i=0;i<Balance.Fields.Length;i++){
+  // only the fields that existed under the legacy rules; the fourth field is rules-2 only (FieldFourChecks)
+  for(int i=0;i<Balance.LegacyFieldCount;i++){
    var field=Balance.Fields[i];var original=field.Waves;int old=original.Length;
    Check(old==(i==0?10:8),"legacy field length");
    var oldBattle=new Battle(42,i);oldBattle.Place(0,0);var prep=oldBattle.SavePreparation();prep.rulesVersion=1;prep.wave=old-1;

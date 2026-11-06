@@ -71,10 +71,31 @@ namespace EmberBastion {
    new[]{new Group(2,8,1,0,1),new Group(3,4,1.6,3),new Group(0,14,.33,6)},
    new[]{new Group(4,1,1,5,1,1.3),new Group(1,12,.35),new Group(2,8,1,2,1),new Group(3,4,1.3,9)}
   };
+  // r26 (Claude): the fourth field exists only under rules 2. A stepped loop: two offset rectangles with gates
+  // at opposite corners, so the inner step corners reward short-range troops more than the other fields do.
+  public static readonly Group[][] MarshWaves={
+   new[]{new Group(0,10,.8),new Group(1,4,.7,6,1)},
+   new[]{new Group(1,8,.5),new Group(0,8,.7,5,1)},
+   new[]{new Group(2,5,1.2),new Group(3,3,1.6,4,1),new Group(0,8,.6,8)},
+   new[]{new Group(4,1,1,3),new Group(1,10,.4,0,1),new Group(0,10,.5,7)},
+   new[]{new Group(2,7,1),new Group(1,10,.35,3,1),new Group(3,4,1.4,8)},
+   new[]{new Group(0,12,.45),new Group(2,6,1,2,1),new Group(1,8,.45,9,1)},
+   new[]{new Group(3,5,1.3,0,1),new Group(2,7,1.05),new Group(1,10,.4,6)},
+   new[]{new Group(4,1,1,2,1,1.2),new Group(0,12,.4),new Group(2,6,1,4,1),new Group(3,4,1.4,8)},
+   new[]{new Group(1,11,.38),new Group(1,11,.38,3,1),new Group(2,6,1.1,7)},
+   new[]{new Group(2,9,.85),new Group(3,5,1.2,3,1),new Group(0,12,.4,7,1)},
+   new[]{new Group(0,13,.36),new Group(1,10,.36,4,1),new Group(2,7,1,6),new Group(3,4,1.3,9,1)},
+   new[]{new Group(4,1,1,0,0,1.3),new Group(4,1,1,5,1,1.3),new Group(2,7,1,2),new Group(1,10,.4,7,1),new Group(3,4,1.3,10)}
+  };
   public static readonly FieldDef[] Fields={
    new FieldDef("성문 앞 방어선",new[]{new Point(192,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},Slots,Gates,Waves,new Point(528,218),224,180),
    new FieldDef("숲길 굽이",new[]{new Point(192,128),new Point(512,128),new Point(512,384),new Point(768,384),new Point(768,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},new[]{new Point(640,256),new Point(400,232),new Point(880,232),new Point(288,256),new Point(992,256),new Point(320,550),new Point(448,550),new Point(832,550),new Point(960,550),new Point(278,400),new Point(1002,400)},new[]{0.0,1088.0},ForestWaves,new Point(544,440),192,154),
-   new FieldDef("바위 고개",new[]{new Point(192,128),new Point(1088,128),new Point(1088,320),new Point(832,320),new Point(832,640),new Point(448,640),new Point(448,448),new Point(192,448)},new[]{new Point(320,232),new Point(480,232),new Point(704,232),new Point(960,224),new Point(928,448),new Point(352,550),new Point(320,352),new Point(576,256)},new[]{0.0,1344.0},PassWaves,new Point(512,400),192,154,340)
+   new FieldDef("바위 고개",new[]{new Point(192,128),new Point(1088,128),new Point(1088,320),new Point(832,320),new Point(832,640),new Point(448,640),new Point(448,448),new Point(192,448)},new[]{new Point(320,232),new Point(480,232),new Point(704,232),new Point(960,224),new Point(928,448),new Point(352,550),new Point(320,352),new Point(576,256)},new[]{0.0,1344.0},PassWaves,new Point(512,400),192,154,340),
+   new FieldDef("습지 나루",new[]{new Point(192,128),new Point(704,128),new Point(704,256),new Point(1088,256),new Point(1088,640),new Point(576,640),new Point(576,512),new Point(192,512)},new[]{new Point(304,232),new Point(464,232),new Point(608,214),new Point(800,344),new Point(960,344),new Point(1000,470),new Point(848,552),new Point(688,552),new Point(448,424),new Point(288,424),new Point(896,168),new Point(384,600)},new[]{0.0,1408.0},MarshWaves,new Point(544,300),192,154,360)
   };
+  // Fields that existed before rules 2; only these can be played under the legacy rules.
+  public const int LegacyFieldCount=3;
+  // Sortie supply pays 20 G per completed field, up to three fields (saves and GrantSupply accept 20..60).
+  public const int MaxSupplyFields=3;
  }
 }
