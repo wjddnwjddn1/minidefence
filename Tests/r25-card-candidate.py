@@ -26,6 +26,13 @@ for old, new in [
     ('(Wave==5&&Reinforcements.SelectedCount==1))', '(Wave==5&&Reinforcements.SelectedCount==1)||(Wave==8&&Reinforcements.SelectedCount==2))'),
 ]:
     battle = once(battle, old, new)
+tuning = sys.argv[4] if len(sys.argv)>4 else 'current'
+if tuning not in ('current','v2'):
+    raise ValueError('tuning must be current or v2')
+if tuning == 'v2':
+    battle = once(battle, 'Math.Pow(1.15,CardCount(ReinforcementDraft.SwordDamage))', 'Math.Pow(1.08,CardCount(ReinforcementDraft.SwordDamage))')
+    battle = once(battle, 'return UnitRange(u)*Math.Pow(1.07,CardCount(ReinforcementDraft.Range));', 'return UnitRange(u)*(u.Kind==1||u.Kind==2||u.Kind==3?Math.Pow(1.07,CardCount(ReinforcementDraft.Range)):1);')
+    battle = once(battle, '(kind==4?1:Math.Pow(1.07,CardCount(ReinforcementDraft.Range)))', '(kind==1||kind==2||kind==3?Math.Pow(1.07,CardCount(ReinforcementDraft.Range)):1)')
 probe = source('Tests/R25CandidateProbe.cs')
 probe = once(probe, 'b.SetDifficulty(mode);int ticks=0,peak=0;', 'b.SetDifficulty(mode);if(!b.EnableReinforcements())throw new Exception("draft init failed");int ticks=0,peak=0;')
 probe = once(probe, 'if(b.Phase==Phase.Preparation&&!b.Start())throw new Exception("start failed");', 'if(b.Phase==Phase.Preparation&&!b.Start())throw new Exception("start failed");if(b.ReinforcementPending&&!b.ChooseReinforcement(b.Reinforcements.Choices()[0]))throw new Exception("choice failed");')
