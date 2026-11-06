@@ -28,6 +28,11 @@ static class CandidateWaves {
    new[]{new[]{new Group(0,10,.7,0,0),new Group(1,8,.6,1,1),new Group(2,5,1,5,0)},new[]{new Group(2,8,.8,0,1),new Group(1,10,.5,1,0),new Group(3,5,1,5,1)},new[]{new Group(4,1,0,4,0,1.1),new Group(3,6,.9,0,1),new Group(0,12,.5,3,0)},new[]{new Group(4,1,0,3,0,1.2),new Group(4,1,0,8,1,1.1),new Group(2,7,.9,0,0),new Group(1,8,.5,2,1)}},
    new[]{new[]{new Group(0,10,.7,0,0),new Group(1,8,.6,1,1),new Group(2,5,1,5,0)},new[]{new Group(2,8,.8,0,1),new Group(1,10,.5,1,0),new Group(3,5,1,5,1)},new[]{new Group(4,1,0,4,0,1.1),new Group(3,6,.9,0,1),new Group(0,12,.5,3,0)},new[]{new Group(4,1,0,3,0,1.2),new Group(4,1,0,8,1,1.1),new Group(2,7,.9,0,0),new Group(1,8,.5,2,1)}},
    new[]{new[]{new Group(0,10,.7,0,0),new Group(1,8,.6,1,1),new Group(2,5,1,5,0)},new[]{new Group(2,8,.8,0,1),new Group(1,10,.5,1,0),new Group(3,5,1,5,1)},new[]{new Group(4,1,0,4,0,1.1),new Group(3,6,.9,0,1),new Group(0,12,.5,3,0)},new[]{new Group(4,1,0,3,0,1.2),new Group(4,1,0,8,1,1.1),new Group(2,7,.9,0,0),new Group(1,8,.5,2,1)}}};
+  if(Environment.GetEnvironmentVariable("R25_CANDIDATE_DISTINCT")=="1"){
+   var forest=additions[1][0];additions[1][0]=additions[1][1];additions[1][1]=forest;
+   var pass=additions[2][0];additions[2][0]=additions[2][2];additions[2][2]=pass;
+   foreach(var wave in additions[2])foreach(var g in wave)if(g.Kind!=4){g.Count=(int)Math.Round(g.Count*.9);g.Gap/=.9;}
+  }
   if(Environment.GetEnvironmentVariable("R25_CANDIDATE_VARIATION")=="1"){
    for(int wave=0;wave<4;wave++)foreach(var g in additions[1][wave]){g.Gate=1-g.Gate;if(g.Kind!=4)g.Delay+=1;}
    for(int wave=0;wave<4;wave++)for(int group=0;group<additions[2][wave].Length;group++){var g=additions[2][wave][group];if((wave+group)%2==0)g.Gate=1-g.Gate;if(g.Kind==1)g.Delay+=1;}
