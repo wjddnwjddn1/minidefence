@@ -1,3 +1,9 @@
+## 2026-11-06 · PixelFX Windows 플레이용 빌드
+
+- 제한된 환경에서는 Unity 라이선스 IPC가 거부됐으나, 권한을 적용한 재시도에서 Unity 6000.6.7f1 Windows 플레이용 빌드가 성공했다(`Logs/pixelfx-windows-retry.log`). 새 실행 파일은 무화면 시작 검사에서 8초간 실행됐다. Windows 화면과 소리는 사람이 아직 확인하지 않았다.
+- 다운로드: `C:/Users/snome/Downloads/EmberBastion-Windows-PixelFX-20261106-223347.zip` (158개 파일, 압축 무결성 통과, SHA-256 `BAF188CF2B07F7CFA6339D4671E5B51F13BB95D0983D02C0E37A3E988D8051AD`). PixelFX MIT 라이선스와 에셋 고지를 동봉했다.
+- 앞선 라이선스 실패 기록은 당시 제한 환경의 결과이며 이번 Windows 빌드로 해소됐다. Claude의 독립 검수는 아직 없다.
+
 ## 2026-11-06 · PixelFX 파이프라인 추가 검증
 
 - 244개 이펙트의 모듈·ID·원점 범위를 확인하고 반복형 `fire/torch`, 액터 포함 `moves/arrow-shot`을 각각 PNG/JSON으로 렌더링해 프레임과 크기, 반복 설정을 검사했다. 게임에서 사용하는 타격 효과 복사본이 생성 원본과 일치함도 확인했다. `node Tests/PixelFxPipeline.mjs` 통과. 이 검사는 전체 244개 렌더링이나 Unity 프리팹 개별 재생 검사가 아니다.
