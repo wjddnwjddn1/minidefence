@@ -29,6 +29,11 @@ for old, new in [
 probe = source('Tests/R25CandidateProbe.cs')
 probe = once(probe, 'b.SetDifficulty(mode);int ticks=0,peak=0;', 'b.SetDifficulty(mode);if(!b.EnableReinforcements())throw new Exception("draft init failed");int ticks=0,peak=0;')
 probe = once(probe, 'if(b.Phase==Phase.Preparation&&!b.Start())throw new Exception("start failed");', 'if(b.Phase==Phase.Preparation&&!b.Start())throw new Exception("start failed");if(b.ReinforcementPending&&!b.ChooseReinforcement(b.Reinforcements.Choices()[0]))throw new Exception("choice failed");')
+strategy = sys.argv[3] if len(sys.argv)>3 else 'first'
+if strategy not in ('first','last'):
+    raise ValueError('strategy must be first or last')
+if strategy == 'last':
+    probe = once(probe, 'b.Reinforcements.Choices()[0]', 'b.Reinforcements.Choices()[b.Reinforcements.Choices().Length-1]')
 probe = once(probe, 'seconds,level2,level3', 'seconds,level2,level3,cards')
 probe = once(probe, '+level2+","+level3);', '+level2+","+level3+","+b.Reinforcements.SelectedCount);')
 for name, data in [('Battle.cs', battle), ('Balance.cs', source('Assets/Scripts/Core/Balance.cs')), ('CombatSave.cs', source('Assets/Scripts/Core/CombatSave.cs')), ('Probe.cs', probe)]:
