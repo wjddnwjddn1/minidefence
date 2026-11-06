@@ -6,7 +6,27 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 
 시각 정정 2 (11-06 08:0x): 11-06 2~7차 머리도 처음에는 추정값(03:4x~05:4x)이라 실제보다 늦게 적혔다. 각 항목에 답한 Codex 커밋 시각을 기준으로 03:2x~04:2x로 고쳤다. Codex 인계 문서에 남은 "Claude 05:2x·05:4x" 같은 표기는 각각 6차(04:1x)·7차(04:2x)를 가리킨다. 순서는 위치로 읽는다.
 
-## 2026-11-07 04:5x · r25 A-1 준비 "규칙 2 저장·기록 분리 API" 검수 28차 (Codex `39e68ec`, `git archive` 커밋 복사본에서 검사)
+## 2026-11-07 04:4x · r25 A-1 "새 전투 규칙 2 + 기록 연결" 검수 29차 (Codex `a76401a`, 커밋 복사본 + Claude가 같은 커밋으로 만든 Web 빌드)
+
+**판정: 로직은 통과. 지적 2건(Web 검사 1건 실패, 활성화 순서).**
+
+- **28차 지적 반영 확인:**
+  - 승리 기록 블록이 `battle.RulesVersion`을 최고 기록·배지·증원 최고 기록에 넘긴다.
+  - 승리하면 전역 해금(`Record`)과 규칙별 클리어(`RecordClearForRules`)를 둘 다 기록한다. 그래서 v2로 처음 시작한 사용자도 다음 전장이 열린다.
+  - 보급은 `newSupply=first&&newUnlock`(전역 첫 클리어 기준)이라 중복 지급되지 않는다.
+  - "이전 완료"는 `SnapshotPreviousClear`가 첫 승리 기록 직전의 전역 상태를 한 번만 보존해서, v2 승리가 이전 규칙 완료로 둔갑하지 않는다.
+  - 증원 승리는 전역 해금을 쓰지 않는다(기존과 같음).
+- **Claude 재실행 (`git archive` 복사본):** `Run-*Checks` 26종 모두 통과. 새 `RuleParityChecks`에서 216판 v1 == v2 == `9FD2B168…`이다. `ComboProbe -Actual` SHA도 같다. Claude 추가 검사 27회 통과. 덧붙인 데이터에서 새 전투는 RulesVersion 2이고, WaveCount가 14·12·12로 늘어나는 것도 확인했다.
+- **Web (Claude가 `a76401a`과 같은 작업 트리로 빌드, 저장소 밖 복사본에서 실행):** 기록 관련 Web 검사 10종 중 9종 통과(`R12RecordsWeb`, `RecordV3Web`, `BestWeb`, `BadgeWinWeb`, `BadgeWeb`, `SupplyWeb`, `ReinforcementUnlockNoticeWeb`, `SortieWeb`, `HardModeWeb`).
+- **[중간, 검사 실패] `ReinforcementEntryWeb` 실패:** 기대값은 `REINFORCE_RECORD 30 61 False`인데 실제는 `REINFORCE_RECORD  61 False`다. 증원 승리 기록은 이제 규칙 2 키에 쓰이는데, 개발 로그는 `ProgressStore.ReinforcementBest(0)`, 즉 기본값 규칙 1 키를 읽어 비어 보인다. 게임 기록 결함이 아니라 개발 로그와 검사 기대값이 낡은 것이다. 출정 화면은 `ReinforcementBest(…, 2)`를 읽는다. 수정 제안: 로그를 `ReinforcementBest(0,0,battle.RulesVersion)`로 바꾸고, "규칙 1 키는 비어 있다"를 함께 확인한다. 같은 방식으로 `BestPeak(0,true)`도 규칙을 명시한다. 기록 키를 바꾸는 커밋에서는 기록 관련 Web 검사 10종을 함께 돌리기를 권한다.
+- **[중간, 순서] 규칙 2가 내용보다 먼저 켜졌다:** 지금 새 전투는 RulesVersion 2지만 웨이브는 아직 10·8·8(v1과 같음, 동등성 SHA로 확인)이다. 이 빌드로 플레이하면 두 가지가 생긴다.
+  - 짧은 판의 승리·배지·최고 기록이 **규칙 2 키에 남는다.** A-2 이후의 긴 판 기록과 섞인다.
+  - 이 빌드에서 만든 규칙 2 진행 중 저장은, A-2가 들어간 뒤 복원하면 **판 도중에 14·12·12웨이브로 늘어난다.**
+  
+  제안: A-2(새 웨이브)를 바로 다음 커밋으로 넣고, 그 사이 빌드는 사용자 플레이용으로 배포하지 않는다. 또는 A-2 전까지 생성 기본값을 1로 되돌린다. 이미 플레이했다면 A-2 커밋에서 규칙 버전을 3으로 올려, 중간 빌드 기록을 "이전 규칙"으로 돌리는 방법도 있다.
+- **Codex 진행 중:** 04:49 현재 `Tests/R25CandidateProbe.cs`와 `Run-R25CandidateProbe.ps1`(새 웨이브 후보 실험으로 보임)이 커밋 전 상태다.
+
+## 2026-11-07 04:3x · r25 A-1 준비 "규칙 2 저장·기록 분리 API" 검수 28차 (Codex `39e68ec`, `git archive` 커밋 복사본에서 검사)
 
 **판정: 통과(API 단계).** 화면 연결 전이라 실제 기록 동작은 아직 바뀌지 않았다.
 
