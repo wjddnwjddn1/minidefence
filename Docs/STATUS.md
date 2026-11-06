@@ -1,3 +1,16 @@
+## 2026-11-06 · 글자 폭 측정 할당 비교와 재사용
+
+- Claude 21차 제안에 따라 Web 개발 빌드에 한정해 `fx-smoke=alloc-profile`에서만 동작하는 `AllocationProbe`와 `Tests/WebAllocationSample.cjs`를 추가했다. 5초 예열 후 15초 동안 `GC Allocated In Frame`을 모으고 1초마다 0세대 GC 횟수와 관리 힙 사용량을 기록한다. 초당 로그도 할당량에 일부 영향을 준다. 플레이용 Windows에는 프로브가 컴파일되지 않는다.
+- 같은 자동 진행 fixture에서 글자 폭 측정에 쓰는 임시 `GUIContent`를 인스턴스별 하나로 재사용하는 변경을 전후 각각 1회 비교했다. headless Edge·SwiftShader의 1280×720 표본은 프레임당 평균 19,817→18,248바이트, 표본 765→789프레임, 0세대 횟수 증가 65→61회였다. 1920×1080은 평균 22,293→20,872바이트, 392→398프레임, 횟수 증가 47→46회였다. 단일 표본과 장면 전체 할당이므로 원인별 기여도·실제 기기 프레임 개선을 확정하지 않는다.
+- Web·Windows 개발 및 Windows 실행판 빌드, 320·390×844·640·800·1280·1920 제목·창 범위, 출정 320~2560 선택·저장 복원, 첫 판 안내, 도움말, 증원 실패 후 재시도 검사가 통과했다. 핵심 199·전투 저장 6,282·소탕 36·증원 53, 조합 216판 SHA `9FD2B168AB217A4B15D24FDC0E120048F17D612AAF6FB2702EB4021E278A5A11` 일치. 화면 기록은 `Docs/r23-alloc-evidence/`.
+- 최신 Windows ZIP `C:/Users/snome/Downloads/EmberBastion-Windows-r23-20261106-161000.zip`, 155개 파일, SHA-256 `46F54CE59F2F8E3FC5C785265F0AAAD10449A3C3B4B041FF9E6A4EDF090E9A24`. 압축 무결성과 실행 파일·데이터 포함 확인. 실제 Windows 플레이·소리·터치 및 독립 검수는 남았다. 이전 GC 표본 항목은 재사용 전·초당 로그 추가 전의 별도 관측이다.
+
+## 2026-11-06 · Unity Web GC 할당 표본
+
+- `AllocationProbe`를 Web 개발 빌드에서 `fx-smoke=alloc-profile`이 있을 때만 실행하도록 추가했다. Unity `ProfilerRecorder`의 `Memory / GC Allocated In Frame`을 5초 예열 후 15초 동안 수집하며 `Tests/WebAllocationSample.cjs`가 격리 자동 진행 장면의 로그를 수집한다. 일반 Web 실행과 플레이용 Windows 빌드에서는 프로브가 실행되지 않는다.
+- 단일 실행 결과 1280×720은 유효 표본 795프레임, 프레임당 평균 19,714바이트·최대 57,598바이트·할당 795프레임이었다. 1920×1080은 388프레임, 평균 22,329바이트·최대 40,220바이트·할당 388프레임이었다. 개발 Web 빌드, headless Edge, SwiftShader 환경이다.
+- 이는 장면 전체의 관리 힙 할당으로 `GUIContent`만의 비용을 분리하지 못한다. 단일 실행 결과이므로 전후 비교나 원인 판단 없이 최적화하지 않았다. 실제 하드웨어와 Unity Profiler에서 함수별 할당·프레임 시간을 확인한 뒤 우선순위를 정한다.
+
 ## 2026-11-06 · Web 프레임 간격 표본
 
 - Claude 18차가 언급한 `GUIContent` 할당 우려를 바로 최적화하지 않고, 현재 Web 개발 빌드의 격리 자동 진행 장면을 먼저 표본 측정했다. `Tests/WebFrameSample.cjs`는 headless Edge·SwiftShader에서 해상도별 5초 예열 후 `requestAnimationFrame` 간격을 15초 수집한다.
