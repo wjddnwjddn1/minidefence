@@ -60,3 +60,10 @@
 - Free Pack `UI Elements/UI Elements/Papers/SpecialPaper.png`를 기존 보조 버튼 배경 `UISpecialPaper.png`로 사용했다. SHA-256 `26C0AD30C7858E3B0F09454E74BC63104D43AC25328A3DBA48B42779096C023D`. Free Pack 이용 조건을 적용한다.
 
 - Free Pack `Bars/BigBar_Base.png`와 `BigBar_Fill.png`를 기존 적 수 바로 사용했다. SHA-256은 각각 `A1053C7B5176B80DF5240D504A5D948337C3FE0BA6F4AF0BB0DDA0776071C0AC`, `1EEE58410178874F54D2A66AB77B7C66EA1670823720F9CBF115E761AF8C8CF2`. Free Pack 이용 조건을 적용한다.
+
+
+## PixelFX
+
+- [PixelFX](https://github.com/patch-gg/pixelfx), version 0.3.0, commit `a84159688af3ca37a4be05a0d422b94451b2e24e`: Copyright (c) 2026 Patch and Hugo Duprez, MIT License. Full license: `ThirdParty/PixelFX/LICENSE`.
+- Portions adapt Sprite Fusion VFX, Copyright (c) 2026 Hugo Duprez, and Hollow Crown, Copyright (c) 2026 rehan-remade, both MIT; see `ThirdParty/PixelFX/NOTICE.md`.
+- Patch Pixel and other gallery fonts are not included or used. Generated `impacts/hit-spark` sprite sheet derives from PixelFX.
