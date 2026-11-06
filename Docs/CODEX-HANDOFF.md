@@ -1,3 +1,9 @@
+## 2026-11-06 · PixelFX 파이프라인 추가 검증
+
+- 244개 이펙트의 모듈·ID·원점 범위를 확인하고 반복형 `fire/torch`, 액터 포함 `moves/arrow-shot`을 각각 PNG/JSON으로 렌더링해 프레임과 크기, 반복 설정을 검사했다. 게임에서 사용하는 타격 효과 복사본이 생성 원본과 일치함도 확인했다. `node Tests/PixelFxPipeline.mjs` 통과. 이 검사는 전체 244개 렌더링이나 Unity 프리팹 개별 재생 검사가 아니다.
+- 존재하지 않는 ID에 원본 도구가 성공 종료하던 문제를 프로젝트 래퍼에서 오류 코드 2로 처리했다. 기존 결과 덮어쓰기 방지도 검사했다.
+- Unity 라이선스 서비스가 IPC 연결을 반복 거부해 Windows 재빌드는 아직 완료되지 않았다. Claude 독립 검수는 아직 없다.
+
 ## 2026-11-06 · PixelFX 연동
 
 - Claude Code 사용자 플러그인 `pixelfx@pixelfx`를 설치하고, 저장소 `.claude/skills/pixelfx/SKILL.md`와 PixelFX 0.3.0 소스(커밋 `a84159688af3ca37a4be05a0d422b94451b2e24e`)를 고정했다. 사용자 플러그인 업데이트와 저장소 고정 소스는 별개다.

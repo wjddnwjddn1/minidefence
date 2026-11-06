@@ -7,6 +7,7 @@ const [id,...input]=process.argv.slice(2);
 const force=input.includes('--force'), withActor=input.includes('--with-actor');
 const args=input.filter(a=>a!=='--force'&&a!=='--with-actor');
 if(!id||!/^([a-z0-9-]+)\/([a-z0-9-]+)$/.test(id)){console.error('Usage: node Tools/PixelFX/render.mjs category/effect [--fps N] [--seed N] [--opts JSON]');process.exit(2);}
+if(!existsSync(join(root,'ThirdParty','PixelFX','src','fx',id+'.js'))){console.error('Unknown PixelFX effect: '+id);process.exit(2);}
 if(args.some(a=>['--out','--sheet','--gif','--mp4'].includes(a))){console.error('Output and sheet mode are managed by this wrapper.');process.exit(2);}
 const dest=join(root,'Assets','PixelFX','Generated');
 if(!force && existsSync(join(dest,id,id.split('/')[1]+'.png'))){console.error('Output exists; pass --force to replace it.');process.exit(2);}
