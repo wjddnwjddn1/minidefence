@@ -1,0 +1,26 @@
+Windows 플레이용 ZIP 격리 실행 확인 (2026-11-06)
+ZIP: EmberBastion-Windows-r23-20261106-161000.zip
+인자: -batchmode -nographics -logFile <격리 로그>
+결과: 프로세스가 10초 동안 유지되어 테스트가 종료했다.
+제한: Null 그래픽 장치로 실행했으며 표시·소리·입력·전투 및 정상 종료는 검증하지 않았다.
+EXE SHA256 595A5DA7D0185B9D3D8D7BDFF1D6F93BA844741F805D0A2B5132D3A56A89B87D
+
+[Unity 로그 마지막 18줄]
+[EntityIdStore] init: VM path (explicit commit), pageSize=4096, blockCount=262144, entitiesPerBlock=1024, blocksPerSlotPage=0, slots reserved=4294967296 bytes
+[Subsystems] Discovering subsystems at path C:/minidefence/Tests/bin/r23-release-smoke/player/EmberBastion_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Finished resetting the current domain, in  0.005 seconds
+[Physics::Module] Selected backend (deferred post-plugins).
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.459800 ms
