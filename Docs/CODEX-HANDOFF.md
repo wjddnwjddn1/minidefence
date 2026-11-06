@@ -1,3 +1,9 @@
+## 2026-11-06 · 넓은 화면 첫 판 안내 크기
+
+- Claude 19차 독립 검수에 따라 넓은 화면에서 말풍선과 글자·건너뛰기 버튼을 화면 높이에 맞춰 함께 키웠다. 1920×1080 세 단계 전장 경계·진행·완료 및 건너뛰기 저장을 새 `Tests/TutorialLargeWeb.cjs`, `Tests/TutorialSkipLargeWeb.cjs`로 확인하고 `Docs/r22-large-evidence/`에 화면을 남겼다. 320·640·1280 단계와 건너뛰기, 저장 실패 동시 표시도 재검사했다.
+- Web·Windows 개발 빌드 및 Windows 실행판 빌드 성공. 최신 Windows ZIP은 `C:/Users/snome/Downloads/EmberBastion-Windows-r22-large-20261106-155612.zip`(155개 파일, SHA-256 `90C70813EF3CDAF8E654E75294F30AFBE7BC8CDA027EA4BD88B1F3396CAB570F`), ZIP 전체 무결성과 실행 파일·데이터 포함을 확인했다. Windows 실제 플레이·소리 청취·터치 실기기·사용자 UI 평가는 미확인이다.
+- Claude 19차는 기존 r22의 말풍선 위치·r21 안내 중첩 방지, 죽은 코드 제거와 README 표기를 독립 확인했다. 이번 글자 크기 보완은 독립 검수 대기다.
+
 ## 2026-11-06 · r22 저장 경고 동시 표시 확인
 
 - 격리 Web에서 첫 판 안내와 자동 저장 실패를 동시에 주입했다. 말풍선이 전장 위쪽으로 이동하고 저장 경고는 아래쪽에 남는 것을 `Docs/r22-tutorial-evidence/warning-tutorial-1280.png`에서 확인했다. 안내 경계, 경고 표시, 이동한 건너뛰기 버튼과 건너뛰기 저장은 `Tests/TutorialSaveWarningWeb.cjs`로 재확인했다.
