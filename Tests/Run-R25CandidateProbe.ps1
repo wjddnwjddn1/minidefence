@@ -1,4 +1,4 @@
-param([string]$OutputPath='', [string]$Factor='2.5', [switch]$Varied, [switch]$Idle)
+param([string]$OutputPath='', [string]$Factor='2.5', [switch]$Varied, [switch]$Idle, [switch]$Tuned)
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
 $bin=Join-Path $PSScriptRoot 'bin'
@@ -9,9 +9,11 @@ $exe=Join-Path $bin 'R25CandidateProbe.exe'
 if($LASTEXITCODE -ne 0){throw 'Compilation failed'}
 $prior=$env:R25_CANDIDATE_FACTOR
 $priorVariation=$env:R25_CANDIDATE_VARIATION
+$priorTuned=$env:R25_CANDIDATE_TUNED
 try {
  $env:R25_CANDIDATE_FACTOR=$Factor
  $env:R25_CANDIDATE_VARIATION=if($Varied){'1'}else{'0'}
+ $env:R25_CANDIDATE_TUNED=if($Tuned){'1'}else{'0'}
  $all=@()
  foreach($mode in @(0,1,2)){
   $rows=if($Idle){@(& $exe $mode 100 on 4 idle)}else{@(& $exe $mode 100 on 4)}
@@ -21,4 +23,4 @@ try {
  }
  if($OutputPath){[IO.File]::WriteAllLines([IO.Path]::GetFullPath($OutputPath),[string[]]$all,[Text.UTF8Encoding]::new($false))}
  else{$all}
-} finally {$env:R25_CANDIDATE_FACTOR=$prior; $env:R25_CANDIDATE_VARIATION=$priorVariation}
+} finally {$env:R25_CANDIDATE_FACTOR=$prior; $env:R25_CANDIDATE_VARIATION=$priorVariation; $env:R25_CANDIDATE_TUNED=$priorTuned}

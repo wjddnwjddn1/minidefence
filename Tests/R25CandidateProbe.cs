@@ -32,6 +32,10 @@ static class CandidateWaves {
    for(int wave=0;wave<4;wave++)foreach(var g in additions[1][wave]){g.Gate=1-g.Gate;if(g.Kind!=4)g.Delay+=1;}
    for(int wave=0;wave<4;wave++)for(int group=0;group<additions[2][wave].Length;group++){var g=additions[2][wave][group];if((wave+group)%2==0)g.Gate=1-g.Gate;if(g.Kind==1)g.Delay+=1;}
   }
+  if(Environment.GetEnvironmentVariable("R25_CANDIDATE_TUNED")=="1"){
+   foreach(var g in additions[0][3])if(g.Kind==4){g.Multiplier*=.7;g.Delay=Math.Max(0,g.Delay-3);}
+   foreach(var g in additions[1][3])if(g.Kind==4)g.Multiplier*=1.5;
+  }
   double factor=double.Parse(Environment.GetEnvironmentVariable("R25_CANDIDATE_FACTOR")??"1",System.Globalization.CultureInfo.InvariantCulture);foreach(var field in additions)foreach(var wave in field)foreach(var g in wave)if(g.Kind!=4){g.Count=(int)Math.Round(g.Count*factor);g.Gap/=factor;}
   for(int f=0;f<Math.Min(3,Balance.Fields.Length);f++){var original=Balance.Fields[f].Waves;var expanded=new Group[original.Length+4][];Array.Copy(original,expanded,original.Length);Array.Copy(additions[f],0,expanded,original.Length,4);Balance.Fields[f].Waves=expanded;}
  }
