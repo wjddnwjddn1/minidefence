@@ -4,12 +4,12 @@ $bin=Join-Path $PSScriptRoot 'bin'
 New-Item -ItemType Directory -Path $bin -Force | Out-Null
 $compiler=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 $source=[System.IO.File]::ReadAllText((Join-Path $root 'Assets\Scripts\Core\Battle.cs'),[System.Text.Encoding]::UTF8)
-$pattern='rng=seed;RulesVersion=2;FieldIndex=fieldIndex;'
+$pattern='rng=seed;RulesVersion=3;FieldIndex=fieldIndex;'
 if(-not $source.Contains($pattern)){throw 'Unexpected Battle constructor'}
 $hashes=@()
 foreach($version in @(1,2)){
  $copy=Join-Path $bin "RuleParityBattle$version.cs"
- $code=if($version -eq 1){$source.Replace($pattern,'rng=seed;RulesVersion=1;FieldIndex=fieldIndex;')}else{$source}
+ $code=if($version -eq 1){$source.Replace($pattern,'rng=seed;RulesVersion=1;FieldIndex=fieldIndex;')}else{$source.Replace($pattern,'rng=seed;RulesVersion=2;FieldIndex=fieldIndex;')}
  [System.IO.File]::WriteAllText($copy,$code,[System.Text.UTF8Encoding]::new($false))
  $exe=Join-Path $bin "RuleParity$version.exe"
  & $compiler /nologo /utf8output /codepage:65001 "/out:$exe" (Join-Path $root 'Assets\Scripts\Core\Balance.cs') $copy (Join-Path $root 'Assets\Scripts\Core\CombatSave.cs') (Join-Path $PSScriptRoot 'ComboProbe.cs')

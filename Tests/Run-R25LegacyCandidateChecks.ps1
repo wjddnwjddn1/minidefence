@@ -4,7 +4,7 @@ $bin=Join-Path $PSScriptRoot 'bin'
 New-Item -ItemType Directory -Path $bin -Force | Out-Null
 $compiler=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 $source=[IO.File]::ReadAllText((Join-Path $root 'Assets\Scripts\Core\Battle.cs'),[Text.Encoding]::UTF8)
-$pattern='rng=seed;RulesVersion=2;FieldIndex=fieldIndex;'
+$pattern='rng=seed;RulesVersion=3;FieldIndex=fieldIndex;'
 if(-not $source.Contains($pattern)){throw 'Unexpected battle constructor'}
 $copy=Join-Path $bin 'R25LegacyCandidateBattle.cs'
 [IO.File]::WriteAllText($copy,$source.Replace($pattern,'rng=seed;RulesVersion=1;FieldIndex=fieldIndex;'),[Text.UTF8Encoding]::new($false))

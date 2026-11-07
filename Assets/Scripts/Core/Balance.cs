@@ -14,7 +14,7 @@ namespace EmberBastion {
   public EnemyDef(string name,double hp,double speed,double armor=0,double blastTaken=1,double meleeTaken=1){Name=name;HP=hp;Speed=speed;Armor=armor;BlastTaken=blastTaken;MeleeTaken=meleeTaken;}
  }
  public sealed class Group {
-  public int Kind,Count,Gate;public double Gap,Delay,Multiplier;
+  public int Kind,Count,Gate;public double Gap,Delay,Multiplier;public bool Extended;
   public Group(int kind,int count,double gap,double delay=0,int gate=0,double multiplier=1){Kind=kind;Count=count;Gap=gap;Delay=delay;Gate=gate;Multiplier=multiplier;}
  }
  public sealed class FieldDef {
@@ -87,10 +87,19 @@ namespace EmberBastion {
    new[]{new Group(0,13,.36),new Group(1,10,.36,4,1),new Group(2,7,1,6),new Group(3,4,1.3,9,1)},
    new[]{new Group(4,1,1,0,0,1.3),new Group(4,1,1,5,1,1.3),new Group(2,7,1,2),new Group(1,10,.4,7,1),new Group(3,4,1.3,10)}
   };
+  // New campaign waves are appended once; older saved rules use their frozen wave count.
+  static Group Extra(int kind,int count,double gap,double delay=0,int gate=0,double multiplier=1){return new Group(kind,count,gap,delay,gate,multiplier){Extended=true};}
+  static Group[][] ExtendedWaves(Group[][] original,int field){
+   var extra=new[]{new[]{Extra(0,10,.7,0,0),Extra(1,8,.6,1,1),Extra(2,5,1,5,0)},new[]{Extra(2,8,.8,0,1),Extra(1,10,.5,1,0),Extra(3,5,1,5,1)},new[]{Extra(4,1,0,4,0,1.1),Extra(3,6,.9,0,1),Extra(0,12,.5,3,0)},new[]{Extra(4,1,0,3,0,1.2),Extra(4,1,0,8,1,1.1),Extra(2,7,.9,0,0),Extra(1,8,.5,2,1)}};
+   if(field==1){var t=extra[0];extra[0]=extra[1];extra[1]=t;foreach(var wave in extra)foreach(var g in wave){g.Gate=1-g.Gate;if(g.Kind!=4)g.Delay+=1;}foreach(var g in extra[3])if(g.Kind==4)g.Multiplier*=1.5;}
+   if(field==2){var t=extra[0];extra[0]=extra[2];extra[2]=t;foreach(var wave in extra)foreach(var g in wave)if(g.Kind!=4){g.Count=(int)Math.Round(g.Count*.9);g.Gap/=.9;}for(int w=0;w<extra.Length;w++)for(int j=0;j<extra[w].Length;j++){var g=extra[w][j];if((w+j)%2==0)g.Gate=1-g.Gate;if(g.Kind==1)g.Delay+=1;}}
+   if(field==0)foreach(var g in extra[3])if(g.Kind==4){g.Multiplier*=.7;g.Delay=Math.Max(0,g.Delay-3);}
+   var result=new Group[original.Length+extra.Length][];Array.Copy(original,result,original.Length);Array.Copy(extra,0,result,original.Length,extra.Length);return result;
+  }
   public static readonly FieldDef[] Fields={
-   new FieldDef("성문 앞 방어선",new[]{new Point(192,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},Slots,Gates,Waves,new Point(528,218),224,180),
-   new FieldDef("숲길 굽이",new[]{new Point(192,128),new Point(512,128),new Point(512,384),new Point(768,384),new Point(768,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},new[]{new Point(640,256),new Point(400,232),new Point(880,232),new Point(288,256),new Point(992,256),new Point(320,550),new Point(448,550),new Point(832,550),new Point(960,550),new Point(278,400),new Point(1002,400)},new[]{0.0,1088.0},ForestWaves,new Point(544,440),192,154),
-   new FieldDef("바위 고개",new[]{new Point(192,128),new Point(1088,128),new Point(1088,320),new Point(832,320),new Point(832,640),new Point(448,640),new Point(448,448),new Point(192,448)},new[]{new Point(320,232),new Point(480,232),new Point(704,232),new Point(960,224),new Point(928,448),new Point(352,550),new Point(320,352),new Point(576,256)},new[]{0.0,1344.0},PassWaves,new Point(512,400),192,154,340),
+   new FieldDef("성문 앞 방어선",new[]{new Point(192,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},Slots,Gates,ExtendedWaves(Waves,0),new Point(528,218),224,180),
+   new FieldDef("숲길 굽이",new[]{new Point(192,128),new Point(512,128),new Point(512,384),new Point(768,384),new Point(768,128),new Point(1088,128),new Point(1088,640),new Point(192,640)},new[]{new Point(640,256),new Point(400,232),new Point(880,232),new Point(288,256),new Point(992,256),new Point(320,550),new Point(448,550),new Point(832,550),new Point(960,550),new Point(278,400),new Point(1002,400)},new[]{0.0,1088.0},ExtendedWaves(ForestWaves,1),new Point(544,440),192,154),
+   new FieldDef("바위 고개",new[]{new Point(192,128),new Point(1088,128),new Point(1088,320),new Point(832,320),new Point(832,640),new Point(448,640),new Point(448,448),new Point(192,448)},new[]{new Point(320,232),new Point(480,232),new Point(704,232),new Point(960,224),new Point(928,448),new Point(352,550),new Point(320,352),new Point(576,256)},new[]{0.0,1344.0},ExtendedWaves(PassWaves,2),new Point(512,400),192,154,340),
    new FieldDef("습지 나루",new[]{new Point(192,128),new Point(704,128),new Point(704,256),new Point(1088,256),new Point(1088,640),new Point(576,640),new Point(576,512),new Point(192,512)},new[]{new Point(304,232),new Point(464,232),new Point(608,214),new Point(800,344),new Point(960,344),new Point(1000,470),new Point(848,552),new Point(688,552),new Point(448,424),new Point(288,424),new Point(896,168),new Point(384,600)},new[]{0.0,1408.0},MarshWaves,new Point(544,300),192,154,360)
   };
   // Fields that existed before rules 2; only these can be played under the legacy rules.

@@ -8,18 +8,18 @@ class FieldFourChecks {
  static double SegDistance(Point p,Point a,Point b){double dx=b.X-a.X,dy=b.Y-a.Y,t=Math.Max(0,Math.Min(1,((p.X-a.X)*dx+(p.Y-a.Y)*dy)/(dx*dx+dy*dy)));return Point.Distance(p,new Point(a.X+t*dx,a.Y+t*dy));}
  static double RoadDistance(FieldDef f,Point p){double d=double.MaxValue;for(int i=0;i<f.Points.Length;i++)d=Math.Min(d,SegDistance(p,f.Points[i],f.Points[(i+1)%f.Points.Length]));return d;}
  static Battle Army(uint seed){var b=new Battle(seed,3);b.Gold=20000;for(int s=0;s<b.Field.Slots.Length;s++)Check(b.Place(s%3==2?3:s%2,s),"place "+s);foreach(var u in b.Units.ToArray())for(int k=0;k<2;k++)b.Upgrade(u.Slot);return b;}
- static string Run(Battle b,int saveAtWave,out string resumed){resumed=null;Check(b.Start(),"start");bool saved=false;while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost){b.Step(Balance.Tick);if(b.Phase==Phase.Preparation)Check(b.Start(),"next wave");if(!saved&&b.Wave==saveAtWave&&b.Phase==Phase.Fighting){saved=true;var copy=Battle.ImportCombat(b.ExportCombat());Check(copy.RulesVersion==2&&copy.FieldIndex==3&&copy.WaveCount==12,"combat save keeps rules 2 and 12 waves");string dummy;resumed=Finish(copy,out dummy);}}return b.Phase+" wave "+b.Wave+" peak "+b.PeakAlive+" kills "+b.Kills+" gold "+b.Gold;}
+ static string Run(Battle b,int saveAtWave,out string resumed){resumed=null;Check(b.Start(),"start");bool saved=false;while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost){b.Step(Balance.Tick);if(b.Phase==Phase.Preparation)Check(b.Start(),"next wave");if(!saved&&b.Wave==saveAtWave&&b.Phase==Phase.Fighting){saved=true;var copy=Battle.ImportCombat(b.ExportCombat());Check(copy.RulesVersion==3&&copy.FieldIndex==3&&copy.WaveCount==12,"combat save keeps rules 3 and 12 waves");string dummy;resumed=Finish(copy,out dummy);}}return b.Phase+" wave "+b.Wave+" peak "+b.PeakAlive+" kills "+b.Kills+" gold "+b.Gold;}
  static string Finish(Battle b,out string unused){unused=null;while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost){b.Step(Balance.Tick);if(b.Phase==Phase.Preparation)Check(b.Start(),"next wave after restore");}return b.Phase+" wave "+b.Wave+" peak "+b.PeakAlive+" kills "+b.Kills+" gold "+b.Gold;}
  static void Main(){
   Check(Balance.Fields.Length==4&&Balance.LegacyFieldCount==3,"four fields, three legacy");
   var f=Balance.Fields[3];
   Check(f.Name=="습지 나루"&&f.Waves.Length==12&&f.StartGold==360&&f.Slots.Length==12&&f.Gates.Length==2,"field data");
   Check(Math.Abs(f.Perimeter-2816)<1e-9&&Math.Abs(f.Gates[1]-1408)<1e-9,"perimeter and second gate");
-  // rules: new battles are rules 2 with all twelve waves; the legacy rules cannot open this field
-  var fresh=new Battle(1,3);Check(fresh.RulesVersion==2&&fresh.WaveCount==12,"new battle rules 2, 12 waves");
+  // New battles use rules 3; rules 2 stays compatible and older rules cannot open this field
+  var fresh=new Battle(1,3);Check(fresh.RulesVersion==3&&fresh.WaveCount==12,"new battle rules 3, 12 waves");
   Check(Battle.WaveCountFor(3,0)==0&&Battle.WaveCountFor(3,1)==0&&Battle.WaveCountFor(3,2)==12,"legacy rules see no waves here");
   for(int legacy=0;legacy<=1;legacy++){var prep=fresh.SavePreparation();prep.rulesVersion=legacy;bool refused=false;try{Battle.RestorePreparation(prep);}catch(ArgumentException){refused=true;}Check(refused,"legacy "+legacy+" preparation refused");}
-  var ok2=Battle.RestorePreparation(fresh.SavePreparation());Check(ok2.RulesVersion==2&&ok2.FieldIndex==3,"rules 2 preparation restores");
+  var prep2=fresh.SavePreparation();prep2.rulesVersion=2;var ok2=Battle.RestorePreparation(prep2);Check(ok2.RulesVersion==2&&ok2.FieldIndex==3,"rules 2 preparation restores");
   var started=Army(5);Check(started.Start(),"start for save");var combat=started.ExportCombat();combat.rulesVersion=1;bool refusedCombat=false;try{Battle.ImportCombat(combat);}catch(ArgumentException){refusedCombat=true;}Check(refusedCombat,"legacy combat save refused");
   // legacy fields keep their legacy lengths
   for(int i=0;i<Balance.LegacyFieldCount;i++)Check(Battle.WaveCountFor(i,1)==(i==0?10:8),"legacy field "+i+" length");
