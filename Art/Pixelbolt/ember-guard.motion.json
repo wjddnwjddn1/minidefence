@@ -1,0 +1,2905 @@
+{
+  "format": "pixelforge-pose-metadata",
+  "version": 1,
+  "coordinates": "unscaled source pixels; top-left origin; positive y down; marker times are milliseconds before playback-rate adjustment",
+  "poses": {
+    "stand": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b123",
+          "rotate": 125,
+          "angle": -145,
+          "worldAngle": 125,
+          "joints": { "start": [17, 16], "end": [15, 19] },
+          "topLeft": [14, 16],
+          "anchor": [17, 16],
+          "points": { "end": [15, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b133",
+          "rotate": 140,
+          "angle": 15,
+          "worldAngle": 140,
+          "joints": { "start": [15, 19], "end": [13, 21] },
+          "topLeft": [12, 19],
+          "anchor": [15, 19],
+          "points": { "end": [13, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 90,
+          "angle": 0,
+          "worldAngle": 90,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 90,
+          "angle": 0,
+          "worldAngle": 90,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": []
+    },
+    "idle-rest": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b123",
+          "rotate": 127,
+          "angle": -143,
+          "worldAngle": 127,
+          "joints": { "start": [17, 16], "end": [15, 19] },
+          "topLeft": [14, 16],
+          "anchor": [17, 16],
+          "points": { "end": [15, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b133",
+          "rotate": 141,
+          "angle": 14,
+          "worldAngle": 141,
+          "joints": { "start": [15, 19], "end": [13, 21] },
+          "topLeft": [12, 19],
+          "anchor": [15, 19],
+          "points": { "end": [13, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "idle-inhale": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 132,
+          "angle": -138,
+          "worldAngle": 132,
+          "joints": { "start": [17, 16], "end": [14, 19] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b147",
+          "rotate": 147,
+          "angle": 15,
+          "worldAngle": 147,
+          "joints": { "start": [14, 19], "end": [11, 21] },
+          "topLeft": [10, 19],
+          "anchor": [14, 19],
+          "points": { "end": [11, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0s105",
+          "squash": 1.05,
+          "topLeft": [16, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 6], "anchor": [19, 14], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "idle-settle": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b123",
+          "rotate": 123,
+          "angle": -147,
+          "worldAngle": 123,
+          "joints": { "start": [17, 16], "end": [15, 19] },
+          "topLeft": [14, 16],
+          "anchor": [17, 16],
+          "points": { "end": [15, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b133",
+          "rotate": 139,
+          "angle": 16,
+          "worldAngle": 139,
+          "joints": { "start": [15, 19], "end": [13, 21] },
+          "topLeft": [12, 19],
+          "anchor": [15, 19],
+          "points": { "end": [13, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "idle-exhale": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b114",
+          "rotate": 118,
+          "angle": -152,
+          "worldAngle": 118,
+          "joints": { "start": [17, 16], "end": [15, 20] },
+          "topLeft": [14, 16],
+          "anchor": [17, 16],
+          "points": { "end": [15, 20] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b133",
+          "rotate": 133,
+          "angle": 15,
+          "worldAngle": 133,
+          "joints": { "start": [15, 20], "end": [13, 22] },
+          "topLeft": [12, 20],
+          "anchor": [15, 20],
+          "points": { "end": [13, 22] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "squash": 0.95,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 8], "anchor": [19, 16], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "walk-contact-a": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b143",
+          "rotate": 148,
+          "angle": -122,
+          "worldAngle": 148,
+          "joints": { "start": [17, 16], "end": [14, 18] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 165,
+          "angle": 17,
+          "worldAngle": 165,
+          "joints": { "start": [14, 18], "end": [11, 19] },
+          "topLeft": [10, 18],
+          "anchor": [14, 18],
+          "points": { "end": [11, 19] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b70",
+          "rotate": 70,
+          "angle": 160,
+          "worldAngle": 70,
+          "joints": { "start": [19, 17], "end": [20, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [20, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b20",
+          "rotate": 20,
+          "angle": -50,
+          "worldAngle": 20,
+          "joints": { "start": [20, 21], "end": [24, 22] },
+          "topLeft": [20, 21],
+          "anchor": [20, 21],
+          "points": { "end": [24, 22] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [23, 21], "anchor": [24, 22], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b107",
+          "rotate": 107,
+          "angle": 90,
+          "worldAngle": 107,
+          "joints": { "start": [19, 23], "end": [17, 28] },
+          "topLeft": [15, 21],
+          "anchor": [19, 23],
+          "points": { "end": [17, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b107",
+          "rotate": 107,
+          "worldAngle": 107,
+          "joints": { "start": [17, 28], "end": [15, 33] },
+          "reach": { "target": [15, 33], "error": 0, "unreachable": false },
+          "topLeft": [14, 27],
+          "anchor": [17, 28],
+          "points": { "end": [15, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [14, 32], "anchor": [15, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b73",
+          "rotate": 73,
+          "angle": 90,
+          "worldAngle": 73,
+          "joints": { "start": [19, 23], "end": [21, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b68",
+          "rotate": 68,
+          "worldAngle": 68,
+          "joints": { "start": [21, 28], "end": [23, 33] },
+          "reach": { "target": [23, 33], "error": 0, "unreachable": false },
+          "topLeft": [20, 27],
+          "anchor": [21, 28],
+          "points": { "end": [23, 33] }
+        },
+        "nearBoot": {
+          "definition": "boot",
+          "symbol": "boot-v330",
+          "rotate": 330,
+          "view": 330,
+          "topLeft": [22, 32],
+          "anchor": [23, 33],
+          "points": {}
+        },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b115",
+          "rotate": 120,
+          "angle": -150,
+          "worldAngle": 120,
+          "joints": { "start": [19, 17], "end": [17, 21] },
+          "topLeft": [16, 16],
+          "anchor": [19, 17],
+          "points": { "end": [17, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b100",
+          "rotate": 105,
+          "angle": -15,
+          "worldAngle": 105,
+          "joints": { "start": [17, 21], "end": [16, 25] },
+          "topLeft": [15, 21],
+          "anchor": [17, 21],
+          "points": { "end": [16, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r60",
+          "rotate": 60,
+          "angle": -45,
+          "topLeft": [14, 24],
+          "anchor": [16, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [15, 24], "anchor": [16, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [23, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [15, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "walk-down-a": {
+      "origin": [19, 36],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 140,
+          "angle": -130,
+          "worldAngle": 140,
+          "joints": { "start": [17, 17], "end": [14, 20] },
+          "topLeft": [13, 17],
+          "anchor": [17, 17],
+          "points": { "end": [14, 20] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 159,
+          "angle": 19,
+          "worldAngle": 159,
+          "joints": { "start": [14, 20], "end": [11, 21] },
+          "topLeft": [10, 20],
+          "anchor": [14, 20],
+          "points": { "end": [11, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b70",
+          "rotate": 75,
+          "angle": 165,
+          "worldAngle": 75,
+          "joints": { "start": [19, 18], "end": [20, 22] },
+          "topLeft": [18, 17],
+          "anchor": [19, 18],
+          "points": { "end": [20, 22] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b23",
+          "rotate": 29,
+          "angle": -46,
+          "worldAngle": 29,
+          "joints": { "start": [20, 22], "end": [24, 24] },
+          "topLeft": [20, 22],
+          "anchor": [20, 22],
+          "points": { "end": [24, 24] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [23, 23], "anchor": [24, 24], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 24], "end": [19, 29] },
+          "topLeft": [17, 22],
+          "anchor": [19, 24],
+          "points": { "end": [19, 29] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b150",
+          "rotate": 150,
+          "worldAngle": 150,
+          "joints": { "start": [19, 29], "end": [15, 31] },
+          "reach": { "target": [15, 31], "error": 0, "unreachable": false },
+          "topLeft": [14, 28],
+          "anchor": [19, 29],
+          "points": { "end": [15, 31] }
+        },
+        "farBoot": {
+          "definition": "farBoot",
+          "symbol": "farBoot-v30",
+          "rotate": 30,
+          "view": 30,
+          "topLeft": [14, 30],
+          "anchor": [15, 31],
+          "points": {}
+        },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 20],
+          "anchor": [19, 23],
+          "points": { "hip": [19, 24], "waist": [19, 22] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 22], "end": [19, 16] },
+          "topLeft": [15, 12],
+          "anchor": [19, 22],
+          "points": { "end": [19, 16], "shoulder": [19, 18], "neck": [19, 16], "nape": [17, 17] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 24], "end": [21, 28] },
+          "topLeft": [17, 22],
+          "anchor": [19, 24],
+          "points": { "end": [21, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [21, 28], "end": [21, 33] },
+          "reach": { "target": [21, 33], "error": 0, "unreachable": false },
+          "topLeft": [20, 27],
+          "anchor": [21, 28],
+          "points": { "end": [21, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [20, 32], "anchor": [21, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 8], "anchor": [19, 16], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 15], "anchor": [19, 16], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b115",
+          "rotate": 115,
+          "angle": -155,
+          "worldAngle": 115,
+          "joints": { "start": [19, 18], "end": [17, 22] },
+          "topLeft": [16, 17],
+          "anchor": [19, 18],
+          "points": { "end": [17, 22] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b100",
+          "rotate": 100,
+          "angle": -15,
+          "worldAngle": 100,
+          "joints": { "start": [17, 22], "end": [16, 26] },
+          "topLeft": [15, 22],
+          "anchor": [17, 22],
+          "points": { "end": [16, 26] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r55",
+          "rotate": 55,
+          "angle": -45,
+          "topLeft": [15, 26],
+          "anchor": [16, 26],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [15, 25], "anchor": [16, 26], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [21, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [15, 31] }
+      ],
+      "contacts": ["nearShinFoot"]
+    },
+    "walk-passing-a": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 133,
+          "angle": -137,
+          "worldAngle": 133,
+          "joints": { "start": [17, 16], "end": [14, 19] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b147",
+          "rotate": 147,
+          "angle": 14,
+          "worldAngle": 147,
+          "joints": { "start": [14, 19], "end": [11, 21] },
+          "topLeft": [10, 19],
+          "anchor": [14, 19],
+          "points": { "end": [11, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 91,
+          "angle": -179,
+          "worldAngle": 91,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 73,
+          "angle": -18,
+          "worldAngle": 73,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 23], "end": [21, 27] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 27] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b121",
+          "rotate": 121,
+          "worldAngle": 121,
+          "joints": { "start": [21, 27], "end": [18, 31] },
+          "reach": { "target": [18, 31], "error": 0, "unreachable": false },
+          "topLeft": [17, 26],
+          "anchor": [21, 27],
+          "points": { "end": [18, 31] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [17, 30], "anchor": [18, 31], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b109",
+          "rotate": 99,
+          "angle": -171,
+          "worldAngle": 99,
+          "joints": { "start": [19, 17], "end": [18, 21] },
+          "topLeft": [17, 16],
+          "anchor": [19, 17],
+          "points": { "end": [18, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b84",
+          "rotate": 84,
+          "angle": -15,
+          "worldAngle": 84,
+          "joints": { "start": [18, 21], "end": [18, 25] },
+          "topLeft": [17, 21],
+          "anchor": [18, 21],
+          "points": { "end": [18, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r39",
+          "rotate": 39,
+          "angle": -45,
+          "topLeft": [18, 24],
+          "anchor": [18, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [17, 24], "anchor": [18, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [18, 31] }
+      ],
+      "contacts": ["nearShinFoot"]
+    },
+    "walk-up-a": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b143",
+          "rotate": 143,
+          "angle": -127,
+          "worldAngle": 143,
+          "joints": { "start": [17, 16], "end": [14, 18] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 158,
+          "angle": 15,
+          "worldAngle": 158,
+          "joints": { "start": [14, 18], "end": [11, 19] },
+          "topLeft": [10, 18],
+          "anchor": [14, 18],
+          "points": { "end": [11, 19] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b103",
+          "rotate": 110,
+          "angle": -160,
+          "worldAngle": 110,
+          "joints": { "start": [19, 17], "end": [18, 21] },
+          "topLeft": [17, 16],
+          "anchor": [19, 17],
+          "points": { "end": [18, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b84",
+          "rotate": 95,
+          "angle": -15,
+          "worldAngle": 95,
+          "joints": { "start": [18, 21], "end": [18, 25] },
+          "topLeft": [17, 21],
+          "anchor": [18, 21],
+          "points": { "end": [18, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [17, 24], "anchor": [18, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 23], "end": [21, 27] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 27] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [21, 27], "end": [21, 32] },
+          "reach": { "target": [21, 32], "error": 0, "unreachable": false },
+          "topLeft": [20, 26],
+          "anchor": [21, 27],
+          "points": { "end": [21, 32] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [20, 31], "anchor": [21, 32], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b96",
+          "rotate": 96,
+          "angle": 90,
+          "worldAngle": 96,
+          "joints": { "start": [19, 23], "end": [18, 28] },
+          "topLeft": [16, 21],
+          "anchor": [19, 23],
+          "points": { "end": [18, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b96",
+          "rotate": 96,
+          "worldAngle": 96,
+          "joints": { "start": [18, 28], "end": [17, 33] },
+          "reach": { "target": [17, 33], "error": 0, "unreachable": false },
+          "topLeft": [16, 27],
+          "anchor": [18, 28],
+          "points": { "end": [17, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [16, 32], "anchor": [17, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b70",
+          "rotate": 80,
+          "angle": 170,
+          "worldAngle": 80,
+          "joints": { "start": [19, 17], "end": [20, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [20, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b53",
+          "rotate": 53,
+          "angle": -27,
+          "worldAngle": 53,
+          "joints": { "start": [20, 21], "end": [22, 24] },
+          "topLeft": [20, 21],
+          "anchor": [20, 21],
+          "points": { "end": [22, 24] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r8",
+          "rotate": 8,
+          "angle": -45,
+          "topLeft": [21, 21],
+          "anchor": [22, 24],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [21, 23], "anchor": [22, 24], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [17, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [21, 32] }
+      ],
+      "contacts": ["nearShinFoot"]
+    },
+    "walk-contact-b": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b143",
+          "rotate": 148,
+          "angle": -122,
+          "worldAngle": 148,
+          "joints": { "start": [17, 16], "end": [14, 18] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 165,
+          "angle": 17,
+          "worldAngle": 165,
+          "joints": { "start": [14, 18], "end": [11, 19] },
+          "topLeft": [10, 18],
+          "anchor": [14, 18],
+          "points": { "end": [11, 19] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b115",
+          "rotate": 120,
+          "angle": -150,
+          "worldAngle": 120,
+          "joints": { "start": [19, 17], "end": [17, 21] },
+          "topLeft": [16, 16],
+          "anchor": [19, 17],
+          "points": { "end": [17, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b100",
+          "rotate": 105,
+          "angle": -15,
+          "worldAngle": 105,
+          "joints": { "start": [17, 21], "end": [16, 25] },
+          "topLeft": [15, 21],
+          "anchor": [17, 21],
+          "points": { "end": [16, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [15, 24], "anchor": [16, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b73",
+          "rotate": 73,
+          "angle": 90,
+          "worldAngle": 73,
+          "joints": { "start": [19, 23], "end": [21, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b68",
+          "rotate": 68,
+          "worldAngle": 68,
+          "joints": { "start": [21, 28], "end": [23, 33] },
+          "reach": { "target": [23, 33], "error": 0, "unreachable": false },
+          "topLeft": [20, 27],
+          "anchor": [21, 28],
+          "points": { "end": [23, 33] }
+        },
+        "farBoot": {
+          "definition": "farBoot",
+          "symbol": "farBoot-v330",
+          "rotate": 330,
+          "view": 330,
+          "topLeft": [22, 32],
+          "anchor": [23, 33],
+          "points": {}
+        },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b107",
+          "rotate": 107,
+          "angle": 90,
+          "worldAngle": 107,
+          "joints": { "start": [19, 23], "end": [17, 28] },
+          "topLeft": [15, 21],
+          "anchor": [19, 23],
+          "points": { "end": [17, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b107",
+          "rotate": 107,
+          "worldAngle": 107,
+          "joints": { "start": [17, 28], "end": [15, 33] },
+          "reach": { "target": [15, 33], "error": 0, "unreachable": false },
+          "topLeft": [14, 27],
+          "anchor": [17, 28],
+          "points": { "end": [15, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [14, 32], "anchor": [15, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b70",
+          "rotate": 70,
+          "angle": 160,
+          "worldAngle": 70,
+          "joints": { "start": [19, 17], "end": [20, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [20, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b35",
+          "rotate": 35,
+          "angle": -35,
+          "worldAngle": 35,
+          "joints": { "start": [20, 21], "end": [23, 23] },
+          "topLeft": [20, 21],
+          "anchor": [20, 21],
+          "points": { "end": [23, 23] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r350",
+          "rotate": 350,
+          "angle": -45,
+          "topLeft": [22, 20],
+          "anchor": [23, 23],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [22, 22], "anchor": [23, 23], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [15, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [23, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "walk-down-b": {
+      "origin": [19, 36],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 140,
+          "angle": -130,
+          "worldAngle": 140,
+          "joints": { "start": [17, 17], "end": [14, 20] },
+          "topLeft": [13, 17],
+          "anchor": [17, 17],
+          "points": { "end": [14, 20] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 159,
+          "angle": 19,
+          "worldAngle": 159,
+          "joints": { "start": [14, 20], "end": [11, 21] },
+          "topLeft": [10, 20],
+          "anchor": [14, 20],
+          "points": { "end": [11, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b115",
+          "rotate": 115,
+          "angle": -155,
+          "worldAngle": 115,
+          "joints": { "start": [19, 18], "end": [17, 22] },
+          "topLeft": [16, 17],
+          "anchor": [19, 18],
+          "points": { "end": [17, 22] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b100",
+          "rotate": 100,
+          "angle": -15,
+          "worldAngle": 100,
+          "joints": { "start": [17, 22], "end": [16, 26] },
+          "topLeft": [15, 22],
+          "anchor": [17, 22],
+          "points": { "end": [16, 26] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [15, 25], "anchor": [16, 26], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 24], "end": [21, 28] },
+          "topLeft": [17, 22],
+          "anchor": [19, 24],
+          "points": { "end": [21, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [21, 28], "end": [21, 33] },
+          "reach": { "target": [21, 33], "error": 0, "unreachable": false },
+          "topLeft": [20, 27],
+          "anchor": [21, 28],
+          "points": { "end": [21, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [20, 32], "anchor": [21, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 20],
+          "anchor": [19, 23],
+          "points": { "hip": [19, 24], "waist": [19, 22] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 22], "end": [19, 16] },
+          "topLeft": [15, 12],
+          "anchor": [19, 22],
+          "points": { "end": [19, 16], "shoulder": [19, 18], "neck": [19, 16], "nape": [17, 17] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 24], "end": [19, 29] },
+          "topLeft": [17, 22],
+          "anchor": [19, 24],
+          "points": { "end": [19, 29] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b150",
+          "rotate": 150,
+          "worldAngle": 150,
+          "joints": { "start": [19, 29], "end": [15, 31] },
+          "reach": { "target": [15, 31], "error": 0, "unreachable": false },
+          "topLeft": [14, 28],
+          "anchor": [19, 29],
+          "points": { "end": [15, 31] }
+        },
+        "nearBoot": {
+          "definition": "boot",
+          "symbol": "boot-v30",
+          "rotate": 30,
+          "view": 30,
+          "topLeft": [14, 30],
+          "anchor": [15, 31],
+          "points": {}
+        },
+        "head": { "definition": "head", "topLeft": [15, 8], "anchor": [19, 16], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 15], "anchor": [19, 16], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b70",
+          "rotate": 75,
+          "angle": 165,
+          "worldAngle": 75,
+          "joints": { "start": [19, 18], "end": [20, 22] },
+          "topLeft": [18, 17],
+          "anchor": [19, 18],
+          "points": { "end": [20, 22] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b43",
+          "rotate": 44,
+          "angle": -31,
+          "worldAngle": 44,
+          "joints": { "start": [20, 22], "end": [23, 25] },
+          "topLeft": [20, 22],
+          "anchor": [20, 22],
+          "points": { "end": [23, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r359",
+          "rotate": 359,
+          "angle": -45,
+          "topLeft": [22, 22],
+          "anchor": [23, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [22, 24], "anchor": [23, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [15, 31] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [21, 33] }
+      ],
+      "contacts": ["farShinFoot"]
+    },
+    "walk-passing-b": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 133,
+          "angle": -137,
+          "worldAngle": 133,
+          "joints": { "start": [17, 16], "end": [14, 19] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b147",
+          "rotate": 147,
+          "angle": 14,
+          "worldAngle": 147,
+          "joints": { "start": [14, 19], "end": [11, 21] },
+          "topLeft": [10, 19],
+          "anchor": [14, 19],
+          "points": { "end": [11, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b103",
+          "rotate": 99,
+          "angle": -171,
+          "worldAngle": 99,
+          "joints": { "start": [19, 17], "end": [18, 21] },
+          "topLeft": [17, 16],
+          "anchor": [19, 17],
+          "points": { "end": [18, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b84",
+          "rotate": 84,
+          "angle": -15,
+          "worldAngle": 84,
+          "joints": { "start": [18, 21], "end": [18, 25] },
+          "topLeft": [17, 21],
+          "anchor": [18, 21],
+          "points": { "end": [18, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [17, 24], "anchor": [18, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 23], "end": [21, 27] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 27] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b121",
+          "rotate": 121,
+          "worldAngle": 121,
+          "joints": { "start": [21, 27], "end": [18, 31] },
+          "reach": { "target": [18, 31], "error": 0, "unreachable": false },
+          "topLeft": [17, 26],
+          "anchor": [21, 27],
+          "points": { "end": [18, 31] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [17, 30], "anchor": [18, 31], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 91,
+          "angle": -179,
+          "worldAngle": 91,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 73,
+          "angle": -18,
+          "worldAngle": 73,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r28",
+          "rotate": 28,
+          "angle": -45,
+          "topLeft": [19, 23],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [18, 31] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["farShinFoot"]
+    },
+    "walk-up-b": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b143",
+          "rotate": 143,
+          "angle": -127,
+          "worldAngle": 143,
+          "joints": { "start": [17, 16], "end": [14, 18] },
+          "topLeft": [13, 16],
+          "anchor": [17, 16],
+          "points": { "end": [14, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 158,
+          "angle": 15,
+          "worldAngle": 158,
+          "joints": { "start": [14, 18], "end": [11, 19] },
+          "topLeft": [10, 18],
+          "anchor": [14, 18],
+          "points": { "end": [11, 19] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b70",
+          "rotate": 80,
+          "angle": 170,
+          "worldAngle": 80,
+          "joints": { "start": [19, 17], "end": [20, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [20, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b23",
+          "rotate": 23,
+          "angle": -57,
+          "worldAngle": 23,
+          "joints": { "start": [20, 21], "end": [24, 23] },
+          "topLeft": [20, 21],
+          "anchor": [20, 21],
+          "points": { "end": [24, 23] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [23, 22], "anchor": [24, 23], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b96",
+          "rotate": 96,
+          "angle": 90,
+          "worldAngle": 96,
+          "joints": { "start": [19, 23], "end": [18, 28] },
+          "topLeft": [16, 21],
+          "anchor": [19, 23],
+          "points": { "end": [18, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b96",
+          "rotate": 96,
+          "worldAngle": 96,
+          "joints": { "start": [18, 28], "end": [17, 33] },
+          "reach": { "target": [17, 33], "error": 0, "unreachable": false },
+          "topLeft": [16, 27],
+          "anchor": [18, 28],
+          "points": { "end": [17, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [16, 32], "anchor": [17, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b67",
+          "rotate": 67,
+          "angle": 90,
+          "worldAngle": 67,
+          "joints": { "start": [19, 23], "end": [21, 27] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [21, 27] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [21, 27], "end": [21, 32] },
+          "reach": { "target": [21, 32], "error": 0, "unreachable": false },
+          "topLeft": [20, 26],
+          "anchor": [21, 27],
+          "points": { "end": [21, 32] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [20, 31], "anchor": [21, 32], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b109",
+          "rotate": 110,
+          "angle": -160,
+          "worldAngle": 110,
+          "joints": { "start": [19, 17], "end": [18, 21] },
+          "topLeft": [17, 16],
+          "anchor": [19, 17],
+          "points": { "end": [18, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b84",
+          "rotate": 95,
+          "angle": -15,
+          "worldAngle": 95,
+          "joints": { "start": [18, 21], "end": [18, 25] },
+          "topLeft": [17, 21],
+          "anchor": [18, 21],
+          "points": { "end": [18, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r50",
+          "rotate": 50,
+          "angle": -45,
+          "topLeft": [17, 24],
+          "anchor": [18, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [17, 24], "anchor": [18, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [21, 32] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [17, 33] }
+      ],
+      "contacts": ["farShinFoot"]
+    },
+    "attack-anticipation": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b123",
+          "rotate": 124,
+          "angle": -138,
+          "worldAngle": 124,
+          "joints": { "start": [16, 16], "end": [14, 19] },
+          "topLeft": [13, 16],
+          "anchor": [16, 16],
+          "points": { "end": [14, 19] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b133",
+          "rotate": 134,
+          "angle": 10,
+          "worldAngle": 134,
+          "joints": { "start": [14, 19], "end": [12, 21] },
+          "topLeft": [11, 19],
+          "anchor": [14, 19],
+          "points": { "end": [12, 21] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 87,
+          "angle": -175,
+          "worldAngle": 87,
+          "joints": { "start": [18, 17], "end": [18, 21] },
+          "topLeft": [17, 16],
+          "anchor": [18, 17],
+          "points": { "end": [18, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 72,
+          "angle": -15,
+          "worldAngle": 72,
+          "joints": { "start": [18, 21], "end": [19, 25] },
+          "topLeft": [18, 21],
+          "anchor": [18, 21],
+          "points": { "end": [19, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [18, 24], "anchor": [19, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 85,
+          "angle": 90,
+          "worldAngle": 85,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b352s90",
+          "rotate": 352,
+          "angle": -8,
+          "squash": 0.9,
+          "topLeft": [15, 20],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b262",
+          "rotate": 262,
+          "angle": 270,
+          "worldAngle": 262,
+          "joints": { "start": [19, 21], "end": [18, 15] },
+          "topLeft": [14, 11],
+          "anchor": [19, 21],
+          "points": { "end": [18, 15], "shoulder": [18, 17], "neck": [18, 15], "nape": [16, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 85,
+          "angle": 90,
+          "worldAngle": 85,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [14, 7], "anchor": [18, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [16, 14], "anchor": [18, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b222",
+          "rotate": 222,
+          "angle": -40,
+          "worldAngle": 222,
+          "joints": { "start": [18, 17], "end": [15, 14] },
+          "topLeft": [14, 13],
+          "anchor": [18, 17],
+          "points": { "end": [15, 14] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b207",
+          "rotate": 207,
+          "angle": -15,
+          "worldAngle": 207,
+          "joints": { "start": [15, 14], "end": [11, 12] },
+          "topLeft": [10, 11],
+          "anchor": [15, 14],
+          "points": { "end": [11, 12] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r162",
+          "rotate": 162,
+          "angle": -45,
+          "topLeft": [1, 10],
+          "anchor": [11, 12],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [10, 11], "anchor": [11, 12], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "attack-strike": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b143",
+          "rotate": 144,
+          "angle": -134,
+          "worldAngle": 144,
+          "joints": { "start": [18, 16], "end": [15, 18] },
+          "topLeft": [14, 16],
+          "anchor": [18, 16],
+          "points": { "end": [15, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b158",
+          "rotate": 162,
+          "angle": 18,
+          "worldAngle": 162,
+          "joints": { "start": [15, 18], "end": [12, 19] },
+          "topLeft": [11, 18],
+          "anchor": [15, 18],
+          "points": { "end": [12, 19] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b103",
+          "rotate": 103,
+          "angle": -175,
+          "worldAngle": 103,
+          "joints": { "start": [20, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [20, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b84",
+          "rotate": 88,
+          "angle": -15,
+          "worldAngle": 88,
+          "joints": { "start": [19, 21], "end": [19, 25] },
+          "topLeft": [18, 21],
+          "anchor": [19, 21],
+          "points": { "end": [19, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [18, 24], "anchor": [19, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 95,
+          "angle": 90,
+          "worldAngle": 95,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b8s105",
+          "rotate": 8,
+          "angle": 8,
+          "squash": 1.05,
+          "topLeft": [16, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b278",
+          "rotate": 278,
+          "angle": 270,
+          "worldAngle": 278,
+          "joints": { "start": [19, 21], "end": [20, 15] },
+          "topLeft": [16, 11],
+          "anchor": [19, 21],
+          "points": { "end": [20, 15], "shoulder": [20, 17], "neck": [20, 15], "nape": [18, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 95,
+          "angle": 90,
+          "worldAngle": 95,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [16, 7], "anchor": [20, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [18, 14], "anchor": [20, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b58",
+          "rotate": 58,
+          "angle": 140,
+          "worldAngle": 58,
+          "joints": { "start": [20, 17], "end": [22, 20] },
+          "topLeft": [19, 16],
+          "anchor": [20, 17],
+          "points": { "end": [22, 20] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b43",
+          "rotate": 43,
+          "angle": -15,
+          "worldAngle": 43,
+          "joints": { "start": [22, 20], "end": [25, 23] },
+          "topLeft": [22, 20],
+          "anchor": [22, 20],
+          "points": { "end": [25, 23] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r358",
+          "rotate": 358,
+          "angle": -45,
+          "topLeft": [24, 20],
+          "anchor": [25, 23],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [24, 22], "anchor": [25, 23], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] },
+        { "name": "strike", "part": "nearFore", "point": "end", "at": [25, 23] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "attack-follow-through": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b132",
+          "rotate": 132,
+          "angle": -152,
+          "worldAngle": 132,
+          "joints": { "start": [19, 15], "end": [16, 18] },
+          "topLeft": [15, 15],
+          "anchor": [19, 15],
+          "points": { "end": [16, 18] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b147",
+          "rotate": 149,
+          "angle": 17,
+          "worldAngle": 149,
+          "joints": { "start": [16, 18], "end": [13, 20] },
+          "topLeft": [12, 18],
+          "anchor": [16, 18],
+          "points": { "end": [13, 20] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b103",
+          "rotate": 109,
+          "angle": -175,
+          "worldAngle": 109,
+          "joints": { "start": [20, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [20, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b84",
+          "rotate": 94,
+          "angle": -15,
+          "worldAngle": 94,
+          "joints": { "start": [19, 21], "end": [19, 25] },
+          "topLeft": [18, 21],
+          "anchor": [19, 21],
+          "points": { "end": [19, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [18, 24], "anchor": [19, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 95,
+          "angle": 90,
+          "worldAngle": 95,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b14s95",
+          "rotate": 14,
+          "angle": 14,
+          "squash": 0.95,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b284",
+          "rotate": 284,
+          "angle": 270,
+          "worldAngle": 284,
+          "joints": { "start": [19, 21], "end": [21, 15] },
+          "topLeft": [16, 11],
+          "anchor": [19, 21],
+          "points": { "end": [21, 15], "shoulder": [20, 17], "neck": [21, 15], "nape": [19, 15] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 95,
+          "angle": 90,
+          "worldAngle": 95,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [17, 7], "anchor": [21, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [19, 14], "anchor": [21, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b109",
+          "rotate": 109,
+          "angle": -175,
+          "worldAngle": 109,
+          "joints": { "start": [20, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [20, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b84",
+          "rotate": 94,
+          "angle": -15,
+          "worldAngle": 94,
+          "joints": { "start": [19, 21], "end": [19, 25] },
+          "topLeft": [18, 21],
+          "anchor": [19, 21],
+          "points": { "end": [19, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r49",
+          "rotate": 49,
+          "angle": -45,
+          "topLeft": [18, 24],
+          "anchor": [19, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [18, 24], "anchor": [19, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    },
+    "attack-recover": {
+      "origin": [19, 35],
+      "parts": {
+        "tail": {
+          "definition": "tail",
+          "symbol": "tail-b114",
+          "rotate": 114,
+          "angle": -156,
+          "worldAngle": 114,
+          "joints": { "start": [17, 16], "end": [15, 20] },
+          "topLeft": [14, 16],
+          "anchor": [17, 16],
+          "points": { "end": [15, 20] }
+        },
+        "tip": {
+          "definition": "tip",
+          "symbol": "tip-b127",
+          "rotate": 127,
+          "angle": 13,
+          "worldAngle": 127,
+          "joints": { "start": [15, 20], "end": [13, 22] },
+          "topLeft": [12, 20],
+          "anchor": [15, 20],
+          "points": { "end": [13, 22] }
+        },
+        "farUpper": {
+          "definition": "farUpper",
+          "symbol": "farUpper-b87",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "farFore": {
+          "definition": "farFore",
+          "symbol": "farFore-b72",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "farHand": { "definition": "farHand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} },
+        "farThigh": {
+          "definition": "farThigh",
+          "symbol": "farThigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "farShin": {
+          "definition": "farShin",
+          "symbol": "farShin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "farBoot": { "definition": "farBoot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "hips": {
+          "definition": "hips",
+          "symbol": "hips-b0",
+          "angle": 0,
+          "squash": 1,
+          "topLeft": [15, 19],
+          "anchor": [19, 22],
+          "points": { "hip": [19, 23], "waist": [19, 21] }
+        },
+        "chest": {
+          "definition": "chest",
+          "symbol": "chest-b270",
+          "rotate": 270,
+          "angle": 270,
+          "worldAngle": 270,
+          "joints": { "start": [19, 21], "end": [19, 15] },
+          "topLeft": [15, 11],
+          "anchor": [19, 21],
+          "points": { "end": [19, 15], "shoulder": [19, 17], "neck": [19, 15], "nape": [17, 16] }
+        },
+        "nearThigh": {
+          "definition": "thigh",
+          "symbol": "thigh-b85",
+          "rotate": 90,
+          "angle": 90,
+          "worldAngle": 90,
+          "joints": { "start": [19, 23], "end": [19, 28] },
+          "topLeft": [17, 21],
+          "anchor": [19, 23],
+          "points": { "end": [19, 28] }
+        },
+        "nearShin": {
+          "definition": "shin",
+          "symbol": "shin-b85",
+          "rotate": 85,
+          "worldAngle": 85,
+          "joints": { "start": [19, 28], "end": [19, 33] },
+          "reach": { "target": [19, 33], "error": 0, "unreachable": false },
+          "topLeft": [18, 27],
+          "anchor": [19, 28],
+          "points": { "end": [19, 33] }
+        },
+        "nearBoot": { "definition": "boot", "topLeft": [18, 32], "anchor": [19, 33], "points": {} },
+        "head": { "definition": "head", "topLeft": [15, 7], "anchor": [19, 15], "points": {} },
+        "scarf": { "definition": "scarf", "topLeft": [17, 14], "anchor": [19, 15], "points": {} },
+        "nearUpper": {
+          "definition": "upper",
+          "symbol": "upper-b91",
+          "rotate": 95,
+          "angle": -175,
+          "worldAngle": 95,
+          "joints": { "start": [19, 17], "end": [19, 21] },
+          "topLeft": [18, 16],
+          "anchor": [19, 17],
+          "points": { "end": [19, 21] }
+        },
+        "nearFore": {
+          "definition": "fore",
+          "symbol": "fore-b73",
+          "rotate": 80,
+          "angle": -15,
+          "worldAngle": 80,
+          "joints": { "start": [19, 21], "end": [20, 25] },
+          "topLeft": [19, 21],
+          "anchor": [19, 21],
+          "points": { "end": [20, 25] }
+        },
+        "sword": {
+          "definition": "sword",
+          "symbol": "sword-r35",
+          "rotate": 35,
+          "angle": -45,
+          "topLeft": [20, 24],
+          "anchor": [20, 25],
+          "points": {}
+        },
+        "nearHand": { "definition": "hand", "topLeft": [19, 24], "anchor": [20, 25], "points": {} }
+      },
+      "markers": [
+        { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+        { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+      ],
+      "contacts": ["nearShinFoot", "farShinFoot"]
+    }
+  },
+  "animations": {
+    "idle": {
+      "duration": 800,
+      "loop": true,
+      "template": "idle",
+      "speed": 0,
+      "keyPoses": ["idle-rest", "idle-inhale", "idle-settle", "idle-exhale"],
+      "entries": [
+        {
+          "position": 0,
+          "frame": "idle-rest",
+          "start": 0,
+          "duration": 200,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 1,
+          "frame": "idle-inhale",
+          "start": 200,
+          "duration": 200,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 2,
+          "frame": "idle-settle",
+          "start": 400,
+          "duration": 200,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 3,
+          "frame": "idle-exhale",
+          "start": 600,
+          "duration": 200,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        }
+      ]
+    },
+    "walk": {
+      "duration": 640,
+      "loop": true,
+      "template": "walk",
+      "speed": 24,
+      "keyPoses": [
+        "walk-contact-a",
+        "walk-down-a",
+        "walk-passing-a",
+        "walk-up-a",
+        "walk-contact-b",
+        "walk-down-b",
+        "walk-passing-b",
+        "walk-up-b"
+      ],
+      "entries": [
+        {
+          "position": 0,
+          "frame": "walk-contact-a",
+          "start": 0,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [23, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [15, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 1,
+          "frame": "walk-down-a",
+          "start": 80,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [21, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [15, 31] }
+          ],
+          "contacts": ["nearShinFoot"]
+        },
+        {
+          "position": 2,
+          "frame": "walk-passing-a",
+          "start": 160,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [18, 31] }
+          ],
+          "contacts": ["nearShinFoot"]
+        },
+        {
+          "position": 3,
+          "frame": "walk-up-a",
+          "start": 240,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [17, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [21, 32] }
+          ],
+          "contacts": ["nearShinFoot"]
+        },
+        {
+          "position": 4,
+          "frame": "walk-contact-b",
+          "start": 320,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [15, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [23, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 5,
+          "frame": "walk-down-b",
+          "start": 400,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [15, 31] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [21, 33] }
+          ],
+          "contacts": ["farShinFoot"]
+        },
+        {
+          "position": 6,
+          "frame": "walk-passing-b",
+          "start": 480,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [18, 31] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["farShinFoot"]
+        },
+        {
+          "position": 7,
+          "frame": "walk-up-b",
+          "start": 560,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [21, 32] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [17, 33] }
+          ],
+          "contacts": ["farShinFoot"]
+        }
+      ]
+    },
+    "attack": {
+      "duration": 400,
+      "loop": false,
+      "template": "attack",
+      "speed": 0,
+      "keyPoses": ["attack-anticipation", "attack-strike", "attack-follow-through", "attack-recover"],
+      "entries": [
+        {
+          "position": 0,
+          "frame": "attack-anticipation",
+          "start": 0,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 1,
+          "frame": "attack-strike",
+          "start": 80,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] },
+            { "name": "strike", "part": "nearFore", "point": "end", "at": [25, 23] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 2,
+          "frame": "attack-strike",
+          "start": 160,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] },
+            { "name": "strike", "part": "nearFore", "point": "end", "at": [25, 23] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 3,
+          "frame": "attack-follow-through",
+          "start": 240,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        },
+        {
+          "position": 4,
+          "frame": "attack-recover",
+          "start": 320,
+          "duration": 80,
+          "markers": [
+            { "name": "nearShinFoot", "part": "nearShin", "point": "end", "at": [19, 33] },
+            { "name": "farShinFoot", "part": "farShin", "point": "end", "at": [19, 33] }
+          ],
+          "contacts": ["nearShinFoot", "farShinFoot"]
+        }
+      ]
+    }
+  },
+  "rig": {
+    "body": "hips",
+    "head": "head",
+    "ground": 33,
+    "rest": "stand",
+    "legs": [["nearThigh", "nearShin"], ["farThigh", "farShin"]],
+    "arms": [["nearUpper", "nearFore"], ["farUpper", "farFore"]],
+    "tail": ["tail", "tip"]
+  }
+}

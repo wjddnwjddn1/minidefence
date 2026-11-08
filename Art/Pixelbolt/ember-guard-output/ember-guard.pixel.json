@@ -1,0 +1,6739 @@
+{
+  "version": 1,
+  "name": "ember-guard",
+  "width": 40,
+  "height": 36,
+  "palette": {
+    "k": "#1d1726",
+    "x": "#8a4b3c",
+    "y": "#d38a62",
+    "z": "#f4c59c",
+    "d": "#3b2232",
+    "e": "#6c3d35",
+    "f": "#a0633f",
+    "i": "#273345",
+    "j": "#405b74",
+    "l": "#688ca2",
+    "m": "#c3d9d5",
+    "r": "#6d291e",
+    "s": "#ba4929",
+    "t": "#f18b42",
+    "p": "#1f2236",
+    "q": "#2f3655",
+    "o": "#48547c",
+    "b": "#3a2421",
+    "c": "#6e4430",
+    "w": "#a8774c",
+    "a": "#e8edf5",
+    "n": "#8d9ab3",
+    "g": "#e0b04a"
+  },
+  "ramps": [
+    [
+      "x",
+      "y",
+      "z"
+    ],
+    [
+      "i",
+      "j",
+      "l",
+      "m"
+    ],
+    [
+      "p",
+      "q",
+      "o"
+    ],
+    [
+      "r",
+      "s",
+      "t"
+    ],
+    [
+      "b",
+      "c",
+      "w"
+    ]
+  ],
+  "symbols": {
+    "boot": [
+      "kcck..",
+      "kccwck",
+      "kkkkkk"
+    ],
+    "boot-v30": [
+      "kcck..",
+      "kcck..",
+      "kkkwck",
+      "...kkk"
+    ],
+    "boot-v330": [
+      "kcckck",
+      "kccwkk",
+      "kkkk.."
+    ],
+    "chest-b262": [
+      "....k....",
+      "..kklkk..",
+      ".klljljk.",
+      ".kljjjik.",
+      "kljjjjjjk",
+      ".kljjjjik",
+      ".kljjjjik",
+      ".kljjjjik",
+      ".kjjjjjik",
+      "..kljjiik",
+      "..kjiikk.",
+      "...kkk..."
+    ],
+    "chest-b270": [
+      "....k....",
+      "..kklkk..",
+      ".klljljk.",
+      ".kljjjik.",
+      "kljjjjjik",
+      ".kljjjik.",
+      ".kljjjik.",
+      ".kljjjik.",
+      ".kljjjik.",
+      ".kljjjik.",
+      ".kjiiiik.",
+      "..kkkkk.."
+    ],
+    "chest-b278": [
+      "....k....",
+      "..kklkk..",
+      ".klljljk.",
+      ".kljjjik.",
+      "kljjjjjik",
+      "kljjjjik.",
+      "kljjjjik.",
+      "kljjjjik.",
+      "kljjjjik.",
+      "kjijjik..",
+      ".kkjiik..",
+      "...kkk..."
+    ],
+    "chest-b284": [
+      ".....k....",
+      "...kklkk..",
+      "..klljljk.",
+      "..kljjjik.",
+      ".kljjjjjik",
+      ".kljjjjik.",
+      ".kljjjjik.",
+      ".kljjjik..",
+      "kljjjjik..",
+      "kjijjjik..",
+      ".kkjiik...",
+      "...kkk...."
+    ],
+    "farBoot": [
+      "kbbk..",
+      "kbbcbk",
+      "kkkkkk"
+    ],
+    "farBoot-v30": [
+      "kbbk..",
+      "kbbk..",
+      "kkkcbk",
+      "...kkk"
+    ],
+    "farBoot-v330": [
+      "kbbkbk",
+      "kbbckk",
+      "kkkk.."
+    ],
+    "farFore-b100": [
+      "..j..",
+      "..jjk",
+      "kjjk.",
+      "kjjk.",
+      "kjk..",
+      ".k..."
+    ],
+    "farFore-b20": [
+      "j..kk.",
+      ".jjjjk",
+      ".kjjk.",
+      "..kk.."
+    ],
+    "farFore-b23": [
+      "j.....",
+      ".jjkk.",
+      ".jjjjk",
+      ".kkjk.",
+      "...k.."
+    ],
+    "farFore-b72": [
+      "j...",
+      ".jk.",
+      ".jjk",
+      "kjjk",
+      "kjk.",
+      ".k.."
+    ],
+    "farFore-b84": [
+      ".j..",
+      ".jjk",
+      "kjjk",
+      "kjjk",
+      "kjk.",
+      ".k.."
+    ],
+    "farHand": [
+      ".kk.",
+      "kyyk",
+      "kxxk",
+      ".kk."
+    ],
+    "farShin-b107": [
+      "..ooq",
+      "...op",
+      "...qq",
+      ".kqq.",
+      ".kqqk",
+      ".kqqk",
+      "kqkk.",
+      ".k..."
+    ],
+    "farShin-b121": [
+      "...ooq",
+      "....op",
+      "....q.",
+      ".kqq..",
+      ".kqqk.",
+      "kqkk..",
+      ".k...."
+    ],
+    "farShin-b150": [
+      ".....oq",
+      ".....qp",
+      ".kkqq.p",
+      "kqqqq..",
+      ".kqkk..",
+      "..k...."
+    ],
+    "farShin-b68": [
+      "oop..",
+      "qp...",
+      ".qq..",
+      "..qqk",
+      ".kqqk",
+      ".kqqk",
+      "..kqk",
+      "...k."
+    ],
+    "farShin-b85": [
+      "ooq.",
+      "qqp.",
+      ".qq.",
+      ".qqk",
+      "kqqk",
+      "kqqk",
+      "kqk.",
+      ".k.."
+    ],
+    "farShin-b96": [
+      ".ooq.",
+      "..op.",
+      "..qq.",
+      "..qqk",
+      "kqqk.",
+      "kqqk.",
+      "kqk..",
+      ".k..."
+    ],
+    "farThigh-b107": [
+      "...kkk.",
+      "..kooqk",
+      "..koqpk",
+      ".koqqpk",
+      ".koqpk.",
+      ".koqpk.",
+      "koqqpk.",
+      "koqpk..",
+      "kqppk..",
+      ".kkk..."
+    ],
+    "farThigh-b67": [
+      ".kkk...",
+      "kooqk..",
+      "koqpk..",
+      "kqqqqk.",
+      ".koqpk.",
+      ".kqqqqk",
+      "..koqpk",
+      "..kqppk",
+      "...kkk."
+    ],
+    "farThigh-b73": [
+      ".kkk...",
+      "kooqk..",
+      "koqpk..",
+      "kqqqqk.",
+      ".koqpk.",
+      ".koqpk.",
+      ".kqqqqk",
+      "..koqpk",
+      "..kqppk",
+      "...kkk."
+    ],
+    "farThigh-b85": [
+      ".kkk.",
+      "kooqk",
+      "koqpk",
+      "koqpk",
+      "koqpk",
+      "koqpk",
+      "koqpk",
+      "koqpk",
+      "kqppk",
+      ".kkk."
+    ],
+    "farThigh-b96": [
+      "..kkk.",
+      ".kooqk",
+      ".koqpk",
+      ".koqpk",
+      ".koqpk",
+      "koqpk.",
+      "koqpk.",
+      "koqpk.",
+      "kqppk.",
+      ".kkk.."
+    ],
+    "farUpper-b103": [
+      "..k..",
+      ".kjk.",
+      ".kjjk",
+      "kjjk.",
+      "kjjk.",
+      "kjk..",
+      ".k..."
+    ],
+    "farUpper-b115": [
+      "...k.",
+      "..kjk",
+      ".kjjk",
+      ".kjjk",
+      "kjjk.",
+      "kjk..",
+      ".k..."
+    ],
+    "farUpper-b70": [
+      ".k...",
+      "kjk..",
+      "kjjk.",
+      ".kjjk",
+      ".kjjk",
+      ".kjk.",
+      "..k.."
+    ],
+    "farUpper-b87": [
+      ".k..",
+      "kjk.",
+      "kjjk",
+      "kjjk",
+      "kjjk",
+      "kjk.",
+      ".k.."
+    ],
+    "fore-b100": [
+      "..l..",
+      "..llk",
+      "kllk.",
+      "kllk.",
+      "klk..",
+      ".k..."
+    ],
+    "fore-b207": [
+      ".kk...",
+      "kllkk.",
+      ".klll.",
+      "..klll",
+      "...k.."
+    ],
+    "fore-b35": [
+      "l....",
+      ".llk.",
+      ".lllk",
+      ".kkk."
+    ],
+    "fore-b43": [
+      "l....",
+      ".lk..",
+      ".llk.",
+      ".kllk",
+      "..kk."
+    ],
+    "fore-b53": [
+      "l...",
+      ".llk",
+      ".llk",
+      ".klk",
+      "..k."
+    ],
+    "fore-b73": [
+      "l...",
+      ".lk.",
+      ".llk",
+      "kllk",
+      "klk.",
+      ".k.."
+    ],
+    "fore-b84": [
+      ".l..",
+      ".llk",
+      "kllk",
+      "kllk",
+      "klk.",
+      ".k.."
+    ],
+    "hand": [
+      ".kk.",
+      "kzzk",
+      "kyyk",
+      ".kk."
+    ],
+    "head": [
+      "..kfek...",
+      ".kdeefkk.",
+      "kddeeeefk",
+      "kdddeffek",
+      "kddyzzzzk",
+      "kdxyzzkzk",
+      ".kdyzzzzk",
+      "..kyyyyk.",
+      "...kkkk.."
+    ],
+    "hips-b0": [
+      "....k....",
+      "..kkokk..",
+      ".kooqoqk.",
+      "koqqqqqpk",
+      ".kqpqppk.",
+      "..kkpkk..",
+      "....k...."
+    ],
+    "hips-b0s105": [
+      "..kkk..",
+      ".kooqk.",
+      "koqqqqk",
+      "koqqqpk",
+      "kqpqppk",
+      ".kkpkk.",
+      "...k..."
+    ],
+    "hips-b14s95": [
+      "...k.....",
+      "..kokkk..",
+      ".koqooqk.",
+      "koqqqqqpk",
+      ".kqppqpk.",
+      "..kkkpk..",
+      ".....k..."
+    ],
+    "hips-b352s90": [
+      "..kkkkkk.",
+      ".koooooqk",
+      "koqqqqqpk",
+      ".kqppppk.",
+      "..kkkkk.."
+    ],
+    "hips-b8s105": [
+      "..kk...",
+      ".koqkk.",
+      "koqqoqk",
+      "koqqqpk",
+      "kqpqqpk",
+      ".kkqpk.",
+      "...kk.."
+    ],
+    "scarf": [
+      ".kkkk.",
+      "ksttsk",
+      "krssrk",
+      ".kkkk."
+    ],
+    "shin-b107": [
+      "..ooo",
+      "...oo",
+      "...oo",
+      ".koo.",
+      ".kook",
+      ".kook",
+      "kokk.",
+      ".k..."
+    ],
+    "shin-b121": [
+      "...ooo",
+      "....oq",
+      "....o.",
+      ".koo..",
+      ".kook.",
+      "kokk..",
+      ".k...."
+    ],
+    "shin-b150": [
+      ".....oo",
+      ".....oq",
+      ".kkoo.q",
+      "koooo..",
+      ".kokk..",
+      "..k...."
+    ],
+    "shin-b68": [
+      "ooq..",
+      "oq...",
+      ".oo..",
+      "..ook",
+      ".kook",
+      ".kook",
+      "..kok",
+      "...k."
+    ],
+    "shin-b85": [
+      "ooo.",
+      "ooq.",
+      ".oo.",
+      ".ook",
+      "kook",
+      "kook",
+      "kok.",
+      ".k.."
+    ],
+    "shin-b96": [
+      ".ooo.",
+      "..oq.",
+      "..oo.",
+      "..ook",
+      "kook.",
+      "kook.",
+      "kok..",
+      ".k..."
+    ],
+    "sword-r162": [
+      "........k...",
+      ".......kgk..",
+      "......kkgbbk",
+      "...kkkaagk..",
+      ".kkaaakkkg..",
+      "kaakkk...k..",
+      ".kk........."
+    ],
+    "sword-r28": [
+      "....k.......",
+      "...kg.......",
+      "kbbgkk......",
+      "..bgkk......",
+      ".kgkaakk....",
+      ".kgkkkaakk..",
+      "......kkaak.",
+      "........kknk"
+    ],
+    "sword-r35": [
+      "..kkk.....",
+      "bkgg......",
+      "kbgk......",
+      "kgaakk....",
+      "kkkkaak...",
+      "k...kaakk.",
+      ".....kkaak",
+      ".......knk"
+    ],
+    "sword-r350": [
+      "...k......k..",
+      "..kgkkkkkkank",
+      "..kgaaaaaakk.",
+      "kbbgkkkkkk...",
+      "..kgkk.......",
+      "...k........."
+    ],
+    "sword-r358": [
+      "...k.........",
+      "..kgk........",
+      "..kgkkkkkkkk.",
+      "kbbgaaaaaaank",
+      "..kgkkkkkkk..",
+      "..kgk........",
+      "...k........."
+    ],
+    "sword-r359": [
+      "...k.........",
+      "..kgk........",
+      "..kgkkkkkkkk.",
+      "kbbgaaaaaaank",
+      "..kgkkkkkkkk.",
+      "..kgk........",
+      "...k........."
+    ],
+    "sword-r39": [
+      "..kk.....",
+      "bkgg.....",
+      "kbgk.....",
+      "kgaak....",
+      "gkkaak...",
+      "k..kkak..",
+      ".....kakk",
+      "......kan",
+      ".......kk"
+    ],
+    "sword-r49": [
+      "k........",
+      ".bkkgk...",
+      ".kbgk....",
+      "kggak....",
+      "kgkkak...",
+      "..kkaak..",
+      "....kaak.",
+      ".....kak.",
+      "......kak",
+      ".......k."
+    ],
+    "sword-r50": [
+      "k........",
+      ".bkkgk...",
+      ".kbgk....",
+      "kggak....",
+      "kgkkak...",
+      "..kkaak..",
+      "....kak..",
+      ".....kak.",
+      "......kak",
+      ".......k."
+    ],
+    "sword-r55": [
+      ".bkkkk..",
+      ".kbgk...",
+      "kggak...",
+      "kgkak...",
+      "k..kak..",
+      "...kaak.",
+      "....kak.",
+      ".....kak",
+      ".....kan",
+      "......kk"
+    ],
+    "sword-r60": [
+      ".kk......",
+      "..bkkkk..",
+      "..kbgg...",
+      ".kggkk...",
+      "kgkkak...",
+      "...kak...",
+      "....kak..",
+      "....kaak.",
+      ".....kak.",
+      "......kak",
+      "......knk"
+    ],
+    "sword-r8": [
+      "...k.........",
+      "...gk........",
+      "..kgk........",
+      "kbbgakkkkkk..",
+      "..kgkaaaaaank",
+      "..kgkkkkkkkk.",
+      "...k........."
+    ],
+    "tail-b114": [
+      "...s.",
+      ".kss.",
+      ".kssk",
+      "kssk.",
+      "ksk..",
+      ".k..."
+    ],
+    "tail-b123": [
+      "...s.",
+      ".kss.",
+      ".kssk",
+      "kskk.",
+      ".k..."
+    ],
+    "tail-b132": [
+      "....s",
+      "..ks.",
+      ".kss.",
+      "kssk.",
+      ".kk.."
+    ],
+    "tail-b143": [
+      "....s",
+      ".kss.",
+      "ksss.",
+      ".kkk."
+    ],
+    "thigh-b107": [
+      "...kkk.",
+      "..koook",
+      "..kooqk",
+      ".koooqk",
+      ".kooqk.",
+      ".kooqk.",
+      "koooqk.",
+      "kooqk..",
+      "koqqk..",
+      ".kkk..."
+    ],
+    "thigh-b67": [
+      ".kkk...",
+      "koook..",
+      "kooqk..",
+      "kooook.",
+      ".kooqk.",
+      ".kooook",
+      "..kooqk",
+      "..koqqk",
+      "...kkk."
+    ],
+    "thigh-b73": [
+      ".kkk...",
+      "koook..",
+      "kooqk..",
+      "kooook.",
+      ".kooqk.",
+      ".kooqk.",
+      ".kooook",
+      "..kooqk",
+      "..koqqk",
+      "...kkk."
+    ],
+    "thigh-b85": [
+      ".kkk.",
+      "koook",
+      "kooqk",
+      "kooqk",
+      "kooqk",
+      "kooqk",
+      "kooqk",
+      "kooqk",
+      "koqqk",
+      ".kkk."
+    ],
+    "thigh-b96": [
+      "..kkk.",
+      ".koook",
+      ".kooqk",
+      ".kooqk",
+      ".kooqk",
+      "kooqk.",
+      "kooqk.",
+      "kooqk.",
+      "koqqk.",
+      ".kkk.."
+    ],
+    "tip-b127": [
+      "...s",
+      ".kss",
+      "ksk.",
+      ".k.."
+    ],
+    "tip-b133": [
+      "...s",
+      ".ks.",
+      "kss.",
+      ".kk."
+    ],
+    "tip-b147": [
+      "....s",
+      ".kss.",
+      "ksks.",
+      ".k.k."
+    ],
+    "tip-b158": [
+      ".k..s",
+      "ksss.",
+      ".kkk."
+    ],
+    "upper-b109": [
+      "..k..",
+      ".klk.",
+      ".kllk",
+      "kllk.",
+      "kllk.",
+      "klk..",
+      ".k..."
+    ],
+    "upper-b115": [
+      "...k.",
+      "..klk",
+      ".kllk",
+      ".kllk",
+      "kllk.",
+      "klk..",
+      ".k..."
+    ],
+    "upper-b222": [
+      ".k....",
+      "klk...",
+      ".klk..",
+      ".kllk.",
+      "..kllk",
+      "...kk."
+    ],
+    "upper-b58": [
+      ".k...",
+      "klkk.",
+      ".kllk",
+      ".kllk",
+      "..klk",
+      "...k."
+    ],
+    "upper-b70": [
+      ".k...",
+      "klk..",
+      "kllk.",
+      ".kllk",
+      ".kllk",
+      ".klk.",
+      "..k.."
+    ],
+    "upper-b91": [
+      ".k..",
+      "klk.",
+      "kllk",
+      "kllk",
+      "kllk",
+      "klk.",
+      ".k.."
+    ]
+  },
+  "frames": [
+    {
+      "name": "stand",
+      "duration": 200,
+      "anchor": [
+        19,
+        35
+      ],
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b123",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b133",
+              "x": 12,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    },
+    {
+      "name": "idle-rest",
+      "duration": 200,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b123",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b133",
+              "x": 12,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    },
+    {
+      "name": "idle-inhale",
+      "duration": 200,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b147",
+              "x": 10,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0s105",
+              "x": 16,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 6
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    },
+    {
+      "name": "idle-settle",
+      "duration": 200,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b123",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b133",
+              "x": 12,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    },
+    {
+      "name": "idle-exhale",
+      "duration": 200,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b114",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b133",
+              "x": 12,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 8
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 15,
+          "y": 21,
+          "color": "r"
+        },
+        {
+          "x": 16,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    },
+    {
+      "name": "walk-contact-a",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          23,
+          33
+        ],
+        "farShinFoot": [
+          15,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b143",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b70",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b20",
+              "x": 20,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 23,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b107",
+              "x": 15,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b107",
+              "x": 14,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 14,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b73",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b68",
+              "x": 20,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot-v330",
+              "x": 22,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b115",
+              "x": 16,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b100",
+              "x": 15,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r60",
+              "x": 14,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 15,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 23,
+          "y": 22,
+          "color": "p"
+        },
+        {
+          "x": 18,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 23,
+          "color": "p"
+        },
+        {
+          "x": 18,
+          "y": 24,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 24,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 30,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 32,
+          "color": "p"
+        }
+      ]
+    },
+    {
+      "name": "walk-down-a",
+      "duration": 80,
+      "anchor": [
+        19,
+        36
+      ],
+      "points": {
+        "nearShinFoot": [
+          21,
+          33
+        ],
+        "farShinFoot": [
+          15,
+          31
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 13,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b70",
+              "x": 18,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b23",
+              "x": 20,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 23,
+              "y": 23
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b150",
+              "x": 14,
+              "y": 28
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot-v30",
+              "x": 14,
+              "y": 30
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 12
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b67",
+              "x": 17,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 20,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 20,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 8
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 15
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b115",
+              "x": 16,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b100",
+              "x": 15,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r55",
+              "x": 15,
+              "y": 26
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 15,
+              "y": 25
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 24,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 24,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 24,
+          "color": "p"
+        },
+        {
+          "x": 18,
+          "y": 25,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 25,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 23,
+          "y": 26,
+          "color": "i"
+        }
+      ]
+    },
+    {
+      "name": "walk-passing-a",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          18,
+          31
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b147",
+              "x": 10,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b67",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b121",
+              "x": 17,
+              "y": 26
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 17,
+              "y": 30
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b109",
+              "x": 17,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b84",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r39",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 17,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 30,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 31,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 31,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "walk-up-a",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          17,
+          33
+        ],
+        "farShinFoot": [
+          21,
+          32
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b143",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b103",
+              "x": 17,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b84",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 17,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b67",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 20,
+              "y": 26
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 20,
+              "y": 31
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b96",
+              "x": 16,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b96",
+              "x": 16,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 16,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b70",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b53",
+              "x": 20,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r8",
+              "x": 21,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 21,
+              "y": 23
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 27,
+          "color": "q"
+        },
+        {
+          "x": 23,
+          "y": 27,
+          "color": "p"
+        },
+        {
+          "x": 20,
+          "y": 28,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 29,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 30,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 31,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "walk-contact-b",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          15,
+          33
+        ],
+        "farShinFoot": [
+          23,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b143",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b115",
+              "x": 16,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b100",
+              "x": 15,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 15,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b73",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b68",
+              "x": 20,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot-v330",
+              "x": 22,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b107",
+              "x": 15,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b107",
+              "x": 14,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 14,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b70",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b35",
+              "x": 20,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r350",
+              "x": 22,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 22,
+              "y": 22
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 23,
+          "color": "p"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 16,
+          "y": 24,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 24,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 25,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 25,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 25,
+          "color": "p"
+        },
+        {
+          "x": 16,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 27,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 28,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 30,
+          "color": "p"
+        }
+      ]
+    },
+    {
+      "name": "walk-down-b",
+      "duration": 80,
+      "anchor": [
+        19,
+        36
+      ],
+      "points": {
+        "nearShinFoot": [
+          15,
+          31
+        ],
+        "farShinFoot": [
+          21,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 13,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b115",
+              "x": 16,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b100",
+              "x": 15,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 15,
+              "y": 25
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b67",
+              "x": 17,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 20,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 20,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 12
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b150",
+              "x": 14,
+              "y": 28
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot-v30",
+              "x": 14,
+              "y": 30
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 8
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 15
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b70",
+              "x": 18,
+              "y": 17
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b43",
+              "x": 20,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r359",
+              "x": 22,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 22,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 24,
+          "color": "p"
+        },
+        {
+          "x": 17,
+          "y": 24,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 25,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 25,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 27,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 27,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 28,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 28,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 29,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 30,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 31,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 31,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "walk-passing-b",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          18,
+          31
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b147",
+              "x": 10,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b103",
+              "x": 17,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b84",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 17,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b67",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b121",
+              "x": 17,
+              "y": 26
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 17,
+              "y": 30
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r28",
+              "x": 19,
+              "y": 23
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 25,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 26,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 27,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 28,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 29,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 29,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "walk-up-b",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          21,
+          32
+        ],
+        "farShinFoot": [
+          17,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b143",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 10,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b70",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b23",
+              "x": 20,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 23,
+              "y": 22
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b96",
+              "x": 16,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b96",
+              "x": 16,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 16,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b67",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 20,
+              "y": 26
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 20,
+              "y": 31
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b109",
+              "x": 17,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b84",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r50",
+              "x": 17,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 17,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 23,
+          "color": "p"
+        },
+        {
+          "x": 20,
+          "y": 24,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 24,
+          "color": "q"
+        },
+        {
+          "x": 23,
+          "y": 25,
+          "color": "i"
+        },
+        {
+          "x": 20,
+          "y": 30,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 31,
+          "color": "p"
+        }
+      ]
+    },
+    {
+      "name": "attack-anticipation",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b123",
+              "x": 13,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b133",
+              "x": 11,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 17,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 18,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b352s90",
+              "x": 15,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b262",
+              "x": 14,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 14,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 16,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b222",
+              "x": 14,
+              "y": 13
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b207",
+              "x": 10,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r162",
+              "x": 1,
+              "y": 10
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 10,
+              "y": 11
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 14,
+          "y": 12,
+          "color": "j"
+        },
+        {
+          "x": 15,
+          "y": 13,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 14,
+          "color": "j"
+        },
+        {
+          "x": 15,
+          "y": 15,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 15,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 15,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 19,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 15,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "attack-strike",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ],
+        "strike": [
+          25,
+          23
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b143",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b158",
+              "x": 11,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b103",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b84",
+              "x": 18,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b8s105",
+              "x": 16,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b278",
+              "x": 16,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 16,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 18,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b58",
+              "x": 19,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b43",
+              "x": 22,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r358",
+              "x": 24,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 24,
+              "y": 22
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 20,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 20,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 20,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 22,
+          "y": 22,
+          "color": "p"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "attack-follow-through",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b132",
+              "x": 15,
+              "y": 15
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b147",
+              "x": 12,
+              "y": 18
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b103",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b84",
+              "x": 18,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b14s95",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b284",
+              "x": 16,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 17,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 19,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b109",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b84",
+              "x": 18,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r49",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 18,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 20,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 19,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 22,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 21,
+          "color": "p"
+        },
+        {
+          "x": 17,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 18,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 23,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 30,
+          "color": "q"
+        }
+      ]
+    },
+    {
+      "name": "attack-recover",
+      "duration": 80,
+      "anchor": [
+        19,
+        35
+      ],
+      "points": {
+        "nearShinFoot": [
+          19,
+          33
+        ],
+        "farShinFoot": [
+          19,
+          33
+        ]
+      },
+      "layers": [
+        {
+          "name": "tail",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tail-b114",
+              "x": 14,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "tip",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "tip-b127",
+              "x": 12,
+              "y": 20
+            }
+          ]
+        },
+        {
+          "name": "farUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farUpper-b87",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "farFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farFore-b72",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farHand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "farThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farThigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "farShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farShin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "farBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "farBoot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "hips",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hips-b0",
+              "x": 15,
+              "y": 19
+            }
+          ]
+        },
+        {
+          "name": "chest",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "chest-b270",
+              "x": 15,
+              "y": 11
+            }
+          ]
+        },
+        {
+          "name": "nearThigh",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "thigh-b85",
+              "x": 17,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "nearShin",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "shin-b85",
+              "x": 18,
+              "y": 27
+            }
+          ]
+        },
+        {
+          "name": "nearBoot",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "boot",
+              "x": 18,
+              "y": 32
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "head",
+              "x": 15,
+              "y": 7
+            }
+          ]
+        },
+        {
+          "name": "scarf",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "scarf",
+              "x": 17,
+              "y": 14
+            }
+          ]
+        },
+        {
+          "name": "nearUpper",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "upper-b91",
+              "x": 18,
+              "y": 16
+            }
+          ]
+        },
+        {
+          "name": "nearFore",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "fore-b73",
+              "x": 19,
+              "y": 21
+            }
+          ]
+        },
+        {
+          "name": "sword",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "sword-r35",
+              "x": 20,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "name": "nearHand",
+          "ops": [
+            {
+              "op": "stamp",
+              "symbol": "hand",
+              "x": 19,
+              "y": 24
+            }
+          ]
+        }
+      ],
+      "pixels": [
+        {
+          "x": 19,
+          "y": 16,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 17,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 17,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 18,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 18,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 19,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 19,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 20,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 20,
+          "color": "j"
+        },
+        {
+          "x": 16,
+          "y": 21,
+          "color": "i"
+        },
+        {
+          "x": 18,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 20,
+          "y": 21,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 22,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 21,
+          "y": 22,
+          "color": "j"
+        },
+        {
+          "x": 17,
+          "y": 23,
+          "color": "q"
+        },
+        {
+          "x": 19,
+          "y": 24,
+          "color": "j"
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "idle": {
+      "frames": [
+        "idle-rest",
+        "idle-inhale",
+        "idle-settle",
+        "idle-exhale"
+      ],
+      "loop": true
+    },
+    "walk": {
+      "frames": [
+        "walk-contact-a",
+        "walk-down-a",
+        "walk-passing-a",
+        "walk-up-a",
+        "walk-contact-b",
+        "walk-down-b",
+        "walk-passing-b",
+        "walk-up-b"
+      ],
+      "loop": true
+    },
+    "attack": {
+      "frames": [
+        "attack-anticipation",
+        "attack-strike",
+        "attack-strike",
+        "attack-follow-through",
+        "attack-recover"
+      ],
+      "loop": false
+    }
+  },
+  "sheet": {
+    "columns": 8
+  }
+}

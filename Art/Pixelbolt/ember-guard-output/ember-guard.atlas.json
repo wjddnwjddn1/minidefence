@@ -1,0 +1,723 @@
+{
+  "frames": {
+    "stand": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 200,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      }
+    },
+    "idle-rest": {
+      "frame": {
+        "x": 40,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 200,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "idle-inhale": {
+      "frame": {
+        "x": 80,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 200,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "idle-settle": {
+      "frame": {
+        "x": 120,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 200,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "idle-exhale": {
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 200,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "walk-contact-a": {
+      "frame": {
+        "x": 200,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 23,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 15,
+          "y": 33
+        }
+      }
+    },
+    "walk-down-a": {
+      "frame": {
+        "x": 240,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 1
+      },
+      "anchor": {
+        "x": 19,
+        "y": 36
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 21,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 15,
+          "y": 31
+        }
+      }
+    },
+    "walk-passing-a": {
+      "frame": {
+        "x": 280,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 18,
+          "y": 31
+        }
+      }
+    },
+    "walk-up-a": {
+      "frame": {
+        "x": 0,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 17,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 21,
+          "y": 32
+        }
+      }
+    },
+    "walk-contact-b": {
+      "frame": {
+        "x": 40,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 15,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 23,
+          "y": 33
+        }
+      }
+    },
+    "walk-down-b": {
+      "frame": {
+        "x": 80,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 1
+      },
+      "anchor": {
+        "x": 19,
+        "y": 36
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 15,
+          "y": 31
+        },
+        "farShinFoot": {
+          "x": 21,
+          "y": 33
+        }
+      }
+    },
+    "walk-passing-b": {
+      "frame": {
+        "x": 120,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 18,
+          "y": 31
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "walk-up-b": {
+      "frame": {
+        "x": 160,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 21,
+          "y": 32
+        },
+        "farShinFoot": {
+          "x": 17,
+          "y": 33
+        }
+      }
+    },
+    "attack-anticipation": {
+      "frame": {
+        "x": 200,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "attack-strike": {
+      "frame": {
+        "x": 240,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "strike": {
+          "x": 25,
+          "y": 23
+        }
+      }
+    },
+    "attack-follow-through": {
+      "frame": {
+        "x": 280,
+        "y": 36,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    },
+    "attack-recover": {
+      "frame": {
+        "x": 0,
+        "y": 72,
+        "w": 40,
+        "h": 36
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 40,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 40,
+        "h": 36
+      },
+      "duration": 80,
+      "pivot": {
+        "x": 0.475,
+        "y": 0.972222
+      },
+      "anchor": {
+        "x": 19,
+        "y": 35
+      },
+      "points": {
+        "nearShinFoot": {
+          "x": 19,
+          "y": 33
+        },
+        "farShinFoot": {
+          "x": 19,
+          "y": 33
+        }
+      }
+    }
+  },
+  "animations": {
+    "idle": {
+      "frames": [
+        "idle-rest",
+        "idle-inhale",
+        "idle-settle",
+        "idle-exhale"
+      ],
+      "loop": true,
+      "duration": 800
+    },
+    "walk": {
+      "frames": [
+        "walk-contact-a",
+        "walk-down-a",
+        "walk-passing-a",
+        "walk-up-a",
+        "walk-contact-b",
+        "walk-down-b",
+        "walk-passing-b",
+        "walk-up-b"
+      ],
+      "loop": true,
+      "duration": 640
+    },
+    "attack": {
+      "frames": [
+        "attack-anticipation",
+        "attack-strike",
+        "attack-strike",
+        "attack-follow-through",
+        "attack-recover"
+      ],
+      "loop": false,
+      "duration": 400
+    }
+  },
+  "meta": {
+    "app": "Pixelbolt",
+    "version": "1",
+    "image": "ember-guard.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 320,
+      "h": 108
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "idle",
+        "from": 1,
+        "to": 4,
+        "direction": "forward"
+      },
+      {
+        "name": "walk",
+        "from": 5,
+        "to": 12,
+        "direction": "forward"
+      }
+    ]
+  }
+}

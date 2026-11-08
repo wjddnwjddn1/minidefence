@@ -1,0 +1,41 @@
+/* Pixelbolt: atlas coordinates are pixels at the exported scale. */
+.pf-ember-guard {
+  display: inline-block;
+  width: 40px; height: 36px;
+  background-image: url("ember-guard.png");
+  background-repeat: no-repeat; image-rendering: pixelated;
+}
+.pf-ember-guard-idle { background-position: -40px -0px; animation: pf-ember-guard-idle 800ms steps(1, end) infinite; }
+@keyframes pf-ember-guard-idle {
+  0% { background-position: -40px -0px; }
+  25% { background-position: -80px -0px; }
+  50% { background-position: -120px -0px; }
+  75% { background-position: -160px -0px; }
+  100% { background-position: -40px -0px; }
+}
+.pf-ember-guard-walk { background-position: -200px -0px; animation: pf-ember-guard-walk 640ms steps(1, end) infinite; }
+@keyframes pf-ember-guard-walk {
+  0% { background-position: -200px -0px; }
+  12.5% { background-position: -240px -0px; }
+  25% { background-position: -280px -0px; }
+  37.5% { background-position: -0px -36px; }
+  50% { background-position: -40px -36px; }
+  62.5% { background-position: -80px -36px; }
+  75% { background-position: -120px -36px; }
+  87.5% { background-position: -160px -36px; }
+  100% { background-position: -200px -0px; }
+}
+.pf-ember-guard-attack { background-position: -200px -36px; animation: pf-ember-guard-attack 400ms steps(1, end) 1 forwards; }
+@keyframes pf-ember-guard-attack {
+  0% { background-position: -200px -36px; }
+  20% { background-position: -240px -36px; }
+  40% { background-position: -240px -36px; }
+  60% { background-position: -280px -36px; }
+  80% { background-position: -0px -72px; }
+  100% { background-position: -0px -72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-ember-guard-idle { animation: none; }
+  .pf-ember-guard-walk { animation: none; }
+  .pf-ember-guard-attack { animation: none; }
+}
