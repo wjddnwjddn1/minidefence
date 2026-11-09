@@ -20,8 +20,8 @@ const server=http.createServer((req,res)=>{const relative=decodeURIComponent(new
   if(!messages.some(m=>m.includes('TACTICAL_REROLLED 1 ')))throw Error('reroll click failed '+w+': '+messages.slice(-5));
   await page.screenshot({path:path.join(out,`reroll-${w}.png`)});
   const index=Number(process.env.TACTICAL_CARD_INDEX||0);let scroll=0;
-  if(index===2){await page.mouse.move(w/2,screenY(y+122));for(let step=0;step<25;step++){await page.mouse.wheel(0,120);await page.waitForTimeout(30);}await page.waitForTimeout(300);scroll=Math.max(0,276-(height-188));await page.screenshot({path:path.join(out,`scrolled-${w}.png`)});}
-  await page.mouse.click(w/2,screenY(y+80+index*92+42-scroll));await page.waitForTimeout(500);
+  if(index===2){await page.mouse.move(w/2,screenY(y+136));for(let step=0;step<25;step++){await page.mouse.wheel(0,120);await page.waitForTimeout(30);}await page.waitForTimeout(300);scroll=Math.max(0,216-(height-212));await page.screenshot({path:path.join(out,`scrolled-${w}.png`)});}
+  await page.mouse.click(w/2,screenY(y+104+index*72+32-scroll));await page.waitForTimeout(500);
   const offered=messages.find(m=>m.includes('TACTICAL_REROLLED 1 ')).match(/TACTICAL_REROLLED 1 \d+ ([0-6],[0-6],[0-6])/)[1].split(',');
   if(!messages.some(m=>m.includes('TACTICAL_CHOSEN 3 '+offered[index])))throw Error('card click failed '+w+': '+messages.slice(-5));
   if(errors.length)throw Error(errors.join('\n'));

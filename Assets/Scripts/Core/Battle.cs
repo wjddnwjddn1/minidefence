@@ -42,6 +42,15 @@ namespace EmberBastion {
   public int Pending {get{return queue.Count;}}
   public bool Decided {get{return Phase==Phase.Fighting&&Wave==WaveCount&&queue.Count==0;}}
   public bool UpcomingBoss {get{if(Wave<0||Wave>=WaveCount)return false;foreach(var group in Field.Waves[Wave])if(group.Kind==4)return true;return false;}}
+  public string NextWaveAdvice(){
+   if(Wave<0||Wave>=WaveCount)return "";bool runner=false,shield=false,bomb=false,boss=false;
+   foreach(var g in Field.Waves[Wave]){runner|=g.Kind==1;shield|=g.Kind==2;bomb|=g.Kind==3;boss|=g.Kind==4;}
+   if(boss)return "대장: 궁수·서리 대장 우선 표적";
+   if(shield)return FastWaves&&!HardWaves?"방패: 폭발 반감·궁수 추가 피해":"방패: 궁수 관통·검사 파쇄 검토";
+   if(runner)return FastWaves&&!HardWaves?"질주: 근접 반감·궁수 추가 피해":"질주: 서리 둔화·궁수 빠른 적 표적";
+   if(bomb)return "폭약: 기절 주의·병력 밀집 피하기";
+   return "무리: 검사 다수 타격·폭탄 범위";
+  }
   public double WaveInterval {get{return HardWaves?Balance.HardWaveInterval:FastWaves?Balance.FastWaveInterval:Balance.AutoWaveInterval;}}
   public double NextWaveIn {get{return Phase==Phase.Fighting&&Wave<WaveCount?Math.Max(0,WaveInterval-WaveTime):0;}}
   // The caller determines entitlement from distinct completed fields. One grant per fresh run.

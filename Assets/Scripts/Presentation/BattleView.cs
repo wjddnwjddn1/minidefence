@@ -224,13 +224,14 @@ namespace EmberBastion {
    Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.78f));UiPlate(new Rect(x,y,width,height));
    UiTitle(new Rect(x+12,y+4,width-24,34),"전술 선택 "+(battle.Reinforcements.SelectedCount+1)+"/3 · 무료",smallTitle);
    bool oldWrap=menuNotice.wordWrap;menuNotice.wordWrap=true;int oldSize=menuNotice.fontSize;menuNotice.fontSize=12;
-   GUI.Label(new Rect(x+14,y+40,width-28,38),TacticalPreview(),menuNotice);
-   tacticalScroll=GUI.BeginScrollView(new Rect(x+12,y+80,width-24,height-188),tacticalScroll,new Rect(0,0,width-46,276),false,true);
+   GUI.Label(new Rect(x+14,y+40,width-28,36),TacticalPreview(),menuNotice);
+   GUI.Label(new Rect(x+14,y+76,width-28,24),battle.NextWaveAdvice(),menuNotice);
+   tacticalScroll=GUI.BeginScrollView(new Rect(x+12,y+104,width-24,height-212),tacticalScroll,new Rect(0,0,width-46,216),false,true);
    int picked=-1;int old=button.fontSize;bool wrap=button.wordWrap;button.fontSize=Screen.width<400?12:14;button.wordWrap=true;
    foreach(int card in battle.Reinforcements.Choices()){
     int index=Array.IndexOf(battle.Reinforcements.Choices(),card),targets=TacticalTargets(card);
     string label=ReinforcementLabel(card)+"  "+ReinforcementChange(card)+"\n"+(targets<0?"전투 공통 효과":targets==0?"현재 0명 · 이후 배치 병력에도 적용":"현재 적용 병력 "+targets+"명");
-    if(MenuButton(new Rect(0,index*92,width-48,84),label))picked=card;
+    if(MenuButton(new Rect(0,index*72,width-48,64),label))picked=card;
    }
    GUI.EndScrollView();
    GUI.Label(new Rect(x+14,y+height-104,width-28,20),"보유 "+battle.Gold+"G · 선택 중 전투 정지",menuNotice);

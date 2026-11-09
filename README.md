@@ -60,3 +60,5 @@ Unity 에디터의 `EmberBastion.Editor.TextureAudit.Run` 검사는 Resources �
 5병과와 각 3레벨 분기, 궁수·서리 우선순위 및 조기 호출을 구현했다. 캠페인 성장과 무한모드는 후속이다. 준비 저장은 Unity 비교판 고유의 PlayerPrefs 키 `snomet.ember-bastion.unity-comparison.preparation.v1`를 사용한다. 기본 완료는 `snomet.ember-bastion.unity-comparison.clear-count.v2.`, 도전 완료는 `snomet.ember-bastion.unity-comparison.clear-fast.v1.`, 극한 완료는 `snomet.ember-bastion.unity-comparison.clear-hard.v1.` 키를 별도로 사용하며 기존 웹판의 키를 읽거나 쓰지 않는다. 작은 가로 화면의 `메뉴`에서는 병력 판매·목표 변경·준비 저장·배속·다음 호출을 사용할 수 있고 메뉴가 열린 동안 전투 시간이 멈춘다.
 
 Web 빌드는 압축을 끈 개발용이다. 로컬 HTTP에서 검증하며 상태는 `Docs/STATUS.md`에 기록한다. 한국어 글꼴로 나눔고딕을 포함했고 라이선스는 `Docs/NanumGothic-OFL.txt`에 둔다. WebGL2/WebAssembly 및 브라우저별 모바일 지원 조건은 [Unity 공식 문서](https://docs.unity3d.com/6000.0/Documentation/Manual/webgl-browsercompatibility.html)를 참고하며 실제 기기에서 재검증한다.
+
+품질 평가에는 [사용자 평가 프롬프트](Docs/가혹한_게임_평가_프롬프트.md)를 사용한다. 최신 [병과 역할 비교](Docs/T4-병과역할-비교-20261110.md)는 자동 정책의 후보 실험이며 실제 재미 평가를 대신하지 않는다.
