@@ -6,6 +6,64 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 
 시각 정정 2 (11-06 08:0x): 11-06 2~7차 머리도 처음에는 추정값(03:4x~05:4x)이라 실제보다 늦게 적혔다. 각 항목에 답한 Codex 커밋 시각을 기준으로 03:2x~04:2x로 고쳤다. Codex 인계 문서에 남은 "Claude 05:2x·05:4x" 같은 표기는 각각 6차(04:1x)·7차(04:2x)를 가리킨다. 순서는 위치로 읽는다.
 
+## 2026-11-09 16:xx · T1 검수용 독립 검사 작성 32차 (기준 `6d78d7f`, 새 파일만 추가 · 기존 검사와 게임 소스는 수정 없음)
+
+사용자 지시: Codex는 T1 구현과 그에 필요한 검사를 맡고, Claude는 31차 목록 중 **모드 분리 · 보상 1회 지급 · 카드 3장 저장·복원 · 승리 기록·보급**을 독립 검수한다.
+
+### 새 파일
+- `Tests/T1ReviewChecks.cs`: **지금 API로 컴파일된다.**
+  - `[보존]`: 지금도 T1 뒤에도 통과해야 하는 항목.
+  - `[T1요구]`: 지금 API로 표현할 수 있는 T1 요구 사항. T1 전에는 실패하는 것이 정상이다.
+- `Tests/T1ReviewApiChecks.cs`: T1 API를 가정한다. **`6d78d7f`에서는 컴파일되지 않는다.**
+  - 가정한 이름은 맨 위 `T1Api` 클래스에 모두 모았다.
+  - 위 파일과 함께 컴파일한다(Review 도우미와 PlayerPrefs 대역을 공유).
+- 실행:
+  - Mac: `python3 Tests/run-t1-review.py [current|api]`
+  - Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Review-T1Checks.ps1 [current|api]`
+  - 이름을 일부러 `Run-*Checks.ps1`로 짓지 않았다. 그래서 기존 일괄 실행(`run-checks-mac.py` 포함)에는 끼지 않는다.
+  - 종료 코드: 0은 모두 통과, 1은 `[보존]` 실패(회귀), 2는 `[T1요구]`만 실패했거나 API 단계가 아직 컴파일되지 않음.
+- C# 5 문법만 쓴다. Mac에서 `-langversion:5`로 확인했다. **Windows 실행은 확인하지 않았다** (ps1 포함).
+
+### `6d78d7f` 결과 (Mac)
+- current 단계: `[보존]` 13/13 통과, `[T1요구]` 3건 실패.
+  - 통과한 `[보존]`: v3 증원 1.15 밀도·난도 잠금·Wave 2·5에서 최대 2장, 3장·경계 밖 제시 저장 거부, 빈 드래프트 객체를 일반으로 복원, **네 전장 v3 증원 3·6 전과 v3 일반 2~10웨이브에서 보상 1회**(조기 호출·자동 진행 두 경로, 대기·저장·복원·선택 포함), 규칙별 클리어 키, 보급 60G 상한.
+  - 실패한 `[T1요구]`: `ProgressStore`의 규칙 4 클리어, 최고 기록·배지, 증원 최고 기록. 세 건 모두 `ArgumentException`(상한 `>3`) 때문이다.
+- api 단계: **컴파일 실패 6건.** 없는 이름은 `Battle.Mode`, `BattleMode`, `Battle.CreateForRules`, `VictoryRecords`.
+
+### 가정한 T1 API (실제와 다르면 `T1Api`만 맞춘다)
+- A1 `enum BattleMode { Unspecified=0, Normal=1, Reinforcement=2 }`, `Battle.Mode`.
+- A2 `Battle.CreateForRules(seed, field, rulesVersion)`: v4를 기본으로 켜지 않는 격리 생성 경로. v4 일반은 빈 드래프트를 가진다.
+- A3 드래프트 이름은 그대로 유지(`Reinforcements`, `ReinforcementPending`, `ChooseReinforcement`, `ReinforcementOffered`, `SelectedCount`, `Count`, `Choices`). 골드 카드 배율은 ×1.15.
+- A4 v4 증원 = `CreateForRules(...,4)` + `EnableReinforcements()`. 의미는 v3와 같다.
+- A5 `BattleView.cs:64` 승리 기록 블록을 Unity에 의존하지 않는 `VictoryRecords.Apply(Battle)`로 추출한다(반환형은 상관없음). 추출하지 않으면 D 항목은 Web 검사로 대신해야 한다.
+- A6 T1은 v4 웨이브 데이터와 밀도를 v3와 똑같이 둔다(조정은 T4에서).
+
+### api 단계 검사 (23개)
+- A 모드 분리:
+  - v4 일반 기본·도전·극한이 일반 모드이고, 네 전장 밀도가 같은 난도 v3 일반과 같다.
+  - 준비 단계에서 난도를 바꿀 수 있다. 준비·전투 저장과 복사 왕복에서 모드가 유지된다.
+  - v0~3 저장은 드래프트 유무로 원래 모드가 복원된다. v4 증원은 1.15·잠금·2장을 유지한다.
+- B 보상 1회: v4 일반의 3·6·9 전과 10웨이브 시작. 두 전장(0·3) × 세 난도 × 조기·자동 두 경로.
+- C 카드 3장:
+  - 세 번째 선택 직후 `WaveStarted`에서 `CopyCombat`해도 예외가 없고, 저장 왕복이 된다.
+  - 끝까지 진행해도 제시는 Wave 2·5·8에서만 나온다.
+  - 4장, 일정과 다른 선택 수, 경계 밖 제시를 담은 변조 저장은 거부한다.
+- D 승리·보급:
+  - v4 일반 승리는 전역 완료·규칙 4 클리어·최고 기록·배지를 남기고, 증원 기록은 남기지 않으며, v3 기록은 바뀌지 않는다.
+  - v3·v4 증원 승리는 증원 기록만 남긴다. v3 일반 승리의 키는 그대로다.
+  - v4 일반 승리로 보급이 20→40→60→60G로 늘고, 같은 전장을 다시 이겨도 중복되지 않는다.
+
+### 검사 자체의 검증 (저장소 밖 임시 코드)
+- 임시 폴더에 T1을 최소한으로 흉내 낸 코드를 만들어 api 단계 23/23이 통과하는 것을 확인했다(모드 필드, 일반 카드 3장, Wave 8 제시, 규칙 4 기록 허용, `VictoryRecords` 추출).
+- 버그를 일부러 넣은 세 경우를 모두 잡는 것도 확인했다: 선택 때 보상을 한 번 더 지급 → B 실패, 일반 카드 전투에 1.15 밀도 적용 → A1 실패, 복사할 때 모드 소실 → A3·B 실패.
+- 이 흉내 코드는 구현 제안이 아니며 저장소에 넣지 않았다.
+
+### 한계
+- `CombatStore`·`PreparationStore`의 JsonUtility 왕복과 `ValidatePair`는 Unity 없이 컴파일되지 않아 다루지 않았다. Web 검사(계획 §9 목록)로 확인해야 한다.
+- 리롤·카드 효과 프로필은 T2 범위라 넣지 않았다.
+
+**Codex에게:** T1 API 이름이 다르면 커밋만 알려 달라. Claude가 `T1Api`를 맞추고 다시 검수한다. 검수 파일은 Codex가 고치지 않아도 된다.
+
 ## 2026-11-09 14:4x · 일반 전투 카드 도입 전 사전 검수 31차 (기준 `23c999e`, 읽기 전용 · Mac Unity Mono로 기존 검사 재실행)
 
 [협업 문서](CODEX-CLAUDE-협업.md)의 첫 번째 검수 범위다. 방향서·[구현 계획](TERRA-IMPLEMENTATION-PLAN.md)과 현재 소스를 대조했다. 구현은 아직 시작되지 않았으므로 아래는 **현재 구조에 일반 카드를 붙일 때 생기는 위험**이다. 코드는 고치지 않았다. 기존 검사는 Mac에 설치된 Unity 6000.6.7f1의 `MonoBleedingEdge`(`mono` + `lib/mono/4.5/csc.exe`)로 `.ps1`에 적힌 소스를 그대로 컴파일해 저장소 밖에서 돌렸다(아래 "Mac 재실행 결과").
