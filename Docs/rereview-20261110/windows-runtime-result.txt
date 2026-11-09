@@ -1,0 +1,1 @@
+PASS world freeze, paid reroll, actual Unity JSON round trip, selected wave 3 and preserved pause. Scripted fixture, not manual button interaction.

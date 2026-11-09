@@ -1,4 +1,5 @@
 """Compare frozen live-source copies. Never modifies game code or user saves."""
+import csv
 import argparse
 import hashlib
 import json
@@ -20,6 +21,7 @@ profiles = {'R3': None, 'C': None, 'CSoft': (.75, .75, 1.25), 'CStrong': (.5, .5
 parser = argparse.ArgumentParser()
 parser.add_argument('--profiles', nargs='+', choices=list(profiles), default=['R3', 'C', 'CSoft', 'CStrong'])
 parser.add_argument('--output', default='Docs/t4-role-comparison.csv')
+parser.add_argument('--policy-set', choices=['baseline','roles'], default='baseline')
 args = parser.parse_args()
 profiles = {name: profiles[name] for name in args.profiles}
 all_rows = []
@@ -48,17 +50,31 @@ for profile, values in profiles.items():
     subprocess.run([str(compiler), '/nologo', '/utf8output', '/codepage:65001',
                     '/main:TacticalBalanceProbe', f'/out:{exe}'] +
                    [str(folder / Path(name).name) for name in SOURCES], check=True)
-    result = subprocess.run([str(exe), profile], check=True, capture_output=True, encoding='utf-8')
+    result = subprocess.run([str(exe), profile, args.policy_set], check=True, capture_output=True, encoding='utf-8')
     rows = result.stdout.splitlines()
-    assert len(rows) == 1153, (profile, len(rows))
+    expected = 1344 if args.policy_set == 'roles' else 1152
+    assert len(rows) == expected + 1, (profile, len(rows))
     (folder / 'results.csv').write_text('\n'.join(rows) + '\n', encoding='utf-8')
     all_rows.extend(rows if not all_rows else rows[1:])
-    print(f'PASS {profile}: 1152 battles', flush=True)
+    print(f'PASS {profile}: {expected} battles', flush=True)
+if args.policy_set == 'roles':
+    baseline = []
+    for name in ['t4-role-comparison.csv', 't4-role-ablation.csv']:
+        with (ROOT / 'Docs' / name).open(encoding='utf-8-sig') as stream:
+            baseline.extend(csv.DictReader(stream))
+    key = lambda row: tuple(row[k] for k in ['profile','seed','mode','field','policy','ember'])
+    known = {key(row): row for row in baseline if row['policy'] == 'smartB'}
+    controls = [row for row in csv.DictReader(all_rows) if row['policy'] == 'smartB']
+    for row in controls:
+        old = known[key(row)]
+        for column in ['result','wave','peak','seconds','gold','invested','level3','cards','card_ids','wave_peaks','wave_gold']:
+            assert row[column] == old[column], (key(row), column, row[column], old[column])
+    print(f'PASS {len(controls)} unchanged smartB controls against frozen baseline', flush=True)
 target = ROOT / args.output
 target.write_text('\n'.join(all_rows) + '\n', encoding='utf-8')
 manifest = {'base_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
             'source_sha256': {name: hashlib.sha256(raw).hexdigest() for name, raw in snapshots.items()},
-            'profiles': profiles, 'rows': len(all_rows)-1,
+            'profiles': profiles, 'policy_set': args.policy_set, 'rows': len(all_rows)-1,
             'limitations': ['first offered card, no rerolls', 'fixed purchase/upgrade policies',
                             'one-slot swaps differ by 5G base cost', 'not human play or fun evidence']}
 target.with_name(target.stem + '-source.json').write_text(

@@ -1,0 +1,22 @@
+{
+  "base_commit": "89d1fca16074d5c35eda768b946ba56d47bc8aa6",
+  "source_sha256": {
+    "Assets/Scripts/Core/Balance.cs": "d96a2a3ed476364b2126ca6480224757f3e40f9cf534d86dadcde3f7bdd58968",
+    "Assets/Scripts/Core/Battle.cs": "e2f16e8edab8b54a9d3cc034664c0314d8794b6686f0d364ceb223bee23d335d",
+    "Assets/Scripts/Core/CombatSave.cs": "2eeb9d4acba274024af8dbdb08ca90fd71d5f95a902f2bf8f70ec31defb238d5",
+    "Tests/GameplayDurationProbe.cs": "2a3f1c0c767c4c0a52dd1d9ae03c104bb4be617863bf339eaadab30c9464a264",
+    "Tests/TacticalBalanceProbe.cs": "dc21e862e5a960c09135333bf3b3ec79733932c077cb924b8a91a157a940e2aa"
+  },
+  "profiles": {
+    "R3": null,
+    "C": null
+  },
+  "policy_set": "roles",
+  "rows": 2688,
+  "limitations": [
+    "first offered card, no rerolls",
+    "fixed purchase/upgrade policies",
+    "one-slot swaps differ by 5G base cost",
+    "not human play or fun evidence"
+  ]
+}

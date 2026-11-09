@@ -1,0 +1,9 @@
+{
+  "source_sha256": {
+    "Assets\\Scripts\\Core\\Battle.cs": "9cfa722dac569ce2292c42fd7eb8165a7dea039ea5f2c2737002c1308c48abc7",
+    "Assets\\Scripts\\Presentation\\BattleView.cs": "b6b159e17f7320481616617f7c0129d7fe24a7fb97a957ebece5df5dc4c3162e"
+  },
+  "natural_flow": "Built before final boss-charge label preservation; this flow does not inspect enemy header. Same combat rules.",
+  "builds": "Final TacticalWeb and TacticalCandidate passed; existing playable/download unchanged.",
+  "visual_review": "Support 800/1280/1920 and archer1920 captures inspected. Frame rate and sound NR."
+}
