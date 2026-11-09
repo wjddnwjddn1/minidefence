@@ -1,0 +1,391 @@
+{
+ "frames": [
+  {
+   "filename": "Guard 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 1",
+   "frame": {
+    "x": 72,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 2",
+   "frame": {
+    "x": 144,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 3",
+   "frame": {
+    "x": 216,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 4",
+   "frame": {
+    "x": 0,
+    "y": 42,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 5",
+   "frame": {
+    "x": 72,
+    "y": 42,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 6",
+   "frame": {
+    "x": 144,
+    "y": 42,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 7",
+   "frame": {
+    "x": 216,
+    "y": 42,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 8",
+   "frame": {
+    "x": 0,
+    "y": 84,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 9",
+   "frame": {
+    "x": 72,
+    "y": 84,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 10",
+   "frame": {
+    "x": 144,
+    "y": 84,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 11",
+   "frame": {
+    "x": 216,
+    "y": 84,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 12",
+   "frame": {
+    "x": 0,
+    "y": 126,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 13",
+   "frame": {
+    "x": 72,
+    "y": 126,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 14",
+   "frame": {
+    "x": 144,
+    "y": 126,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Guard 15",
+   "frame": {
+    "x": 216,
+    "y": 126,
+    "w": 72,
+    "h": 42
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 72,
+    "h": 42
+   },
+   "sourceSize": {
+    "w": 72,
+    "h": 42
+   },
+   "duration": 50
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "Guard.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 288,
+   "h": 168
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "Guard",
+    "from": 0,
+    "to": 15,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "status/eb-guard",
+   "name": "Ember Bastion guard",
+   "fps": 20,
+   "loop": true,
+   "frames": 16,
+   "frameSize": [
+    72,
+    42
+   ],
+   "pivot": [
+    36,
+    30
+   ],
+   "columns": 4
+  }
+ }
+}

@@ -1,0 +1,303 @@
+{
+ "frames": [
+  {
+   "filename": "Freeze 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 1",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 2",
+   "frame": {
+    "x": 112,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 3",
+   "frame": {
+    "x": 0,
+    "y": 36,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 4",
+   "frame": {
+    "x": 56,
+    "y": 36,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 5",
+   "frame": {
+    "x": 112,
+    "y": 36,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 6",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 7",
+   "frame": {
+    "x": 56,
+    "y": 72,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 8",
+   "frame": {
+    "x": 112,
+    "y": 72,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 9",
+   "frame": {
+    "x": 0,
+    "y": 108,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 10",
+   "frame": {
+    "x": 56,
+    "y": 108,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  },
+  {
+   "filename": "Freeze 11",
+   "frame": {
+    "x": 112,
+    "y": 108,
+    "w": 56,
+    "h": 36
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 36
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 36
+   },
+   "duration": 50
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "Freeze.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 168,
+   "h": 144
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "Freeze",
+    "from": 0,
+    "to": 11,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "status/eb-freeze",
+   "name": "Ember Bastion freeze",
+   "fps": 20,
+   "loop": true,
+   "frames": 12,
+   "frameSize": [
+    56,
+    36
+   ],
+   "pivot": [
+    28,
+    30
+   ],
+   "columns": 3
+  }
+ }
+}
