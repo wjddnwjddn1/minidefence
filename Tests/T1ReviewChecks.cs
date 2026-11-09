@@ -50,13 +50,14 @@ static class Review {
  // One transition from `b` (state of AdvanceTo). early=CallEarly path, else automatic timer path.
  // Asserts the wave reward is paid exactly once across offer, pause, save/restore and choice.
  public static void Transition(Battle b,bool early,bool expectOffer,string label){
-  var x=b.CopyCombat();int w=x.Wave;int expected;
+  var x=b.CopyCombat();int w=x.Wave;int expected;if(expectOffer)PrepareInputs(x,label);
   if(early){expected=x.Gold+Reward(x,40+5*w)+x.EarlyBonus();Check(x.CallEarly(),label+": call early");}
   else{x.Enemies.Clear();x.Shots.Clear();expected=x.Gold+Reward(x,40+5*w);x.WaveTime=Math.Max(x.WaveTime,x.WaveInterval);x.Step(Balance.Tick);}
   if(!expectOffer){Check(!x.ReinforcementPending&&x.Wave==w+1,label+": plain wave start");Check(x.Gold==expected,label+": reward "+(x.Gold-(expected-Reward(x,40+5*w)))+" gold delta, expected once");return;}
   Check(x.ReinforcementPending&&x.Wave==w,label+": offer before wave "+(w+1)+" (pending="+x.ReinforcementPending+", wave="+x.Wave+")");
   Check(x.Gold==expected,label+": reward once before offer (gold "+x.Gold+" expected "+expected+")");
   double t=x.Time;x.Step(1.0);x.Step(.25);Check(x.Gold==expected&&x.Time==t&&!x.CanCallEarly()&&!x.CallEarly(),label+": paused while choosing");
+  Frozen(x,label);InputsBlocked(x,label);Check(x.Gold==expected,label+": blocked inputs changed gold");
   var restored=Battle.ImportCombat(x.ExportCombat());Check(restored.ReinforcementPending&&restored.Gold==expected,label+": pending restored");
   int card=x.Reinforcements.Choices()[0];Check(SameInts(x.Reinforcements.Choices(),restored.Reinforcements.Choices()),label+": same offer after restore");
   Check(x.ChooseReinforcement(card)&&restored.ChooseReinforcement(card),label+": choose");
@@ -65,6 +66,27 @@ static class Review {
   for(int i=0;i<600&&x.Phase==Phase.Fighting;i++){x.Step(1.0/60);restored.Step(1.0/60);}
   Check(x.Gold==restored.Gold&&x.Kills==restored.Kills&&x.Time==restored.Time&&x.Enemies.Count==restored.Enemies.Count&&x.Wave==restored.Wave,label+": restored run identical");
  }
+ // Leaves one empty slot, one Lv1 and one Lv2 unit so that every input below would succeed if not blocked.
+ public static void PrepareInputs(Battle x,string label){int n=x.Field.Slots.Length;Check(n>=6,label+": slots");
+  for(int s=n-3;s<n;s++)if(x.At(s)!=null)Check(x.Sell(s),label+": sell fixture");
+  Check(x.Place(0,n-1),label+": lv1 fixture");Check(x.Place(0,n-2)&&x.Upgrade(n-2),label+": lv2 fixture");x.Gold=Math.Max(x.Gold,5000);}
+ public static void InputsBlocked(Battle x,string label){int n=x.Field.Slots.Length,units=x.Units.Count,gold=x.Gold;var archer=x.Units.Find(u=>u.Kind==1);
+  Check(!x.Place(1,n-3),label+": place blocked");Check(!x.Upgrade(n-1),label+": upgrade blocked");Check(!x.UpgradeBranch(n-2,1),label+": branch blocked");
+  Check(!x.Sell(0),label+": sell blocked");Check(archer==null||!x.SetPriority(archer.Slot,(archer.Priority+1)%4),label+": priority blocked");
+  Check(!x.UpgradeEmber(1),label+": ember upgrade blocked");Check(!x.Ember(new Point(640,384)),label+": ember blocked");Check(!x.CallEarly(),label+": early call blocked");
+  Check(x.Units.Count==units&&x.Gold==gold&&x.EmberBranch==0&&x.At(n-1).Level==1&&x.At(n-2).Level==2,label+": state unchanged by blocked inputs");}
+ // Enemies, projectiles, unit timers, ember cooldown and wave timer must not move while choosing.
+ public static void Frozen(Battle x,string label){double cd=x.EmberCD;x.EmberCD=Math.Max(cd,10);var before=Snapshot(x);x.Step(.25);x.Step(1.0);bool same=before==Snapshot(x);x.EmberCD=cd;Check(same,label+": world moved while choosing (enemies, shots, unit timers, ember cooldown or wave timer)");}
+ static string Snapshot(Battle x){var sb=new System.Text.StringBuilder();sb.Append(x.Time).Append('|').Append(x.WaveTime).Append('|').Append(x.EmberCD).Append('|').Append(x.Pending).Append('|').Append(x.Kills).Append('|');
+  foreach(var e in x.Enemies)sb.Append(e.Id).Append(',').Append(e.HP).Append(',').Append(e.Travel).Append(',').Append(e.Shield).Append(',').Append(e.Charge).Append(',').Append(e.NextCharge).Append(',').Append(e.Burn).Append(',').Append(e.SlowTime).Append(',').Append(e.FreezeTime).Append(';');
+  foreach(var sh in x.Shots)sb.Append(sh.Position.X).Append(',').Append(sh.Position.Y).Append(';');foreach(var u in x.Units)sb.Append(u.Slot).Append(',').Append(u.Cooldown).Append(',').Append(u.Stun).Append(';');return sb.ToString();}
+ // Wave-start checkpoints (as BattleView.WaveStarted takes them) must carry the cards chosen for that wave.
+ public static Dictionary<int,Battle> HookCheckpoints(Battle b){var map=new Dictionary<int,Battle>();b.WaveStarted=x=>{map[x.Wave]=x.CopyCombat();};return map;}
+ public static void CheckpointCards(Dictionary<int,Battle> cps,int[] boundaries,string label){
+  foreach(int start in boundaries){Check(cps.ContainsKey(start)&&cps.ContainsKey(start-1),label+": checkpoints around wave "+start);
+   int before=cps[start-1].Reinforcements.SelectedCount,after=cps[start].Reinforcements.SelectedCount;Check(after==before+1,label+": wave "+start+" checkpoint is post-choice ("+before+"→"+after+")");
+   var back=Battle.ImportCombat(cps[start].ExportCombat());Check(back.Reinforcements.SelectedCount==after&&back.Gold==cps[start].Gold&&back.Wave==start,label+": wave "+start+" checkpoint restores cards and gold");
+   var old=Battle.ImportCombat(cps[start-1].ExportCombat());Check(old.Reinforcements.SelectedCount==before,label+": older checkpoint keeps older cards");}}
  public static bool SameInts(int[] a,int[] b){if(a.Length!=b.Length)return false;for(int i=0;i<a.Length;i++)if(a[i]!=b[i])return false;return true;}
 }
 class T1ReviewChecks {
@@ -106,6 +128,12 @@ class T1ReviewChecks {
      Review.AdvanceTo(r,5);Review.Transition(r,early,true,"before 6");
      Review.AdvanceTo(r,8);Review.Transition(r,early,false,"wave 9 (no v3 offer)");}
    });}
+  Review.Run("보존","v3 증원 체크포인트: 3·6웨이브 시작 체크포인트는 선택 후 상태, 이전 체크포인트는 이전 카드",()=>{
+   var r=new Battle(21,2);r.EnableReinforcements();Review.Army(r);var cps=Review.HookCheckpoints(r);Check(r.Start(),"start");Review.AdvanceTo(r,7);Review.CheckpointCards(cps,new[]{3,6},"v3");
+  });
+  Review.Run("보존","v3 증원 준비 저장은 wave 0만 허용 (준비 단계 제시로 막히는 상태 차단)",()=>{
+   var r=new Battle(3,0);r.EnableReinforcements();r.Place(0,0);var data=r.SavePreparation();foreach(int w in new[]{2,5}){data.wave=w;Review.Throws<ArgumentException>(()=>Battle.RestorePreparation(data),"prep wave "+w);}
+  });
   Review.Run("보존","v3 일반 전투는 카드 없이 보상 1회",()=>{
    foreach(bool early in new[]{true,false}){var p=new Battle(9,1);Review.Army(p);Check(p.Start(),"start");for(int w=1;w<=9;w++){Review.AdvanceTo(p,w);Review.Transition(p,early,false,"plain wave "+(w+1));}}
   });

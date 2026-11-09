@@ -14,6 +14,8 @@
 //  A5 The win-record block of BattleView.cs:64 is extracted to a Unity-free helper
 //     VictoryRecords.Apply(Battle) (any return type) using ProgressStore only.
 //  A6 T1 does not change v4 wave data or density versus v3 (tuning belongs to T4).
+//  A7 New saves carry an explicit mode field named `mode` (0 = unspecified) in CombatSaveData and
+//     PreparationData. Clearing it simulates a v0-3 save; a v4 save without it must be rejected.
 using System;
 using System.Collections.Generic;
 using EmberBastion;
@@ -24,6 +26,8 @@ static class T1Api {
  public static Battle NormalCards(uint seed,int field,int difficulty){var b=Create(seed,field,4);Review.Check(b.SetDifficulty(difficulty),"v4 normal difficulty "+difficulty);return b;}
  public static Battle Reinforcement(uint seed,int field,int rules){var b=Create(seed,field,rules);Review.Check(b.EnableReinforcements(),"enable reinforcement v"+rules);return b;}
  public static void RecordVictory(Battle b){VictoryRecords.Apply(b);}
+ public static void ClearSavedMode(CombatSaveData d){d.mode=0;}
+ public static void ClearSavedMode(PreparationData d){d.mode=0;}
 }
 class T1ReviewApiChecks {
  static void Check(bool ok,string m){Review.Check(ok,m);}
@@ -80,6 +84,21 @@ class T1ReviewApiChecks {
    var four=b.ExportCombat();four.reinforcement.owned[ReinforcementDraft.Range]++;Review.Throws<ArgumentException>(()=>Battle.ImportCombat(four),"four cards");
    var two=b.ExportCombat();int k=Array.FindIndex(two.reinforcement.owned,n=>n>0);two.reinforcement.owned[k]--;Review.Throws<ArgumentException>(()=>Battle.ImportCombat(two),"two cards at wave 9");
    var off=b.ExportCombat();off.wave=4;off.pending=new SpawnSave[0];off.reinforcement.owned=new int[ReinforcementDraft.CardCount];off.reinforcement.owned[3]=1;off.reinforcement.offered=new[]{4,5,6};Review.Throws<ArgumentException>(()=>Battle.ImportCombat(off),"offer at wave 4");
+  });
+  Review.Run("T1요구","C4 v4 일반 체크포인트: 3·6·9웨이브 시작 체크포인트는 선택 후 상태, 이전 체크포인트는 이전 카드",()=>{
+   var b=T1Api.NormalCards(23,2,1);Review.Army(b);var cps=Review.HookCheckpoints(b);Check(b.Start(),"start");Review.AdvanceTo(b,10);Review.CheckpointCards(cps,new[]{3,6,9},"v4");
+  });
+  Review.Run("T1요구","C5 v4 일반 준비 저장의 wave 2·5·8은 거부하거나, 시작해도 준비 단계에서 제시가 열리지 않음",()=>{
+   foreach(int w in new[]{2,5,8}){var b=T1Api.NormalCards(3,0,0);b.Place(0,0);var data=b.SavePreparation();data.wave=w;Battle r=null;
+    try{r=Battle.RestorePreparation(data);}catch(ArgumentException){continue;}
+    r.Start();Check(!(r.Phase==Phase.Preparation&&r.ReinforcementPending),"softlock: offer opened in preparation at wave "+w);}
+  });
+  Review.Run("T1요구","C6 모드 필드 없는 저장: v4 일반은 거부, v3 증원·일반은 원래 모드로 복원",()=>{
+   var b=T1Api.NormalCards(5,1,2);Review.Army(b);Check(b.Start(),"start");for(int i=0;i<300;i++)b.Step(1.0/60);var c=b.ExportCombat();T1Api.ClearSavedMode(c);Review.Throws<ArgumentException>(()=>Battle.ImportCombat(c),"v4 combat without mode");
+   var p=T1Api.NormalCards(5,1,0).SavePreparation();T1Api.ClearSavedMode(p);Review.Throws<ArgumentException>(()=>Battle.RestorePreparation(p),"v4 preparation without mode");
+   var r=new Battle(5,0);r.EnableReinforcements();r.Place(0,0);var rp=r.SavePreparation();T1Api.ClearSavedMode(rp);Check(T1Api.IsReinforcement(Battle.RestorePreparation(rp)),"v3 reinforcement prep without mode");
+   Check(r.Start(),"v3 start");for(int i=0;i<300;i++)r.Step(1.0/60);var rc=r.ExportCombat();T1Api.ClearSavedMode(rc);Check(T1Api.IsReinforcement(Battle.ImportCombat(rc)),"v3 reinforcement combat without mode");
+   var n=new Battle(5,2);n.Place(0,0);Check(n.Start(),"v3 plain start");for(int i=0;i<300;i++)n.Step(1.0/60);var nc=n.ExportCombat();T1Api.ClearSavedMode(nc);var nb=Battle.ImportCombat(nc);Check(T1Api.IsNormal(nb)&&nb.Reinforcements==null,"v3 plain without mode");
   });
   // ---- D. 승리 기록·보급 ----
   for(int d=0;d<3;d++){int diff=d;
