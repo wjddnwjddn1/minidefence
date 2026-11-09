@@ -6,6 +6,102 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 
 시각 정정 2 (11-06 08:0x): 11-06 2~7차 머리도 처음에는 추정값(03:4x~05:4x)이라 실제보다 늦게 적혔다. 각 항목에 답한 Codex 커밋 시각을 기준으로 03:2x~04:2x로 고쳤다. Codex 인계 문서에 남은 "Claude 05:2x·05:4x" 같은 표기는 각각 6차(04:1x)·7차(04:2x)를 가리킨다. 순서는 위치로 읽는다.
 
+## 2026-11-09 14:4x · 일반 전투 카드 도입 전 사전 검수 31차 (기준 `23c999e`, 읽기 전용 · Mac Unity Mono로 기존 검사 재실행)
+
+[협업 문서](CODEX-CLAUDE-협업.md)의 첫 번째 검수 범위다. 방향서·[구현 계획](TERRA-IMPLEMENTATION-PLAN.md)과 현재 소스를 대조했다. 구현은 아직 시작되지 않았으므로 아래는 **현재 구조에 일반 카드를 붙일 때 생기는 위험**이다. 코드는 고치지 않았다. 기존 검사는 Mac에 설치된 Unity 6000.6.7f1의 `MonoBleedingEdge`(`mono` + `lib/mono/4.5/csc.exe`)로 `.ps1`에 적힌 소스를 그대로 컴파일해 저장소 밖에서 돌렸다(아래 "Mac 재실행 결과").
+
+**판정: 계획의 T1(모드 분리)을 먼저 하는 순서에 동의. 다만 T1에 두 가지를 반드시 넣어야 한다.**
+
+- **A. 세 번째 카드에서 예외 (확인한 사실):**
+  - `ReinforcementDraft.Restore`(`Battle.cs:117`)는 카드별 개수와 총합을 `MaxChoices=2`로 검증한다. `CopyCombat`(`:31`)은 `Restore(Export())`로 드래프트를 복사한다. 그래서 카드 3장을 가진 전투는 복사·저장·복원이 모두 예외를 낸다.
+  - `BattleView.cs:39`의 `WaveStarted` 람다는 `waveCheckpoint=b.CopyCombat()`을 try 밖에서 부른다. 이 람다는 `BeginWave` 안에서 `Wave++` 뒤에 실행된다. 따라서 9웨이브 시작 때 예외가 `ChooseReinforcement`/`Tick` 밖으로 올라가고, 상태가 반쯤 바뀐 채 남는다.
+  - 처리: 전역 `MaxChoices`를 올리지 말고 프로필별로 검증한다(계획 §5와 같음).
+- **B. 일반 카드 승리 시 기록·보급 누락 (확인한 사실):**
+  - 승리 분기(`BattleView.cs:64`)는 `Reinforcements!=null`이면 `RecordReinforcementBest`만 부른다. 이 경우 `Record`, `RecordClearForRules`, `RecordBadges`, `newSupply`, `RecordBest`를 모두 건너뛴다. 결과적으로 다음 전장 해금과 보급 자격이 생기지 않는다.
+  - 이 분기는 `BattleView`에 있다. Codex의 T1 범위에 포함되는지 먼저 정한다.
+
+### 1. 모드 구분 (확인한 사실)
+`Reinforcements != null` 하나가 아래를 모두 결정한다.
+- `SpawnCount`/`SpawnGap`(`Battle.cs:71`): 적 수 ×1.15, 간격 ÷1.15.
+- `SetDifficulty`(`:43`): 난도 잠금.
+- `BeginWave`(`:73`): 제시 시점이 Wave 2·5로 고정된다.
+- `RestorePreparation`(`:28`): 카드가 있으면 `fastWaves&&!hardWaves&&wave==0`만 받는다.
+- `ImportCombat`(`CombatSave.cs:20`): 도전만 받고, 일정 `wave<3?0:wave<6?1:2`가 고정이다.
+- 승리 기록(`BattleView:64`), `SavePreference`(`:90`), `OpenSortie`(`:94`)/`ConfirmSortie`, 결과 카드·HUD의 "증원" 표시.
+
+그 밖의 고정값:
+- `AttackRange`·`PlacementRange`는 검사에게도 사거리 카드를 적용한다(`PlacementRange`에서 빠지는 것은 기술자뿐). v4 계획처럼 궁수·폭탄·서리에만 적용하려면 미리보기·상세·판정 세 곳을 함께 바꾼다.
+- 검사 피해 1.15는 `AttackStats`·`ReinforcementChange`에 고정돼 있다.
+- 상성 세 가지는 `Tick`(`:80`)에서 `FastWaves&&!HardWaves`로 직접 판정한다.
+
+### 2. v0~3 호환 (확인한 사실)
+- 버전 상한 `3`이 여러 곳에 흩어져 있다: `RestorePreparation`, `ProgressStore`의 `ClearedForRules`·`RecordClearForRules`·`BestPeak`·`RecordBest`·`RecordReinforcementBest`·`HasBadge`·`RecordBadges`.
+  - v4로 이기면 `ArgumentException`이 난다. 승리 분기의 catch가 이를 삼키고 "일부 기록을 저장하지 못했습니다"만 표시한다.
+- 생성자(`:27`)가 `RulesVersion=3`을 넣는다. `RestorePreparation`·`CopyCombat`·`ImportCombat`이 모두 이 생성자를 거친다. 생성자가 v4 기본 드래프트를 만들면 구 저장 복원 결과에 그 드래프트가 남는다.
+- 구 저장의 모드는 `ReinforcementDraft.IsAbsent`(빈 객체면 일반)로 판정한다. 새 `mode` 필드를 `0=일반`으로 두면 구 증원 저장이 일반으로 읽힌다. `0=미지정`을 두고, v0~3의 모드는 `IsAbsent`로 유도한다.
+- `ResumeLabel`(`BattleView:208`)은 `RulesVersion<3`일 때만 "이전 규칙"을 붙인다. v4가 기본이 되면 v3 저장에는 이 표시가 없다.
+- `BadgeRules.Limit`는 `rulesVersion>=3`이면 `ExtendedLimits`를 쓴다. v4도 v3 한도를 그대로 공유하게 되므로 의도인지 정해야 한다.
+- 추정: `R25LegacyCandidateChecks`·`RuleParityChecks`는 생성자 문자열을 치환하므로(계획 기재, 원문 미확인) 생성자를 바꾸면 깨진다.
+
+### 3. 웨이브 보상 중복·누락
+- 확인한 사실:
+  - 자동 진행(`Tick` 끝)과 조기 호출(`CallEarly`, `:70`)은 모두 보상을 먼저 주고 `BeginWave`를 부른다.
+  - 제시 중에는 `Step`·`CanCallEarly`가 막힌다. 선택하면 `WaveTime=0`이 된다. `ImportCombat`은 제시 중에 출현 대기열이 남아 있으면 거부한다.
+  - 현재 구조에서는 중복 경로를 찾지 못했다.
+  - 기존 `ReinforcementCombatChecks`는 "대기 중 골드 불변"만 본다. "보상이 정확히 한 번 들어가는지"와 "복원 후 선택 때 추가 지급이 없는지"는 검사하지 않는다.
+- 추정 위험:
+  - 리롤을 `Offer` 재호출이나 `BeginWave` 재호출로 만들면 `ReinforcementOffered`(자동 저장)가 다시 실행되거나 상태가 꼬일 수 있다. 리롤은 드래프트 전용 메서드로 둔다.
+  - 골드 카드는 이미 지급한 해당 웨이브 보상에 소급되지 않는다. 설명 문구를 이에 맞춘다.
+
+### 4. 선택 대기 중 정지·저장·복원
+- 확인한 사실:
+  - 제시 중에는 배치·강화·분기·판매·타겟·잔불·잔불 강화·조기 호출·Step이 막힌다. KeyDown은 소비되므로(`BattleView:134`) Esc로 건너뛸 수 없다. 정지 버튼과 잔불 버튼도 막힌다.
+  - `LoadCombat`(`:105`)은 `paused=true`로 연다. 카드 선택 처리(`:216`)는 `paused`를 건드리지 않는다.
+  - 자동 저장은 제시 때 `ReinforcementOffered`에서, 선택 때 `WaveStarted`에서 일어난다. 체크포인트는 선택 후 상태다.
+  - `ValidatePair`(`CombatStore.cs:12`)는 카드 개수와 `Wave`를 비교하고 골드·카드 RNG는 비교하지 않는다. 따라서 리롤 차이는 현재 검증으로도 통과한다.
+  - 카드 창 높이는 260/284로 고정이다.
+- 추정 위험:
+  - `Start()`는 준비 단계에서도 `BeginWave`를 부른다. v4 준비 저장의 wave가 2·5·8이면 Preparation 단계에서 제시가 열리고, `ChooseReinforcement`가 `Phase==Fighting`을 요구하므로 진행이 막힌다. v4 `RestorePreparation`에서 이 조합을 거부한다.
+  - 리롤로 골드를 쓴 뒤 자동 저장이 실패하면, 화면 상태와 저장 상태가 리롤 한 번만큼 어긋난다. 지금의 재시도 상태는 `waveStartSaveFailed` 하나뿐이다.
+
+### 5. 일반 완료 기록과 보급 (확인한 사실)
+- 보급은 전역 `Cleared` 세 난도의 전장 수 × 20G이고 `MaxSupplyFields=3`에서 멈춘다(`BattleView:96`·`:180`). 규칙이 바뀌어도 중복 지급되지 않는다. `GrantSupply`는 전투 시작 전에 한 번만 허용한다.
+- 단, 위 B 때문에 일반 카드 전투가 이기면 보급 자격이 생기지 않는다.
+
+### 필요한 검사 (새로 추가)
+1. 같은 시드에서 일반 v4의 `SpawnCount`·`SpawnGap`이 같은 난도의 카드 없는 전투와 같은지. 기본·극한에서 `SetDifficulty`와 준비·전투 저장 왕복이 되는지. 증원은 1.15·잠금·증원 기록이 유지되는지.
+2. v0·1·2·3의 일반·증원 준비/전투/자동 저장 fixture를 새 코드로 읽었을 때 모드·웨이브 수·프로필·일정이 그대로인지. v4의 `mode`가 빠진 저장은 거부하는지. v1/v2 해시 `9FD2B168…`가 불변인지.
+3. 시점 3·6·9와 자동/조기 호출 두 경로에서: 제시 직전 골드 + 보상 = 선택 직후 골드인지. 제시 → 저장 → 복원 → 선택 뒤 골드가 같은지.
+4. 카드 3장 보유 상태에서 `CopyCombat`·`ExportCombat`·`CombatStore` JSON이 왕복되는지.
+5. 제시·리롤 직후·선택 직후 각각 저장하고 재로드했을 때 같은 제시·골드·RNG가 나오고 재추첨이 없는지. 리롤 실패 때 모든 값이 그대로인지. 연타로 두 번 결제되지 않는지.
+6. 적이 실제로 움직이는 중에 정지 → 제시 → 선택 순서로 진행해도 정지가 유지되는지(Web, 위치·시간 비교).
+7. 메모리 PlayerPrefs에서: v4 일반 기본·도전·극한 승리 시 전역 `Record`·규칙 4 클리어·배지·최고 기록이 남고 v3 키는 그대로인지. 4개 전장을 완료해도 보급이 60G인지. v4 증원 승리는 증원 기록만 남는지.
+
+### Mac 재실행 결과 (`23c999e`, Unity 6000.6.7f1 Mono)
+- 통과 27종:
+  - CoreChecks 277, CombatSave 6,282, CombatRetry 2,799, HardMode 5,425
+  - ReinforcementDraft 25,099, ReinforcementCombat 53, ReinforcementEffects 20, ReinforcementPlaythrough 12판
+  - R25Extended 171, FieldFour 393, Supply 135
+  - WaveVersion, ProgressVersion, R12, Badge 등 나머지
+- RuleParity: 소스 치환을 수동으로 재현했다. v1·v2 각 217줄이며, CRLF 기준 SHA-256 `9FD2B168…5A11`로 Windows 기준과 일치한다. 따라서 Mac Mono와 Windows .NET의 전투 결과는 이 표본에서 같다.
+- **실패 1종: `QuickClearChecks`** — `too few decided fixtures`(결정 상태에 도달한 경우가 20건 미만).
+  - 추정: v3에서 웨이브가 길어진 뒤 이 고정 편성(Lv2 8명)이 12만 틱 안에 마지막 웨이브에 도달하지 못하는 오래된 검사 문제로 보인다. Mac 고유 문제는 아닌 것으로 보지만 Windows에서는 확인하지 않았다.
+  - 최근 Codex 보고의 검사 목록에도 없다. Codex 확인 요청.
+- `R25LegacyCandidateChecks`: 648판이 `Docs/r24-gameplay-baseline.csv`와 일치해 통과.
+- **Mac 실행 스크립트 `Tests/run-checks-mac.py` 추가 (새 파일, 기존 파일은 고치지 않음):**
+  - 각 `Run-*Checks.ps1`의 컴파일 줄과 소스 목록을 그대로 읽는다. 그래서 `.ps1`이 기준으로 남고, Mac 쪽에 목록을 따로 두지 않는다.
+  - 소스 치환이 있는 RuleParity·R25LegacyCandidate만 전용 처리를 둔다. Codex가 생성자를 바꾸면 이 두 처리도 함께 맞춰야 한다.
+  - 출력은 무시되는 `Tests/bin/mac`에 둔다. 실행은 저장소 루트에서 `python3 Tests/run-checks-mac.py [이름 일부...]`.
+  - Unity Mono는 `ProjectVersion.txt`의 에디터 버전부터 찾고, `UNITY_MONO`로 덮어쓸 수 있다.
+  - 모든 검사가 통과해야 종료 코드 0이다. 이번 결과는 28/29 통과(QuickClear 실패).
+
+### 미확인
+- Windows에서 같은 커밋으로 다시 돌린 결과와의 직접 대조(RuleParity 해시 외).
+- `BattleView`는 검색으로 필요한 부분만 읽었다. `ConfirmSortie`·결과 카드 전체와 개발 로그 분기는 끝까지 따라가지 않았다.
+- Web·Windows 실행, 소리, 밸런스 수치는 확인하지 않았다.
+
+**Codex 확인 요청:** A·B를 T1에 포함할지, `BattleView.cs:64` 승리 분기를 Codex 범위로 볼지 답해 달라. 구현 커밋이 나오면 위 검사 목록으로 다시 검수한다.
+
 ## 2026-11-07 05:2x · Claude 직접 작업 30차: 4번째 전장 "습지 나루"(r26) + 버그 2건 + 에셋 검토 답변
 
 사용자 지시("멈추지 말고, 직접 판단하면서 계속 수정, 다음 맵도 만들고 버그도 잡고")에 따라 Claude가 게임 코드를 직접 고쳤다. 영역 분담은 `CLAUDE-DIRECTION.md` 맨 위에 있다.
