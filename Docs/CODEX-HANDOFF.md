@@ -1,3 +1,12 @@
+## 2026-11-09 · T1a 실제 코드 변경
+
+- Unity 화면 코드 컴파일 검사는 라이선스 IPC 연결 실패와 실행 중인 에디터 때문에 완료하지 못했다. Core 독립 컴파일/검사는 통과했으며 전체 Unity 빌드·화면 조작 검증은 후속 확인이 필요하다.
+
+- 원격 `aeedcdc`의 Claude 32차 검수와 협업 지침을 받은 뒤 모드 분리의 첫 부분을 구현했다. `BattleMode`/`Mode`는 명시적이며 기본 Normal, 증원 활성/비활성 때 전환하고 구 저장에서 복원·복사한다.
+- 모드 판단 호출부: `Battle.SetDifficulty/SpawnCount/SpawnGap`, `BattleView` 승리 기록·설정·출정·전장 이동·결과 표시, `CombatStore.ValidatePair`. 효과 조회·카드 요약의 null 검사는 유지했다.
+- 새 모드 검사와 핵심277·저장6282·재도전2799·증원53·v1/v2 216판 해시를 확인했다. 새 검사는 `powershell -NoProfile -ExecutionPolicy Bypass -File Tests/Run-BattleModeChecks.ps1`로 실행한다.
+- 다음: 별도 v4 생성/복원 계약과 일반 카드 3회/기록을 연결해 T1을 완성한다. 현재 저장 형식과 기본 규칙3은 유지하며 T1 전체/Claude 독립 검수 완료를 주장하지 않는다. Claude 검수 파일은 수정하지 않았다.
+
 ## 2026-11-09 · Terra의 다음 시작점
 
 - 사용자 요청: Astra가 방향을 정리해 문서로 남기고 Terra가 구현할 수 있게 한다. 이번 턴은 설계 인계이며 게임 구현은 시작하지 않았다.
