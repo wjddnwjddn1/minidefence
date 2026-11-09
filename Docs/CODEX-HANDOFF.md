@@ -1,3 +1,13 @@
+## 2026-11-09 · 일반 전술 후보 구현 인계
+
+- T1 모드 분리 이후 규칙4 일반 드래프트(3·6·9), 리롤, 저장·복사, 승리 기록 추출 및 전술 UI를 연결했다. `Battle.CreateForRules(seed,field,4)`가 새 API이고 일반 기본 생성은 여전히3이다.
+- Claude 32차의 가정 API를 맞췄다: `BattleMode/Mode`, `CreateForRules`, 저장 데이터 `mode`, `VictoryRecords.Apply`. 검수 파일 수정 없이 Windows current18/API26이 통과했다. Claude가 별도 세션에서 최신 커밋을 재실행해야 독립 검수 완료다.
+- `Run-TacticalDraftChecks.ps1` 688건, 기존 저장6282·재도전2799·증원/핵심/습지/웨이브 검사 및 v1/v2 해시·구/현행 기준 CSV 불변 확인. 세부 수치는 STATUS 최신 항목 참조.
+- `Tests/TacticalWeb.cjs`가 별도 TacticalWeb 빌드에서 다섯 크기의 리롤/카드 클릭을 검사한다. `TACTICAL_CARD_INDEX=2`는 스크롤 뒤 정확히 세 번째 제시 ID를 확인한다. `TACTICAL_WIDTH`로 단일 크기만 재현할 수 있다. 캡처는 `Tests/bin/tactical-web-evidence/`.
+- 개발 빌드 진입: `EmberBastion.Editor.ComparisonBuild.TacticalCandidate` / `.TacticalWeb`. Windows `Tests/bin/TacticalCandidate/Playtest.cmd`는 제품명으로 저장소를 격리하고 `--tactical-playtest`에서만 일반4로 시작한다. `--tactical-smoke`는 자동 상태 검사 후 종료하며 수동 플레이용이 아니다.
+- Unity 빌드·실제 Windows JsonUtility 검사는 통과했으나 Windows 캡처는 숨김 렌더링 문제로 무효였다. 실제 화면 확인은 Web 캡처와 클릭 검사다. 실제 사용자 한 판·Windows 청취·v4 자동 저장 슬롯의 재시작/실패 UI 검증은 남았다.
+- 다음 순서: 최신 커밋 Claude 재검수 → 저장 UI 검증 보강 → T4의 카드만/공통 상성/밀도 분리 비교. 완료 전 v4를 기본 실행에 켜지 않는다. 기존 캐릭터와 습지 지형은 유지했다.
+
 ## 2026-11-09 · T1a 실제 코드 변경
 
 - Unity 화면 코드 컴파일 검사는 라이선스 IPC 연결 실패와 실행 중인 에디터 때문에 완료하지 못했다. Core 독립 컴파일/검사는 통과했으며 전체 Unity 빌드·화면 조작 검증은 후속 확인이 필요하다.

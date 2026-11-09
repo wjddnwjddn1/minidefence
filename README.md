@@ -2,7 +2,7 @@
 
 독립 Unity 2D 비교판이다. 신규 규칙 3 전투는 성문 앞 방어선(14웨이브), 숲길 굽이·바위 고개·습지 나루(각 12웨이브)를 지원한다. 이전 규칙 저장은 당시 웨이브 수와 기록을 유지한다. Windows 자동 실행과 로컬 Web 입력을 확인했다. 수동 플레이와 실제 휴대폰 검수는 [Docs/STATUS.md](Docs/STATUS.md)의 최신 기록을 따른다.
 
-다음 개선의 설계는 [Astra 게임 방향서](Docs/ASTRA-GAME-DIRECTION-2026-11-09.md), 구현 순서·저장 계약·검사는 [Terra 인계 계획](Docs/TERRA-IMPLEMENTATION-PLAN.md)을 따른다. 일반 전투 카드와 재추첨은 이 계획의 미구현 항목이다.
+다음 개선의 설계는 [Astra 게임 방향서](Docs/ASTRA-GAME-DIRECTION-2026-11-09.md), 구현 순서·저장 계약·검사는 [Terra 인계 계획](Docs/TERRA-IMPLEMENTATION-PLAN.md)을 따른다. 일반 전투 카드와 재추첨은 규칙 4 개발 후보에 구현했으며 일반 실행의 기본 규칙은 3이다. Windows 후보의 `Tests/bin/TacticalCandidate/Playtest.cmd`는 기존 플레이판과 다른 제품명으로 저장을 분리한다.
 
 ## 열기
 
