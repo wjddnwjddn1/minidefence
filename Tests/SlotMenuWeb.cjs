@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium,devices}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r29-menu-evidence');
+const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r29-followup-evidence');
 const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};
 const server=http.createServer((req,res)=>{const relative=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).replace(/^\/+/,''),file=path.resolve(root,relative||'index.html');if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}fs.readFile(file,(error,data)=>{if(error){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
 const summaries=[];
@@ -21,8 +21,8 @@ async function wait(page,predicate,label,timeout=10000){const until=Date.now()+t
  async function action(d,id,confirm=true){const a=d.menu.actions.find(a=>a[0]===id);if(!a)throw Error('missing action '+id);await tap(d,a[1]+a[3]/2,a[2]+a[4]/2);if(d.touch&&confirm){await d.page.waitForTimeout(250);await tap(d,a[1]+a[3]/2,a[2]+a[4]/2);}await d.page.waitForTimeout(1100);}
  async function done(d,name){if(d.errors.length)throw Error(d.errors.join('\n'));fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify({state:d.state,viewport:d.viewport,messages:d.messages,errors:d.errors},null,2));summaries.push({name,state:d.state});console.log('PASS '+name);await d.context.close();}
  if(!process.env.R29_ONLY_DRAG){
- for(const [w,h,touch] of [[320,300,false],[800,500,false],[1280,720,false],[1920,1080,false],[390,844,true]]){
-  const d=await fixture(w,h,'',touch),slot=w===320?8:9;await open(d,slot);await d.page.screenshot({path:path.join(out,`build-${w}.png`)});
+ for(const [w,h,touch] of [[320,300,false],[800,500,false],[1280,720,false],[1920,1080,false],[390,844,true],[844,390,true]]){
+  const d=await fixture(w,h,'',touch),slot=w===320?8:9;await open(d,slot);if(w===844){const c=d.menu.actions.find(a=>a[0]===15),top=d.menu.actions.find(a=>a[0]===0),cx=c[1]+c[3]/2,cy=c[2]+c[4]/2,[s,ox,oy]=d.geometry,radius=Math.hypot(top[1]+top[3]/2-cx,top[2]+top[4]/2-cy);if(Math.hypot(cx-ox-704*s,cy-oy-452*s)>radius+.2)throw Error('landscape ring detached from its slot');if(d.menu.actions.some(a=>a[2]<72)||d.info[1]<72)throw Error('landscape menu obscures HUD');}await d.page.screenshot({path:path.join(out,`build-${w}.png`)});
   if(touch){await action(d,0,false);if(d.state.units.length)throw Error('first touch purchased');if(!d.messages.some(t=>t==='SLOT_TOUCH_PREVIEW 0'))throw Error('no touch preview');await action(d,0,false);}else await action(d,0);
   if(d.state.gold!==935||d.state.units.length!==1)throw Error('placement failed '+JSON.stringify(d.state));await open(d,slot);await action(d,10);if(d.state.units[0][2]!==2)throw Error('upgrade failed');
   await open(d,slot);await d.page.screenshot({path:path.join(out,`branches-${w}.png`)});const branch=w===800||touch?12:11;await action(d,branch);if(d.state.units[0][2]!==3||d.state.units[0][3]!==branch-10||d.state.gold!==795)throw Error('branch failed '+JSON.stringify(d.state));await d.page.screenshot({path:path.join(out,`selected-${w}.png`)});

@@ -11,6 +11,7 @@ namespace EmberBastion.Editor {
   public static void Scene(){Directory.CreateDirectory("Assets/Scenes");var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);new GameObject("Battle").AddComponent<BattleView>();var camera=new GameObject("Camera").AddComponent<Camera>();camera.gameObject.AddComponent<AudioListener>();camera.orthographic=true;camera.backgroundColor=new Color(.08f,.13f,.12f);EditorSceneManager.SaveScene(scene,ScenePath);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true)};}
   [MenuItem("Ember Bastion/Build Windows comparison")]
   public static void Windows(){Build(BuildTarget.StandaloneWindows64,"Builds/Windows/EmberBastion.exe");}
+  public static void PerformanceQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/PerformanceQA/EmberBastion.exe",true,"EmberBastionPerformanceQA");}
   public static void TacticalWeb(){PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Disabled;Build(BuildTarget.WebGL,"Tests/bin/TacticalWeb",true,"EmberBastionTacticalCandidate");}
   [MenuItem("Ember Bastion/Build tactical candidate (development)")]
   public static void TacticalCandidate(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/TacticalCandidate/EmberBastion.exe",true,"EmberBastionTacticalCandidate");File.WriteAllText("Tests/bin/TacticalCandidate/Playtest.cmd","@echo off\r\n\"%~dp0EmberBastion.exe\" --tactical-playtest\r\n",new System.Text.UTF8Encoding(false));}

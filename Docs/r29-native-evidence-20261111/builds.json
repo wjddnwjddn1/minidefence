@@ -1,0 +1,48 @@
+[
+  {
+    "path": "C:\\minidefence\\Tests\\bin\\TacticalCandidate\\EmberBastion_Data\\Managed\\Assembly-CSharp.dll",
+    "bytes": 275456,
+    "modifiedUTC": "2026-11-10T17:59:49.658928+00:00",
+    "sha256": "aa6cc10aae22d267c9e4aedbc104544a97c703a4687ac25bb4267a4b200812ab"
+  },
+  {
+    "path": "C:\\minidefence\\Tests\\bin\\PerformanceQA\\EmberBastion_Data\\Managed\\Assembly-CSharp.dll",
+    "bytes": 275456,
+    "modifiedUTC": "2026-11-10T17:56:46.323092+00:00",
+    "sha256": "7a082a955c910422db52ddb8ca677b3fe01b2a3b76d275680bbd099b13e6e589"
+  },
+  {
+    "path": "C:\\minidefence\\Tests\\bin\\TacticalWeb\\Build\\TacticalWeb.wasm",
+    "bytes": 26798122,
+    "modifiedUTC": "2026-11-10T17:54:57.293985+00:00",
+    "sha256": "b48db6b71d6ee093630abe9ba543fd11b9993052d02fd1781c8eae33ba0579bc"
+  },
+  {
+    "path": "Assets/Scripts/Core/CombatSave.cs",
+    "sha256": "da096129876325ba4cddc01220a79ba4aacdbc3767062b4d49e5289aee0127af"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/CombatStore.cs",
+    "sha256": "fe7596ed6c4edaed2ccb01bd238b309823da089241ab7c213ea11ed57578fd35"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.Performance.cs",
+    "sha256": "d84d211db12e74c578e10b6cd4f86948d30982a2229676efc71feed1c209fea4"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DevelopmentPerformance.cs",
+    "sha256": "2210a405df419bebfb2a60fbed5faf928903d7ee45d84a3237b07b458bddb9e4"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/PerformanceScenario.cs",
+    "sha256": "a6f97cc9c7a8f686f6ed006c449b029064ee7fdb643a026fb9125ba52956c408"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/RuntimeCombatComparison.cs",
+    "sha256": "b6f998e0056cea28d5e5a0bf713dc33372af798a83bbcf421d4dd1efbfab3717"
+  },
+  {
+    "path": "Tests/SlotMenuWeb.cjs",
+    "sha256": "0bd9b50a6fb27f43bf029f780212632f8c977058293d8ab00eb9bbd06324e353"
+  }
+]

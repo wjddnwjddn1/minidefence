@@ -1,0 +1,1 @@
+PASS native save/replay. Frame groups=0. Check visibility/GPU/input validity before interpreting performance.

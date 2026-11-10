@@ -1,0 +1,41 @@
+{
+  "scope": "Native Unity development diagnostic on this PC; not user fun or device-to-display latency",
+  "frame_budget_ms": 16.666666666666668,
+  "rendering": {},
+  "memory_budget": "NR: no project budget specified",
+  "fixed_step_ms": {
+    "samples": 10000,
+    "median": 0.0067,
+    "p95": 0.0108,
+    "p99": 0.0298,
+    "maximum": 0.24
+  },
+  "storage": {
+    "jsonEqual": false,
+    "stateEquivalent": true,
+    "replayEqual": true,
+    "pausedLoad": true,
+    "realCheckpointPreserved": true,
+    "partialCheckpointRejected": true,
+    "enemies": 85,
+    "steps": 120,
+    "jsonBytes": 28395,
+    "saveMs": 3.7972,
+    "loadMs": 0.8534,
+    "restoreMaxError": 4.547473508864641e-13,
+    "replayMaxError": 9.094947017729282e-13,
+    "checkpointMaxError": 4.547473508864641e-13
+  },
+  "input": {
+    "windowFound": true,
+    "postSucceeded": false,
+    "received": false,
+    "pauseChanged": false,
+    "queueToEventMs": -1.0,
+    "queueToFrameEndMs": -1.0,
+    "scope": "NR: storage-only hidden run; no input event sent.",
+    "valid": false
+  },
+  "rendering_complete": false,
+  "frame_budget_pass": null
+}

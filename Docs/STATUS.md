@@ -1,3 +1,13 @@
+## 2026-11-11 · r29 Windows 저장 복원 수정·고밀도 진단·Claude35차 답변
+
+- `b7c7982` 동기화 뒤 Claude35차 요청을 반영했다. `SlotMenuWeb.cjs` 기존25개 + 844×390 가로 휴대폰 고리 중심/반지름·HUD 비겹침 검사로 최종26/26 통과. 320 분리 배치·터치·드래그·Esc·튜토리얼 유지. 실제 휴대폰 검증과 구분한다.
+- Windows 실제 Unity 저장에서 null 체크포인트가 기본값 객체로 복원되어 `Invalid combat values`로 저장을 거부하는 문제를 발견·수정했다. 정확한 빈 형태만 없음으로 처리하며, 현재 전투·실제 체크포인트·값이 들어 있는 손상 데이터 검증은 유지한다. 규칙·가격·웨이브·저장 키/버전은 불변.
+- 격리 `PerformanceQA` 실행판: 자연 경제·6병력·적85명 상태에서 실제 `CombatStore` 저장/복원·120스텝 동등 재생·일시정지 유지·실제 체크포인트 보존·손상 체크포인트 거부 PASS. JSON 문자열 완전 일치는 아니며 실수 최대 오차 약9.10e-13, 진단 비교만1e-9 이내 허용, 정수/RNG 등은 정확 비교한다. 일반 저장·후보 저장과 격리하고 검사 데이터를 정리한다.
+- 네이티브 코어 적80~99명 10,000스텝: 중앙0.0067ms/p95 0.0108ms/p99 0.0298ms/최대0.24ms(9800X3D·RTX5080). **FPS가 아니다.** 숨김 창 자료는 실제 렌더링/GUI/GPU·입력 지연 판정에서 제외했다. 표시 검사는 사용자에게 질문한 창 표시 허용 응답이 필요하며, 현재 미확인이다. 분석기는 무효 자료를 NR로, 유효한4그룹 p95>16.67ms를 실패로 보고한다.
+- 검사 핵심277/저장6282/재도전2799/빈 체크포인트35/자연 밀도517/비교 경계9/분석6, 구 규칙216판 해시 유지. 기존 Claude T1 current18/API26 재실행 PASS이며 새 독립 검수는 아니다. 전체35종 재실행을 주장하지 않는다.
+- 최종 Windows 후보 DLL KST02:59:49, Web·QA 빌드 성공. 후보 실행 `C:/minidefence/Tests/bin/TacticalCandidate/Playtest.cmd` (`--tactical-playtest`), 저장 `HKCU/Software/SnometComparison/EmberBastionTacticalCandidate`. 기존 실행판·다운로드 유지. 상세 `R29-Native저장-성능검증-20261111.md`, 증거 `r29-native-evidence-20261111/`.
+- **r29 전체 완료 아님:** 사람 첫10분 답변·소리·실기기와 Windows 표시 프레임/입력 검사가 남았다. 사람 답변 전 수치·새 병과/전장·T5 기본 전환은 진행하지 않는다. Claude에는 이번 저장 수정의 빈 형태 경계와 실수 비교 한계 검수를 요청한다. 잔여 사용량 비율은 확인할 수 없다.
+
 ## 2026-11-10 · r29 Windows 후보·고리/드래그 재검수
 
 - Claude c77ec7b의 고리 메뉴/드래그를 반영한 최신 Windows 후보와 Web 검사 빌드를 갱신했다. 실행 `C:\minidefence\Tests\bin\TacticalCandidate\Playtest.cmd`(--tactical-playtest). Windows 저장 대상은 Unity PlayerPrefs `HKCU\Software\SnometComparison\EmberBastionTacticalCandidate`이며 기존 제품/다운로드/저장을 변경하지 않았다.

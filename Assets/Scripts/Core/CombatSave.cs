@@ -9,6 +9,9 @@ namespace EmberBastion {
   public double time,waveTime,emberCD,accumulator;
   public Point ember;
   public Unit[] units;public Enemy[] enemies;public Shot[] shots;public SpawnSave[] pending;public ReinforcementDraftData reinforcement;
+  // JsonUtility expands a null inline checkpoint into a default-valued object.
+  // Only that exact empty shape is absent; any populated/corrupt checkpoint is validated normally.
+  public static bool IsAbsent(CombatSaveData d){return d==null||((d.version==0||d.version==1)&&d.field==0&&d.wave==0&&d.gold==0&&d.hp==0&&d.kills==0&&d.peakAlive==0&&d.nextId==0&&d.supplyBonus==0&&d.emberBranch==0&&d.killKinds==0&&d.rulesVersion==0&&d.mode==0&&!d.fastWaves&&!d.hardWaves&&!d.hasEmber&&d.rng==0&&d.time==0&&d.waveTime==0&&d.emberCD==0&&d.accumulator==0&&d.ember.X==0&&d.ember.Y==0&&(d.units==null||d.units.Length==0)&&(d.enemies==null||d.enemies.Length==0)&&(d.shots==null||d.shots.Length==0)&&(d.pending==null||d.pending.Length==0)&&ReinforcementDraft.IsAbsent(d.reinforcement));}
  }
  public sealed partial class Battle {
   public CombatSaveData ExportCombat(){
