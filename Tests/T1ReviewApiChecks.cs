@@ -37,10 +37,12 @@ class T1ReviewApiChecks {
  static int Main(){
   // ---- A. 모드 분리 ----
   for(int d=0;d<3;d++){int diff=d;
-   Review.Run("T1요구","A1 v4 일반 카드("+Names[diff]+"): 일반 모드, 드래프트 있음, 밀도는 같은 난도 v3 일반과 동일",()=>{
+   // r27 changed v4 normal waves on purpose (extended gap, runners, marsh base, forest extreme), so A1 compares
+   // only groups r27 left alone: not Extended, and not marsh base from wave 4. Those must match v3 exactly (no 1.15).
+   Review.Run("T1요구","A1 v4 일반 카드("+Names[diff]+"): 일반 모드, 드래프트 있음, r27이 바꾸지 않은 묶음의 밀도는 v3 일반과 동일",()=>{
     for(int f=0;f<Balance.Fields.Length;f++){var b=T1Api.NormalCards(1,f,diff);Check(T1Api.IsNormal(b)&&!T1Api.IsReinforcement(b),"normal mode field "+f);Check(b.Reinforcements!=null&&b.Reinforcements.SelectedCount==0,"empty draft");
      Check(b.FastWaves==(diff>0)&&b.HardWaves==(diff==2),"difficulty flags");var plain=new Battle(1,f);plain.SetDifficulty(diff);Check(b.WaveCount==plain.WaveCount,"wave count");
-     foreach(var wave in b.Field.Waves)foreach(var g in wave){Check(b.SpawnCount(g)==plain.SpawnCount(g),"no 1.15 count field "+f);Check(Math.Abs(b.SpawnGap(g)-plain.SpawnGap(g))<1e-9,"no 1.15 gap field "+f);}}
+     for(int w=0;w<b.WaveCount;w++){var mine=b.WaveGroups(w);var legacy=plain.WaveGroups(w);Check(mine.Length==legacy.Length,"group count field "+f);for(int i=0;i<mine.Length;i++){if(legacy[i].Extended||(f==3&&w>=3&&diff==0&&legacy[i].Kind!=4))continue;Check(b.SpawnCount(mine[i])==plain.SpawnCount(legacy[i]),"no 1.15 count field "+f);Check(Math.Abs(b.SpawnGap(mine[i])-plain.SpawnGap(legacy[i]))<1e-9,"no 1.15 gap field "+f);}}}
    });}
   Review.Run("T1요구","A2 v4 일반 카드: 준비 단계에서 난도 0·1·2 변경 가능",()=>{var b=T1Api.NormalCards(2,0,0);Check(b.SetDifficulty(2)&&b.HardWaves,"to hard");Check(b.SetDifficulty(1)&&b.FastWaves&&!b.HardWaves,"to challenge");Check(b.SetDifficulty(0)&&!b.FastWaves,"to normal");Check(T1Api.IsNormal(b)&&b.Reinforcements!=null,"still normal cards");});
   Review.Run("T1요구","A3 v4 일반 카드: 준비·전투 저장 왕복에서 모드·난도·드래프트 유지 (극한 포함)",()=>{

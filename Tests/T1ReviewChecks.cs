@@ -41,6 +41,8 @@ static class Review {
   for(int guard=0;guard<400000;guard++){
    if(b.Phase!=Phase.Fighting)throw new Exception("battle ended at wave "+b.Wave+" ("+b.EndCause+")");
    if(b.ReinforcementPending){Check(b.ChooseReinforcement(b.Reinforcements.Choices()[0]),"choose on the way");continue;}
+   // Flow checks only: drop a stacked crowd so repeated early calls cannot end the battle (r27 marsh base doubled).
+   if(b.Enemies.Count>80)b.Enemies.Clear();
    if(b.CanCallEarly()){if(b.Wave==wave)return;if(b.Wave<wave){Check(b.CallEarly(),"call early");continue;}}
    if(b.Wave>wave)throw new Exception("passed wave "+wave);
    b.Step(1.0/60);

@@ -9,6 +9,7 @@ line per field/difficulty: policy:wins/8·median PeakAlive (lower = more slack).
   python3 Tests/run-wave-counter-probe.py                     # current v4 candidate (baseline)
   python3 Tests/run-wave-counter-probe.py --variant KG+S      # r27 recommended set
   python3 Tests/run-wave-counter-probe.py --variant KG+S --marsh 2.0 --fields 3
+  python3 Tests/run-wave-counter-probe.py --real                 # unpatched game engine (review of shipped r27)
   python3 Tests/run-wave-counter-probe.py --raw ...           # per-battle CSV rows instead of summaries
 
 Variants: base | G0.5 | K | KG | KG+S | B2.4 | KG+S+B2.3 (see Docs/CLAUDE-DIRECTION.md r27).
@@ -61,6 +62,20 @@ PROBE = ('namespace EmberBastion {\n public static class Probe {'
          'System.Globalization.CultureInfo.InvariantCulture); }')
 
 
+def build_real():
+    """Compile the unpatched game Battle.cs (Claude r27 review: measure what actually shipped)."""
+    out = os.path.join(mac.BIN, "real-engine")
+    os.makedirs(out, exist_ok=True)
+    exe = os.path.join(out, "WaveCounterReal.exe")
+    core = os.path.join(ROOT, "Assets/Scripts/Core")
+    sources = [os.path.join(core, n) for n in ("Balance.cs", "Battle.cs", "CombatSave.cs")] + [
+        os.path.join(HERE, "GameplayDurationProbe.cs"), os.path.join(HERE, "WaveCounterProbe.cs")]
+    r = subprocess.run([mac.MONO, mac.CSC, "-nologo", "-langversion:5", "-main:WaveCounterProbe", "-out:" + exe] + sources, capture_output=True, text=True)
+    if r.returncode:
+        sys.exit(r.stdout)
+    return exe
+
+
 def build():
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
@@ -104,15 +119,21 @@ def main():
     p.add_argument("--marsh", help="marsh (field 3) count multiplier from wave 4, base difficulty only")
     p.add_argument("--forest-hard-factor", default="1.7", help="forest extreme extended-wave multiplier")
     p.add_argument("--raw", action="store_true")
+    p.add_argument("--real", action="store_true", help="run the unpatched game engine; ignores --variant/--marsh/--forest-hard-factor")
     a = p.parse_args(argv)
-    exe = build()
-    gap, runners, counters, bomb = VARIANTS[a.variant]
-    env = dict(os.environ, GAP_EXP=gap, EXT_RUNNERS=runners, ALL_COUNTERS=counters, FOREST_HARD_FACTOR=a.forest_hard_factor)
+    if a.real:
+        exe = build_real()
+        env = {k: v for k, v in os.environ.items() if k not in ("GAP_EXP", "EXT_RUNNERS", "ALL_COUNTERS", "BOMB_INTERVAL", "MARSH_SCALE", "MARSH_BASE_ONLY", "PASS_SLOTS", "PASS_START_GOLD")}
+        a.variant, a.marsh, bomb = "real", None, None
+    else:
+        exe = build()
+        gap, runners, counters, bomb = VARIANTS[a.variant]
+        env = dict(os.environ, GAP_EXP=gap, EXT_RUNNERS=runners, ALL_COUNTERS=counters, FOREST_HARD_FACTOR=a.forest_hard_factor)
     if bomb:
         env["BOMB_INTERVAL"] = bomb
     if a.marsh:
         env.update(MARSH_SCALE=a.marsh, MARSH_BASE_ONLY="1")
-    print("variant %s rules %s (wins/battles·median PeakAlive)" % (a.variant, a.rules))
+    print("variant %s rules %s (wins/battles·median PeakAlive·median final gold)" % (a.variant, a.rules))
     for field in a.fields.split(","):
         for mode in a.modes.split(","):
             r = subprocess.run([mac.MONO, exe, a.rules, field, "", a.policies, mode, a.seeds], capture_output=True, text=True, env=env, cwd=OUT)
@@ -125,7 +146,7 @@ def main():
             for line in r.stdout.splitlines():
                 row = line.split(",")
                 groups.setdefault(row[0], []).append(row)
-            cells = ["%s:%d/%d·%.0f" % (k, sum(x[4] == "W" for x in v), len(v), statistics.median(int(x[6]) for x in v)) for k, v in groups.items()]
+            cells = ["%s:%d/%d·%.0f·%.0fG" % (k, sum(x[4] == "W" for x in v), len(v), statistics.median(int(x[6]) for x in v), statistics.median(int(x[9]) for x in v)) for k, v in groups.items()]
             print("field %s mode %s  %s" % (field, mode, "  ".join(cells)))
 
 

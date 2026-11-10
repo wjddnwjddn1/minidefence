@@ -8,13 +8,15 @@ using EmberBastion;
 // args: rules field waveSpecs policies modes seeds
 // waveSpecs: "" or "w=kind:count:gap:delay:gate[:mult]|kind:...;w2=..." (w is 1-based wave number)
 class WaveCounterProbe {
- static int SwapSlot(int field){var f=Balance.Fields[field];int best=-1;double bs=-1;for(int s=0;s<f.Slots.Length;s++){if(Smart.Kind(field,s)!=1)continue;double sc=0;for(double d=0;d<f.Perimeter;d+=16){Point p=field==0?Balance.Path(d):f.Path(d);if(Point.Distance(p,f.Slots[s])<=180)sc++;}if(sc>bs){bs=sc;best=s;}}return best;}
+ // Layout follows the rule-specific field (r27 task 8: v4 normal pass has 10 slots).
+ static int Rules=4;static FieldDef Layout(int field){return Battle.FieldFor(field,Rules);}
+ static int SwapSlot(int field){var f=Layout(field);int best=-1;double bs=-1;for(int s=0;s<f.Slots.Length;s++){if(Smart.Kind(field,Layout(field),s)!=1)continue;double sc=0;for(double d=0;d<f.Perimeter;d+=16){Point p=field==0?Balance.Path(d):f.Path(d);if(Point.Distance(p,f.Slots[s])<=180)sc++;}if(sc>bs){bs=sc;best=s;}}return best;}
  static int Kind(string policy,int field,int slot,int swap){
   if(policy=="bomb")return 2; if(policy=="archer")return 1;
-  if(policy=="bombArcher")return slot==swap?1:2; if(policy=="bombFrost")return slot==swap?3:2; if(policy=="bombArcher2")return slot==swap||Smart.Kind(field,slot)==1&&slot%3==0?1:2;
-  int k=Smart.Kind(field,slot); if(policy=="smartBFrost"&&slot==swap)return 3; return k;}
+  if(policy=="bombArcher")return slot==swap?1:2; if(policy=="bombFrost")return slot==swap?3:2; if(policy=="bombArcher2")return slot==swap||Smart.Kind(field,Layout(field),slot)==1&&slot%3==0?1:2;
+  int k=Smart.Kind(field,Layout(field),slot); if(policy=="smartBFrost"&&slot==swap)return 3; return k;}
  static int Main(string[] a){
-  int rules=int.Parse(a[0]),field=int.Parse(a[1]);string spec=a[2];string[] policies=a[3].Split(',');
+  int rules=int.Parse(a[0]),field=int.Parse(a[1]);Rules=rules;string spec=a[2];string[] policies=a[3].Split(',');
   var modes=Array.ConvertAll(a[4].Split(','),int.Parse);var seeds=Array.ConvertAll(a[5].Split(','),uint.Parse);
   // PASS_SLOTS="x,y;x,y" adds slots to the pass (field 2); PASS_START_GOLD overrides its start gold.
   { var ps=Environment.GetEnvironmentVariable("PASS_SLOTS");var sg=Environment.GetEnvironmentVariable("PASS_START_GOLD");var pf=Balance.Fields[2];
