@@ -23,6 +23,10 @@ class EliteSlotProbe {
  static void BuyElite(Battle b,int[] kinds,string policy,ref int eliteWave){if(b.EliteSlot<0&&b.Wave>=FromWave&&b.Gold>=Cost&&b.Phase==Phase.Fighting){int t=Target(b,kinds,policy);var u=t<0?null:b.At(t);if(u!=null&&u.Level==3){b.Gold-=Cost;b.EliteSlot=t;eliteWave=b.Wave;}}}
  static int Main(string[] a){bool eliteFirst=Environment.GetEnvironmentVariable("ELITE_FIRST")=="1";
   int rules=int.Parse(a[0]),field=int.Parse(a[1]);string[] policies=a[2].Split(',');var modes=Array.ConvertAll(a[3].Split(','),int.Parse);var seeds=Array.ConvertAll(a[4].Split(','),uint.Parse);
+  // PASS_SLOTS="x,y;x,y" adds slots to the pass (field 2); PASS_START_GOLD overrides its start gold.
+  { var ps=Environment.GetEnvironmentVariable("PASS_SLOTS");var sg=Environment.GetEnvironmentVariable("PASS_START_GOLD");var pf=Balance.Fields[2];
+    if(!string.IsNullOrEmpty(ps)){var list=new List<Point>(pf.Slots);foreach(var xy in ps.Split(';')){var v=xy.Split(',');list.Add(new Point(double.Parse(v[0],CultureInfo.InvariantCulture),double.Parse(v[1],CultureInfo.InvariantCulture)));}pf.Slots=list.ToArray();}
+    if(!string.IsNullOrEmpty(sg))pf.StartGold=int.Parse(sg); }
   if(Environment.GetEnvironmentVariable("EXT_RUNNERS")=="1")foreach(var wave in Balance.Fields[field].Waves)foreach(var g in wave)if(g.Extended&&g.Kind==0){g.Kind=1;g.Count=(int)Math.Round(g.Count*.8);g.Gap*=2;}
   var kinds=Army(field);int[] branch={2,1,1,1,2};
   foreach(string policy in policies)foreach(int mode in modes)foreach(uint seed in seeds)foreach(bool ember in new[]{false,true}){

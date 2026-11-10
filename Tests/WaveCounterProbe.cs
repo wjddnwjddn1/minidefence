@@ -16,6 +16,10 @@ class WaveCounterProbe {
  static int Main(string[] a){
   int rules=int.Parse(a[0]),field=int.Parse(a[1]);string spec=a[2];string[] policies=a[3].Split(',');
   var modes=Array.ConvertAll(a[4].Split(','),int.Parse);var seeds=Array.ConvertAll(a[5].Split(','),uint.Parse);
+  // PASS_SLOTS="x,y;x,y" adds slots to the pass (field 2); PASS_START_GOLD overrides its start gold.
+  { var ps=Environment.GetEnvironmentVariable("PASS_SLOTS");var sg=Environment.GetEnvironmentVariable("PASS_START_GOLD");var pf=Balance.Fields[2];
+    if(!string.IsNullOrEmpty(ps)){var list=new List<Point>(pf.Slots);foreach(var xy in ps.Split(';')){var v=xy.Split(',');list.Add(new Point(double.Parse(v[0],CultureInfo.InvariantCulture),double.Parse(v[1],CultureInfo.InvariantCulture)));}pf.Slots=list.ToArray();}
+    if(!string.IsNullOrEmpty(sg))pf.StartGold=int.Parse(sg); }
   var waves=Balance.Fields[field].Waves;var targets=new List<int>();
   if(spec.Length>0)foreach(var part in spec.Split(';')){var kv=part.Split('=');int w=int.Parse(kv[0]);targets.Add(w);var gs=new List<Group>();foreach(var g in kv[1].Split('|')){var v=g.Split(':');var grp=new Group(int.Parse(v[0]),int.Parse(v[1]),double.Parse(v[2],CultureInfo.InvariantCulture),double.Parse(v[3],CultureInfo.InvariantCulture),int.Parse(v[4]),v.Length>5?double.Parse(v[5],CultureInfo.InvariantCulture):1);grp.Extended=waves[w-1].Length>0&&waves[w-1][0].Extended;gs.Add(grp);}waves[w-1]=gs.ToArray();}
   if(Environment.GetEnvironmentVariable("EXT_RUNNERS")=="1"){var f=Balance.Fields[field];foreach(var wave in f.Waves)foreach(var g in wave)if(g.Extended&&g.Kind==0){g.Kind=1;g.Count=(int)Math.Round(g.Count*.8);g.Gap*=2;}}
