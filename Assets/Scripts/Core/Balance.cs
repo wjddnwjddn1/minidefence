@@ -14,7 +14,7 @@ namespace EmberBastion {
   public EnemyDef(string name,double hp,double speed,double armor=0,double blastTaken=1,double meleeTaken=1){Name=name;HP=hp;Speed=speed;Armor=armor;BlastTaken=blastTaken;MeleeTaken=meleeTaken;}
  }
  public sealed class Group {
-  public int Kind,Count,Gate;public double Gap,Delay,Multiplier;public bool Extended;
+  public int Kind,Count,Gate;public double Gap,Delay,Multiplier;public bool Extended;internal bool MarshCandidate;
   public Group(int kind,int count,double gap,double delay=0,int gate=0,double multiplier=1){Kind=kind;Count=count;Gap=gap;Delay=delay;Gate=gate;Multiplier=multiplier;}
  }
  public sealed class FieldDef {

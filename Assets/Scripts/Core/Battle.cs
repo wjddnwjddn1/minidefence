@@ -44,7 +44,7 @@ namespace EmberBastion {
   public Group[] WaveGroups(int index){
    if(index<0||index>=WaveCount)throw new ArgumentOutOfRangeException("index");
    if(!HasNormalCards)return Field.Waves[index];
-   if(candidateWaves[FieldIndex]==null){var source=Field.Waves;var copy=new Group[source.Length][];for(int w=0;w<source.Length;w++){copy[w]=new Group[source[w].Length];for(int i=0;i<source[w].Length;i++){var g=source[w][i];int kind=g.Extended&&g.Kind==0?1:g.Kind;int count=g.Extended&&g.Kind==0?(int)Math.Round(g.Count*.8):g.Count;double gap=g.Extended&&g.Kind==0?g.Gap*2:g.Gap;copy[w][i]=new Group(kind,count,gap,g.Delay,g.Gate,g.Multiplier){Extended=g.Extended};}}candidateWaves[FieldIndex]=copy;}
+   if(candidateWaves[FieldIndex]==null){var source=Field.Waves;var copy=new Group[source.Length][];for(int w=0;w<source.Length;w++){copy[w]=new Group[source[w].Length];for(int i=0;i<source[w].Length;i++){var g=source[w][i];int kind=g.Extended&&g.Kind==0?1:g.Kind;int count=g.Extended&&g.Kind==0?(int)Math.Round(g.Count*.8):g.Count;double gap=g.Extended&&g.Kind==0?g.Gap*2:g.Gap;copy[w][i]=new Group(kind,count,gap,g.Delay,g.Gate,g.Multiplier){Extended=g.Extended,MarshCandidate=FieldIndex==3&&w>=3&&g.Kind!=4};}}candidateWaves[FieldIndex]=copy;}
    return candidateWaves[FieldIndex][index];
   }
   public int WaveCount {get{return WaveCountFor(FieldIndex,RulesVersion);}}
@@ -97,8 +97,9 @@ namespace EmberBastion {
   public int EarlyBonus(){return Math.Min(20,10+Enemies.FindAll(e=>e.HP>0).Count);}
   public bool CanCallEarly(){return Phase==Phase.Fighting&&!ReinforcementPending&&Wave<WaveCount&&queue.Count==0;}
   public bool CallEarly(){if(!CanCallEarly())return false;Gold+=Reward(40+5*Wave)+EarlyBonus();BeginWave();return true;}
-  public int SpawnCount(Group g){int raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?(int)Math.Round(g.Count*(HardWaves?1.7:FastWaves?1.4:2.5)):g.Count;int count=RulesVersion>0&&!HardWaves&&g.Kind!=4?(int)Math.Round(raw*1.25):raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?(int)Math.Round(count*1.15):count;}
-  public double SpawnGap(Group g){double raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?g.Gap/(HasNormalCards?Math.Sqrt(HardWaves?1.7:FastWaves?1.4:2.5):(HardWaves?1.7:FastWaves?1.4:2.5)):g.Gap;double gap=RulesVersion>0&&!HardWaves&&g.Kind!=4?raw*100.0/125:raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?gap/1.15:gap;}
+  bool MarshCandidateBoost(Group g){return HasNormalCards&&!FastWaves&&g.MarshCandidate;}
+  public int SpawnCount(Group g){int raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?(int)Math.Round(g.Count*(HardWaves?1.7:FastWaves?1.4:2.5)):g.Count;if(MarshCandidateBoost(g))raw=(int)Math.Round(raw*2.0);int count=RulesVersion>0&&!HardWaves&&g.Kind!=4?(int)Math.Round(raw*1.25):raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?(int)Math.Round(count*1.15):count;}
+  public double SpawnGap(Group g){double raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?g.Gap/(HasNormalCards?Math.Sqrt(HardWaves?1.7:FastWaves?1.4:2.5):(HardWaves?1.7:FastWaves?1.4:2.5)):g.Gap;if(MarshCandidateBoost(g))raw/=2.0;double gap=RulesVersion>0&&!HardWaves&&g.Kind!=4?raw*100.0/125:raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?gap/1.15:gap;}
   void BeginWave(){if(Reinforcements!=null&&((Wave==2&&Reinforcements.SelectedCount==0)||(Wave==5&&Reinforcements.SelectedCount==1)||(HasNormalCards&&Wave==8&&Reinforcements.SelectedCount==2))){if(!ReinforcementPending){Reinforcements.Offer(Units.Exists(u=>u.Kind==0),Units.Exists(u=>u.Kind==1),Units.Exists(u=>u.Kind==2));if(ReinforcementOffered!=null)ReinforcementOffered(this);}return;}Wave++;WaveTime=0;Phase=Phase.Fighting;int order=0;foreach(var u in Units)u.PrepSpent=0;foreach(var g in WaveGroups(Wave-1)){int count=SpawnCount(g);double gap=SpawnGap(g);for(int i=0;i<count;i++)queue.Add(new Spawn{Kind=g.Kind,Gate=g.Gate,At=g.Delay+i*gap,Multiplier=g.Multiplier*Math.Pow(1.09,Wave-1),Order=order++});}queue.Sort((a,b)=>a.At==b.At?a.Order.CompareTo(b.Order):a.At.CompareTo(b.At));if(WaveStarted!=null)WaveStarted(this);}
   public double EmberRadius {get{return EmberBranch==2?130:Balance.EmberRadius;}}
   public double EmberDamage {get{return (60+5*Wave)*(EmberBranch==1?1.5:1);}}
