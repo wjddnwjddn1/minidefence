@@ -38,13 +38,21 @@ namespace EmberBastion {
   Point Path(double distance){return FieldIndex==0?Balance.Path(distance):Field.Path(distance);}
   // Freeze legacy campaign length before adding newer waves to the shared field data.
   public static int WaveCountFor(int fieldIndex,int rulesVersion){if(fieldIndex<0||fieldIndex>=Balance.Fields.Length)throw new ArgumentOutOfRangeException("fieldIndex");int count=Balance.Fields[fieldIndex].Waves.Length;if(rulesVersion<=1&&fieldIndex>=Balance.LegacyFieldCount)return 0;if(rulesVersion<=2)return Math.Min(count,fieldIndex==0?10:fieldIndex<Balance.LegacyFieldCount?8:12);return count;}
+  static readonly Group[][][] candidateWaves=new Group[Balance.Fields.Length][][];
+  // Rule 4 normal waves are isolated from legacy and reinforcement data.
+  public Group[] WaveGroups(int index){
+   if(index<0||index>=WaveCount)throw new ArgumentOutOfRangeException("index");
+   if(!HasNormalCards)return Field.Waves[index];
+   if(candidateWaves[FieldIndex]==null){var source=Field.Waves;var copy=new Group[source.Length][];for(int w=0;w<source.Length;w++){copy[w]=new Group[source[w].Length];for(int i=0;i<source[w].Length;i++){var g=source[w][i];copy[w][i]=new Group(g.Kind,g.Count,g.Gap,g.Delay,g.Gate,g.Multiplier){Extended=g.Extended};}}candidateWaves[FieldIndex]=copy;}
+   return candidateWaves[FieldIndex][index];
+  }
   public int WaveCount {get{return WaveCountFor(FieldIndex,RulesVersion);}}
   public int Pending {get{return queue.Count;}}
   public bool Decided {get{return Phase==Phase.Fighting&&Wave==WaveCount&&queue.Count==0;}}
-  public bool UpcomingBoss {get{if(Wave<0||Wave>=WaveCount)return false;foreach(var group in Field.Waves[Wave])if(group.Kind==4)return true;return false;}}
+  public bool UpcomingBoss {get{if(Wave<0||Wave>=WaveCount)return false;foreach(var group in WaveGroups(Wave))if(group.Kind==4)return true;return false;}}
   public string NextWaveAdvice(){
    if(Wave<0||Wave>=WaveCount)return "";bool runner=false,shield=false,bomb=false,boss=false;
-   foreach(var g in Field.Waves[Wave]){runner|=g.Kind==1;shield|=g.Kind==2;bomb|=g.Kind==3;boss|=g.Kind==4;}
+   foreach(var g in WaveGroups(Wave)){runner|=g.Kind==1;shield|=g.Kind==2;bomb|=g.Kind==3;boss|=g.Kind==4;}
    if(boss)return "대장: 궁수·서리 대장 우선 표적";
    if(shield)return FastWaves&&!HardWaves?"방패: 폭발 반감·궁수 추가 피해":"방패: 궁수 관통·검사 파쇄 검토";
    if(runner)return FastWaves&&!HardWaves?"질주: 근접 반감·궁수 추가 피해":"질주: 서리 둔화·궁수 빠른 적 표적";
@@ -90,7 +98,7 @@ namespace EmberBastion {
   public bool CallEarly(){if(!CanCallEarly())return false;Gold+=Reward(40+5*Wave)+EarlyBonus();BeginWave();return true;}
   public int SpawnCount(Group g){int raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?(int)Math.Round(g.Count*(HardWaves?1.7:FastWaves?1.4:2.5)):g.Count;int count=RulesVersion>0&&!HardWaves&&g.Kind!=4?(int)Math.Round(raw*1.25):raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?(int)Math.Round(count*1.15):count;}
   public double SpawnGap(Group g){double raw=g.Extended&&RulesVersion>=3&&g.Kind!=4?g.Gap/(HardWaves?1.7:FastWaves?1.4:2.5):g.Gap;double gap=RulesVersion>0&&!HardWaves&&g.Kind!=4?raw*100.0/125:raw;return Mode==BattleMode.Reinforcement&&g.Kind!=4?gap/1.15:gap;}
-  void BeginWave(){if(Reinforcements!=null&&((Wave==2&&Reinforcements.SelectedCount==0)||(Wave==5&&Reinforcements.SelectedCount==1)||(HasNormalCards&&Wave==8&&Reinforcements.SelectedCount==2))){if(!ReinforcementPending){Reinforcements.Offer(Units.Exists(u=>u.Kind==0),Units.Exists(u=>u.Kind==1),Units.Exists(u=>u.Kind==2));if(ReinforcementOffered!=null)ReinforcementOffered(this);}return;}Wave++;WaveTime=0;Phase=Phase.Fighting;int order=0;foreach(var u in Units)u.PrepSpent=0;foreach(var g in Field.Waves[Wave-1]){int count=SpawnCount(g);double gap=SpawnGap(g);for(int i=0;i<count;i++)queue.Add(new Spawn{Kind=g.Kind,Gate=g.Gate,At=g.Delay+i*gap,Multiplier=g.Multiplier*Math.Pow(1.09,Wave-1),Order=order++});}queue.Sort((a,b)=>a.At==b.At?a.Order.CompareTo(b.Order):a.At.CompareTo(b.At));if(WaveStarted!=null)WaveStarted(this);}
+  void BeginWave(){if(Reinforcements!=null&&((Wave==2&&Reinforcements.SelectedCount==0)||(Wave==5&&Reinforcements.SelectedCount==1)||(HasNormalCards&&Wave==8&&Reinforcements.SelectedCount==2))){if(!ReinforcementPending){Reinforcements.Offer(Units.Exists(u=>u.Kind==0),Units.Exists(u=>u.Kind==1),Units.Exists(u=>u.Kind==2));if(ReinforcementOffered!=null)ReinforcementOffered(this);}return;}Wave++;WaveTime=0;Phase=Phase.Fighting;int order=0;foreach(var u in Units)u.PrepSpent=0;foreach(var g in WaveGroups(Wave-1)){int count=SpawnCount(g);double gap=SpawnGap(g);for(int i=0;i<count;i++)queue.Add(new Spawn{Kind=g.Kind,Gate=g.Gate,At=g.Delay+i*gap,Multiplier=g.Multiplier*Math.Pow(1.09,Wave-1),Order=order++});}queue.Sort((a,b)=>a.At==b.At?a.Order.CompareTo(b.Order):a.At.CompareTo(b.At));if(WaveStarted!=null)WaveStarted(this);}
   public double EmberRadius {get{return EmberBranch==2?130:Balance.EmberRadius;}}
   public double EmberDamage {get{return (60+5*Wave)*(EmberBranch==1?1.5:1);}}
   public bool UpgradeEmber(int branch){if(ReinforcementPending||(Phase!=Phase.Preparation&&Phase!=Phase.Fighting)||EmberBranch!=0||branch<1||branch>2||Gold<100||ember.HasValue)return false;Gold-=100;EmberBranch=branch;return true;}
