@@ -65,6 +65,12 @@ def build():
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
         text = f.read()
+    # Historical PASS_SLOTS experiments supply their own layout. Disable the
+    # built-in candidate slots in this copy to avoid adding the same slots twice.
+    layout = "field==2&&rulesVersion==4&&mode==BattleMode.Normal?candidatePass"
+    if text.count(layout) != 1:
+        sys.exit("Battle.cs changed; update candidate layout replacement")
+    text = text.replace(layout, "field==-1?candidatePass")
     for old, new in COUNTERS:
         expected = 3 if old == "g.Extended&&g.Kind==0?" else 2 if old == "MarshCandidateBoost(g)" else 1
         if text.count(old) != expected:

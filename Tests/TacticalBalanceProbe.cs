@@ -4,7 +4,7 @@ using System.Globalization;
 using EmberBastion;
 class TacticalBalanceProbe {
  static string F(double n){return Math.Round(n,2).ToString(CultureInfo.InvariantCulture);}
- static int BestSlot(int field,string policy){int best=-1;double bestScore=-1;var f=Balance.Fields[field];for(int slot=0;slot<f.Slots.Length;slot++){if(Smart.Kind(field,slot)!=1)continue;double score=0;if(policy.StartsWith("smith")){double range=policy=="smithWide"?220:160;for(int j=0;j<f.Slots.Length;j++)if(j!=slot&&Point.Distance(f.Slots[slot],f.Slots[j])<=range)score++;}else{for(double d=0;d<f.Perimeter;d+=16){Point p=field==0?Balance.Path(d):f.Path(d);if(Point.Distance(p,f.Slots[slot])<=180)score++;}}if(score>bestScore){bestScore=score;best=slot;}}return best;}
+ static int BestSlot(Battle battle,string policy){int best=-1;double bestScore=-1;int field=battle.FieldIndex;var f=battle.Field;for(int slot=0;slot<f.Slots.Length;slot++){if(Smart.Kind(field,f,slot)!=1)continue;double score=0;if(policy.StartsWith("smith")){double range=policy=="smithWide"?220:160;for(int j=0;j<f.Slots.Length;j++)if(j!=slot&&Point.Distance(f.Slots[slot],f.Slots[j])<=range)score++;}else{for(double d=0;d<f.Perimeter;d+=16){Point p=field==0?Balance.Path(d):f.Path(d);if(Point.Distance(p,f.Slots[slot])<=180)score++;}}if(score>bestScore){bestScore=score;best=slot;}}return best;}
  static int Main(string[] args){try{
   string profile=args[0];int rules=profile=="R3"?3:4;bool roles=args.Length>1&&args[1]=="roles";
   string[] policies=roles?new[]{"smartB","fullFront","fullStrong","fullFast","fullBoss","rangedFirst","frostWide","frostFreeze","frostBoss","frostFirst","smithWide","smithDamage","smithFirst","smithCurrent"}:new[]{"sword","archer","bomb","swordB","smart","smartB","bombA","bombB","sniper","smartBFrost","smartBSmith","smartBPrior"};
@@ -13,12 +13,12 @@ class TacticalBalanceProbe {
   foreach(string policy in policies)foreach(bool ember in new[]{false,true}){
    var b=Battle.CreateForRules(seed,field,rules);b.SetDifficulty(mode);int ticks=0,swapped=-1,supportSamples=0,supportTargets=0;double over80=0;var cards=new List<int>();int[] peaks=new int[b.WaveCount+1],goldAtWave=new int[b.WaveCount+1];
    b.WaveStarted=x=>goldAtWave[x.Wave]=x.Gold;
-   for(int slot=0;slot<b.Field.Slots.Length;slot++)if(Smart.Kind(field,slot)==1){swapped=slot;break;}
-   if(roles&&policy!="smithCurrent"&&(policy.StartsWith("frost")||policy.StartsWith("smith")))swapped=BestSlot(field,policy);
+   for(int slot=0;slot<b.Field.Slots.Length;slot++)if(Smart.Kind(field,b.Field,slot)==1){swapped=slot;break;}
+   if(roles&&policy!="smithCurrent"&&(policy.StartsWith("frost")||policy.StartsWith("smith")))swapped=BestSlot(b,policy);
    while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost&&ticks<120000){
     if(b.ReinforcementPending){int card=b.Reinforcements.Choices()[0];cards.Add(card);if(!b.ChooseReinforcement(card))throw new Exception("Choice failed");continue;}
     if(ticks%60==0){
-     for(int slot=0;slot<b.Field.Slots.Length;slot++)if(b.At(slot)==null){int kind=roles||policy.StartsWith("smart")?Smart.Kind(field,slot):policy=="archer"||policy=="sniper"?1:policy.StartsWith("bomb")?2:0;
+     for(int slot=0;slot<b.Field.Slots.Length;slot++)if(b.At(slot)==null){int kind=roles||policy.StartsWith("smart")?Smart.Kind(field,b.Field,slot):policy=="archer"||policy=="sniper"?1:policy.StartsWith("bomb")?2:0;
       if(slot==swapped&&(policy=="smartBFrost"||policy.StartsWith("frost")))kind=3;if(slot==swapped&&(policy=="smartBSmith"||policy.StartsWith("smith")))kind=4;
       if(b.Gold>=Balance.Troops[kind].Cost)b.Place(kind,slot);
      }

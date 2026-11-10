@@ -19,7 +19,7 @@ namespace EmberBastion {
   static bool WorldPoint(Point p){return Finite(p.X)&&Finite(p.Y)&&p.X>=0&&p.X<=1280&&p.Y>=0&&p.Y<=768;}
   public static Battle ImportCombat(CombatSaveData data){
    if(data==null||data.version!=1||data.field<0||data.field>=Balance.Fields.Length||data.units==null||data.enemies==null||data.shots==null||data.pending==null)throw new ArgumentException("Invalid combat save");
-   var field=Balance.Fields[data.field];
+   var field=FieldFor(data.field,data.rulesVersion,(BattleMode)data.mode);
    if(data.wave<1||data.wave>WaveCountFor(data.field,data.rulesVersion)||data.gold<0||data.hp<1||data.hp>100||data.kills<0||data.enemies.Length>=Balance.MaxAlive||data.peakAlive<data.enemies.Length||data.peakAlive>=Balance.MaxAlive||data.nextId<1||data.units.Length>field.Slots.Length||data.shots.Length>512||data.pending.Length>512||!FiniteNonnegative(data.time)||!FiniteNonnegative(data.waveTime)||!FiniteNonnegative(data.emberCD)||data.emberCD>Balance.EmberCooldown||!Finite(data.accumulator)||data.accumulator<-.00000001||data.accumulator>.25||(data.hasEmber&&!WorldPoint(data.ember)))throw new ArgumentException("Invalid combat values");
    var unitData=new PreparationUnit[data.units.Length];
    for(int i=0;i<data.units.Length;i++){var u=data.units[i];if(u==null)throw new ArgumentException("Invalid unit");unitData[i]=new PreparationUnit{slot=u.Slot,kind=u.Kind,level=u.Level,invested=u.Invested,prepSpent=u.PrepSpent,priority=u.Priority,branch=u.Branch,hitCount=u.HitCount,cooldown=u.Cooldown,stun=u.Stun};}

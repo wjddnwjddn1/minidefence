@@ -1,0 +1,14 @@
+{
+  "ready": "CANDIDATE_SLOTS_READY 4 Normal 10",
+  "state": [
+    "REVIEW_STATE",
+    "4",
+    "Preparation",
+    "0",
+    "0.0",
+    "210",
+    "0",
+    "8:0:1:0;9:0:1:0"
+  ],
+  "errors": []
+}

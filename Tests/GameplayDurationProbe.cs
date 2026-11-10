@@ -13,9 +13,10 @@ class GameplayDurationProbe {
  }return 0;}catch(Exception e){Console.Error.WriteLine(e);return 1;}}
 }
 static class Smart {
- static readonly System.Collections.Generic.Dictionary<int,int[]> cache=new System.Collections.Generic.Dictionary<int,int[]>();
- static Point P(int f,double d){return f==0?Balance.Path(d):Balance.Fields[f].Path(d);}
- static double Cover(int f,Point s,double range,double min){double per=f==0?Balance.Perimeter:Balance.Fields[f].Perimeter;int n=0,inside=0;for(double d=0;d<per;d+=16){n++;double dist=Point.Distance(P(f,d),s);if(dist<=range&&dist>=min)inside++;}return (double)inside/n;}
+ static readonly System.Collections.Generic.Dictionary<FieldDef,int[]> cache=new System.Collections.Generic.Dictionary<FieldDef,int[]>();
+ static Point P(int f,FieldDef layout,double d){return f==0?Balance.Path(d):layout.Path(d);}
+ static double Cover(int f,FieldDef layout,Point s,double range,double min){double per=f==0?Balance.Perimeter:layout.Perimeter;int n=0,inside=0;for(double d=0;d<per;d+=16){n++;double dist=Point.Distance(P(f,layout,d),s);if(dist<=range&&dist>=min)inside++;}return (double)inside/n;}
  // Swords on the half of slots that touch the most road within melee range; the rest alternate archer/bomb by long-range coverage.
- public static int Kind(int f,int slot){int[] a;if(!cache.TryGetValue(f,out a)){var S=Balance.Fields[f].Slots;int m=S.Length;var idx=new System.Collections.Generic.List<int>();for(int i=0;i<m;i++)idx.Add(i);idx.Sort((x,y)=>{int comparison=Cover(f,S[y],120,0).CompareTo(Cover(f,S[x],120,0));return comparison!=0?comparison:x.CompareTo(y);});a=new int[m];var rest=new System.Collections.Generic.List<int>();for(int i=0;i<m;i++){if(i<m/2)a[idx[i]]=0;else rest.Add(idx[i]);}rest.Sort((x,y)=>{int comparison=Cover(f,S[y],210,60).CompareTo(Cover(f,S[x],210,60));return comparison!=0?comparison:x.CompareTo(y);});for(int i=0;i<rest.Count;i++)a[rest[i]]=i%2==0?1:2;cache[f]=a;}return a[slot];}
+ public static int Kind(int f,int slot){return Kind(f,Balance.Fields[f],slot);}
+ public static int Kind(int f,FieldDef layout,int slot){int[] a;if(!cache.TryGetValue(layout,out a)){var S=layout.Slots;int m=S.Length;var idx=new System.Collections.Generic.List<int>();for(int i=0;i<m;i++)idx.Add(i);idx.Sort((x,y)=>{int comparison=Cover(f,layout,S[y],120,0).CompareTo(Cover(f,layout,S[x],120,0));return comparison!=0?comparison:x.CompareTo(y);});a=new int[m];var rest=new System.Collections.Generic.List<int>();for(int i=0;i<m;i++){if(i<m/2)a[idx[i]]=0;else rest.Add(idx[i]);}rest.Sort((x,y)=>{int comparison=Cover(f,layout,S[y],210,60).CompareTo(Cover(f,layout,S[x],210,60));return comparison!=0?comparison:x.CompareTo(y);});for(int i=0;i<rest.Count;i++)a[rest[i]]=i%2==0?1:2;cache[layout]=a;}return a[slot];}
 }

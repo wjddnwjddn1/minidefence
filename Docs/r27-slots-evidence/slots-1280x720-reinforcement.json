@@ -1,0 +1,14 @@
+{
+  "ready": "CANDIDATE_SLOTS_READY 4 Reinforcement 8",
+  "state": [
+    "REVIEW_STATE",
+    "4",
+    "Preparation",
+    "0",
+    "0.0",
+    "340",
+    "0",
+    ""
+  ],
+  "errors": []
+}

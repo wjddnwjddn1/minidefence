@@ -15,7 +15,7 @@ SOURCES = ['Assets/Scripts/Core/Balance.cs', 'Assets/Scripts/Core/Battle.cs',
            'Tests/TacticalBalanceProbe.cs']
 snapshots = {name: (ROOT / name).read_bytes() for name in SOURCES}
 compiler = Path(os.environ['WINDIR']) / 'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
-profiles = {'R3': None, 'C': None, 'CSoft': (.75, .75, 1.25), 'CStrong': (.5, .5, 1.5),
+profiles = {'R3': None, 'C': None, 'C8': None, 'CSoft': (.75, .75, 1.25), 'CStrong': (.5, .5, 1.5),
             'CShieldOnly': (None, .5, None), 'CArcherOnly': (None, None, 1.5),
             'CShieldArcher': (None, .5, 1.5)}
 parser = argparse.ArgumentParser()
@@ -30,14 +30,18 @@ for profile, values in profiles.items():
     folder.mkdir(exist_ok=True)
     for name, raw in snapshots.items():
         text = raw.decode('utf-8-sig')
+        if name.endswith('/Battle.cs') and profile == 'C8':
+            old = 'field==2&&rulesVersion==4&&mode==BattleMode.Normal?candidatePass'
+            assert text.count(old) == 1, old
+            text = text.replace(old, 'field==-1?candidatePass')
         if name.endswith('/Battle.cs') and values:
             melee, blast, archer = values
             replacements = {
-                'FastWaves&&!HardWaves?Balance.Enemies[targets[i].Kind].MeleeTaken:1':
+                'EnemyCountersActive?Balance.Enemies[targets[i].Kind].MeleeTaken:1':
                     f'HasNormalCards?(targets[i].Kind==1?{melee}:1):(FastWaves&&!HardWaves?Balance.Enemies[targets[i].Kind].MeleeTaken:1)',
-                'FastWaves&&!HardWaves?Balance.Enemies[e.Kind].BlastTaken:1':
+                'EnemyCountersActive?Balance.Enemies[e.Kind].BlastTaken:1':
                     f'HasNormalCards?(e.Kind==2?{blast}:1):(FastWaves&&!HardWaves?Balance.Enemies[e.Kind].BlastTaken:1)',
-                'FastWaves&&!HardWaves&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1':
+                'EnemyCountersActive&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1':
                     f'HasNormalCards?(s.Kind==1&&Balance.ArcherFavored(target.Kind)?{archer}:1):(FastWaves&&!HardWaves&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1)',
             }
             for (old, new), value in zip(replacements.items(), values):
@@ -64,7 +68,7 @@ if args.policy_set == 'roles':
             baseline.extend(csv.DictReader(stream))
     key = lambda row: tuple(row[k] for k in ['profile','seed','mode','field','policy','ember'])
     known = {key(row): row for row in baseline if row['policy'] == 'smartB'}
-    controls = [row for row in csv.DictReader(all_rows) if row['policy'] == 'smartB']
+    controls = [row for row in csv.DictReader(all_rows) if row['policy'] == 'smartB' and row['profile'] == 'R3']
     for row in controls:
         old = known[key(row)]
         for column in ['result','wave','peak','seconds','gold','invested','level3','cards','card_ids','wave_peaks','wave_gold']:
@@ -76,6 +80,8 @@ manifest = {'base_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'],
             'source_sha256': {name: hashlib.sha256(raw).hexdigest() for name, raw in snapshots.items()},
             'profiles': profiles, 'policy_set': args.policy_set, 'rows': len(all_rows)-1,
             'limitations': ['first offered card, no rerolls', 'fixed purchase/upgrade policies',
+                            'C8 keeps current v4 waves/counters with original eight-slot pass; C uses ten slots',
+                            'historical smartB controls checked only for unchanged R3',
                             'one-slot swaps differ by 5G base cost', 'not human play or fun evidence']}
 target.with_name(target.stem + '-source.json').write_text(
     json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
