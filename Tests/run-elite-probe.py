@@ -43,6 +43,12 @@ def build():
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(mac.ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
         text = f.read()
+    # Same as run-wave-counter-probe.py: the probe supplies its own pass layout (PASS_SLOTS),
+    # so the built-in v4 candidate pass slots are disabled in this copy.
+    layout = "field==2&&rulesVersion==4&&mode==BattleMode.Normal?candidatePass"
+    if text.count(layout) != 1:
+        sys.exit("Battle.cs changed; update candidate layout replacement")
+    text = text.replace(layout, "field==-1?candidatePass")
     for old, new in wave.COUNTERS + ELITE:
         expected = 3 if old == "g.Extended&&g.Kind==0?" else 2 if old == "MarshCandidateBoost(g)" else 1
         if text.count(old) != expected:

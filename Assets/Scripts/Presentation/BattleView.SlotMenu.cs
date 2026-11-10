@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 namespace EmberBastion {
@@ -24,7 +24,10 @@ namespace EmberBastion {
   float MenuUnit(){return Mathf.Clamp(Mathf.Min(Screen.width/1280f,Screen.height/720f),.8f,1.6f);}
   float MenuRadius(){return (menuUnit==null?86:82)*MenuUnit();}
   float MenuButton(){return (menuUnit==null?64:68)*MenuUnit();}
-  Vector2 MenuCenter(){Point p=battle.Field.Slots[menuSlot];float pad=MenuRadius()+MenuButton()/2+20*MenuUnit();float x=ox+(float)p.X*scale,y=oy+(float)p.Y*scale;if(Screen.height<400)y=8+MenuRadius()+MenuButton()/2;return new Vector2(Mathf.Clamp(x,pad,Mathf.Max(pad,Screen.width-pad)),Screen.height<400?y:Mathf.Clamp(y,pad,Mathf.Max(pad,Screen.height-pad)));}
+  Vector2 MenuCenter(){Point p=battle.Field.Slots[menuSlot];float pad=MenuRadius()+MenuButton()/2+20*MenuUnit();float x=Mathf.Clamp(ox+(float)p.X*scale,pad,Mathf.Max(pad,Screen.width-pad)),y=oy+(float)p.Y*scale;bool stacked=MenuStacked(x);return new Vector2(x,stacked?8+MenuRadius()+MenuButton()/2:Mathf.Clamp(y,pad,Mathf.Max(pad,Screen.height-pad)));}
+  // Claude r35: pin the ring to the top only when the window is low AND the info card fits on neither side (320x300);
+  // landscape phones (e.g. 844x390) keep the ring on its slot with the card beside it.
+  bool MenuStacked(float cx){if(Screen.height>=400)return false;float u=MenuUnit(),w=Mathf.Min(270*u,Screen.width-16),reach=MenuRadius()+MenuButton()/2+10*u;return cx+reach+w>Screen.width-8&&cx-reach-w<8;}
   static Rect RingRect(Vector2 c,float radius,float size,float degrees){double a=degrees*Math.PI/180;return new Rect(c.x+(float)Math.Cos(a)*radius-size/2,c.y+(float)Math.Sin(a)*radius-size/2,size,size);}
   List<SlotAction> SlotActions(){var actions=new List<SlotAction>();Vector2 c=MenuCenter();float r=MenuRadius(),d=MenuButton(),u=MenuUnit();
    if(menuUnit==null){for(int k=0;k<5;k++)actions.Add(new SlotAction(k,RingRect(c,r,d,-90+72*k)));}
@@ -33,7 +36,7 @@ namespace EmberBastion {
    else actions.Add(new SlotAction(13,RingRect(c,r,d,90)));
    if(menuUnit!=null&&(menuUnit.Kind==1||menuUnit.Kind==3))actions.Add(new SlotAction(14,RingRect(c,r,d,-90)));
    if(menuUnit==null)actions.Add(new SlotAction(15,new Rect(c.x-Mathf.Max(44,34*u)/2,c.y-Mathf.Max(44,34*u)/2,Mathf.Max(44,34*u),Mathf.Max(44,34*u))));else actions.Add(new SlotAction(15,RingRect(c,r,Mathf.Max(44,30*u),-45)));return actions;}
-  Rect MenuInfoRect(){Vector2 c=MenuCenter();float u=MenuUnit(),w=Mathf.Min(270*u,Screen.width-16),h=104*u,reach=MenuRadius()+MenuButton()/2+10*u;if(Screen.height<400)return new Rect((Screen.width-w)/2,Screen.height-h-8,w,h);float x=c.x+reach;if(x+w>Screen.width-8)x=c.x-reach-w;float y=c.y-h/2;if(x<8){x=Mathf.Clamp(c.x-w/2,8,Screen.width-w-8);y=c.y+reach+h+8>Screen.height?c.y-reach-h:c.y+reach;}return new Rect(x,Mathf.Clamp(y,8,Screen.height-h-8),w,h);}
+  Rect MenuInfoRect(){Vector2 c=MenuCenter();float u=MenuUnit(),w=Mathf.Min(270*u,Screen.width-16),h=104*u,reach=MenuRadius()+MenuButton()/2+10*u;if(MenuStacked(c.x))return new Rect((Screen.width-w)/2,Screen.height-h-8,w,h);float x=c.x+reach;if(x+w>Screen.width-8)x=c.x-reach-w;float y=c.y-h/2;if(x<8){x=Mathf.Clamp(c.x-w/2,8,Screen.width-w-8);y=c.y+reach+h+8>Screen.height?c.y-reach-h:c.y+reach;}return new Rect(x,Mathf.Clamp(y,8,Screen.height-h-8),w,h);}
   bool MenuContains(Vector2 p){return Vector2.Distance(p,MenuCenter())<=MenuRadius()+MenuButton()/2+6*MenuUnit()||MenuInfoRect().Contains(p);}
   static int MenuHit(List<SlotAction> actions,Vector2 p){int hit=-1;foreach(var a in actions)if(Vector2.Distance(a.Bounds.center,p)<=a.Bounds.width/2)hit=a.Id;return hit;}
   bool HandleSlotMenuInput(Event e){ValidateSlotMenu();if(menuSlot<0)return false;
