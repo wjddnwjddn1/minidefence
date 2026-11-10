@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Tests/bin/TacticalCandidate/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "bytes": 269312,
+    "modifiedUTC": "2026-11-10T23:30:25.576670+00:00",
+    "sha256": "a2ab8aefcb5043585db219fd0ee7e0a127a8e8b4b8aac8d20264001839ba16f0"
+  },
+  {
+    "path": "Tests/bin/PerformanceQA/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "bytes": 269312,
+    "modifiedUTC": "2026-11-10T23:34:18.132646+00:00",
+    "sha256": "97800a74e261076e5c8636411c2b3f5f031d72ccbc469dce53da59912dc97797"
+  },
+  {
+    "path": "Tests/bin/TacticalWeb/Build/TacticalWeb.wasm",
+    "bytes": 26782489,
+    "modifiedUTC": "2026-11-10T23:30:10.495349+00:00",
+    "sha256": "652a17e46ec10a8f0d89c90a30697b4a0095f4c78c73169f906cec6798723ed8"
+  },
+  {
+    "path": "Assets/Scripts/Core/Battle.cs",
+    "bytes": 33277,
+    "modifiedUTC": "2026-11-10T23:12:08.275026+00:00",
+    "sha256": "657bf953c4e4cb1c9057767f098e35ad6077131548c76709842c228d45c99458"
+  },
+  {
+    "path": "Assets/Scripts/Core/CombatSave.cs",
+    "bytes": 6963,
+    "modifiedUTC": "2026-11-10T23:09:04.832338+00:00",
+    "sha256": "ee5fa20c29ba902e1e9aeb10c7b4fb10ad80c7c70aa88a2c04fab7a93ca542d2"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.cs",
+    "bytes": 179963,
+    "modifiedUTC": "2026-11-10T23:23:46.472611+00:00",
+    "sha256": "b44304aaa888c7c5cb4721f0866956e1966ca3c103aaa661caf8ba98a2c3ac3a"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.SlotMenu.cs",
+    "bytes": 20030,
+    "modifiedUTC": "2026-11-10T23:22:28.001689+00:00",
+    "sha256": "076501fe06a2042b64454b2eb626fdc0ada013d78eb1c2b43494ae00e91d0f7d"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/ArrowFlightView.cs",
+    "bytes": 3061,
+    "modifiedUTC": "2026-11-10T23:12:08.280178+00:00",
+    "sha256": "c2fcb047435205679ee90524d2dbaf01b2fbae6737146ea4c61aa3b9751befb3"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.Arrows.cs",
+    "bytes": 3073,
+    "modifiedUTC": "2026-11-10T23:29:44.197473+00:00",
+    "sha256": "b9f629e8286ac3f3b43814f242e8ded5f051238381ccb0fcef4245707e49a21f"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.GlobalControls.cs",
+    "bytes": 4478,
+    "modifiedUTC": "2026-11-10T23:18:38.541930+00:00",
+    "sha256": "307129572348b35c0a299c7a404786edc312af47e5a16361aad6512969185bce"
+  }
+]

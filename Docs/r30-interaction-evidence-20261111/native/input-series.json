@@ -1,0 +1,424 @@
+{
+    "samples": [
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:223840027",
+                "None:112:223903913"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 5.6733,
+            "queueToFrameEndMs": 14.4835,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:223943097",
+                "None:112:223955152"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9995,
+            "queueToFrameEndMs": 4.2274,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:223998164",
+                "None:112:224004479"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.0602,
+            "queueToFrameEndMs": 3.6489,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224037892",
+                "None:112:224044086"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.0418,
+            "queueToFrameEndMs": 3.4239,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224070895",
+                "None:112:224077180"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.6006,
+            "queueToFrameEndMs": 3.158,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224109327",
+                "None:112:224115565"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8709,
+            "queueToFrameEndMs": 3.3353,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224161014",
+                "None:112:224167342"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.9196,
+            "queueToFrameEndMs": 4.4395,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224192063",
+                "None:112:224198355"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.2658,
+            "queueToFrameEndMs": 2.6539,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224223652",
+                "None:112:224234660"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.4575,
+            "queueToFrameEndMs": 3.6219,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224269372",
+                "None:112:224275655"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.0317,
+            "queueToFrameEndMs": 3.8651,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224327778",
+                "None:112:224334101"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9113,
+            "queueToFrameEndMs": 3.335,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 85,
+            "observedEvents": [
+                "P:0:224366885",
+                "None:112:224373236"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.1524,
+            "queueToFrameEndMs": 3.6065,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224402867",
+                "None:112:224409215"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8254,
+            "queueToFrameEndMs": 3.2341,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224438087",
+                "None:112:224448719"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8003,
+            "queueToFrameEndMs": 3.6619,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224477775",
+                "None:112:224484153"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.7824,
+            "queueToFrameEndMs": 3.3933,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224517101",
+                "None:112:224523512"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9644,
+            "queueToFrameEndMs": 3.3647,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224553774",
+                "None:112:224560060"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9454,
+            "queueToFrameEndMs": 3.4664,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224590730",
+                "None:112:224599510"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8376,
+            "queueToFrameEndMs": 3.4963,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224629116",
+                "None:112:224635465"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8438,
+            "queueToFrameEndMs": 3.4211,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224667154",
+                "None:112:224677198"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9054,
+            "queueToFrameEndMs": 4.1514,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224712921",
+                "None:112:224724310"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9768,
+            "queueToFrameEndMs": 4.381,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224783076",
+                "None:112:224793387"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.09,
+            "queueToFrameEndMs": 3.986,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224823706",
+                "None:112:224830065"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8382,
+            "queueToFrameEndMs": 3.342,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224862826",
+                "None:112:224869093"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.0658,
+            "queueToFrameEndMs": 3.4536,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224903646",
+                "None:112:224911440"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 1.3753,
+            "queueToFrameEndMs": 5.4649,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224956522",
+                "None:112:224963116"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8659,
+            "queueToFrameEndMs": 3.6341,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:224996138",
+                "None:112:225002892"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.8698,
+            "queueToFrameEndMs": 3.333,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:225030787",
+                "None:112:225039345"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.6765,
+            "queueToFrameEndMs": 4.0777,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:225097517",
+                "None:112:225103868"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.5478,
+            "queueToFrameEndMs": 2.9535,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        },
+        {
+            "enemiesAtSend": 86,
+            "observedEvents": [
+                "P:0:225133810",
+                "None:112:225140150"
+            ],
+            "windowFound": true,
+            "postSucceeded": true,
+            "received": true,
+            "pauseChanged": true,
+            "queueToEventMs": 0.9038,
+            "queueToFrameEndMs": 3.4025,
+            "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+        }
+    ]
+}

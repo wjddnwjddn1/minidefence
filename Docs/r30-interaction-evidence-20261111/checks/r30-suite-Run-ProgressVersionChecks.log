@@ -1,0 +1,2 @@
+Assets\Scripts\Core\Balance.cs(17,100): warning CS0649: 'EmberBastion.Group.MarshCandidate' 필드에는 할당되지 않으므로 항상 false 기본값을 사용합니다.
+PASS difficulty, supply and legacy peak records are independent and validated

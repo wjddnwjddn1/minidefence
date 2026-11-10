@@ -1,0 +1,7 @@
+error CS0016: 'c:\minidefence\Tests\bin\LossEnemySummaryChecks.exe' 출력 파일에 쓸 수 없습니다. '다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다. '
+Loss enemy summary compilation failed
+At C:\minidefence\Tests\Run-LossEnemySummaryChecks.ps1:8 char:28
++ ... LASTEXITCODE -ne 0) { throw 'Loss enemy summary compilation failed' }
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Loss enemy summary compilation failed:String) [], RuntimeException
+    + FullyQualifiedErrorId : Loss enemy summary compilation failed

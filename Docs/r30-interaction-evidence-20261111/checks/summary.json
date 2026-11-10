@@ -1,0 +1,238 @@
+[
+  {
+    "test": "Run-BadgeChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-BadgeChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-BattleModeChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-BattleModeChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-BossPriorityChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-BossPriorityChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-BossTelegraphChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-BossTelegraphChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-BurnDamageChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-BurnDamageChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CandidateSlotChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CandidateSlotChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CandidateWaveIsolationChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CandidateWaveIsolationChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CombatProgressHintChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CombatProgressHintChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CombatRetryChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CombatRetryChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CombatSaveChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CombatSaveChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-CoreChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-CoreChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-EmberUpgradeChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-EmberUpgradeChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-EmptyCheckpointChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-EmptyCheckpointChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-EnemyWeaknessChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-EnemyWeaknessChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-FastPriorityChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-FastPriorityChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-FieldFourChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-FieldFourChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-HardModeChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-HardModeChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-LossEnemySummaryChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-LossEnemySummaryChecks.log",
+    "initial_pass": false,
+    "retest": "loss-summary-retest.log",
+    "reason": "Original exe locked; reran unchanged test with -OutputName R30LossEnemySummaryChecks.exe"
+  },
+  {
+    "test": "Run-LossRetryInfoChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-LossRetryInfoChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-NextWaveAdviceChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-NextWaveAdviceChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-PerformanceScenarioChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-PerformanceScenarioChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-ProgressVersionChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-ProgressVersionChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-QuickClearChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-QuickClearChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-R12Checks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-R12Checks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-R25ExtendedChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-R25ExtendedChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-R25LegacyCandidateChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-R25LegacyCandidateChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-R30InteractionChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-R30InteractionChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-ReinforcementCombatChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-ReinforcementCombatChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-ReinforcementDraftChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-ReinforcementDraftChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-ReinforcementEffectsChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-ReinforcementEffectsChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-ReinforcementPlaythroughChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-ReinforcementPlaythroughChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-RuleParityChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-RuleParityChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-RuntimeCombatComparisonChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-RuntimeCombatComparisonChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-SupplyChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-SupplyChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-SupportCoverageChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-SupportCoverageChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-SupportStunChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-SupportStunChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-SurrenderChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-SurrenderChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-TacticalDraftChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-TacticalDraftChecks.log",
+    "initial_pass": true
+  },
+  {
+    "test": "Run-WaveVersionChecks.ps1",
+    "pass": true,
+    "log": "C:\\minidefence\\Tests\\bin\\r30-suite-Run-WaveVersionChecks.log",
+    "initial_pass": true
+  }
+]

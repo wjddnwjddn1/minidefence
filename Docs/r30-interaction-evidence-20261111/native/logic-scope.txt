@@ -1,0 +1,1 @@
+Fixed 1/60s Battle.Step on native Unity Mono; replay copies excluded. Samples=10000 resets=12. Not render FPS, GUI, OS input or device latency.

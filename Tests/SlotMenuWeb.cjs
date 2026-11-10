@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium,devices}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r29-followup-evidence');
+const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r30-ui-evidence');
 const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};
 const server=http.createServer((req,res)=>{const relative=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).replace(/^\/+/,''),file=path.resolve(root,relative||'index.html');if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}fs.readFile(file,(error,data)=>{if(error){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
 const summaries=[];
@@ -43,15 +43,32 @@ async function wait(page,predicate,label,timeout=10000){const until=Date.now()+t
  for(const touch of [false,true]){
   const d=await fixture(touch?390:1280,touch?844:720,'',touch);await open(d,9);const start=d.menu.actions.find(a=>a[0]===15),end=d.menu.actions.find(a=>a[0]===1);await drag(d,[start[1]+start[3]/2,start[2]+start[4]/2],[end[1]+end[3]/2,end[2]+end[4]/2]);if(d.state.units.length!==1||d.state.units[0][1]!==1||d.state.gold!==915)throw Error('menu drag failed '+JSON.stringify(d.state));if(d.messages.some(t=>t==='SLOT_TOUCH_PREVIEW 1'))throw Error('drag required preview');await done(d,'menu-drag-'+touch);
  }
- for(const touch of [false,true]){
-  const d=await fixture(touch?390:1280,touch?844:720,'',touch);await wait(d.page,()=>d.cards[1],'card bounds');const r=d.cards[1];await drag(d,[r[0]+r[2]/2,r[1]+r[3]/2],world(d,704,452));if(!d.messages.some(t=>t.startsWith('CARD_DROP 1 9 '))||d.state.gold!==915||d.state.units[0][1]!==1)throw Error('card drag failed '+JSON.stringify(d.state));await d.page.screenshot({path:path.join(out,'card-drop-'+touch+'.png')});await done(d,'card-drag-'+touch);
+ async function unitGesture(d,id,cancel=false){
+  const from=world(d,704,452),serial=d.serial;let cdp;
+  if(d.touch){cdp=await d.context.newCDPSession(d.page);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:from[0],y:from[1],id:1}]});}else{await d.page.mouse.move(...from);await d.page.mouse.down();}
+  await wait(d.page,()=>d.serial>serial,'menu opens while held');const a=d.menu.actions.find(a=>a[0]===id),to=cancel?[5,80]:[a[1]+a[3]/2,a[2]+a[4]/2];
+  if(d.touch){for(let i=1;i<=10;i++){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:from[0]+(to[0]-from[0])*i/10,y:from[1]+(to[1]-from[1])*i/10,id:1}]});await d.page.waitForTimeout(30);}await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await cdp.detach();}
+  else{await d.page.mouse.move(...to,{steps:12});await d.page.waitForTimeout(100);await d.page.mouse.up();}
+  await d.page.waitForTimeout(1200);
  }
- {const d=await fixture(1280,720,'&kind=0&level=2');await open(d,9);const start=d.menu.actions.find(a=>a[0]===15),end=d.menu.actions.find(a=>a[0]===12);await drag(d,[start[1]+start[3]/2,start[2]+start[4]/2],[end[1]+end[3]/2,end[2]+end[4]/2]);if(d.state.units[0][3]!==2||d.state.gold!==795)throw Error('branch drag failed');await done(d,'branch-drag');}
- for(const mode of ['outside','occupied','escape']){
-  const d=await fixture(1280,720,mode==='occupied'?'&kind=0':'');await wait(d.page,()=>d.cards[1],'card bounds');const before=JSON.stringify({gold:d.state.gold,units:d.state.units}),r=d.cards[1];await drag(d,[r[0]+r[2]/2,r[1]+r[3]/2],mode==='outside'?[5,5]:world(d,704,452),mode==='escape');if(before!==JSON.stringify({gold:d.state.gold,units:d.state.units})||d.messages.some(t=>t.startsWith('CARD_DROP ')))throw Error('cancelled card drag purchased: '+mode+' '+JSON.stringify(d.state));await done(d,'cancel-'+mode);
+ for(const touch of [false,true])for(const mode of ['upgrade','branch','sale','cancel']){
+  const d=await fixture(touch?390:1280,touch?844:720,'&kind=0&level='+(mode==='branch'?2:1),touch),gold=d.state.gold;
+  await unitGesture(d,mode==='branch'?12:mode==='sale'?13:10,mode==='cancel');
+  if(mode==='upgrade'&&(d.state.units[0][2]!==2||d.state.gold!==gold-50))throw Error('press-drag upgrade failed');
+  if(mode==='branch'&&(d.state.units[0][3]!==2||d.state.gold!==gold-90))throw Error('press-drag branch failed');
+  if(mode==='sale'&&(d.state.units.length||d.state.gold!==gold+65))throw Error('press-drag sale failed');
+  if(mode==='cancel'&&(d.state.units[0][2]!==1||d.state.gold!==gold))throw Error('press-drag cancellation purchased');
+  await d.page.screenshot({path:path.join(out,`held-${mode}-${touch}.png`)});await done(d,'unit-hold-'+mode+'-'+touch);
+ }
+ for(const touch of [false,true]){
+  const d=await fixture(touch?390:1280,touch?844:720,'',touch);await d.page.keyboard.press('2');await open(d,9);await d.page.waitForTimeout(1100);if(d.state.units.length||d.state.gold!==1000)throw Error('empty click auto purchased after keyboard preselection');await action(d,15,false);if(d.messages.some(t=>t.startsWith('CARD_RECT|')))throw Error('removed troop cards still rendered');await done(d,'empty-no-purchase-'+touch);
  }
  for(const dragging of [false,true]){
-  const d=await fixture(1280,720,'',false,true);if(d.state.rules!==3||d.state.gold!==200||d.state.units.length||!d.messages.some(t=>t==='TUTORIAL_INIT 1'))throw Error('not a fresh real tutorial');await wait(d.page,()=>d.cards[0],'tutorial card');const r=d.cards[0],start=[r[0]+r[2]/2,r[1]+r[3]/2],end=world(d,320,218);if(dragging)await drag(d,start,end);else{await tap(d,...start);await d.page.waitForTimeout(150);await tap(d,...end);await d.page.waitForTimeout(1100);if(d.messages.some(t=>t.startsWith('CARD_DRAG ')))throw Error('short click treated as drag');}if(d.state.units.length!==1||d.state.gold!==135||!d.messages.some(t=>t==='TUTORIAL_STAGE 3'))throw Error('tutorial placement failed');await d.page.keyboard.press('Enter');await d.page.waitForTimeout(1200);if(d.state.phase!=='Fighting'||!d.messages.some(t=>t==='TUTORIAL_START'))throw Error('tutorial start failed');await done(d,'tutorial-'+dragging);
+  const d=await fixture(1280,720,'',false,true);if(d.state.rules!==3||d.state.gold!==200||d.state.units.length)throw Error('not fresh tutorial');
+  const serial=d.serial;await tap(d,...world(d,320,218));await wait(d.page,()=>d.serial>serial,'tutorial slot menu');await d.page.waitForTimeout(1100);if(d.state.gold!==200||d.state.units.length)throw Error('tutorial empty click purchased');
+  if(dragging){const start=d.menu.actions.find(a=>a[0]===15),end=d.menu.actions.find(a=>a[0]===0);await drag(d,[start[1]+start[3]/2,start[2]+start[4]/2],[end[1]+end[3]/2,end[2]+end[4]/2]);}else await action(d,0);
+  if(d.state.units.length!==1||d.state.gold!==135||!d.messages.some(t=>t==='TUTORIAL_STAGE 3'))throw Error('tutorial menu purchase failed');await d.page.keyboard.press('Enter');await d.page.waitForTimeout(1100);if(d.state.phase!=='Fighting')throw Error('tutorial start failed');await done(d,'tutorial-map-'+dragging);
  }
+ {const d=await fixture(1280,720);await d.page.keyboard.down('Escape');await d.page.keyboard.down('Escape');await d.page.keyboard.down('Escape');await d.page.keyboard.up('Escape');await d.page.waitForTimeout(300);if(d.messages.filter(t=>t==='TOOLS_OPEN').length!==1)throw Error('Esc did not open tools');await d.page.keyboard.press('Escape');await d.page.keyboard.press('Escape');await d.page.waitForTimeout(200);if(d.messages.filter(t=>t==='TOOLS_OPEN').length!==2)throw Error('Esc did not close/reopen tools');await d.page.screenshot({path:path.join(out,'menu-esc.png')});await done(d,'menu-escape');}
  fs.writeFileSync(path.join(out,'summary.json'),JSON.stringify(summaries,null,2));
 }catch(e){console.error(e);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();
