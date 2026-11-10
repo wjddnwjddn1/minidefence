@@ -39,15 +39,18 @@ VARIANTS = {  # GAP_EXP, EXT_RUNNERS, ALL_COUNTERS, BOMB_INTERVAL
     "B2.4": ("1", "0", "0", "2.4"),
     "KG+S+B2.3": ("0.5", "1", "1", "2.3"),
 }
+# Variants operate on the original isolated field data. Disable the product's
+# built-in v4 conversion inside the temporary copy to avoid applying it twice.
 COUNTERS = [
-    ("FastWaves&&!HardWaves?Balance.Enemies[targets[i].Kind].MeleeTaken:1",
+    ("EnemyCountersActive?Balance.Enemies[targets[i].Kind].MeleeTaken:1",
      "(Probe.All||FastWaves&&!HardWaves)?Balance.Enemies[targets[i].Kind].MeleeTaken:1"),
-    ("FastWaves&&!HardWaves?Balance.Enemies[e.Kind].BlastTaken:1",
+    ("EnemyCountersActive?Balance.Enemies[e.Kind].BlastTaken:1",
      "(Probe.All||FastWaves&&!HardWaves)?Balance.Enemies[e.Kind].BlastTaken:1"),
-    ("FastWaves&&!HardWaves&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1",
+    ("EnemyCountersActive&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1",
      "(Probe.All||FastWaves&&!HardWaves)&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1"),
-    ("g.Gap/(HardWaves?1.7:FastWaves?1.4:2.5)",
+    ("g.Gap/(HasNormalCards?Math.Sqrt(HardWaves?1.7:FastWaves?1.4:2.5):(HardWaves?1.7:FastWaves?1.4:2.5))",
      "g.Gap/Math.Pow((HardWaves?1.7:FastWaves?1.4:2.5),Probe.GapExp)"),
+    ("g.Extended&&g.Kind==0?", "false?"),
 ]
 PROBE = ('namespace EmberBastion {\n public static class Probe {'
          ' public static bool All=System.Environment.GetEnvironmentVariable("ALL_COUNTERS")=="1";'
@@ -60,7 +63,8 @@ def build():
     with open(os.path.join(ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
         text = f.read()
     for old, new in COUNTERS:
-        if text.count(old) != 1:
+        expected = 3 if old == "g.Extended&&g.Kind==0?" else 1
+        if text.count(old) != expected:
             sys.exit("Battle.cs changed; update COUNTERS for: " + old)
         text = text.replace(old, new)
     text = text.replace("namespace EmberBastion {", PROBE, 1)
