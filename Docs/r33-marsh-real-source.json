@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "0924dc4",
+  "rows_per_variant": 72,
+  "unchanged_challenge_extreme_rows": 48,
+  "source_sha256": {
+    "Assets/Scripts/Core/Balance.cs": "613db23da5dbaa9d2983109199f58bfdae661d83a959ab5d5a195a591e00cf52",
+    "Assets/Scripts/Core/Battle.cs": "590de48146a43ff499faf079fcd71c688fa263b19592d4f96fd100a149a1977c",
+    "Assets/Scripts/Core/CombatSave.cs": "bb586174a836d1d9e5e206aea9ac157192cebb94b98380a200352ef338be84be",
+    "Tests/GameplayDurationProbe.cs": "b24b0f1beef07db82e4657273d837684166ceb1c2af0574633ca23249714aa93",
+    "Tests/WaveCounterProbe.cs": "4620dab4af1d52b253aabdac0c30bec3c7f1c4602c9d4a3946a097e0d46180ea"
+  },
+  "limits": [
+    "actual unpatched engine",
+    "fixed policies; first card; no reroll",
+    "four seeds, ember on/off; not human fun evidence"
+  ]
+}
