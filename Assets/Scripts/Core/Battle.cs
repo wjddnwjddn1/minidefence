@@ -61,7 +61,7 @@ namespace EmberBastion {
    if(shield)return EnemyCountersActive?"방패: 폭발 반감·궁수 추가 피해":"방패: 궁수 관통·검사 파쇄 검토";
    if(runner)return EnemyCountersActive?"질주: 근접 반감·궁수 추가 피해":"질주: 빙결사 둔화·궁수 빠른 적 표적";
    if(bomb)return "폭약: 기절 주의·병력 밀집 피하기";
-   return "무리: 검사 다수 타격·폭탄 범위";
+   return "무리: 검사 다수 타격·화약병 범위";
   }
   public double WaveInterval {get{return HardWaves?Balance.HardWaveInterval:FastWaves?Balance.FastWaveInterval:Balance.AutoWaveInterval;}}
   public double NextWaveIn {get{return Phase==Phase.Fighting&&Wave<WaveCount?Math.Max(0,WaveInterval-WaveTime):0;}}
