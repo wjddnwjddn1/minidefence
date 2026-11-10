@@ -24,7 +24,8 @@ namespace EmberBastion {
   struct Sample {public int frame,enemies,shots,guiCalls;public double delta,update,gui,core;public long allocated;}
   struct Timing {public ulong stamp;public double cpu,main,render,gpu,present;}
   [Serializable] sealed class StorageResult {public bool jsonEqual,stateEquivalent,replayEqual,pausedLoad,realCheckpointPreserved,partialCheckpointRejected;public int enemies,steps,jsonBytes;public double saveMs,loadMs,restoreMaxError,replayMaxError,checkpointMaxError;}
-  [Serializable] sealed class InputResult {public bool windowFound,postSucceeded,received,pauseChanged;public double queueToEventMs,queueToFrameEndMs;public string scope="Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency.";}
+  [Serializable] sealed class InputSeries {public InputResult[] samples;}
+  [Serializable] sealed class InputResult {public int enemiesAtSend;public string[] observedEvents;public bool windowFound,postSucceeded,received,pauseChanged;public double queueToEventMs,queueToFrameEndMs;public string scope="Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency.";}
   readonly CultureInfo inv=CultureInfo.InvariantCulture;
   readonly FrameTiming[] frameTiming=new FrameTiming[1];
   string folder;
@@ -66,15 +67,22 @@ namespace EmberBastion {
    File.WriteAllText(Path.Combine(folder,"storage.json"),JsonUtility.ToJson(storage,true),new UTF8Encoding(false));
    if(!storage.stateEquivalent||!storage.replayEqual||!storage.pausedLoad||!storage.realCheckpointPreserved||!storage.partialCheckpointRejected){Fail("High-density save/replay mismatch");yield break;}
    view.LoadPerformanceState(snapshot);yield return null;
-   IntPtr handle=OwnWindow();long sent=Stopwatch.GetTimestamp();bool wasPaused=view.SmokePaused;PerformanceCounters.InputTicks=0;PerformanceCounters.InputKey="";
-   var input=new InputResult{windowFound=handle!=IntPtr.Zero};
+   var inputSamples=new List<InputResult>();
+   for(int probe=0;probe<(storageOnly?1:30);probe++){
+   if(!storageOnly&&(view.SmokeState.Phase!=Phase.Fighting||view.SmokeState.Enemies.Count<80||view.SmokeState.Enemies.Count>99||view.SmokeState.ReinforcementPending)){view.LoadPerformanceState(snapshot);yield return null;}
+   IntPtr handle=OwnWindow();long sent=Stopwatch.GetTimestamp();bool wasPaused=view.SmokePaused;PerformanceCounters.InputTicks=0;PerformanceCounters.InputKey="";PerformanceCounters.InputEvents.Clear();PerformanceCounters.InputArmed=!storageOnly;
+   var input=new InputResult{windowFound=handle!=IntPtr.Zero,enemiesAtSend=view.SmokeState.Enemies.Count};
    if(!storageOnly&&handle!=IntPtr.Zero){input.postSucceeded=PostMessage(handle,0x100,new IntPtr(0x50),new IntPtr(1));PostMessage(handle,0x101,new IntPtr(0x50),new IntPtr(unchecked((int)0xc0000001)));}
    float inputTimeout=Time.realtimeSinceStartup+2;
    while(!storageOnly&&Time.realtimeSinceStartup<inputTimeout&&PerformanceCounters.InputTicks==0)yield return new WaitForEndOfFrame();
+   PerformanceCounters.InputArmed=false;input.observedEvents=PerformanceCounters.InputEvents.ToArray();
    if(storageOnly)input.scope="NR: storage-only hidden run; no input event sent.";
    input.received=!storageOnly&&PerformanceCounters.InputTicks>=sent&&PerformanceCounters.InputKey=="P";input.pauseChanged=view.SmokePaused!=wasPaused;
    input.queueToEventMs=input.received?PerformanceCounters.Milliseconds(PerformanceCounters.InputTicks-sent):-1;input.queueToFrameEndMs=input.received?PerformanceCounters.Milliseconds(Stopwatch.GetTimestamp()-sent):-1;
-   File.WriteAllText(Path.Combine(folder,"input.json"),JsonUtility.ToJson(input,true),new UTF8Encoding(false));
+   inputSamples.Add(input);
+   }
+   File.WriteAllText(Path.Combine(folder,"input.json"),JsonUtility.ToJson(inputSamples[inputSamples.Count-1],true),new UTF8Encoding(false));
+   if(!storageOnly)File.WriteAllText(Path.Combine(folder,"input-series.json"),JsonUtility.ToJson(new InputSeries{samples=inputSamples.ToArray()},true),new UTF8Encoding(false));
    File.WriteAllText(Path.Combine(folder,"result.txt"),"PASS native save/replay. Frame groups="+(storageOnly?0:4)+". Check visibility/GPU/input validity before interpreting performance.",new UTF8Encoding(false));
    PerformanceCounters.Active=false;PlayerPrefs.DeleteAll();PlayerPrefs.Save();Application.Quit(0);
   }

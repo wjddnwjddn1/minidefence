@@ -12,7 +12,7 @@ namespace EmberBastion {
   }
   void OnGUI(){
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
-   if(PerformanceCounters.Active){PerformanceCounters.BeginFrame();if(Event.current.type==EventType.KeyDown){PerformanceCounters.InputTicks=Stopwatch.GetTimestamp();PerformanceCounters.InputKey=Event.current.keyCode.ToString();}long start=Stopwatch.GetTimestamp();try{DrawInterface();}finally{PerformanceCounters.GuiTicks+=Stopwatch.GetTimestamp()-start;PerformanceCounters.GuiCalls++;}return;}
+   if(PerformanceCounters.Active){PerformanceCounters.BeginFrame();if(PerformanceCounters.InputArmed&&Event.current.type==EventType.KeyDown){long observed=Stopwatch.GetTimestamp();if(PerformanceCounters.InputEvents.Count<8)PerformanceCounters.InputEvents.Add(Event.current.keyCode+":"+(int)Event.current.character+":"+observed);if(Event.current.keyCode==KeyCode.P&&PerformanceCounters.InputTicks==0){PerformanceCounters.InputTicks=observed;PerformanceCounters.InputKey="P";}}long start=Stopwatch.GetTimestamp();try{DrawInterface();}finally{PerformanceCounters.GuiTicks+=Stopwatch.GetTimestamp()-start;PerformanceCounters.GuiCalls++;}return;}
 #endif
    DrawInterface();
   }
@@ -32,6 +32,8 @@ namespace EmberBastion {
   public static long UpdateTicks,GuiTicks,CoreTicks,InputTicks;
   public static int GuiCalls;
   public static string InputKey="";
+  public static bool InputArmed;
+  public static readonly System.Collections.Generic.List<string> InputEvents=new System.Collections.Generic.List<string>();
   static int frame=-1;
   public static void BeginFrame(){if(frame==Time.frameCount)return;frame=Time.frameCount;UpdateTicks=GuiTicks=CoreTicks=0;GuiCalls=0;}
   public static double Milliseconds(long ticks){return ticks*1000.0/Stopwatch.Frequency;}

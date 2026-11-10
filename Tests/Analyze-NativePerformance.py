@@ -52,7 +52,16 @@ def analyze(folder):
     if 'input' in result:
         point = result['input']
         point['valid'] = bool(point['windowFound'] and point['postSucceeded'] and point['received'] and point['pauseChanged'] and 0 <= point['queueToEventMs'] <= point['queueToFrameEndMs'])
-    result['rendering_complete'] = len(result['rendering']) == 4 and all(v['valid'] for v in result['rendering'].values())
+    series_path = folder/'input-series.json'
+    if series_path.exists():
+        samples = json.loads(series_path.read_text(encoding='utf-8'))['samples']
+        valid = [p for p in samples if p['windowFound'] and p['postSucceeded'] and p['received'] and p['pauseChanged'] and 80 <= p['enemiesAtSend'] <= 99 and 0 <= p['queueToEventMs'] <= p['queueToFrameEndMs']]
+        result['input_series'] = {'samples': len(samples), 'valid_samples': len(valid),
+            'complete': len(samples) == 30 and len(valid) == 30,
+            'queue_to_event_ms': distribution([p['queueToEventMs'] for p in valid]),
+            'queue_to_frame_end_ms': distribution([p['queueToFrameEndMs'] for p in valid]),
+            'scope': 'Synthetic messages to own QA window; excludes device and display latency.'}
+    result['rendering_complete'] = set(result['rendering']) == {'1280-battle','1280-selected','1920-battle','1920-selected'} and all(v['valid'] for v in result['rendering'].values())
     result['frame_budget_pass'] = all(v['p95_within_60fps_budget'] for v in result['rendering'].values()) if result['rendering_complete'] else None
     return result
 
@@ -63,5 +72,7 @@ if __name__ == '__main__':
     result = analyze(args.folder)
     (args.folder/'analysis.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if 'input_series' in result and not result['input_series']['complete']:
+        raise SystemExit('FAIL: expected 30 valid high-density input samples')
     if result['frame_budget_pass'] is False:
         raise SystemExit('FAIL: valid frame p95 exceeds the 16.67ms target')

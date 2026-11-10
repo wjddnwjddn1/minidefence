@@ -57,6 +57,20 @@ class EvidenceChecks(unittest.TestCase):
             self.assertTrue(result['rendering_complete'])
             self.assertFalse(result['frame_budget_pass'])
 
+    def test_input_series_requires_all_thirty_high_density_samples(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            sample=dict(windowFound=True,postSucceeded=True,received=True,pauseChanged=True,enemiesAtSend=85,queueToEventMs=1,queueToFrameEndMs=2)
+            series=[dict(sample) for _ in range(30)]
+            path=root/'input-series.json'
+            path.write_text(json.dumps({'samples':series}),encoding='utf-8')
+            self.assertTrue(analysis.analyze(root)['input_series']['complete'])
+            series[0]['enemiesAtSend']=79
+            path.write_text(json.dumps({'samples':series}),encoding='utf-8')
+            result=analysis.analyze(root)['input_series']
+            self.assertFalse(result['complete'])
+            self.assertEqual(result['valid_samples'],29)
+
     def test_failed_input_delivery_is_not_a_latency_sample(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); (root/'input.json').write_text(json.dumps(dict(windowFound=True, postSucceeded=False, received=True,pauseChanged=True,queueToEventMs=1,queueToFrameEndMs=2)),encoding='utf-8')

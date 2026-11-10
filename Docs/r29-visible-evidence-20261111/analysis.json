@@ -1,0 +1,335 @@
+{
+  "scope": "Native Unity development diagnostic on this PC; not user fun or device-to-display latency",
+  "frame_budget_ms": 16.666666666666668,
+  "rendering": {
+    "1280-battle": {
+      "valid": true,
+      "reason": "eligible visible GUI/GPU samples",
+      "metadata": {
+        "unity": "6000.6.7f1",
+        "os": "Windows 11  (10.0.22631)",
+        "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor ",
+        "gpu": "NVIDIA GeForce RTX 5080",
+        "graphics": "Direct3D11",
+        "product": "EmberBastionPerformanceQA",
+        "utc": "2026-11-10T22:39:42.6398984Z",
+        "limitations": "Development build on this PC. Snapshot replay resets=0. Hidden window is not representative presented FPS. Timing samples are delayed and deduplicated; not exact per-enemy GPU attribution.",
+        "cores": 16,
+        "memoryMB": 31862,
+        "width": 1280,
+        "height": 720,
+        "targetFps": -1,
+        "vsync": 0,
+        "timingEnabled": true,
+        "windowVisible": true,
+        "totalAllocatedBytes": 101499671,
+        "managedBytes": 2277376
+      },
+      "frame_ms": {
+        "samples": 900,
+        "median": 2.1047515,
+        "p95": 2.809602,
+        "p99": 3.294104,
+        "maximum": 4.265703
+      },
+      "update_ms": {
+        "samples": 900,
+        "median": 0.0034,
+        "p95": 0.0186,
+        "p99": 0.0437,
+        "maximum": 1.3229
+      },
+      "gui_ms": {
+        "samples": 900,
+        "median": 1.8367,
+        "p95": 2.5037,
+        "p99": 2.7583,
+        "maximum": 3.5622
+      },
+      "core_ms": {
+        "samples": 900,
+        "median": 0.0004,
+        "p95": 0.0149,
+        "p99": 0.0223,
+        "maximum": 0.1181
+      },
+      "gpu_ms": {
+        "samples": 835,
+        "median": 1.49888,
+        "p95": 2.187776,
+        "p99": 2.798848,
+        "maximum": 5.993984
+      },
+      "allocated_bytes": {
+        "samples": 900,
+        "median": 28502.0,
+        "p95": 29438,
+        "p99": 30020,
+        "maximum": 36356
+      },
+      "p95_within_60fps_budget": true
+    },
+    "1280-selected": {
+      "valid": true,
+      "reason": "eligible visible GUI/GPU samples",
+      "metadata": {
+        "unity": "6000.6.7f1",
+        "os": "Windows 11  (10.0.22631)",
+        "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor ",
+        "gpu": "NVIDIA GeForce RTX 5080",
+        "graphics": "Direct3D11",
+        "product": "EmberBastionPerformanceQA",
+        "utc": "2026-11-10T22:39:46.8391872Z",
+        "limitations": "Development build on this PC. Snapshot replay resets=0. Hidden window is not representative presented FPS. Timing samples are delayed and deduplicated; not exact per-enemy GPU attribution.",
+        "cores": 16,
+        "memoryMB": 31862,
+        "width": 1280,
+        "height": 720,
+        "targetFps": -1,
+        "vsync": 0,
+        "timingEnabled": true,
+        "windowVisible": true,
+        "totalAllocatedBytes": 102561088,
+        "managedBytes": 2363392
+      },
+      "frame_ms": {
+        "samples": 900,
+        "median": 2.3142005,
+        "p95": 3.072704,
+        "p99": 3.357299,
+        "maximum": 4.563301
+      },
+      "update_ms": {
+        "samples": 900,
+        "median": 0.0033,
+        "p95": 0.0173,
+        "p99": 0.0506,
+        "maximum": 0.1134
+      },
+      "gui_ms": {
+        "samples": 900,
+        "median": 2.0635000000000003,
+        "p95": 2.7682,
+        "p99": 3.0431,
+        "maximum": 3.4389
+      },
+      "core_ms": {
+        "samples": 900,
+        "median": 0.0004,
+        "p95": 0.0139,
+        "p99": 0.0209,
+        "maximum": 0.0477
+      },
+      "gpu_ms": {
+        "samples": 884,
+        "median": 1.681664,
+        "p95": 2.37696,
+        "p99": 2.743808,
+        "maximum": 5.889792
+      },
+      "allocated_bytes": {
+        "samples": 900,
+        "median": 25766.0,
+        "p95": 30222,
+        "p99": 30502,
+        "maximum": 31690
+      },
+      "p95_within_60fps_budget": true
+    },
+    "1920-battle": {
+      "valid": true,
+      "reason": "eligible visible GUI/GPU samples",
+      "metadata": {
+        "unity": "6000.6.7f1",
+        "os": "Windows 11  (10.0.22631)",
+        "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor ",
+        "gpu": "NVIDIA GeForce RTX 5080",
+        "graphics": "Direct3D11",
+        "product": "EmberBastionPerformanceQA",
+        "utc": "2026-11-10T22:39:50.8683197Z",
+        "limitations": "Development build on this PC. Snapshot replay resets=0. Hidden window is not representative presented FPS. Timing samples are delayed and deduplicated; not exact per-enemy GPU attribution.",
+        "cores": 16,
+        "memoryMB": 31862,
+        "width": 1920,
+        "height": 1080,
+        "targetFps": -1,
+        "vsync": 0,
+        "timingEnabled": true,
+        "windowVisible": true,
+        "totalAllocatedBytes": 102715241,
+        "managedBytes": 2437120
+      },
+      "frame_ms": {
+        "samples": 900,
+        "median": 2.1402,
+        "p95": 2.828302,
+        "p99": 3.259297,
+        "maximum": 3.834496
+      },
+      "update_ms": {
+        "samples": 900,
+        "median": 0.0035,
+        "p95": 0.0174,
+        "p99": 0.0449,
+        "maximum": 0.0587
+      },
+      "gui_ms": {
+        "samples": 900,
+        "median": 1.88845,
+        "p95": 2.5779,
+        "p99": 2.9094,
+        "maximum": 3.2031
+      },
+      "core_ms": {
+        "samples": 900,
+        "median": 0.0004,
+        "p95": 0.0138,
+        "p99": 0.019,
+        "maximum": 0.0266
+      },
+      "gpu_ms": {
+        "samples": 797,
+        "median": 1.54496,
+        "p95": 2.294528,
+        "p99": 2.939904,
+        "maximum": 4.608
+      },
+      "allocated_bytes": {
+        "samples": 900,
+        "median": 28480.0,
+        "p95": 33724,
+        "p99": 33964,
+        "maximum": 38828
+      },
+      "p95_within_60fps_budget": true
+    },
+    "1920-selected": {
+      "valid": true,
+      "reason": "eligible visible GUI/GPU samples",
+      "metadata": {
+        "unity": "6000.6.7f1",
+        "os": "Windows 11  (10.0.22631)",
+        "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor ",
+        "gpu": "NVIDIA GeForce RTX 5080",
+        "graphics": "Direct3D11",
+        "product": "EmberBastionPerformanceQA",
+        "utc": "2026-11-10T22:39:55.0848257Z",
+        "limitations": "Development build on this PC. Snapshot replay resets=0. Hidden window is not representative presented FPS. Timing samples are delayed and deduplicated; not exact per-enemy GPU attribution.",
+        "cores": 16,
+        "memoryMB": 31862,
+        "width": 1920,
+        "height": 1080,
+        "targetFps": -1,
+        "vsync": 0,
+        "timingEnabled": true,
+        "windowVisible": true,
+        "totalAllocatedBytes": 102724828,
+        "managedBytes": 2334720
+      },
+      "frame_ms": {
+        "samples": 900,
+        "median": 2.3200505,
+        "p95": 2.999596,
+        "p99": 3.429301,
+        "maximum": 6.935296
+      },
+      "update_ms": {
+        "samples": 900,
+        "median": 0.0034,
+        "p95": 0.0176,
+        "p99": 0.0456,
+        "maximum": 0.2207
+      },
+      "gui_ms": {
+        "samples": 900,
+        "median": 2.06885,
+        "p95": 2.7117,
+        "p99": 3.0549,
+        "maximum": 3.9389
+      },
+      "core_ms": {
+        "samples": 900,
+        "median": 0.0004,
+        "p95": 0.0136,
+        "p99": 0.0189,
+        "maximum": 0.0641
+      },
+      "gpu_ms": {
+        "samples": 894,
+        "median": 1.6995840000000002,
+        "p95": 2.404352,
+        "p99": 3.134464,
+        "maximum": 8.001024
+      },
+      "allocated_bytes": {
+        "samples": 900,
+        "median": 30914.0,
+        "p95": 35078,
+        "p99": 35462,
+        "maximum": 37100
+      },
+      "p95_within_60fps_budget": true
+    }
+  },
+  "memory_budget": "NR: no project budget specified",
+  "fixed_step_ms": {
+    "samples": 10000,
+    "median": 0.0066,
+    "p95": 0.0113,
+    "p99": 0.0188,
+    "maximum": 0.5022
+  },
+  "storage": {
+    "jsonEqual": false,
+    "stateEquivalent": true,
+    "replayEqual": true,
+    "pausedLoad": true,
+    "realCheckpointPreserved": true,
+    "partialCheckpointRejected": true,
+    "enemies": 85,
+    "steps": 120,
+    "jsonBytes": 28395,
+    "saveMs": 3.6484,
+    "loadMs": 1.2207000000000001,
+    "restoreMaxError": 4.547473508864641e-13,
+    "replayMaxError": 9.094947017729282e-13,
+    "checkpointMaxError": 4.547473508864641e-13
+  },
+  "input": {
+    "enemiesAtSend": 85,
+    "observedEvents": [
+      "P:0:202869237",
+      "None:112:202876281"
+    ],
+    "windowFound": true,
+    "postSucceeded": true,
+    "received": true,
+    "pauseChanged": true,
+    "queueToEventMs": 0.3318,
+    "queueToFrameEndMs": 3.1256,
+    "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency.",
+    "valid": true
+  },
+  "input_series": {
+    "samples": 30,
+    "valid_samples": 30,
+    "complete": true,
+    "queue_to_event_ms": {
+      "samples": 30,
+      "median": 0.36734999999999995,
+      "p95": 0.8689,
+      "p99": 11.4959,
+      "maximum": 11.4959
+    },
+    "queue_to_frame_end_ms": {
+      "samples": 30,
+      "median": 3.35115,
+      "p95": 4.0765,
+      "p99": 16.4407,
+      "maximum": 16.4407
+    },
+    "scope": "Synthetic messages to own QA window; excludes device and display latency."
+  },
+  "rendering_complete": true,
+  "frame_budget_pass": true
+}

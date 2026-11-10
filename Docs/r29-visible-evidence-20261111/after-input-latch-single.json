@@ -1,0 +1,13 @@
+{
+    "observedEvents": [
+        "P:0:199380637",
+        "None:112:199409245"
+    ],
+    "windowFound": true,
+    "postSucceeded": true,
+    "received": true,
+    "pauseChanged": true,
+    "queueToEventMs": 2.7341,
+    "queueToFrameEndMs": 8.9822,
+    "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+}

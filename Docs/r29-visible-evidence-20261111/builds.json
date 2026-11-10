@@ -1,0 +1,32 @@
+[
+  {
+    "path": "Tests/bin/TacticalCandidate/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "bytes": 276480,
+    "modifiedUTC": "2026-11-10T22:40:46.575070+00:00",
+    "sha256": "8eba88899aa89aeba4648cf317805b316a5532fc7809c8df58ec67ea100a303a"
+  },
+  {
+    "path": "Tests/bin/PerformanceQA/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "bytes": 276480,
+    "modifiedUTC": "2026-11-10T22:39:12.023921+00:00",
+    "sha256": "8eba88899aa89aeba4648cf317805b316a5532fc7809c8df58ec67ea100a303a"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/BattleView.Performance.cs",
+    "bytes": 2522,
+    "modifiedUTC": "2026-11-10T22:36:56.468460+00:00",
+    "sha256": "16a7a0251ef4c6ceed4a2d25946d49f6db62df51bc7e631327536bd11e0d6f39"
+  },
+  {
+    "path": "Assets/Scripts/Presentation/DevelopmentPerformance.cs",
+    "bytes": 15238,
+    "modifiedUTC": "2026-11-10T22:39:00.256347+00:00",
+    "sha256": "980c3dd422c80d62efdc61c470ed1587cc35b6af4b90cf24d6c45ce828b55e42"
+  },
+  {
+    "path": "Tests/Analyze-NativePerformance.py",
+    "bytes": 5202,
+    "modifiedUTC": "2026-11-10T22:40:39.286052+00:00",
+    "sha256": "474113c9f73d4516dbf61bc8d1eae85973f39a59b507d554d5ec252315d4d626"
+  }
+]

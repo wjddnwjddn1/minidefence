@@ -1,0 +1,9 @@
+{
+    "windowFound": true,
+    "postSucceeded": true,
+    "received": false,
+    "pauseChanged": true,
+    "queueToEventMs": -1.0,
+    "queueToFrameEndMs": -1.0,
+    "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+}
