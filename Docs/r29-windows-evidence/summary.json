@@ -1,0 +1,399 @@
+[
+  {
+    "name": "flow-320",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          8,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-800",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1280",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1920",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-390",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-1",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-2",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 755,
+      "units": [
+        [
+          9,
+          2,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-3",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          3,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-4",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          4,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "sale-false",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "sale-true",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "running-priority",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "time": 3.3,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "poor-branch",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 45,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-stun",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-reload",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "menu-drag-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "menu-drag-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "card-drag-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "card-drag-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-drag",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "cancel-outside",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "cancel-occupied",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 935,
+      "units": [
+        [
+          9,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "cancel-escape",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "tutorial-false",
+    "state": {
+      "rules": 3,
+      "phase": "Fighting",
+      "time": 0.7,
+      "gold": 135,
+      "units": [
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "tutorial-true",
+    "state": {
+      "rules": 3,
+      "phase": "Fighting",
+      "time": 0.6,
+      "gold": 135,
+      "units": [
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+]

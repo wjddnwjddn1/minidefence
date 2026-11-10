@@ -1,0 +1,24 @@
+{
+  "base_commit": "c77ec7b",
+  "menu_cases": 25,
+  "checks": {
+    "core": 277,
+    "combat_save": 6282,
+    "combat_retry": 2799
+  },
+  "source_sha256": {
+    "Assets\\Scripts\\Presentation\\BattleView.SlotMenu.cs": "46666f9a6f8b19fb12029dc834b8aed44681cd782684bdc71529a691a5dc700f",
+    "Tests\\SlotMenuWeb.cjs": "2ebd22638a5c9cf26d5f10c652caa59c272dfe2b10564851e947fdf803802ca4"
+  },
+  "builds": {
+    "TacticalWeb": "[ExitDontLaunchBugReporter] Exiting without the bug reporter. Application will exit with return code 0",
+    "TacticalCandidate": "[ExitDontLaunchBugReporter] Exiting without the bug reporter. Application will exit with return code 0"
+  },
+  "limits": [
+    "Web inputs in fresh browser contexts",
+    "Android User-Agent, DPR1 emulation; not actual phone",
+    "no native manual play, sound listening or Windows FPS measurement",
+    "tutorial scenarios use untouched rules3 start with 200G"
+  ],
+  "windows_assembly_sha256": "c39e816053a09055fb21c649dddc51905fa9eda66a749fb16834b703dcc72d39"
+}
