@@ -44,9 +44,14 @@ def build():
     with open(os.path.join(mac.ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
         text = f.read()
     for old, new in wave.COUNTERS + ELITE:
-        if text.count(old) != 1:
+        expected = 3 if old == "g.Extended&&g.Kind==0?" else 2 if old == "MarshCandidateBoost(g)" else 1
+        if text.count(old) != expected:
             sys.exit("Battle.cs changed; update patch for: " + old)
         text = text.replace(old, new)
+    old = "HasNormalCards&&FieldIndex==1?1.5:1.7"
+    if text.count(old) != 1:
+        sys.exit("Battle.cs changed; update forest factor replacement")
+    text = text.replace(old, "HasNormalCards&&FieldIndex==1?Probe.ForestHardFactor:1.7")
     text = text.replace("namespace EmberBastion {", wave.PROBE, 1)
     copy = os.path.join(OUT, "Battle.cs")
     with open(copy, "w", encoding="utf-8") as f:

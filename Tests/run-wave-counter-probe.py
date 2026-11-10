@@ -48,13 +48,16 @@ COUNTERS = [
      "(Probe.All||FastWaves&&!HardWaves)?Balance.Enemies[e.Kind].BlastTaken:1"),
     ("EnemyCountersActive&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1",
      "(Probe.All||FastWaves&&!HardWaves)&&s.Kind==1&&Balance.ArcherFavored(target.Kind)?Balance.ArcherFavoredMult:1"),
-    ("g.Gap/(HasNormalCards?Math.Sqrt(HardWaves?1.7:FastWaves?1.4:2.5):(HardWaves?1.7:FastWaves?1.4:2.5))",
-     "g.Gap/Math.Pow((HardWaves?1.7:FastWaves?1.4:2.5),Probe.GapExp)"),
+    ("g.Gap/(HasNormalCards?Math.Sqrt(ExtendedFactor()):ExtendedFactor())",
+     "g.Gap/Math.Pow(ExtendedFactor(),Probe.GapExp)"),
     ("g.Extended&&g.Kind==0?", "false?"),
+    ("MarshCandidateBoost(g)", "false"),
 ]
 PROBE = ('namespace EmberBastion {\n public static class Probe {'
          ' public static bool All=System.Environment.GetEnvironmentVariable("ALL_COUNTERS")=="1";'
          ' public static double GapExp=double.Parse(System.Environment.GetEnvironmentVariable("GAP_EXP")??"1",'
+         'System.Globalization.CultureInfo.InvariantCulture);'
+         ' public static double ForestHardFactor=double.Parse(System.Environment.GetEnvironmentVariable("FOREST_HARD_FACTOR")??"1.7",'
          'System.Globalization.CultureInfo.InvariantCulture); }')
 
 
@@ -63,10 +66,14 @@ def build():
     with open(os.path.join(ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
         text = f.read()
     for old, new in COUNTERS:
-        expected = 3 if old == "g.Extended&&g.Kind==0?" else 1
+        expected = 3 if old == "g.Extended&&g.Kind==0?" else 2 if old == "MarshCandidateBoost(g)" else 1
         if text.count(old) != expected:
             sys.exit("Battle.cs changed; update COUNTERS for: " + old)
         text = text.replace(old, new)
+    old = "HasNormalCards&&FieldIndex==1?1.5:1.7"
+    if text.count(old) != 1:
+        sys.exit("Battle.cs changed; update forest factor replacement")
+    text = text.replace(old, "HasNormalCards&&FieldIndex==1?Probe.ForestHardFactor:1.7")
     text = text.replace("namespace EmberBastion {", PROBE, 1)
     copy = os.path.join(OUT, "Battle.cs")
     with open(copy, "w", encoding="utf-8") as f:
@@ -89,11 +96,12 @@ def main():
     p.add_argument("--policies", default="bomb,smartB,bombArcher,bombFrost,archer")
     p.add_argument("--seeds", default="29,41,57,73")
     p.add_argument("--marsh", help="marsh (field 3) count multiplier from wave 4, base difficulty only")
+    p.add_argument("--forest-hard-factor", default="1.7", help="forest extreme extended-wave multiplier")
     p.add_argument("--raw", action="store_true")
     a = p.parse_args(argv)
     exe = build()
     gap, runners, counters, bomb = VARIANTS[a.variant]
-    env = dict(os.environ, GAP_EXP=gap, EXT_RUNNERS=runners, ALL_COUNTERS=counters)
+    env = dict(os.environ, GAP_EXP=gap, EXT_RUNNERS=runners, ALL_COUNTERS=counters, FOREST_HARD_FACTOR=a.forest_hard_factor)
     if bomb:
         env["BOMB_INTERVAL"] = bomb
     if a.marsh:
