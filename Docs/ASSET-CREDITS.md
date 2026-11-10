@@ -77,3 +77,18 @@
 
 - [Pixelbolt](https://github.com/skulitom/Pixelbolt), version 0.13.0, commit `04668a2f2f94e081d9b5f78889c075303bf04544`; Copyright (c) 2026 PixelForge contributors, MIT License. Full license: `ThirdParty/Pixelbolt/LICENSE`.
 - `Art/Pixelbolt/ember-guard.poses.json` and generated prototype derive from Pixelbolt `examples/hero-sword.poses.json` with palette changes. Prototype is not currently used in the game.
+
+## r28 분기2 검정 유닛
+
+Tiny Swords (Free Pack)의 기존 이용 조건을 적용한다. 필요한 시트만 복사했으며 팩 전체는 저장소에 넣지 않는다. 분기1 보라, 분기2 검정을 사용한다.
+
+| 게임 파일 | 원본 팩 상대 경로 | SHA-256 |
+|---|---|---|
+| `Assets/Resources/WarriorIdleBlack.png` | `Units/Black Units/Warrior/Warrior_Idle.png` | `eddcb6067e793a2da13fe9b5f71afc767ba676c684253528e4d508b9f501f10a` |
+| `Assets/Resources/WarriorAttackBlack.png` | `Units/Black Units/Warrior/Warrior_Attack1.png` | `4b7250c8442ac67054814b31e251923aca85fb1df047428d3777650bf0fa277f` |
+| `Assets/Resources/ArcherIdleBlack.png` | `Units/Black Units/Archer/Archer_Idle.png` | `39c1e9e822a39e75f60c3d0bfc26552aed9bab3e78c0d9b1993a4f63722fc019` |
+| `Assets/Resources/ArcherShootBlack.png` | `Units/Black Units/Archer/Archer_Shoot.png` | `694fa3c26df598a384da5ab98e946bdc48f38861222ad9f2720a1758b1ae6dba` |
+| `Assets/Resources/FrostIdleBlack.png` | `Units/Black Units/Monk/Idle.png` | `c680fde6c1e2dfed9fa80a05b3abb74346acefedc15e52f07299a882b67799dc` |
+| `Assets/Resources/FrostCastBlack.png` | `Units/Black Units/Monk/Heal.png` | `d49cdb581fc4b79343ff0aa56b90a1a8a01e0f9e372a59e52e7e3dc388e9fd65` |
+| `Assets/Resources/SmithIdleBlack.png` | `Units/Black Units/Pawn/Pawn_Idle Hammer.png` | `ed171cb9acff69b262bd44e1d5641afc90190f7af3ec72444a476d7bbd9fb71f` |
+| `Assets/Resources/PawnBlack.png` | `Units/Black Units/Pawn/Pawn_Idle.png` | `14fc39548b1047ccbbe4c724c56abd38eb67dfb99d6080cbf7e6759905cc90ff` |

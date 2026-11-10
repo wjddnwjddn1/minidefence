@@ -32,9 +32,9 @@ namespace EmberBastion {
   public static readonly TroopDef[] Troops={
    new TroopDef("검사",65,20,120,.8,3,0),
    new TroopDef("궁수",85,20,210,1,1,7),
-   new TroopDef("폭탄병",105,36,210,2,1,6,55,60,420),
-   new TroopDef("서리",90,6,180,1.2,1,0),
-   new TroopDef("기술자",90,0,160,1,0,0)};
+   new TroopDef("화약병",105,36,210,2,1,6,55,60,420),
+   new TroopDef("빙결사",90,6,180,1.2,1,0),
+   new TroopDef("대장장이",90,0,160,1,0,0)};
   public static readonly EnemyDef[] Enemies={new EnemyDef("횃불병",90,85),new EnemyDef("질주병",67,165,0,1,.5),new EnemyDef("방패병",128,72,16,.5,1),new EnemyDef("폭약병",84,85),new EnemyDef("고블린 대장",504,62)};
   public static readonly Point[] Slots={new Point(320,218),new Point(480,218),new Point(640,218),new Point(800,218),new Point(960,218),new Point(320,550),new Point(480,550),new Point(640,550),new Point(800,550),new Point(960,550),new Point(278,330),new Point(278,438),new Point(1002,330),new Point(1002,438)};
   public static readonly double[] Gates={0,1408};

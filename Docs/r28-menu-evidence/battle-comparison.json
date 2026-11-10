@@ -1,0 +1,9 @@
+{
+  "rows": 2688,
+  "result": "all columns match committed r27-slot-comparison.csv",
+  "profiles": [
+    "C8",
+    "C"
+  ],
+  "limits": "Scripted policies, not human fun or manual play"
+}

@@ -1,0 +1,1 @@
+PASS loss enemy count, ties, surrender and five hints

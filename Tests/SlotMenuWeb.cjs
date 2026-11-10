@@ -1,0 +1,36 @@
+const fs=require('fs'),path=require('path'),http=require('http');
+const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r28-menu-evidence');
+const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};
+const server=http.createServer((req,res)=>{const relative=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).replace(/^\/+/,''),file=path.resolve(root,relative||'index.html');if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}fs.readFile(file,(error,data)=>{if(error){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
+const summaries=[];
+async function wait(page,predicate,label){const until=Date.now()+10000;while(!predicate()){if(Date.now()>until)throw Error('timeout '+label);await page.waitForTimeout(100);}}
+(async()=>{let browser;try{
+ fs.mkdirSync(out,{recursive:true});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
+ async function fixture(w,h,query='',touch=false){
+  const context=await browser.newContext({viewport:{width:w,height:h},hasTouch:touch,isMobile:touch}),page=await context.newPage(),messages=[],errors=[];const data={context,page,messages,errors,touch,w,h,menu:null,serial:0,state:null,geometry:null};
+  page.on('console',m=>{const t=m.text().trim();messages.push(t);if(m.type()==='error')errors.push(t);if(t.startsWith('SLOT_VIEW|'))data.geometry=t.split('|').slice(1).map(Number);if(t.startsWith('SLOT_MENU|')){const p=t.split('|');data.menu={slot:+p[1],level:+p[2],actions:p[3].split(';').filter(Boolean).map(v=>v.split(',').map(Number))};data.serial++;}if(t.startsWith('REVIEW_STATE|')){const p=t.split('|');data.state={phase:p[2],time:+p[4],gold:+p[5],units:p[7]?p[7].split(';').map(v=>v.split(':').map(Number)):[]};}});page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=slotmenu&review-flow=1'+query,{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>[...document.querySelectorAll('#unity-build-title button')].some(b=>b.textContent==='Unload'),null,{timeout:120000});
+  await page.evaluate(([w,h])=>{document.querySelector('#unity-container').style.cssText=`position:fixed;left:0;top:0;transform:none;width:${w}px;height:${h}px`;document.querySelector('#unity-fullscreen-container').style.cssText=`width:${w}px;height:${h}px`;document.querySelector('#unity-canvas').style.cssText=`width:${w}px;height:${h}px`;document.querySelector('#unity-footer').style.display='none';},[w,h]);
+  await wait(page,()=>data.state&&data.geometry,'fixture');await page.waitForTimeout(500);return data;
+ }
+ async function tap(d,x,y){if(d.touch)await d.page.touchscreen.tap(x,y);else await d.page.mouse.click(x,y);await d.page.waitForTimeout(150);}
+ async function open(d,slot){const points={8:[640,548],9:[704,452]};const [s,x,y]=d.geometry,serial=d.serial;await tap(d,x+points[slot][0]*s,y+points[slot][1]*s);await wait(d.page,()=>d.serial>serial,'menu '+slot);for(const a of d.menu.actions){const [id,ax,ay,aw,ah]=a;if(ax<0||ay<0||ax+aw>d.w+.2||ay+ah>d.h+.2||ah<44)throw Error('out-of-bounds target '+a);for(const b of d.menu.actions)if(b[0]>id&&ax<b[1]+b[3]&&ax+aw>b[1]&&ay<b[2]+b[4]&&ay+ah>b[2])throw Error('overlapping targets');}}
+ async function action(d,id,confirm=true){const a=d.menu.actions.find(a=>a[0]===id);if(!a)throw Error('missing action '+id);await tap(d,a[1]+a[3]/2,a[2]+a[4]/2);if(d.touch&&confirm){await d.page.waitForTimeout(250);await tap(d,a[1]+a[3]/2,a[2]+a[4]/2);}await d.page.waitForTimeout(1100);}
+ async function done(d,name){if(d.errors.length)throw Error(d.errors.join('\n'));fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify({state:d.state,messages:d.messages,errors:d.errors},null,2));summaries.push({name,state:d.state});console.log('PASS '+name);await d.context.close();}
+ for(const [w,h,touch] of [[320,300,false],[800,500,false],[1280,720,false],[1920,1080,false],[390,844,true]]){
+  const d=await fixture(w,h,'',touch),slot=w===320?8:9;await open(d,slot);await d.page.screenshot({path:path.join(out,`build-${w}.png`)});
+  if(touch){await action(d,0,false);if(d.state.units.length)throw Error('first touch purchased');if(!d.messages.some(t=>t==='SLOT_TOUCH_PREVIEW 0'))throw Error('no touch preview');await action(d,0,false);}else await action(d,0);
+  if(d.state.gold!==935||d.state.units.length!==1)throw Error('placement failed '+JSON.stringify(d.state));await open(d,slot);await action(d,10);if(d.state.units[0][2]!==2)throw Error('upgrade failed');
+  await open(d,slot);await d.page.screenshot({path:path.join(out,`branches-${w}.png`)});const branch=w===800||touch?12:11;await action(d,branch);if(d.state.units[0][2]!==3||d.state.units[0][3]!==branch-10||d.state.gold!==795)throw Error('branch failed '+JSON.stringify(d.state));await d.page.screenshot({path:path.join(out,`selected-${w}.png`)});
+  await open(d,slot);if(w===320){await d.page.keyboard.press('Escape');await d.page.waitForTimeout(150);}else await action(d,15,false);await done(d,'flow-'+w);
+ }
+ for(const kind of [1,2,3,4]){const d=await fixture(1280,720,'&kind='+kind+'&level=2');await open(d,9);await action(d,12);if(d.state.units[0][3]!==2)throw Error('branch2 kind '+kind);await d.page.screenshot({path:path.join(out,'black-kind-'+kind+'.png')});await done(d,'branch-kind-'+kind);}
+ for(const touch of [false,true]){const d=await fixture(1280,720,'&kind=0&level=2&slot=8&fighting=1&pause=1',touch);await open(d,8);const gold=d.state.gold;await action(d,13,false);if(d.state.units.length!==1||d.state.gold!==gold)throw Error('sale confirmation bypassed');await action(d,13,false);if(d.state.units.length!==0)throw Error('sale failed');await done(d,'sale-'+touch);}
+ {const d=await fixture(1280,720,'&kind=1&level=3&fighting=1');await open(d,9);const time=d.state.time;await d.page.waitForTimeout(1400);if(d.state.time<=time)throw Error('menu paused combat');await action(d,14);if(d.state.units[0][0]!==9)throw Error('unit lost');await done(d,'running-priority');}
+ {const d=await fixture(1280,720,'&kind=0&level=2&gold=45');await open(d,9);await action(d,11);if(d.state.gold!==45||d.state.units[0][2]!==2)throw Error('poor branch changed state');await d.page.screenshot({path:path.join(out,'poor-branch.png')});await done(d,'poor-branch');}
+ for(const flag of ['stun','reload']){const d=await fixture(1280,720,'&kind=0&level=2&'+flag+'=1');await open(d,9);await d.page.waitForTimeout(1400);if(!d.messages.some(t=>t==='SLOT_CLOSED 9'))throw Error('menu did not close on '+flag);await done(d,'close-'+flag);}
+ fs.writeFileSync(path.join(out,'summary.json'),JSON.stringify(summaries,null,2));
+}catch(e){console.error(e);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();

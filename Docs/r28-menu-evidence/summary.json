@@ -1,0 +1,228 @@
+[
+  {
+    "name": "flow-320",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          8,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-800",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1280",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1920",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-390",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-1",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-2",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 755,
+      "units": [
+        [
+          9,
+          2,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-3",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          3,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-4",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          4,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "sale-false",
+    "state": {
+      "phase": "Fighting",
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "sale-true",
+    "state": {
+      "phase": "Fighting",
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "running-priority",
+    "state": {
+      "phase": "Fighting",
+      "time": 3.2,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "poor-branch",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 45,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-stun",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-reload",
+    "state": {
+      "phase": "Preparation",
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  }
+]

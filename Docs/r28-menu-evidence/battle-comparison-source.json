@@ -1,0 +1,24 @@
+{
+  "base_commit": "5532a2d4e1dcefe90753996c37caccb7c40f1c4d",
+  "source_sha256": {
+    "Assets/Scripts/Core/Balance.cs": "613db23da5dbaa9d2983109199f58bfdae661d83a959ab5d5a195a591e00cf52",
+    "Assets/Scripts/Core/Battle.cs": "5e12085be9c644929e7cb460ddc71c4942bfa7d529efec73ab21701195e7f605",
+    "Assets/Scripts/Core/CombatSave.cs": "bb586174a836d1d9e5e206aea9ac157192cebb94b98380a200352ef338be84be",
+    "Tests/GameplayDurationProbe.cs": "b24b0f1beef07db82e4657273d837684166ceb1c2af0574633ca23249714aa93",
+    "Tests/TacticalBalanceProbe.cs": "4a52e8ce10597fa2f86c187f19ebe644be4ee4f8880ecb7df5c5aac044b27fb4"
+  },
+  "profiles": {
+    "C8": null,
+    "C": null
+  },
+  "policy_set": "roles",
+  "rows": 2688,
+  "limitations": [
+    "first offered card, no rerolls",
+    "fixed purchase/upgrade policies",
+    "C8 keeps current v4 waves/counters with original eight-slot pass; C uses ten slots",
+    "historical smartB controls checked only for unchanged R3",
+    "one-slot swaps differ by 5G base cost",
+    "not human play or fun evidence"
+  ]
+}

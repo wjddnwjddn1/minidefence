@@ -1,0 +1,14 @@
+{
+  "source_sha256": {
+    "Assets\\Scripts\\Presentation\\BattleView.cs": "f328fc3a973eda7a1f66ef67dde34de164b3ca9f5bdf162ee0e4db8825999322",
+    "Assets\\Scripts\\Presentation\\BattleView.SlotMenu.cs": "e79af95c46d573bdf1f7018a8c15b4345d6289e7da331dddb9218b8884c75a45"
+  },
+  "builds": "r28-checked-TacticalWeb/TacticalCandidate: exit 0",
+  "menu_cases": 15,
+  "natural_run": "Before final close-button addition. Same combat and legacy placement path. All twelve upgrades applied; no console/page errors.",
+  "limits": [
+    "headless Edge touch emulation, not physical phone",
+    "no human enjoyment or actual sound verification",
+    "r27 independent review 33 excludes r28"
+  ]
+}
