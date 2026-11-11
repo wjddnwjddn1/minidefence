@@ -1,0 +1,14 @@
+Claude r35 · python3 Tests/run-frost-gates.py · real Core (HEAD c0c26f9) + frost knobs in a COPY
+seeds 29,41,57,73,101,137,181,223 · 4 fields x 3 difficulties
+gates (Codex r33): a) no frost army beats mixed by >5 peak in all 12 cells  b) bomb+2 frost not best in all 12  c) frost-only base wins 0/32
+
+candidate                   1 frost: wins·median | mixed+2 / bomb+2 median vs mixed | frost-only base wins | gates a b c
+now                          91/96 · +7.0      |  +9.5 / +15.5                    |  0/32                | P P P
+J r33-rejected               96/96 · +0.0      |  -1.2 /  -4.2                    |  9/32                | P P F
+H slow70+brittle35           94/96 · +3.0      |  +7.0 /  +5.2                    |  0/32                | P P P
+L slow70+brittle50           94/96 · +3.0      |  +5.8 /  +1.8                    |  0/32                | P P P
+O slow70+brittle35+int0.8    94/96 · +3.0      |  +6.5 /  +2.0                    |  0/32                | P P P
+M slow70+brittle50+int0.8    96/96 · +2.0      |  +5.5 /  -0.5                    |  0/32                | P P P   <- chosen
+N slow90+brittle50           95/96 · +3.0      |  +6.0 /  +0.5                    |  0/32                | P P P
+P slow90+brittle50+int0.8    96/96 · +2.0      |  +5.5 /  -1.0                    |  0/32                | P P P
+Q slow70+brittle65+int0.8    96/96 · +1.0      |  +1.5 /  -4.8                    |  0/32                | P P P   (alternative)
