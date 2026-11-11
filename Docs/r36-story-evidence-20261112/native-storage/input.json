@@ -1,0 +1,11 @@
+{
+    "enemiesAtSend": 85,
+    "observedEvents": [],
+    "windowFound": true,
+    "postSucceeded": false,
+    "received": false,
+    "pauseChanged": false,
+    "queueToEventMs": -1.0,
+    "queueToFrameEndMs": -1.0,
+    "scope": "NR: storage-only hidden run; no input event sent."
+}

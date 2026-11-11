@@ -1,0 +1,1 @@
+PASS native opening painted, opening advanced to field0, actual isolated PlayerPrefs persisted, revisited intro stayed closed. Direct scene advancement; keyboard/pointer separately tested in Web.

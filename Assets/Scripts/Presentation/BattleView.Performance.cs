@@ -14,7 +14,7 @@ namespace EmberBastion {
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
    if(PerformanceCounters.Active){PerformanceCounters.BeginFrame();if(PerformanceCounters.InputArmed&&Event.current.type==EventType.KeyDown){long observed=Stopwatch.GetTimestamp();if(PerformanceCounters.InputEvents.Count<8)PerformanceCounters.InputEvents.Add(Event.current.keyCode+":"+(int)Event.current.character+":"+observed);if(Event.current.keyCode==KeyCode.P&&PerformanceCounters.InputTicks==0){PerformanceCounters.InputTicks=observed;PerformanceCounters.InputKey="P";}}long start=Stopwatch.GetTimestamp();try{DrawInterface();}finally{PerformanceCounters.GuiTicks+=Stopwatch.GetTimestamp()-start;PerformanceCounters.GuiCalls++;}return;}
 #endif
-   DrawInterface();if(!WindowTooSmall())DrawStory();
+   DrawInterface();
   }
   void AdvanceBattle(float delta,float speed){
 #if DEVELOPMENT_BUILD || UNITY_EDITOR

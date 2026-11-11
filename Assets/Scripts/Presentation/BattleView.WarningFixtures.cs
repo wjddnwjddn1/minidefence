@@ -2,12 +2,12 @@ using System;
 using UnityEngine;
 namespace EmberBastion {
  public sealed partial class BattleView {
-  bool WarningFixture {get{return Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&(FixtureInt("crisis",0)==1||FixtureText("spawn-case","")!="");}}
+  bool WarningFixture {get{return Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&(FixtureInt("crisis",0)==1||FixtureText("spawn-case","")!=""||StoryReview);}}
   bool warningBoss;string warningCase="";
   string FixtureText(string key,string fallback){foreach(string item in Application.absoluteURL.Split('?','&')){string[] pair=item.Split('=');if(pair.Length==2&&pair[0]==key)return pair[1];}return fallback;}
   void SetWarningEnemies(int count){battle.Enemies.Clear();for(int i=0;i<count;i++){double travel=i*31;Point point=battle.FieldIndex==0?Balance.Path(travel):battle.Field.Path(travel);battle.Enemies.Add(new Enemy{Id=1000+i,Kind=i==0&&warningBoss?4:0,HP=100,MaxHP=100,Speed=0,Travel=travel,Position=i==0&&warningBoss?new Point(640,140):point});}battle.PeakAlive=Math.Max(battle.PeakAlive,count);}
   double LastSpawn(int index){double last=0;foreach(var g in battle.WaveGroups(index))last=Math.Max(last,g.Delay+Math.Max(0,battle.SpawnCount(g)-1)*battle.SpawnGap(g));return last;}
-  void InitWarningFixture(){if(!WarningFixture)return;warningCase=FixtureText("crisis-case","build");string spawn=FixtureText("spawn-case","");int field=FixtureInt("field",2);battle=Battle.CreateForRules(29,field,4);battle.Gold=20000;titleMenu=false;tutorialStage=0;selected=-1;paused=false;SimulationSpeed=0;
+  void InitWarningFixture(){if(!WarningFixture||StoryReview)return;warningCase=FixtureText("crisis-case","build");string spawn=FixtureText("spawn-case","");int field=FixtureInt("field",2);battle=Battle.CreateForRules(29,field,4);battle.Gold=20000;titleMenu=false;tutorialStage=0;selected=-1;paused=false;SimulationSpeed=0;
    if(spawn=="prep"){BindBattle();Debug.Log("WARNING_FIXTURE|prep");return;}
    battle.Place(0,0);battle.Start();if(warningCase=="upgrade"){for(int i=1;i<battle.Field.Slots.Length;i++)battle.Place(0,i);}else battle.Units.Clear();
    int wave=1;double clock=10;

@@ -1,0 +1,14 @@
+{
+    "enemiesAtSend": 85,
+    "observedEvents": [
+        "P:0:192140091",
+        "None:112:192146753"
+    ],
+    "windowFound": true,
+    "postSucceeded": true,
+    "received": true,
+    "pauseChanged": true,
+    "queueToEventMs": 0.274,
+    "queueToFrameEndMs": 3.0042,
+    "scope": "Synthetic WM_KEYDOWN to this QA window only; excludes device, display and human latency."
+}

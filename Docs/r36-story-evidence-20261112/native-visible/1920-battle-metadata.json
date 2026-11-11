@@ -1,0 +1,20 @@
+{
+    "unity": "6000.6.7f1",
+    "os": "Windows 11  (10.0.22631)",
+    "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor ",
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "graphics": "Direct3D11",
+    "product": "EmberBastionPerformanceQA",
+    "utc": "2026-11-11T17:00:14.2640307Z",
+    "limitations": "Development build on this PC. Snapshot replay resets=0. Hidden window is not representative presented FPS. Timing samples are delayed and deduplicated; not exact per-enemy GPU attribution.",
+    "cores": 16,
+    "memoryMB": 31862,
+    "width": 1920,
+    "height": 1080,
+    "targetFps": -1,
+    "vsync": 0,
+    "timingEnabled": true,
+    "windowVisible": true,
+    "totalAllocatedBytes": 102681358,
+    "managedBytes": 2285568
+}

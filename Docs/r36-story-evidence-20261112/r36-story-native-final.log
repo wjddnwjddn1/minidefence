@@ -1,0 +1,235 @@
+Mono path[0] = 'C:/minidefence/Tests/bin/StoryReview/EmberBastion_Data/Managed'
+Mono config path = 'C:/minidefence/Tests/bin/StoryReview/MonoBleedingEdge/etc'
+CodeReloadManager initialized
+Found 3 interfaces on host : 0) 192.168.0.3 1) 192.168.174.1 2) 192.168.190.1
+Player connection [102492]  Target information:
+
+Player connection [102492]  * "[IP] 192.168.0.3 [Port] 55000 [Flags] 2 [Guid] 685235581 [EditorId] 2292126834 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionStoryReview"
+
+Player connection [102492]  * "[IP] 192.168.174.1 [Port] 55000 [Flags] 2 [Guid] 685235581 [EditorId] 2292126834 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionStoryReview"
+
+Player connection [102492]  * "[IP] 192.168.190.1 [Port] 55000 [Flags] 2 [Guid] 685235581 [EditorId] 2292126834 [Version] 1048832 [Id] WindowsPlayer(2,snomet) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] EmberBastionStoryReview"
+
+Player connection [102492] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.6.7f1 (b22767f04f04)
+[EntityIdStore] init: VM path (explicit commit), pageSize=4096, blockCount=262144, entitiesPerBlock=1024, blocksPerSlotPage=0, slots reserved=4294967296 bytes
+[Subsystems] Discovering subsystems at path C:/minidefence/Tests/bin/StoryReview/EmberBastion_Data/UnitySubsystems
+[D3D12 Device Filter] Vendor Name: NVIDIA
+[D3D12 Device Filter] Device Name: NVIDIA GeForce RTX 5080
+[D3D12 Device Filter] Driver Version: 32.0.16.1714
+[D3D12 Device Filter] Feature Level: 12.2
+[D3D12 Device Filter] Graphics Memory: 15977 MB
+[D3D12 Device Filter] Processor Count: 16
+[D3D12 Device Filter] Device Type: Discrete
+GfxDevice: creating device client; kGfxThreadingModeSplitJobs
+d3d12: failed to query info queue interface (0x80004002).
+Direct3D:
+    Version:         Direct3D 12 [level 12.2]
+    Renderer:        NVIDIA GeForce RTX 5080 (ID=0x2c02)
+    Vendor:          NVIDIA
+    VRAM:            15977 MB
+    App VRAM Budget: 15209 MB
+    Driver:          32.0.16.1714
+Begin MonoManager ReloadAssembly
+- Finished resetting the current domain, in  0.032 seconds
+[Physics::Module] Selected backend (deferred post-plugins).
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+
+<RI> Input initialized.
+
+Direct3D: detected that IDXGISwapChain::GetFrameStatistics is broken (it does not return proper timestamps). Delta time will now be calculated using cpu-side time stampling until the game window is moved.
+UnloadTime: 20.097100 ms
+STORY_REVIEW_READY|True|True
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:InitStoryReview () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:13)
+EmberBastion.BattleView:Awake () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.cs:39)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:OpenScene (string,EmberBastion.StoryLine[]) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:30)
+EmberBastion.BattleView:UpdateStory () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:43)
+EmberBastion.BattleView:UpdateBattleView () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.cs:65)
+EmberBastion.BattleView:Update () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Performance.cs:11)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_PAINT|opening|0|17
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:StoryReviewScene (UnityEngine.Rect,string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:25)
+EmberBastion.BattleView:DrawStory () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:98)
+EmberBastion.BattleView:DrawInterface () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.cs:286)
+EmberBastion.BattleView:OnGUI () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Performance.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:OpenScene (string,EmberBastion.StoryLine[]) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:30)
+EmberBastion.BattleView:UpdateStory () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:43)
+EmberBastion.BattleView:UpdateBattleView () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.cs:65)
+EmberBastion.BattleView:Update () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Performance.cs:11)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|2
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|3
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|4
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|opening|5
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE_END|opening
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:36)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE|field0|0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:OpenScene (string,EmberBastion.StoryLine[]) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:30)
+EmberBastion.BattleView:UpdateStory () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:44)
+EmberBastion.BattleView:UpdateBattleView () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.cs:65)
+EmberBastion.BattleView:Update () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Performance.cs:11)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+STORY_SCENE_END|field0|skip
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+EmberBastion.BattleView:StoryLog (string) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:33)
+EmberBastion.BattleView:AdvanceScene (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.Story.cs:31)
+EmberBastion.BattleView:ReviewStoryAdvance (bool) (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:21)
+EmberBastion.StoryReviewDiagnostic/<Start>d__1:MoveNext () (at C:/minidefence/Assets/Scripts/Presentation/BattleView.StoryReview.cs:38)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+CodeReloadManager destroyed
+PlayerConnection::Cleanup##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1794416117450,"processId":154400,"allocatedMemory":40967,"memoryLabels":[{"Default":5368},{"NewDelete":760},{"Thread":7616},{"Manager":14679},{"GfxDevice":2448},{"Serialization":408},{"BaseObject":11488},{"String":501},{"PoolAlloc":96},{"ScriptManager":5696},{"CodeReload":440},{"CloudService":144},{"VR":1928},{"Video":144},{"Subsystems":96},{"Gui":131},{"CoreBusinessMetrics":128}]}

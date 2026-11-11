@@ -84,6 +84,7 @@ namespace EmberBastion {
    File.WriteAllText(Path.Combine(folder,"input.json"),JsonUtility.ToJson(inputSamples[inputSamples.Count-1],true),new UTF8Encoding(false));
    if(!storageOnly)File.WriteAllText(Path.Combine(folder,"input-series.json"),JsonUtility.ToJson(new InputSeries{samples=inputSamples.ToArray()},true),new UTF8Encoding(false));
    File.WriteAllText(Path.Combine(folder,"result.txt"),"PASS native save/replay. Frame groups="+(storageOnly?0:4)+". Check visibility/GPU/input validity before interpreting performance.",new UTF8Encoding(false));
+   File.WriteAllText(Path.Combine(folder,"story-render.csv"),view.StoryRenderEvidence,new UTF8Encoding(false));File.WriteAllText(Path.Combine(folder,"story-enabled.txt"),view.ReviewStoryAllowed.ToString(),new UTF8Encoding(false));
    PerformanceCounters.Active=false;PlayerPrefs.DeleteAll();PlayerPrefs.Save();Application.Quit(0);
   }
   void WriteSamples(string label,List<Sample> samples,List<Timing> timings,int resets){
