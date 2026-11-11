@@ -1,0 +1,278 @@
+PASS support-only lineup cannot start
+PASS no attacker cannot start
+PASS preparation rejects Ember
+PASS placement exact cost
+PASS invalid and duplicate placement rejected
+PASS same preparation full refund
+PASS start wave
+PASS double start rejected
+PASS invalid aim rejected
+PASS Ember cooldown prevents double input
+PASS cooldown uses simulation time
+PASS combat sale refunds 60 percent
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS spawn completes before challenge countdown
+PASS wave four has no boss
+PASS wave five previews boss
+PASS final wave has no next boss preview
+PASS challenge mode survives preparation save
+PASS challenge spawns enemies with 50 percent more health
+PASS challenge cannot change during combat
+PASS challenge holds before 22 seconds
+PASS challenge launches next wave at 22 seconds
+PASS first wave holds until countdown with surviving enemies
+PASS next wave starts automatically and keeps survivors
+PASS unopposed automatic waves reach limit field 0
+PASS unopposed automatic waves reach limit field 1
+PASS unopposed automatic waves reach limit field 2
+PASS unopposed automatic waves reach limit field 3
+PASS next wave starts even if previous wave cleared early
+PASS early call rejects preparation
+PASS early call rejects pending spawns
+PASS early call retains enemies and grants exact supply and bonus
+PASS early call prevents repeated input while spawning
+PASS 30 and 144 fps identical fixed ticks
+PASS frame independent position 0
+PASS frame independent position 1
+PASS frame independent position 2
+PASS frame independent position 3
+PASS frame independent position 4
+PASS frame independent position 5
+PASS frame independent position 6
+PASS frame independent position 7
+PASS three times speed preserves game outcome
+PASS path corners and closed loop
+PASS enemy faces right on first horizontal segment
+PASS downward segment retains right facing
+PASS enemy faces left on return segment
+PASS upward segment retains left facing
+PASS facing wraps at path start
+PASS opposite gate uses its actual segment direction
+PASS forest configuration
+PASS forest second gate and closed path
+PASS forest uses its own slots
+PASS pass configuration and starting gold
+PASS pass gate and closed path
+PASS forest vertical segment retains right facing
+PASS forest return path faces left
+PASS pass second gate follows its bend direction
+PASS preparation round trip
+PASS restored combat matches original RNG
+PASS invalid save rejected without mutating live battle
+PASS combat cannot be saved as preparation
+PASS archer priority accepted 0
+PASS priority persists 0
+PASS priority selects correct target 0
+PASS archer priority accepted 1
+PASS priority persists 1
+PASS priority selects correct target 1
+PASS archer priority accepted 2
+PASS priority persists 2
+PASS priority selects correct target 2
+PASS priority rejects other units and invalid mode
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS branch requires level two
+PASS branch upgrade succeeds
+PASS branch persists
+PASS branch cannot repeat
+PASS 99 enemies survive and a lap does not damage fortress
+PASS 100 simultaneous enemies trigger defeat
+PASS spawning the hundredth enemy ends the battle immediately and records peak
+PASS final wave outcome fixture reaches victory
+PASS frost placement costs 90
+PASS frost supports target priority
+PASS frost hit count and priority persist
+PASS older saves accept default hit count
+PASS fifth frost shot freezes and slows a surviving target
+PASS frost impact emits a visual cue
+PASS one defeat produces one death effect cue
+PASS death effect is not repeated
+PASS simultaneous shots resolve in firing order
+PASS pass wave seven uses rounded spawn interval
+PASS smith and allies can be placed
+PASS smith improves nearby attack rate
+PASS smith precision branch upgrades
+PASS smith precision buffs speed and damage
+PASS displayed attack stats include support effects
+PASS smith preparation round trips
+PASS second smith placement
+PASS support effects use strongest value rather than stacking
+PASS smith does not buff another smith
+PASS smith and frost fixture prepares
+PASS smith improves frost damage and rate
+PASS victory stars honor health thresholds
+PASS preview full preparation refund
+PASS combat sale refunds 60 percent of total investment
+PASS repair costs 60 and restores 15 health
+PASS repaired health and gold survive preparation save
+PASS repair caps health at 100
+PASS repair rejects full health
+PASS repair rejects insufficient gold
+PASS repair rejects combat
+PASS retry resets isolated run
+CHECKS 277

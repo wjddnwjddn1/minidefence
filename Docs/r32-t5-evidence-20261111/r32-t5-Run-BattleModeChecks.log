@@ -1,0 +1,48 @@
+PASS new battle is normal
+PASS enable changes mode
+PASS reinforcement difficulty locked
+PASS legacy preparation infers reinforcement mode
+PASS disable restores normal mode
+PASS normal preparation retains mode
+PASS retry copy retains reinforcement mode
+PASS combat restore infers reinforcement mode
+PASS draft existence does not lock normal difficulty
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS ordinary draft does not add reinforcement density
+PASS battle mode separation and legacy restoration

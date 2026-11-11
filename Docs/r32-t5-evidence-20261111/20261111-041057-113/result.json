@@ -1,0 +1,15 @@
+{
+    "expectedFresh": 3,
+    "initialFresh": 3,
+    "resetFresh": 3,
+    "preferredFresh": 3,
+    "preparationRules": 3,
+    "combatRules": 3,
+    "preferredField": 1,
+    "prepWon": true,
+    "combatWon": true,
+    "pausedLoad": true,
+    "product": "EmberBastionRulesMigrationQA",
+    "unity": "6000.6.7f1",
+    "limitations": "Isolated actual PlayerPrefs and view load paths. Boosted fixture army (20000G) verifies version continuity to victory, not natural economy or human play."
+}

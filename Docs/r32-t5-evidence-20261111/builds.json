@@ -1,0 +1,22 @@
+[
+  {
+    "path": "Builds/Playable/EmberBastion.exe",
+    "sha256": "595a5da7d0185b9d3d8d7bdff1d6f93ba844741f805d0a2b5132d3a56a89b87d",
+    "modifiedUTC": "2026-11-02T17:18:19.725091+00:00"
+  },
+  {
+    "path": "Builds/Playable/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "8c6152aa64b11c1940111cd8519ef51cdadbff9b986347eb5b7c791b1236acc0",
+    "modifiedUTC": "2026-11-11T04:09:55.548400+00:00"
+  },
+  {
+    "path": "Tests/bin/RulesMigrationQA/EmberBastion_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "a76ca6c0e1aea5f46d581e98b6f1fbd8a9fcc42d585fe05b5ab560683766d166",
+    "modifiedUTC": "2026-11-11T04:09:41.369026+00:00"
+  },
+  {
+    "path": "Tests/bin/TacticalWeb/Build/TacticalWeb.wasm",
+    "sha256": "32387ff525b41d5b4124d4f4e3520ca32378d87509eb017ccb713b21e5d93ad6",
+    "modifiedUTC": "2026-11-11T04:10:43.066187+00:00"
+  }
+]

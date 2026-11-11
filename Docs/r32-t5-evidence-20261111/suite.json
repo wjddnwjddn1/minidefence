@@ -1,0 +1,162 @@
+[
+  {
+    "test": "Run-BadgeChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-BattleModeChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-BossPriorityChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-BossTelegraphChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-BurnDamageChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CandidateSlotChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CandidateWaveIsolationChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CombatProgressHintChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CombatRetryChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CombatSaveChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CoreChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-CrisisAdviceChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-EmberUpgradeChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-EmptyCheckpointChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-EnemyWeaknessChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-FastPriorityChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-FieldFourChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-HardModeChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-LossEnemySummaryChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-LossRetryInfoChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-NextWaveAdviceChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-PerformanceScenarioChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-ProgressVersionChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-QuickClearChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-R12Checks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-R25ExtendedChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-R25LegacyCandidateChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-R30InteractionChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-ReinforcementCombatChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-ReinforcementDraftChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-ReinforcementEffectsChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-ReinforcementPlaythroughChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-RuleParityChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-RuntimeCombatComparisonChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-SupplyChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-SupportCoverageChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-SupportStunChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-SurrenderChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-TacticalDraftChecks.ps1",
+    "pass": true
+  },
+  {
+    "test": "Run-WaveVersionChecks.ps1",
+    "pass": true
+  }
+]
