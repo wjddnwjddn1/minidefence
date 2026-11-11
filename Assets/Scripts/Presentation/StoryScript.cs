@@ -9,6 +9,8 @@ namespace EmberBastion {
   public static int Portrait(Speaker s){switch(s){case Speaker.Rowen:return 0;case Speaker.Mira:return 1;case Speaker.Toto:return 2;case Speaker.Serin:return 3;case Speaker.Bron:return 4;case Speaker.Grnak:return 14;case Speaker.Goblin:return 10;default:return -1;}}
   static StoryLine L(Speaker s,string t){return new StoryLine(s,t);}
 
+  public static readonly StoryLine FrostIntro=L(Speaker.Serin,"제가 늦춘 적은 다른 분들 공격에 더 아프게 맞아요.");
+
   // Shown once, before the very first preparation.
   public static readonly StoryLine[] Opening={
    L(Speaker.Narrator,"겨울이 끝나지 않는 골짜기. 마지막 남은 불씨가 이 성채의 화덕에서 타고 있다. 사람들은 그것을 '잔불'이라 불렀다."),
