@@ -1,4 +1,4 @@
-// Claude r31: crisis suggestion rule (CLAUDE-DIRECTION r31 decision 2) and frost-link cards (decision 3).
+// Claude r31: crisis suggestion rule (CLAUDE-DIRECTION r31 decision 2) (frost-link cards of decision 3 were measured and removed).
 using System;
 using EmberBastion;
 static class CrisisAdviceChecks {
@@ -19,16 +19,5 @@ static class CrisisAdviceChecks {
   s=CrisisAdvice.Suggest(full,out build);Check(!build&&s>=0&&full.At(s).Kind!=4&&full.At(s).Level==1,"upgrade suggested when slots are full");
   // Too poor for any troop or upgrade: none.
   SetGold(full,10);Check(CrisisAdvice.Suggest(full,out build)==-1,"no advice when nothing is affordable");
-  // Legacy draft keeps 7 entries; rules-4 draft has 9 and pads old saves.
-  var legacy=new ReinforcementDraft(1,2);Check(legacy.Export().owned.Length==7,"legacy draft size");
-  var v4=new ReinforcementDraft(1,3,true);Check(v4.Export().owned.Length==9,"rules-4 draft size");
-  var old=v4.Export();old.owned=new int[7];var padded=ReinforcementDraft.Restore(old,3,true);Check(padded.Export().owned.Length==9&&padded.Count(ReinforcementDraft.FrostMark)==0,"old rules-4 save padded");
-  bool rejected=false;try{var bad=legacy.Export();bad.owned=new int[9];ReinforcementDraft.Restore(bad,2,false);}catch(ArgumentException){rejected=true;}Check(rejected,"legacy rejects 9-card save");
-  // Frost cards only offered with frost (and swords for IceShard) in rules 4.
-  bool seenMark=false,seenShard=false,legacyMark=false,noFrostMark=false;
-  for(uint seed=1;seed<400;seed++){var d=new ReinforcementDraft(seed,3,true);d.Offer(true,true,true,true);foreach(int c in d.Choices()){if(c==ReinforcementDraft.FrostMark)seenMark=true;if(c==ReinforcementDraft.IceShard)seenShard=true;}
-   var n=new ReinforcementDraft(seed,3,true);n.Offer(true,true,true,false);foreach(int c in n.Choices())if(c>=7)noFrostMark=true;
-   var l=new ReinforcementDraft(seed,2);l.Offer(true,true,true,true);foreach(int c in l.Choices())if(c>=7)legacyMark=true;}
-  Check(seenMark&&seenShard,"frost cards offered with frost");Check(!noFrostMark,"no frost cards without frost");Check(!legacyMark,"legacy never offers frost cards");
-  Console.WriteLine("PASS "+pass+" crisis advice and frost-link draft checks");return 0;}
+  Console.WriteLine("PASS "+pass+" crisis advice checks");return 0;}
 }
