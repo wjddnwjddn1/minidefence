@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Claude r27 wave-composition probe (macOS, Unity Mono). Never modifies game code or saves.
+"""Claude r27 wave-composition probe (Windows .NET / macOS Unity Mono). Never modifies game code or saves.
 
 Copies Battle.cs to Tests/bin/mac/wave-counter, injects read-only probe switches
 (extended-wave gap exponent, challenge counters on every difficulty), compiles with
@@ -17,19 +17,16 @@ Policies: bomb (all bombs), smartB (mixed), bombArcher / bombFrost (one slot swa
 """
 import argparse
 import collections
-import importlib.util
 import os
+from pathlib import Path
 import statistics
 import subprocess
 import sys
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-spec = importlib.util.spec_from_file_location("mac_checks", os.path.join(HERE, "run-checks-mac.py"))
-mac = importlib.util.module_from_spec(spec)
-argv, sys.argv = sys.argv[1:], sys.argv[:1]
-spec.loader.exec_module(mac)
-ROOT = mac.ROOT
-OUT = os.path.join(mac.BIN, "wave-counter")
+import probe_runtime as runtime
+HERE = str(Path(__file__).resolve().parent)
+ROOT = str(runtime.ROOT)
+OUT = str(runtime.BIN / 'wave-counter')
+argv = sys.argv[1:]
 
 VARIANTS = {  # GAP_EXP, EXT_RUNNERS, ALL_COUNTERS, BOMB_INTERVAL
     "base": ("1", "0", "0", None),
@@ -64,13 +61,13 @@ PROBE = ('namespace EmberBastion {\n public static class Probe {'
 
 def build_real():
     """Compile the unpatched game Battle.cs (Claude r27 review: measure what actually shipped)."""
-    out = os.path.join(mac.BIN, "real-engine")
+    out = os.path.join(str(runtime.BIN), "real-engine")
     os.makedirs(out, exist_ok=True)
     exe = os.path.join(out, "WaveCounterReal.exe")
     core = os.path.join(ROOT, "Assets/Scripts/Core")
     sources = [os.path.join(core, n) for n in ("Balance.cs", "Battle.cs", "CombatSave.cs")] + [
         os.path.join(HERE, "GameplayDurationProbe.cs"), os.path.join(HERE, "WaveCounterProbe.cs")]
-    r = subprocess.run([mac.MONO, mac.CSC, "-nologo", "-langversion:5", "-main:WaveCounterProbe", "-out:" + exe] + sources, capture_output=True, text=True)
+    r = subprocess.run(runtime.COMPILER + ["-nologo", "-utf8output", "-codepage:65001", "-langversion:5", "-main:WaveCounterProbe", "-out:" + exe] + [os.path.normpath(source) for source in sources], capture_output=True, text=True, encoding="utf-8", **runtime.PROCESS_OPTIONS)
     if r.returncode:
         sys.exit(r.stdout)
     return exe
@@ -102,13 +99,14 @@ def build():
     exe = os.path.join(OUT, "WaveCounterProbe.exe")
     sources = [os.path.join(ROOT, "Assets/Scripts/Core/Balance.cs"), copy, os.path.join(ROOT, "Assets/Scripts/Core/CombatSave.cs"),
                os.path.join(HERE, "GameplayDurationProbe.cs"), os.path.join(HERE, "WaveCounterProbe.cs")]
-    r = subprocess.run([mac.MONO, mac.CSC, "-nologo", "-langversion:5", "-main:WaveCounterProbe", "-out:" + exe] + sources, capture_output=True, text=True)
+    r = subprocess.run(runtime.COMPILER + ["-nologo", "-utf8output", "-codepage:65001", "-langversion:5", "-main:WaveCounterProbe", "-out:" + exe] + [os.path.normpath(source) for source in sources], capture_output=True, text=True, encoding="utf-8", **runtime.PROCESS_OPTIONS)
     if r.returncode:
         sys.exit(r.stdout)
     return exe
 
 
 def main():
+    os.makedirs(OUT, exist_ok=True)
     p = argparse.ArgumentParser()
     p.add_argument("--variant", default="base", choices=list(VARIANTS))
     p.add_argument("--rules", default="4")
@@ -120,6 +118,7 @@ def main():
     p.add_argument("--forest-hard-factor", default="1.7", help="forest extreme extended-wave multiplier")
     p.add_argument("--raw", action="store_true")
     p.add_argument("--real", action="store_true", help="run the unpatched game engine; ignores --variant/--marsh/--forest-hard-factor")
+    p.add_argument("--unique-seeds", action="store_true", help="do not duplicate v4 battles with the disabled Ember switch")
     a = p.parse_args(argv)
     if a.real:
         exe = build_real()
@@ -136,7 +135,7 @@ def main():
     print("variant %s rules %s (wins/battles·median PeakAlive·median final gold)" % (a.variant, a.rules))
     for field in a.fields.split(","):
         for mode in a.modes.split(","):
-            r = subprocess.run([mac.MONO, exe, a.rules, field, "", a.policies, mode, a.seeds], capture_output=True, text=True, env=env, cwd=OUT)
+            r = subprocess.run(runtime.EXECUTOR + [exe, a.rules, field, "", a.policies, mode, a.seeds, "unique" if a.unique_seeds else "paired-ember"], capture_output=True, text=True, encoding="utf-8", env=env, cwd=OUT, timeout=600, **runtime.PROCESS_OPTIONS)
             if r.returncode:
                 sys.exit(r.stderr)
             if a.raw:

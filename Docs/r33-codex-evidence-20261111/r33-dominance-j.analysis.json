@@ -1,0 +1,500 @@
+{
+  "cases": 384,
+  "seeds": [
+    29,
+    41,
+    57,
+    73,
+    101,
+    137,
+    181,
+    223
+  ],
+  "cells": [
+    {
+      "field": 0,
+      "mode": 0,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 77.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 438.5
+    },
+    {
+      "field": 0,
+      "mode": 0,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 76.0,
+      "paired_peak_delta": -0.5,
+      "median_gold": 428.5
+    },
+    {
+      "field": 0,
+      "mode": 0,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 72.5,
+      "paired_peak_delta": -3.5,
+      "median_gold": 650.0
+    },
+    {
+      "field": 0,
+      "mode": 0,
+      "policy": "frost",
+      "wins": 0,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 23.0,
+      "median_gold": 45.0
+    },
+    {
+      "field": 0,
+      "mode": 1,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 63.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 239.0
+    },
+    {
+      "field": 0,
+      "mode": 1,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 63.0,
+      "paired_peak_delta": -1.0,
+      "median_gold": 229.0
+    },
+    {
+      "field": 0,
+      "mode": 1,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 65.0,
+      "paired_peak_delta": -2.5,
+      "median_gold": 347.0
+    },
+    {
+      "field": 0,
+      "mode": 1,
+      "policy": "frost",
+      "wins": 4,
+      "battles": 8,
+      "median_peak": 99.5,
+      "paired_peak_delta": 34.5,
+      "median_gold": 245.0
+    },
+    {
+      "field": 0,
+      "mode": 2,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 83.5,
+      "paired_peak_delta": 0.0,
+      "median_gold": 203.0
+    },
+    {
+      "field": 0,
+      "mode": 2,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 85.0,
+      "paired_peak_delta": 1.0,
+      "median_gold": 193.0
+    },
+    {
+      "field": 0,
+      "mode": 2,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 85.0,
+      "paired_peak_delta": 2.0,
+      "median_gold": 221.0
+    },
+    {
+      "field": 0,
+      "mode": 2,
+      "policy": "frost",
+      "wins": 0,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 16.5,
+      "median_gold": 23.5
+    },
+    {
+      "field": 1,
+      "mode": 0,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 73.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 703.0
+    },
+    {
+      "field": 1,
+      "mode": 0,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 70.5,
+      "paired_peak_delta": -2.0,
+      "median_gold": 765.5
+    },
+    {
+      "field": 1,
+      "mode": 0,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 66.5,
+      "paired_peak_delta": -6.5,
+      "median_gold": 926.0
+    },
+    {
+      "field": 1,
+      "mode": 0,
+      "policy": "frost",
+      "wins": 1,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 27.0,
+      "median_gold": 67.0
+    },
+    {
+      "field": 1,
+      "mode": 1,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 70.5,
+      "paired_peak_delta": 0.0,
+      "median_gold": 462.0
+    },
+    {
+      "field": 1,
+      "mode": 1,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 69.0,
+      "paired_peak_delta": -1.5,
+      "median_gold": 465.5
+    },
+    {
+      "field": 1,
+      "mode": 1,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 70.0,
+      "paired_peak_delta": -2.5,
+      "median_gold": 623.0
+    },
+    {
+      "field": 1,
+      "mode": 1,
+      "policy": "frost",
+      "wins": 0,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 29.5,
+      "median_gold": 51.0
+    },
+    {
+      "field": 1,
+      "mode": 2,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 83.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 274.5
+    },
+    {
+      "field": 1,
+      "mode": 2,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 80.5,
+      "paired_peak_delta": -2.0,
+      "median_gold": 294.5
+    },
+    {
+      "field": 1,
+      "mode": 2,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 78.0,
+      "paired_peak_delta": -3.0,
+      "median_gold": 452.0
+    },
+    {
+      "field": 1,
+      "mode": 2,
+      "policy": "frost",
+      "wins": 0,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 17.0,
+      "median_gold": 15.5
+    },
+    {
+      "field": 2,
+      "mode": 0,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 59.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 945.5
+    },
+    {
+      "field": 2,
+      "mode": 0,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 58.0,
+      "paired_peak_delta": 0.5,
+      "median_gold": 991.5
+    },
+    {
+      "field": 2,
+      "mode": 0,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 48.5,
+      "paired_peak_delta": -9.0,
+      "median_gold": 1182.0
+    },
+    {
+      "field": 2,
+      "mode": 0,
+      "policy": "frost",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 78.0,
+      "paired_peak_delta": 19.5,
+      "median_gold": 1302.0
+    },
+    {
+      "field": 2,
+      "mode": 1,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 56.5,
+      "paired_peak_delta": 0.0,
+      "median_gold": 684.5
+    },
+    {
+      "field": 2,
+      "mode": 1,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 51.5,
+      "paired_peak_delta": -5.0,
+      "median_gold": 694.0
+    },
+    {
+      "field": 2,
+      "mode": 1,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 46.0,
+      "paired_peak_delta": -11.5,
+      "median_gold": 924.0
+    },
+    {
+      "field": 2,
+      "mode": 1,
+      "policy": "frost",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 93.0,
+      "paired_peak_delta": 34.5,
+      "median_gold": 1044.0
+    },
+    {
+      "field": 2,
+      "mode": 2,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 70.5,
+      "paired_peak_delta": 0.0,
+      "median_gold": 540.5
+    },
+    {
+      "field": 2,
+      "mode": 2,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 63.5,
+      "paired_peak_delta": -7.0,
+      "median_gold": 609.0
+    },
+    {
+      "field": 2,
+      "mode": 2,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 63.0,
+      "paired_peak_delta": -6.5,
+      "median_gold": 780.0
+    },
+    {
+      "field": 2,
+      "mode": 2,
+      "policy": "frost",
+      "wins": 1,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 29.5,
+      "median_gold": 143.5
+    },
+    {
+      "field": 3,
+      "mode": 0,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 48.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 870.0
+    },
+    {
+      "field": 3,
+      "mode": 0,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 49.0,
+      "paired_peak_delta": 0.5,
+      "median_gold": 929.5
+    },
+    {
+      "field": 3,
+      "mode": 0,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 50.0,
+      "paired_peak_delta": 1.5,
+      "median_gold": 1140.0
+    },
+    {
+      "field": 3,
+      "mode": 0,
+      "policy": "frost",
+      "wins": 0,
+      "battles": 8,
+      "median_peak": 100.0,
+      "paired_peak_delta": 52.0,
+      "median_gold": 511.5
+    },
+    {
+      "field": 3,
+      "mode": 1,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 54.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 395.0
+    },
+    {
+      "field": 3,
+      "mode": 1,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 58.5,
+      "paired_peak_delta": 2.5,
+      "median_gold": 398.5
+    },
+    {
+      "field": 3,
+      "mode": 1,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 47.5,
+      "paired_peak_delta": -5.0,
+      "median_gold": 609.0
+    },
+    {
+      "field": 3,
+      "mode": 1,
+      "policy": "frost",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 94.5,
+      "paired_peak_delta": 39.5,
+      "median_gold": 759.0
+    },
+    {
+      "field": 3,
+      "mode": 2,
+      "policy": "smartB",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 64.0,
+      "paired_peak_delta": 0.0,
+      "median_gold": 189.0
+    },
+    {
+      "field": 3,
+      "mode": 2,
+      "policy": "smartBFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 61.5,
+      "paired_peak_delta": -2.5,
+      "median_gold": 217.0
+    },
+    {
+      "field": 3,
+      "mode": 2,
+      "policy": "bombFrost2",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 59.5,
+      "paired_peak_delta": -5.5,
+      "median_gold": 414.0
+    },
+    {
+      "field": 3,
+      "mode": 2,
+      "policy": "frost",
+      "wins": 8,
+      "battles": 8,
+      "median_peak": 94.0,
+      "paired_peak_delta": 31.0,
+      "median_gold": 564.0
+    }
+  ],
+  "dominant_all_12": [],
+  "bomb_frost_best_all_12": false,
+  "frost_basic_wins": 9,
+  "frost_basic_battles": 32,
+  "passed": false
+}

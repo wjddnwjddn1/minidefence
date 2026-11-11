@@ -1,0 +1,207 @@
+[
+  {
+    "test": "Run-BadgeChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-BadgeChecks.log"
+  },
+  {
+    "test": "Run-BattleModeChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-BattleModeChecks.log"
+  },
+  {
+    "test": "Run-BossPriorityChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-BossPriorityChecks.log"
+  },
+  {
+    "test": "Run-BossTelegraphChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-BossTelegraphChecks.log"
+  },
+  {
+    "test": "Run-BurnDamageChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-BurnDamageChecks.log"
+  },
+  {
+    "test": "Run-CandidateSlotChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CandidateSlotChecks.log"
+  },
+  {
+    "test": "Run-CandidateWaveIsolationChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CandidateWaveIsolationChecks.log"
+  },
+  {
+    "test": "Run-CombatProgressHintChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CombatProgressHintChecks.log"
+  },
+  {
+    "test": "Run-CombatRetryChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CombatRetryChecks.log"
+  },
+  {
+    "test": "Run-CombatSaveChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CombatSaveChecks.log"
+  },
+  {
+    "test": "Run-CoreChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CoreChecks.log"
+  },
+  {
+    "test": "Run-CrisisAdviceChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-CrisisAdviceChecks.log"
+  },
+  {
+    "test": "Run-EmberUpgradeChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-EmberUpgradeChecks.log"
+  },
+  {
+    "test": "Run-EmptyCheckpointChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-EmptyCheckpointChecks.log"
+  },
+  {
+    "test": "Run-EnemyWeaknessChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-EnemyWeaknessChecks.log"
+  },
+  {
+    "test": "Run-FastPriorityChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-FastPriorityChecks.log"
+  },
+  {
+    "test": "Run-FieldFourChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-FieldFourChecks.log"
+  },
+  {
+    "test": "Run-HardModeChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-HardModeChecks.log"
+  },
+  {
+    "test": "Run-LossEnemySummaryChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-LossEnemySummaryChecks.log"
+  },
+  {
+    "test": "Run-LossRetryInfoChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-LossRetryInfoChecks.log"
+  },
+  {
+    "test": "Run-NextWaveAdviceChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-NextWaveAdviceChecks.log"
+  },
+  {
+    "test": "Run-PerformanceScenarioChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-PerformanceScenarioChecks.log"
+  },
+  {
+    "test": "Run-ProgressVersionChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-ProgressVersionChecks.log"
+  },
+  {
+    "test": "Run-QuickClearChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-QuickClearChecks.log"
+  },
+  {
+    "test": "Run-R12Checks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-R12Checks.log"
+  },
+  {
+    "test": "Run-R25ExtendedChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-R25ExtendedChecks.log"
+  },
+  {
+    "test": "Run-R25LegacyCandidateChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-R25LegacyCandidateChecks.log"
+  },
+  {
+    "test": "Run-R30InteractionChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-R30InteractionChecks.log"
+  },
+  {
+    "test": "Run-ReinforcementCombatChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-ReinforcementCombatChecks.log"
+  },
+  {
+    "test": "Run-ReinforcementDraftChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-ReinforcementDraftChecks.log"
+  },
+  {
+    "test": "Run-ReinforcementEffectsChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-ReinforcementEffectsChecks.log"
+  },
+  {
+    "test": "Run-ReinforcementPlaythroughChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-ReinforcementPlaythroughChecks.log"
+  },
+  {
+    "test": "Run-RuleParityChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-RuleParityChecks.log"
+  },
+  {
+    "test": "Run-RuntimeCombatComparisonChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-RuntimeCombatComparisonChecks.log"
+  },
+  {
+    "test": "Run-SpawnForecastChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-SpawnForecastChecks.log"
+  },
+  {
+    "test": "Run-SupplyChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-SupplyChecks.log"
+  },
+  {
+    "test": "Run-SupportCoverageChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-SupportCoverageChecks.log"
+  },
+  {
+    "test": "Run-SupportStunChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-SupportStunChecks.log"
+  },
+  {
+    "test": "Run-SurrenderChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-SurrenderChecks.log"
+  },
+  {
+    "test": "Run-TacticalDraftChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-TacticalDraftChecks.log"
+  },
+  {
+    "test": "Run-WaveVersionChecks.ps1",
+    "exit": 0,
+    "log": "Tests\\bin\\r33-final-Run-WaveVersionChecks.log"
+  }
+]

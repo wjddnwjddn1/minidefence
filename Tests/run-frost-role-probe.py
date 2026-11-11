@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Claude r33 frost/smith role probe (macOS, Unity Mono). Never modifies game code or saves.
+"""Claude r33 frost/smith role probe (Windows .NET / macOS Unity Mono). Never modifies game code or saves.
 
 Patched COPY of Battle.cs adds two knobs (default off = shipped behaviour):
   FROST_SPLASH=r   frost slow also applies to enemies within r of the target
@@ -10,13 +10,13 @@ Prints per variant: swapped wins / archer wins, median paired peak delta (swap -
 
   python3 Tests/run-frost-role-probe.py
 """
-import argparse, collections, importlib.util, os, statistics, subprocess, sys
-HERE = os.path.dirname(os.path.abspath(__file__))
-spec = importlib.util.spec_from_file_location("mac_checks", os.path.join(HERE, "run-checks-mac.py"))
-mac = importlib.util.module_from_spec(spec)
-argv, sys.argv = sys.argv[1:], sys.argv[:1]
-spec.loader.exec_module(mac)
-OUT = os.path.join(mac.BIN, "frost-role")
+import argparse, collections, json, os, statistics, subprocess, sys
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+import probe_runtime as runtime
+HERE = str(Path(__file__).resolve().parent)
+OUT = str(runtime.BIN/'frost-role')
+
 PATCH = [
     ("target.SlowTime=Math.Max(target.SlowTime,2);}",
      "target.SlowTime=Math.Max(target.SlowTime,2);if(s.Kind==3&&Probe.Splash>0)foreach(var o in Enemies.ToArray())if(o!=target&&o.HP>0&&Point.Distance(o.Position,target.Position)<=Probe.Splash){if(Probe.SplashDamage)Hit(o,s.Damage,s.Pen,false,1,true,1,3);if(o.HP>0){if(s.SlowPct>=o.SlowPct||o.SlowTime<=0)o.SlowPct=s.SlowPct;o.SlowTime=Math.Max(o.SlowTime,2);}}}"),
@@ -44,54 +44,87 @@ VARIANTS = collections.OrderedDict([
 ])
 
 
-def build():
+def build(real=False, revision="eeaf901"):
     os.makedirs(OUT, exist_ok=True)
-    with open(os.path.join(mac.ROOT, "Assets/Scripts/Core/Battle.cs"), encoding="utf-8-sig") as f:
-        text = f.read()
-    for old, new in PATCH:
-        if text.count(old) != 1:
-            sys.exit("Battle.cs changed; update patch for: " + old)
-        text = text.replace(old, new)
-    text = text.replace("namespace EmberBastion {", PROBE, 1)
-    copy = os.path.join(OUT, "Battle.cs")
-    open(copy, "w", encoding="utf-8").write(text)
-    exe = os.path.join(OUT, "FrostRoleProbe.exe")
-    src = [os.path.join(mac.ROOT, "Assets/Scripts/Core/Balance.cs"), copy, os.path.join(mac.ROOT, "Assets/Scripts/Core/CombatSave.cs"),
-           os.path.join(HERE, "GameplayDurationProbe.cs"), os.path.join(HERE, "FrostRoleProbe.cs")]
-    r = subprocess.run([mac.MONO, mac.CSC, "-nologo", "-langversion:5", "-main:FrostRoleProbe", "-out:" + exe] + src, capture_output=True, text=True)
-    if r.returncode:
-        sys.exit(r.stdout)
-    return exe
+    if real:
+        battle = runtime.ROOT/'Assets/Scripts/Core/Battle.cs'
+    else:
+        # Pin the pre-rework source: do not accidentally double-apply the experimental patch.
+        text = subprocess.check_output(["git", "show", revision+":Assets/Scripts/Core/Battle.cs"],
+                                       cwd=runtime.ROOT).decode("utf-8-sig")
+        for old, new in PATCH:
+            if text.count(old) != 1:
+                raise RuntimeError("Reference changed; update patch for: "+old)
+            text = text.replace(old, new)
+        text = text.replace("namespace EmberBastion {", PROBE, 1)
+        battle = Path(OUT)/'ReferenceBattle.cs'
+        battle.write_text(text, encoding='utf-8')
+    exe = Path(OUT)/('FrostRoleReal.exe' if real else 'FrostRoleReference.exe')
+    sources = [runtime.ROOT/'Assets/Scripts/Core/Balance.cs', battle,
+               runtime.ROOT/'Assets/Scripts/Core/CombatSave.cs',
+               Path(HERE)/'GameplayDurationProbe.cs', Path(HERE)/'FrostRoleProbe.cs']
+    return runtime.compile_exe(exe, sources, 'FrostRoleProbe')
+
+
+def measure(exe, swap, fields, modes, seeds, knobs):
+    env = {k: v for k, v in os.environ.items() if not k.startswith(('FROST_', 'SMITH_'))}
+    env.update(knobs)
+    def field_rows(field):
+        output = runtime.run_exe(exe, [field, str(swap), modes, seeds], env=env, cwd=OUT)
+        return field, [line.split(',') for line in output.splitlines()]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        return list(pool.map(field_rows, fields.split(',')))
+
+
+def describe(name, results):
+    deltas, sw, aw, per = [], 0, 0, []
+    for field, rows in results:
+        pairs = collections.defaultdict(dict)
+        for m, seed, swapped, outcome, peak, gold, slot in rows:
+            pairs[(m, seed)][swapped] = (outcome, int(peak))
+        assert all(set(v)=={'0','1'} for v in pairs.values())
+        fd = [v['1'][1]-v['0'][1] for v in pairs.values()]
+        fw = sum(v['1'][0]=='W' for v in pairs.values())
+        deltas += fd; sw += fw; aw += sum(v['0'][0]=='W' for v in pairs.values())
+        per.append('f%s %d/%d %+.0f' % (field, fw, len(fd), statistics.median(fd)))
+    print('%-22s %3d/%d vs %3d · %+5.1f   %s' % (name, sw, len(deltas), aw, statistics.median(deltas), '  '.join(per)), flush=True)
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--variants", default=",".join(VARIANTS))
+    p.add_argument("--variants", help="defaults to frost-now for --real, all historical variants otherwise")
     p.add_argument("--fields", default="0,1,2,3")
     p.add_argument("--modes", default="0,1,2")
     p.add_argument("--seeds", default="29,41,57,73,101,137,181,223")
-    a = p.parse_args(argv)
-    exe = build()
-    print("frost/smith role probe, real engine rules 4 + knobs (swap wins / archer wins · median paired peak delta · per field)")
-    for name in a.variants.split(","):
-        swap, knobs = VARIANTS[name]
-        env = {k: v for k, v in os.environ.items() if not k.startswith(("FROST_", "SMITH_"))}
-        env.update(knobs)
-        deltas, sw, aw, per = [], 0, 0, []
-        for field in a.fields.split(","):
-            r = subprocess.run([mac.MONO, exe, field, str(swap), a.modes, a.seeds], capture_output=True, text=True, env=env, cwd=OUT)
-            if r.returncode:
-                sys.exit(r.stderr)
-            rows = [l.split(",") for l in r.stdout.splitlines()]
-            pairs = collections.defaultdict(dict)
-            for m, s, sp, res, peak, gold, slot in rows:
-                pairs[(m, s)][sp] = (res, int(peak))
-            fd = [v["1"][1] - v["0"][1] for v in pairs.values()]
-            fw = sum(v["1"][0] == "W" for v in pairs.values())
-            deltas += fd; sw += fw; aw += sum(v["0"][0] == "W" for v in pairs.values())
-            per.append("f%s %d/%d %+.0f" % (field, fw, len(fd), statistics.median(fd)))
-        print("%-22s %3d/%d vs %3d · %+5.1f   %s" % (name, sw, len(deltas), aw, statistics.median(deltas), "  ".join(per)))
+    p.add_argument('--real', action='store_true', help='measure current unpatched Core with all experimental switches off')
+    p.add_argument('--compare-j', action='store_true', help='assert full per-battle parity against the pinned J experiment')
+    p.add_argument('--reference-revision', default='eeaf901')
+    a = p.parse_args()
+    a.variants = a.variants or ("frost-now" if a.real else ",".join(VARIANTS))
+    print('frost role: paired, independent seeds; current Core' if a.real else 'frost role: pinned experimental reference', flush=True)
+    exe = build(a.real, a.reference_revision)
+    if a.compare_j:
+        if not a.real:
+            p.error('--compare-j requires --real')
+        reference = build(False, a.reference_revision)
+        expected = measure(reference, 3, a.fields, a.modes, a.seeds, VARIANTS['J F+brittle35+int0.8'][1])
+        actual = measure(exe, 3, a.fields, a.modes, a.seeds, {})
+        Path(OUT, 'j-reference.json').write_text(json.dumps(expected, indent=2)+'\n', encoding='utf-8')
+        Path(OUT, 'j-real.json').write_text(json.dumps(actual, indent=2)+'\n', encoding='utf-8')
+        describe('J reference', expected); describe('current real', actual)
+        if actual != expected:
+            raise RuntimeError('J per-battle parity failed (outcome/peak/gold/slot)')
+        print('PASS exact J parity: all paired rows (no game-source patch)', flush=True)
+    else:
+        raw = {}
+        for name in a.variants.split(','):
+            swap, knobs = VARIANTS[name]
+            if a.real and knobs:
+                p.error('--real accepts only variants without experimental switches')
+            raw[name] = measure(exe, swap, a.fields, a.modes, a.seeds, knobs)
+            describe(name, raw[name])
+        Path(OUT, 'real-rows.json' if a.real else 'reference-rows.json').write_text(json.dumps(raw, indent=2)+'\n', encoding='utf-8')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

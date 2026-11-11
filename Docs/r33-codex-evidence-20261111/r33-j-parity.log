@@ -1,0 +1,4 @@
+frost role: paired, independent seeds; current Core
+J reference             96/96 vs  96 ·  +0.0   f0 24/24 +1  f1 24/24 -1  f2 24/24 -2  f3 24/24 +0
+current real            96/96 vs  96 ·  +0.0   f0 24/24 +1  f1 24/24 -1  f2 24/24 -2  f3 24/24 +0
+PASS exact J parity: all paired rows (no game-source patch)
