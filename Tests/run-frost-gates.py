@@ -33,17 +33,19 @@ CANDIDATES = collections.OrderedDict([
 ])
 
 
-def build_wave():
+def build_wave(real=False):
     os.makedirs(OUT, exist_ok=True)
     text = (runtime.ROOT/'Assets/Scripts/Core/Battle.cs').read_text(encoding='utf-8-sig')
-    for old, new in role.PATCH + [INTERVAL]:
-        if text.count(old) != 1:
-            sys.exit("Battle.cs changed; update patch for: " + old)
-        text = text.replace(old, new)
-    text = text.replace("namespace EmberBastion {", role.PROBE[:-2] + EXTRA, 1)
-    copy = OUT/'Battle.cs'; copy.write_text(text, encoding='utf-8')
+    if not real:
+        text = subprocess.check_output(['git', 'show', 'eeaf901:Assets/Scripts/Core/Battle.cs'], cwd=runtime.ROOT).decode('utf-8-sig')
+        for old, new in role.PATCH + [INTERVAL]:
+            if text.count(old) != 1:
+                sys.exit("Battle.cs changed; update patch for: " + old)
+            text = text.replace(old, new)
+        text = text.replace("namespace EmberBastion {", role.PROBE[:-2] + EXTRA, 1)
+    copy = OUT/('BattleReal.cs' if real else 'BattleReference.cs'); copy.write_text(text, encoding='utf-8')
     src = [runtime.ROOT/'Assets/Scripts/Core/Balance.cs', copy, runtime.ROOT/'Assets/Scripts/Core/CombatSave.cs', HERE/'GameplayDurationProbe.cs', HERE/'WaveCounterProbe.cs']
-    return runtime.compile_exe(OUT/'WaveCounterFrost.exe', src, 'WaveCounterProbe')
+    return runtime.compile_exe(OUT/('WaveCounterReal.exe' if real else 'WaveCounterReference.exe'), src, 'WaveCounterProbe')
 
 
 def slot_value(exe, knobs):
@@ -78,12 +80,16 @@ def dominance(exe, knobs):
 
 def main():
     p = argparse.ArgumentParser(); p.add_argument("--candidates", default=",".join(CANDIDATES)); a = p.parse_args()
-    role_exe = role.build(False, "HEAD"); wave_exe = build_wave()
+    names = a.candidates.split(',')
+    real_role = role.build(True) if 'now' in names else None
+    real_wave = build_wave(True) if 'now' in names else None
+    role_exe = role.build(False, "eeaf901") if any(name != 'now' for name in names) else None
+    wave_exe = build_wave() if any(name != 'now' for name in names) else None
     print("candidate                   1 frost: wins·median | mixed+2 / bomb+2 median vs mixed | frost-only base wins | gates a b c", flush=True)
-    for name in a.candidates.split(','):
+    for name in names:
         knobs = CANDIDATES[name]
-        w, n, d = slot_value(role_exe, knobs)
-        ga, gb, gc, solo, m2, b2 = dominance(wave_exe, knobs)
+        w, n, d = slot_value(real_role if name == 'now' else role_exe, knobs)
+        ga, gb, gc, solo, m2, b2 = dominance(real_wave if name == 'now' else wave_exe, knobs)
         print("%-27s %3d/%d · %+4.1f      | %+5.1f / %+5.1f                    | %2d/32                | %s %s %s" % (
             name, w, n, d, m2, b2, solo, *("P" if g else "F" for g in (ga, gb, gc))), flush=True)
 

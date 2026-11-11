@@ -66,7 +66,7 @@ with (folder / 'r32-slot-summary.csv').open('w', encoding='utf-8', newline='') a
 report = dict(rules=4, fields=4, difficulties=3, seeds=sorted(SEEDS), target_levels=[1, 2, 3],
               replacement_kinds=[0, 2, 3, 4], paired_cases=len(pairs), csv_rows=len(rows),
               unique_simulations=len(simulations), cached_control_rows=sum(r['cache_hit'] == '1' for r in rows),
-              stalled=0, core_unchanged_since='cb24a2b',
+              stalled=0,
               aggregate=[dict(kind=k, level=l, **summarize(v)) for (k, l), v in sorted(aggregates.items())],
               source_sha256={str(p.relative_to(root)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
                              for p in sorted((root / 'Assets/Scripts/Core').glob('*.cs'))})
