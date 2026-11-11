@@ -1,0 +1,9 @@
+frost-link probe, real engine rules 4 (wins/battles·median peak·median gold·took frost card)
+field 0 mode 0  bomb:8/8·74·676G·0%  mixed:8/8·77·184G·0%  mixedFrost:8/8·81·178G·100%  mixedFrostNo:8/8·80·178G·0%  archerFrost:8/8·87·185G·100%  archerFrostNo:8/8·84·182G·0%  swordFrost:8/8·86·185G·100%  swordFrostNo:8/8·83·226G·0%
+field 0 mode 1  bomb:8/8·66·372G·0%  mixed:8/8·64·192G·0%  mixedFrost:8/8·76·234G·100%  mixedFrostNo:8/8·70·234G·0%  archerFrost:0/8·100·38G·100%  archerFrostNo:0/8·100·24G·0%  swordFrost:7/8·92·152G·100%  swordFrostNo:8/8·78·166G·0%
+field 1 mode 0  bomb:8/8·70·932G·0%  mixed:8/8·72·433G·0%  mixedFrost:8/8·80·372G·100%  mixedFrostNo:8/8·80·431G·0%  archerFrost:0/8·100·40G·100%  archerFrostNo:0/8·100·36G·0%  swordFrost:5/8·98·487G·100%  swordFrostNo:7/8·90·586G·0%
+field 1 mode 1  bomb:8/8·76·632G·0%  mixed:8/8·71·178G·0%  mixedFrost:8/8·87·159G·100%  mixedFrostNo:8/8·79·173G·0%  archerFrost:0/8·100·7G·100%  archerFrostNo:0/8·100·16G·0%  swordFrost:0/8·100·19G·87%  swordFrostNo:0/8·100·20G·0%
+field 2 mode 0  bomb:8/8·54·1192G·0%  mixed:8/8·58·636G·0%  mixedFrost:8/8·64·631G·87%  mixedFrostNo:8/8·63·631G·0%  archerFrost:8/8·68·386G·100%  archerFrostNo:8/8·71·518G·0%  swordFrost:8/8·68·746G·100%  swordFrostNo:8/8·64·786G·0%
+field 2 mode 1  bomb:8/8·54·934G·0%  mixed:8/8·56·375G·0%  mixedFrost:8/8·72·370G·75%  mixedFrostNo:8/8·70·370G·0%  archerFrost:0/8·100·26G·100%  archerFrostNo:0/8·100·22G·0%  swordFrost:8/8·88·485G·100%  swordFrostNo:8/8·84·600G·0%
+field 3 mode 0  bomb:8/8·52·1144G·0%  mixed:8/8·50·547G·0%  mixedFrost:8/8·56·542G·87%  mixedFrostNo:8/8·54·542G·0%  archerFrost:2/8·100·74G·100%  archerFrostNo:1/8·100·35G·0%  swordFrost:8/8·60·707G·100%  swordFrostNo:8/8·57·744G·0%
+field 3 mode 1  bomb:8/8·64·616G·0%  mixed:8/8·59·193G·0%  mixedFrost:8/8·68·188G·100%  mixedFrostNo:8/8·62·188G·0%  archerFrost:1/8·100·36G·100%  archerFrostNo:0/8·100·26G·0%  swordFrost:8/8·80·173G·100%  swordFrostNo:8/8·76·210G·0%
