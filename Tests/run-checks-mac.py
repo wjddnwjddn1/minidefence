@@ -50,9 +50,9 @@ MONO = os.path.join(MONO_ROOT, "bin", "mono")
 CSC = os.path.join(MONO_ROOT, "lib", "mono", "4.5", "csc.exe")
 
 
-def compile_exe(name, sources):
+def compile_exe(name, sources, flags=()):
     exe = os.path.join(BIN, name + ".exe")
-    r = subprocess.run([MONO, CSC, "-nologo", "-out:" + exe] + sources, capture_output=True, text=True)
+    r = subprocess.run([MONO, CSC, "-nologo", "-out:" + exe] + list(flags) + sources, capture_output=True, text=True)
     if r.returncode != 0:
         raise RuntimeError("compile failed: " + (r.stdout.strip().splitlines() or ["?"])[-1])
     return exe
@@ -119,10 +119,14 @@ def generic(script, name):
     if len(lines) != 1 or "ReadAllText" in text:
         raise RuntimeError("unsupported script shape; add a SPECIAL handler")
     sources = []
+    # `$core=Get-ChildItem .../Core -Filter *.cs` expands to every Core source (r30 scripts).
+    if re.search(r"\$core\b", lines[0]) and re.search(r"\$core=Get-ChildItem .*Core'\) -Filter \*\.cs", text):
+        sources += sorted(glob.glob(os.path.join(ROOT, "Assets/Scripts/Core", "*.cs")))
+    flags = ["-define:" + d for d in re.findall(r"/define:(\w+)", lines[0])]
     for base, rel in re.findall(r"Join-Path \$(\w+) '([^']+\.cs)'", lines[0]):
         rel = rel.replace("\\", "/")
         sources.append(os.path.join(ROOT if base in ("root", "projectRoot") else TESTS, rel))
-    exe = compile_exe(name, sources)
+    exe = compile_exe(name, sources, flags)
     run = re.search(r"^\s*& \$(?:output|out|exe)\b(.*)$", text, re.M)
     args = run.group(1).split() if run else []
     code, out, err = run_exe(exe, args)
