@@ -8,27 +8,15 @@ namespace EmberBastion {
  //    (later groups of the current wave, and the next wave's groups).
  public sealed partial class BattleView {
   const double SpawnLead=4;
-  struct GateForecast {public int Gate,Kind,Count;public int[] Kinds;public double Eta;}
-  readonly List<GateForecast> gateForecasts=new List<GateForecast>();
+  List<SpawnForecast.Entry> gateForecasts=new List<SpawnForecast.Entry>();
   readonly HashSet<string> spawnWarnLogged=new HashSet<string>();
-  void AddForecast(int gate,int kind,int count,double eta){
-   for(int i=0;i<gateForecasts.Count;i++){var f=gateForecasts[i];if(f.Gate!=gate)continue;if(eta<f.Eta){f.Eta=eta;f.Kind=kind;}f.Count+=count;f.Kinds[kind]+=count;gateForecasts[i]=f;return;}
-   var kinds=new int[Balance.Enemies.Length];kinds[kind]=count;gateForecasts.Add(new GateForecast{Gate=gate,Kind=kind,Count=count,Kinds=kinds,Eta=eta});}
   // Per kind, most numerous first: "횃불병 11 · 질주병 6".
-  static string ForecastKinds(GateForecast f){var parts=new List<string>();var used=new bool[f.Kinds.Length];for(int n=0;n<f.Kinds.Length;n++){int best=-1;for(int k=0;k<f.Kinds.Length;k++)if(!used[k]&&f.Kinds[k]>0&&(best<0||f.Kinds[k]>f.Kinds[best]))best=k;if(best<0)break;used[best]=true;parts.Add(Balance.Enemies[best].Name+" "+f.Kinds[best]);}return string.Join(" · ",parts.ToArray());}
-  void BuildForecasts(){
-   gateForecasts.Clear();
-   if(battle.ReinforcementPending)return;
-   if(battle.Phase==Phase.Preparation){if(battle.Wave<battle.WaveCount)foreach(var g in battle.WaveGroups(battle.Wave))AddForecast(g.Gate,g.Kind,battle.SpawnCount(g),-1);return;}
-   if(battle.Phase!=Phase.Fighting)return;
-   if(battle.Wave>=1)foreach(var g in battle.WaveGroups(battle.Wave-1)){double eta=g.Delay-battle.WaveTime;if(eta>0&&eta<=SpawnLead)AddForecast(g.Gate,g.Kind,battle.SpawnCount(g),eta);}
-   double next=battle.NextWaveIn;
-   if(battle.Wave<battle.WaveCount&&next>0)foreach(var g in battle.WaveGroups(battle.Wave)){double eta=next+g.Delay;if(eta<=SpawnLead)AddForecast(g.Gate,g.Kind,battle.SpawnCount(g),eta);}
-  }
+  static string ForecastKinds(SpawnForecast.Entry f){var parts=new List<string>();var used=new bool[f.Kinds.Length];for(int n=0;n<f.Kinds.Length;n++){int best=-1;for(int k=0;k<f.Kinds.Length;k++)if(!used[k]&&f.Kinds[k]>0&&(best<0||f.Kinds[k]>f.Kinds[best]))best=k;if(best<0)break;used[best]=true;parts.Add(Balance.Enemies[best].Name+" "+f.Kinds[best]);}return string.Join(" · ",parts.ToArray());}
+  void BuildForecasts(){gateForecasts=SpawnForecast.Build(battle,SpawnLead);if(WarningFixture){var rows=new List<string>();foreach(var f in gateForecasts)rows.Add(f.Gate+","+f.Eta.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+","+f.Count);string row=battle.Wave+"|"+string.Join(";",rows.ToArray());if(debugRibbonLogged.Add("forecast|"+row))Debug.Log("FORECAST_STATE|"+row);}}
   Point GatePoint(int gate){double d=battle.Field.Gates[gate];return battle.FieldIndex==0?Balance.Path(d):battle.Field.Path(d);}
   void SpawnWarnings(){
    if(battle.Phase!=Phase.Preparation&&battle.Phase!=Phase.Fighting)return;
-   if(branchMenu||toolsMenu||fieldMenu||guideMenu)return;
+   if(branchMenu||toolsMenu||fieldMenu||guideMenu||menuSlot>=0||battle.ReinforcementPending)return;
    BuildForecasts();if(gateForecasts.Count==0)return;
    float boardWidth=1280*scale,boardHeight=768*scale;
    foreach(var f in gateForecasts){
@@ -40,11 +28,11 @@ namespace EmberBastion {
     for(int i=0;i<dots;i++){float a=i*Mathf.PI*2/dots,dx=cx+Mathf.Cos(a)*r,dy=cy+Mathf.Sin(a)*r;Box(new Rect(dx-dot/2-1.5f,dy-dot/2-1.5f,dot+3,dot+3),edge);Box(new Rect(dx-dot/2,dy-dot/2,dot,dot),ring);}
     string line=(soon?Mathf.CeilToInt((float)f.Eta)+"초 · ":(battle.Wave+1)+"웨이브 · ")+ForecastKinds(f);
     int prior=hud.fontSize;TextAnchor align=hud.alignment;hud.fontSize=Screen.width<480?11:13;hud.alignment=TextAnchor.MiddleCenter;
-    float w=MeasureText(hud,line).x+14,h=20;float x=Mathf.Clamp(cx-w/2,ox+2,ox+boardWidth-w-2),y=cy-r-h-2;if(y<oy+2)y=cy+r+2;y=Mathf.Clamp(y,oy+2,oy+boardHeight-h-2);
-    Box(new Rect(x,y,w,h),soon?new Color(.35f,.06f,.04f,.92f):new Color(.12f,.1f,.04f,.85f));GUI.Label(new Rect(x,y+1,w,h-2),line,hud);
+    bool oldWrap=hud.wordWrap;hud.wordWrap=true;float maxWidth=Mathf.Max(80,boardWidth-8),w=Mathf.Min(MeasureText(hud,line).x+14,maxWidth),h=Mathf.Clamp(hud.CalcHeight(new GUIContent(line),w-12)+4,20,56);Rect label=PlaceWarning(new Rect(cx-w/2,cy-r-h-2,w,h));
+    if(label.width>0){ReserveWarning("spawn-"+f.Gate+"-"+f.Eta.ToString("F1",System.Globalization.CultureInfo.InvariantCulture),label);Box(label,soon?new Color(.35f,.06f,.04f,.92f):new Color(.12f,.1f,.04f,.85f));GUI.Label(new Rect(label.x+6,label.y+2,label.width-12,label.height-4),line,hud);}hud.wordWrap=oldWrap;
     hud.fontSize=prior;hud.alignment=align;
-    if(soon&&Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&spawnWarnLogged.Add(battle.Wave+"|"+f.Gate+"|"+Mathf.CeilToInt((float)(battle.Time+f.Eta))))
-     Debug.Log("SPAWN_WARN|"+battle.Wave+"|"+f.Gate+"|"+f.Eta.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+"|"+f.Kind+"|"+f.Count);
+    if(soon&&Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&spawnWarnLogged.Add(battle.Wave+"|"+f.Gate+"|"+(battle.Time+f.Eta).ToString("F2",System.Globalization.CultureInfo.InvariantCulture)))
+     Debug.Log("SPAWN_WARN|"+battle.Wave+"|"+f.Gate+"|"+f.Eta.ToString("F1",System.Globalization.CultureInfo.InvariantCulture)+"|"+f.Kind+"|"+f.Count+"|"+ForecastKinds(f));
    }
   }
  }

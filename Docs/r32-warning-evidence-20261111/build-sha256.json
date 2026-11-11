@@ -1,0 +1,8 @@
+{
+  "Tests/bin/TacticalCandidate/EmberBastion_Data/Managed/Assembly-CSharp.dll": "f9e1a3fcae0c508b673e41617b1148945ea2a374900de54bd7f283782b1fe398",
+  "Builds/Playable/EmberBastion_Data/Managed/Assembly-CSharp.dll": "d62eb80b390ee185f8b01d6a75553ed43ddf177afe0e947f920fd3af4ac47e12",
+  "Tests\\bin\\TacticalWeb\\Build\\TacticalWeb.data": "84e22dc85c6671ca10f657b7de76b1ae7ea8ae7e7237851f9d96edb2530c4627",
+  "Tests\\bin\\TacticalWeb\\Build\\TacticalWeb.framework.js": "92128fae36be4af0575ba270c6dcab8015cc883cd6d5a00317d32ffb1bfcc2c4",
+  "Tests\\bin\\TacticalWeb\\Build\\TacticalWeb.loader.js": "efbf204a8b93828435ff27cd1af24280cdfb1c834640fabd3facfa2658f06e85",
+  "Tests\\bin\\TacticalWeb\\Build\\TacticalWeb.wasm": "8b1983266c32aaedcc7663ef30f266db0eafcbd91970894e0cfbaa5b1d624a16"
+}

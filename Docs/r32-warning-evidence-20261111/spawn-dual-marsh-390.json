@@ -1,0 +1,119 @@
+{
+  "messages": [
+    "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "[UnityCache] 'http://127.0.0.1:8804/Build/TacticalWeb.data' successfully downloaded and stored in the browser cache",
+    "[UnityMemory] Configuration Parameters - Can be set up in boot.config",
+    "\"memorysetup-bucket-allocator-granularity=16\"",
+    "\"memorysetup-bucket-allocator-bucket-count=8\"",
+    "\"memorysetup-bucket-allocator-block-size=4194304\"",
+    "\"memorysetup-bucket-allocator-block-count=1\"",
+    "\"memorysetup-main-allocator-block-size=16777216\"",
+    "\"memorysetup-thread-allocator-block-size=16777216\"",
+    "\"memorysetup-main-allocator-mimalloc-enabled=1\"",
+    "\"memorysetup-gfx-main-allocator-block-size=16777216\"",
+    "\"memorysetup-gfx-thread-allocator-block-size=16777216\"",
+    "\"memorysetup-cache-allocator-block-size=4194304\"",
+    "\"memorysetup-typetree-allocator-block-size=2097152\"",
+    "\"memorysetup-profiler-bucket-allocator-granularity=16\"",
+    "\"memorysetup-profiler-bucket-allocator-bucket-count=8\"",
+    "\"memorysetup-profiler-bucket-allocator-block-size=4194304\"",
+    "\"memorysetup-profiler-bucket-allocator-block-count=1\"",
+    "\"memorysetup-profiler-allocator-block-size=16777216\"",
+    "\"memorysetup-profiler-editor-allocator-block-size=1048576\"",
+    "\"memorysetup-temp-allocator-size-main=4194304\"",
+    "\"memorysetup-job-temp-allocator-block-size=2097152\"",
+    "\"memorysetup-job-temp-allocator-block-size-background=1048576\"",
+    "\"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"",
+    "\"memorysetup-temp-allocator-size-background-worker=32768\"",
+    "\"memorysetup-allocator-temp-initial-block-size-main=262144\"",
+    "\"memorysetup-allocator-temp-initial-block-size-worker=262144\"",
+    "\"memorysetup-temp-allocator-size-audio-worker=65536\"",
+    "\"memorysetup-remapper-allocator-initial-capacity=32768\"",
+    "CodeReloadManager initialized",
+    "Found NO interfaces on host .",
+    "Loading player data from data.unity3d",
+    "Initialize engine version: 6000.6.7f1 (b22767f04f04)",
+    "[EntityIdStore] init: page-table path, blockCount=262144, entitiesPerBlock=1024, top-level=2097152 bytes, sizeof(Block)=16512 (lazily allocated per committed block)",
+    "Creating WebGL 2.0 context.",
+    "Renderer: WebKit WebGL",
+    "Vendor:   WebKit",
+    "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))",
+    "GLES:     3",
+    "EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_clip_cull_distance GL_WEBGL_co",
+    "mpressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode",
+    "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1",
+    "Input Manager initialize...",
+    "UnloadTime: 0.800000 ms",
+    "SLOT_FIXTURE_READY",
+    "WARNING_FIXTURE|dual|3|3|31",
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.",
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.",
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.",
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.",
+    "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.",
+    "SLOT_VIEW|0.5833333|106.666687|80",
+    "REVIEW_STATE|4|Fighting|3|95.0|1000|5|",
+    "FORECAST_STATE|3|0,4.000,1;1,1.000,20",
+    "SPAWN_WARN|3|0|4.0|4|1|고블린 대장 1",
+    "SPAWN_WARN|3|1|1.0|1|20|질주병 20",
+    "WARN_READ_ONLY",
+    "WARN_LAYOUT|hud,0.00,0.00,960.00,72.00;controls,0.00,536.00,960.00,64.00;wave,320.00,85.00,320.00,36.00;spawn-0-4.0,157.96,107.69,121.41,23.01;spawn-1-1.0,690.73,405.38,101.21,23.01",
+    "WARN_LAYOUT|hud,0.00,0.00,960.00,72.00;controls,0.00,536.00,960.00,64.00;wave,320.00,85.00,320.00,36.00;spawn-0-4.0,157.96,106.29,121.41,23.01;spawn-1-1.0,690.73,402.73,101.21,23.01",
+    "SLOT_VIEW|0.2921875|8|313.8",
+    "WARN_LAYOUT|hud,0.00,0.00,390.00,72.00;controls,0.00,780.00,390.00,64.00;wave,35.00,318.80,320.00,36.00;spawn-0-4.0,11.66,368.19,104.88,21.01;spawn-1-1.0,282.01,461.79,87.79,21.01",
+    "Audio context resumed after 2.454 seconds."
+  ],
+  "errors": [],
+  "rects": [
+    {
+      "name": "hud",
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 72
+    },
+    {
+      "name": "controls",
+      "x": 0,
+      "y": 780,
+      "w": 390,
+      "h": 64
+    },
+    {
+      "name": "wave",
+      "x": 35,
+      "y": 318.8,
+      "w": 320,
+      "h": 36
+    },
+    {
+      "name": "spawn-0-4.0",
+      "x": 11.66,
+      "y": 368.19,
+      "w": 104.88,
+      "h": 21.01
+    },
+    {
+      "name": "spawn-1-1.0",
+      "x": 282.01,
+      "y": 461.79,
+      "w": 87.79,
+      "h": 21.01
+    }
+  ],
+  "forecast": {
+    "wave": 3,
+    "entries": [
+      [
+        0,
+        4,
+        1
+      ],
+      [
+        1,
+        1,
+        20
+      ]
+    ]
+  }
+}
