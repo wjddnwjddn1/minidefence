@@ -82,6 +82,18 @@ class ExpeditionProbe {
      }}
     return 0;
    }
+   if(command=="order"){
+    // whole runs in each of the six field orders: does the order change how a run ends?
+    int[][] orders={new[]{1,2,3},new[]{1,3,2},new[]{2,1,3},new[]{2,3,1},new[]{3,1,2},new[]{3,2,1}};
+    Console.WriteLine("order,skill,seed,result,cleared,warmth,losses");
+    foreach(var order in orders)foreach(int skill in new[]{1,2})for(uint seed=1;seed<=seeds;seed++){
+     var run=Expedition.Start(seed*7919);string losses="";
+     while(run.State==Expedition.Status.Battle){var b=run.CreateBattle();int before=run.Warmth,laps,boss;Policy.Play(b,skill,out laps,out boss);if(!run.Complete(b))throw new Exception("complete failed");losses+=(losses.Length>0?"/":"")+(before-run.Warmth);
+      if(run.State==Expedition.Status.Camp&&!run.Choose(Policy.Camp(run,1),order[run.Stage]))throw new Exception("choose failed");}
+     Console.WriteLine(""+order[0]+order[1]+order[2]+","+skill+","+seed+","+run.State+","+run.ClearedStages+","+run.Warmth+","+losses);
+    }
+    return 0;
+   }
    if(command=="build"){
     // three-boon builds a run can end with, against every army shape: does a build have its own best army?
     string[] names={"none","swordBuild","archerBuild","powderBuild","frostBuild","smithBuild"};

@@ -1,4 +1,4 @@
-param([ValidateSet('laps','run','doctrine','build')][string]$Command='run',[ValidateRange(1,64)][int]$Seeds=8,[string]$Out='')
+param([ValidateSet('laps','run','doctrine','build','order')][string]$Command='run',[ValidateRange(1,64)][int]$Seeds=8,[string]$Out='')
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
 $compiler=Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
