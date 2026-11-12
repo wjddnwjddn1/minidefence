@@ -16,4 +16,9 @@ export const entries = [
   ['TrailArrow', 'projectiles/eb-trail', {}],
   ['TrailPowder', 'projectiles/eb-trail', { mode: 'powder', palette: ['#211512','#9b3717','#ef7a22','#ffdb75'] }],
   ['TrailFrost', 'projectiles/eb-trail', { mode: 'frost', palette: ['#111d37','#3668a1','#75c5ed','#dbf8ff'] }],
+  ['SkillSword', 'melee/eb-skill-rift', {}],
+  ['SkillArrow', 'projectiles/eb-skill', { mode: 'pierce' }],
+  ['SkillPowder', 'projectiles/eb-skill', { mode: 'blast', palette: ['#251710','#853a23','#ef8430','#fff3b4'] }],
+  ['SkillFrost', 'projectiles/eb-skill', { mode: 'frost', palette: ['#141c38','#37669c','#81d5f8','#e5fcff'] }],
+  ['SkillForge', 'projectiles/eb-skill', { mode: 'forge', palette: ['#132a24','#305c50','#71c683','#e3f8bc'] }],
 ];

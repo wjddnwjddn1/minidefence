@@ -1,0 +1,237 @@
+{
+ "frames": [
+  {
+   "filename": "SkillPowder 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 1",
+   "frame": {
+    "x": 196,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 2",
+   "frame": {
+    "x": 392,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 3",
+   "frame": {
+    "x": 0,
+    "y": 144,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 4",
+   "frame": {
+    "x": 196,
+    "y": 144,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 5",
+   "frame": {
+    "x": 392,
+    "y": 144,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 6",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 7",
+   "frame": {
+    "x": 196,
+    "y": 288,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  },
+  {
+   "filename": "SkillPowder 8",
+   "frame": {
+    "x": 392,
+    "y": 288,
+    "w": 196,
+    "h": 144
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 196,
+    "h": 144
+   },
+   "sourceSize": {
+    "w": 196,
+    "h": 144
+   },
+   "duration": 56
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "SkillPowder.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 588,
+   "h": 432
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "SkillPowder",
+    "from": 0,
+    "to": 8,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "projectiles/eb-skill",
+   "name": "Ember Bastion skill burst",
+   "fps": 18,
+   "loop": false,
+   "frames": 9,
+   "frameSize": [
+    196,
+    144
+   ],
+   "pivot": [
+    58,
+    72
+   ],
+   "columns": 3
+  }
+ }
+}
