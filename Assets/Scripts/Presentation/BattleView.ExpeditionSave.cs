@@ -12,9 +12,12 @@ namespace EmberBastion {
    try{
     if(PlayerPrefs.HasKey(ExpeditionSessionKey)){
      data=JsonUtility.FromJson<ExpeditionSessionData>(PlayerPrefs.GetString(ExpeditionSessionKey));
+     if(DiscardPreDoctrineRun(data?.run,ExpeditionSessionKey))return;
      var restored=ExpeditionSession.Restore(data,DecodeRunCombat,DecodeRunPreparation);expedition=restored.Run;expeditionSavedBattle=restored.Battle;expeditionSavedSpeed=restored.Speed;campDoctrineCounts=data.campDoctrineCounts;
     }else if(PlayerPrefs.HasKey(ExpeditionKey)){
-     expedition=Expedition.Restore(JsonUtility.FromJson<ExpeditionData>(PlayerPrefs.GetString(ExpeditionKey)));
+     var legacy=JsonUtility.FromJson<ExpeditionData>(PlayerPrefs.GetString(ExpeditionKey));
+     if(DiscardPreDoctrineRun(legacy,ExpeditionKey))return;
+     expedition=Expedition.Restore(legacy);
      // Old run-only saves cannot prove whether this stage was already started. Never grant a fresh retry.
      if(expedition.State==Expedition.Status.Battle){expedition.Abandon();notice="이전 원정은 전투 저장이 없어 종료 처리했습니다.";RecordExpeditionBest(expedition);}
      SaveExpedition();
@@ -24,6 +27,13 @@ namespace EmberBastion {
     try{expedition=data==null?null:Expedition.Restore(data.run);if(expedition!=null&&expedition.State==Expedition.Status.Battle){expedition.Abandon();RecordExpeditionBest(expedition);SaveExpedition();}}catch(Exception){expedition=null;}
     notice="원정 저장이 손상되어 전장을 처음부터 다시 시작하지 않습니다.";
    }
+  }
+  bool DiscardPreDoctrineRun(ExpeditionData run,string key){
+   if(run==null||run.version!=1||run.boons==null||run.boons.Length!=9)return false;
+   PlayerPrefs.DeleteKey(key);
+   PlayerPrefs.Save();
+   notice="교리 추가 전의 원정 저장입니다. 새 원정을 시작할 수 있습니다.";
+   return true;
   }
   bool RefreshExpeditionCheckpoint(){
    if(expeditionSavedBattle!=null||!PreferencesAllowed()||!PlayerPrefs.HasKey(ExpeditionSessionKey))return true;

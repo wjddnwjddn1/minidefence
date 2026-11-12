@@ -16,6 +16,23 @@ namespace EmberBastion {
   internal void ReviewRunComplete(){UpdateExpedition();}
   internal void ReviewRunChoose(int boon){if(!expedition.Choose(boon))throw new Exception("Camp choice failed");OpenExpeditionBattle();SimulationSpeed=0;}
   internal void ReviewRunAbandon(){AbandonExpedition();}
+  internal void ReviewPreDoctrineSaves(){
+   var old=Expedition.Start(29).Export();
+   old.boons=new int[9];
+   foreach(string key in new[]{ExpeditionSessionKey,ExpeditionKey}){
+    PlayerPrefs.DeleteKey(ExpeditionSessionKey);
+    PlayerPrefs.DeleteKey(ExpeditionKey);
+    string payload=key==ExpeditionSessionKey?JsonUtility.ToJson(new ExpeditionSessionData{run=old}):JsonUtility.ToJson(old);
+    PlayerPrefs.SetString(key,payload);PlayerPrefs.Save();
+    expedition=null;expeditionSavedBattle=null;expeditionLoaded=false;
+    LoadExpedition();
+    if(expedition!=null||PlayerPrefs.HasKey(key)||!notice.Contains("교리 추가 전"))throw new Exception("Pre-doctrine expedition was not cleared: "+key);
+    expeditionLoaded=false;LoadExpedition();
+    if(expedition!=null)throw new Exception("Pre-doctrine run returned after a second load");
+   }
+   StartExpedition(30);
+   if(expedition==null||expedition.State!=Expedition.Status.Battle||expedition.Seed!=30)throw new Exception("New run unavailable after pre-doctrine cleanup");
+  }
   internal void ReviewRunForget(){expedition=null;expeditionSavedBattle=null;expeditionLoaded=false;PlayerPrefs.DeleteAll();PlayerPrefs.Save();}
 #endif
  }

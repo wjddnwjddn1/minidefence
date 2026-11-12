@@ -20,7 +20,19 @@ namespace EmberBastion {
    // Sword cuts also travel: ground streaks run from the swordsman towards the target (r42, user request). Display only.
    if(kind==0&&age>=.1f){var rift=AttackFx(branch==1?"SwordRiftWide":"SwordRift");if(rift!=null){float px=(float)v.Cue.Position.X,py=(float)v.Cue.Position.Y+14,tx=(float)v.Cue.Destination.X-px,ty=(float)v.Cue.Destination.Y-py;float angle=tx*tx+ty*ty<1?(v.Cue.Facing<0?180:0):Mathf.Atan2(ty,tx)*Mathf.Rad2Deg;px+=Mathf.Cos(angle*Mathf.Deg2Rad)*34;py+=Mathf.Sin(angle*Mathf.Deg2Rad)*34;int rf=Mathf.Min(rift.data.frames.Length-1,(int)((age-.1f)/.32f*rift.data.frames.Length));var rr=rift.data.frames[rf].frame;var rp=rift.data.meta.pixelfx.pivot;float rk=1f;Matrix4x4 riftMatrix=GUI.matrix;Color riftColor=GUI.color;GUI.matrix=riftMatrix*Matrix4x4.TRS(new Vector3(px,py,0),Quaternion.Euler(0,0,angle),Vector3.one)*Matrix4x4.Translate(new Vector3(-px,-py,0));GUI.color=branch==1?new Color(.86f,.7f,1,riftColor.a):branch==2?new Color(1,.78f,.45f,riftColor.a):new Color(.75f,.9f,1,riftColor.a);TerrainView.Image(rift.texture,new Rect(px-rp[0]*rk,py-rp[1]*rk,rr.w*rk,rr.h*rk),rr.x,rr.y,rr.w,rr.h);GUI.color=riftColor;GUI.matrix=riftMatrix;}}
    Color before=GUI.color;if(kind==2)GUI.color=new Color(1,.7f,.3f,before.a);else if(kind==1&&branch==2)GUI.color=new Color(1,.6f,.45f,before.a);else if(kind==3&&branch==2)GUI.color=new Color(.8f,.6f,1,before.a);
-   Matrix4x4 matrix=GUI.matrix;if(v.Cue.Facing<0)GUIUtility.ScaleAroundPivot(new Vector2(-1,1),new Vector2(x,y));
+   Matrix4x4 matrix=GUI.matrix;
+   var release=new Vector3(x,y,0);
+   if(kind==0&&v.Cue.Facing<0){
+    GUI.matrix=matrix*Matrix4x4.TRS(release,Quaternion.identity,new Vector3(-1,1,1))*Matrix4x4.Translate(-release);
+   }else if(kind!=0){
+    float dx=(float)v.Cue.Destination.X-x,dy=(float)v.Cue.Destination.Y-y;
+    float angle=dx*dx+dy*dy<1?(v.Cue.Facing<0?180:0):Mathf.Atan2(dy,dx)*Mathf.Rad2Deg;
+    GUI.matrix=matrix*Matrix4x4.TRS(release,Quaternion.Euler(0,0,angle),Vector3.one)*Matrix4x4.Translate(-release);
+    if(review&&Event.current.type==EventType.Repaint){
+     if(Vector3.Distance(matrix.MultiplyPoint3x4(release),GUI.matrix.MultiplyPoint3x4(release))>.01f)Debug.LogError("LAUNCH_PIVOT_DRIFT");
+     if(debugRibbonLogged.Add("launch-angle|"+kind))Debug.Log("LAUNCH_ANGLE|"+kind+"|"+Mathf.RoundToInt(angle));
+    }
+   }
    TerrainView.Image(sheet.texture,new Rect(x-pivot[0]*k,y-pivot[1]*k,r.w*k,r.h*k),r.x,r.y,r.w,r.h);
    if(kind==1&&branch==1)TerrainView.Image(sheet.texture,new Rect(x-pivot[0]*k-8,y-pivot[1]*k-12,r.w*k,r.h*k),r.x,r.y,r.w,r.h);
    if(kind==3&&branch==1){Color ring=GUI.color;ring.a*=Mathf.Clamp01(1-age/duration);Ring(new Point(x,y),24+age*70,ring);}else if(kind==3&&branch==2){Box(new Rect(x-2,y-22,4,44),new Color(.8f,.65f,1,.8f));Box(new Rect(x-18,y-2,36,4),Color.white);}

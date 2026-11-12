@@ -26,5 +26,11 @@ const output=path.resolve(__dirname,'bin/presentation-evidence');fs.mkdirSync(ou
  await page.waitForTimeout(500);
  await page.screenshot({path:path.join(output,'skills.png')});assert(!errors.length);
  fs.writeFileSync(path.join(output,'skills.json'),JSON.stringify({logs,errors},null,2));
- console.log('PASS five skill effects and readiness preview');await context.close();
+ console.log('PASS five skill effects and readiness preview');
+ await load('fx-smoke=clock&fx-smoke=attack-review&attack-fx-review=1');
+ await wait(()=>logs.includes('PROJECTILE_FX|combat-state-unchanged')&&logs.filter(l=>l.startsWith('LAUNCH_ANGLE|')).length===3,'combat save and angled launches');
+ const angles=logs.filter(l=>l.startsWith('LAUNCH_ANGLE|')).map(l=>Number(l.split('|')[2]));
+ assert(angles.some(angle=>Math.abs(angle)>10&&Math.abs(angle)<90)&&angles.some(angle=>Math.abs(angle)>90&&Math.abs(angle)<175),'ranged launch did not follow its diagonal aim');
+ assert(!errors.length);
+ console.log('PASS combat save identical across drawing and launch anchors rotate towards the target');await context.close();
 }catch(e){console.error(e);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();

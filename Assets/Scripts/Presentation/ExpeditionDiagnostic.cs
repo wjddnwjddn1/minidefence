@@ -62,7 +62,8 @@ namespace EmberBastion {
    }
    try{File.WriteAllText(Path.Combine(folder,"natural-run.csv"),rows.ToString(),utf8);File.WriteAllText(Path.Combine(folder,"won-run.json"),JsonUtility.ToJson(view.ReviewRun.Export(),true),utf8);view.ReviewRunSave();
     view.ReviewRunStart(29);NativeExpeditionPolicy.Buy(view.SmokeState,2);view.ReviewRunStartWave();view.ReviewRunAbandon();Require(view.ReviewRun.State==Expedition.Status.Lost,"Abandon was not a loss");bool rejected=false;try{view.ReviewRunReload();}catch(Exception){rejected=true;}Require(rejected&&view.ReviewRun.State==Expedition.Status.Lost,"Abandoned run resumed");
-    File.WriteAllText(Path.Combine(folder,"PASS.txt"),"PASS actual Windows two-process PlayerPrefs cold resume, exact discrete/tolerant-double combat state, paused reload at every stage, natural-economy four-stage win, abandon persisted as loss. Automated policy; not human play or performance.",utf8);view.ReviewRunForget();Application.Quit(0);
+    view.ReviewPreDoctrineSaves();
+    File.WriteAllText(Path.Combine(folder,"PASS.txt"),"PASS actual Windows two-process PlayerPrefs cold resume, exact discrete/tolerant-double combat state, paused reload at every stage, natural-economy four-stage win, abandon persisted as loss, both pre-doctrine formats removed and new run available. Automated policy; not human play or performance.",utf8);view.ReviewRunForget();Application.Quit(0);
    }catch(Exception e){Fail(e);}
   }
   void Fail(Exception e){File.WriteAllText(Path.Combine(folder,"failure.txt"),e.ToString(),utf8);Debug.LogError(e);if(view!=null)view.ReviewRunForget();Application.Quit(1);}

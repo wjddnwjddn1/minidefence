@@ -59,7 +59,8 @@ namespace EmberBastion {
   }
   void DrawProjectileReview(){
    if(!Debug.isDebugBuild||Application.platform!=RuntimePlatform.WebGLPlayer||!Application.absoluteURL.Contains("fx-smoke=attack-review"))return;
-   string before=JsonUtility.ToJson(battle.SavePreparation());
+   bool fighting=battle.Phase==Phase.Fighting;
+   string before=fighting?JsonUtility.ToJson(battle.ExportCombat()):JsonUtility.ToJson(battle.SavePreparation());
    for(int kind=1;kind<=3;kind++){
     Point at=new Point(400+kind*175,340),target=new Point(at.X+100,at.Y-30);
     var sample=new Shot{Kind=kind,Target=-1,Position=at,Destination=target};
@@ -70,7 +71,8 @@ namespace EmberBastion {
    }
    DrawLandedArrow(new VisualCue{Cue=new Cue("arrow-land",new Point(1070,560)){Destination=new Point(1120,590)},Age=.2f});
    ProjectileReview("arrow-land");
-   if(before==JsonUtility.ToJson(battle.SavePreparation()))ProjectileReview("state-unchanged");
+   string after=fighting?JsonUtility.ToJson(battle.ExportCombat()):JsonUtility.ToJson(battle.SavePreparation());
+   if(before==after)ProjectileReview(fighting?"combat-state-unchanged":"state-unchanged");
    else Debug.LogError("PROJECTILE_DRAW_MUTATED_BATTLE");
   }
  }
