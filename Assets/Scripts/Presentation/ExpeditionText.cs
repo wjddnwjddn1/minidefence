@@ -4,6 +4,22 @@ namespace EmberBastion {
  public static class ExpeditionText {
   // Index order is Boon.* in Core: seven steady boons, seven doctrines, two camp-only boons.
   static readonly string[] names={"검술 교범","강궁","화약 개량","서리 결정","망원경","전리품 수레","전투 북","검진","속사","유폭","혹한","쇄빙","야전 대장간","불씨 방벽","불씨 살리기","군자금"};
+  // Skills (r43), by troop kind. ExpeditionTextChecks holds every number here to the Core constants.
+  static readonly string[] skillNames={"지면 칼바람","관통 화살","대폭발","서리 폭발","망치 신호"};
+  static readonly string[] skillEffects={
+   "기본 공격 4회마다 · 목표 방향 200 거리 한 줄의 적을 모두 벱니다",
+   "기본 공격 5회마다 · 화살이 한 줄의 적을 모두 꿰뚫고 피해 +50%",
+   "기본 공격 3회마다 · 폭발 반경 +50%, 피해 +25%",
+   "기본 공격 5회마다 · 맞은 적 주변을 0.8초 얼립니다",
+   "8초마다 · 지원 범위의 병력이 곧바로 한 번 더 공격합니다",
+  };
+  public static string SkillName(int troopKind){return skillNames[troopKind];}
+  public static string SkillEffect(int troopKind){return skillEffects[troopKind];}
+  // Roads to the next field (r43), by Expedition.Road*. ExpeditionTextChecks holds the numbers to the Core constants.
+  static readonly string[] roadNames={"평탄한 길","보급로","험로"};
+  static readonly string[] roadEffects={"변화 없음","시작 골드 +100 · 온기 -6","온기 +15 · 적 체력 한 단계 더"};
+  public static string RoadName(int road){return roadNames[road];}
+  public static string RoadEffect(int road){return roadEffects[road];}
   static readonly string[] effects={
    "검사 피해 +15%",
    "궁수 피해 +15%",

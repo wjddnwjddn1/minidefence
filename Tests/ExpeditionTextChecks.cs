@@ -27,6 +27,18 @@ class ExpeditionTextChecks {
   Has(Boon.FieldForge,"+"+Pct(Boon.ForgeDamage));
   Has(Boon.EmberWard,Boon.PointsPerWarmth+"바퀴",(Boon.PointsPerWarmth+Boon.WardPoints)+"바퀴");
   Has(Boon.Rekindle,"+"+Boon.RekindleWarmth);Has(Boon.WarChest,"+"+Boon.WarChestGold);
-  Console.WriteLine("PASS "+checks+" expedition text checks: every boon's card matches its rule");
+  // skills (r43)
+  for(int kind=0;kind<5;kind++){Check(ExpeditionText.SkillName(kind).Length>0,"skill "+kind+" has a name");string say=ExpeditionText.SkillEffect(kind);
+   if(kind<4)Check(say.StartsWith("기본 공격 "+Boon.SkillEvery(kind)+"회마다"),"skill "+kind+" says how often: "+say);else Check(say.StartsWith(Boon.ForgeEvery.ToString(CultureInfo.InvariantCulture)+"초마다"),"smith skill says how often: "+say);
+   for(int other=0;other<kind;other++)Check(ExpeditionText.SkillName(other)!=ExpeditionText.SkillName(kind),"skill names are unique");}
+  Check(ExpeditionText.SkillEffect(0).Contains(Boon.RiftLength.ToString(CultureInfo.InvariantCulture)+" 거리")&&Boon.RiftDamage==1,"rift text");
+  Check(ExpeditionText.SkillEffect(1).Contains("+"+Pct(Boon.PierceDamage)),"pierce text");
+  Check(ExpeditionText.SkillEffect(2).Contains("반경 +"+Pct(Boon.BigBlastRadius))&&ExpeditionText.SkillEffect(2).Contains("피해 +"+Pct(Boon.BigBlastDamage)),"blast text");
+  Check(ExpeditionText.SkillEffect(3).Contains(Boon.NovaFreeze.ToString(CultureInfo.InvariantCulture)+"초"),"nova text");
+  // roads (r43)
+  for(int road=0;road<3;road++)Check(ExpeditionText.RoadName(road).Length>0&&ExpeditionText.RoadEffect(road).Length>0,"road "+road+" has words");
+  Check(ExpeditionText.RoadEffect(Expedition.RoadSupply).Contains("+"+Expedition.SupplyGold)&&ExpeditionText.RoadEffect(Expedition.RoadSupply).Contains("-"+Expedition.SupplyWarmth),"supply road text");
+  Check(ExpeditionText.RoadEffect(Expedition.RoadHard).Contains("+"+Expedition.HardWarmth),"hard road text");
+  Console.WriteLine("PASS "+checks+" expedition text checks: every boon's card, every skill and every road matches its rule");
  }
 }

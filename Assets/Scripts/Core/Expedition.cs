@@ -9,6 +9,8 @@ namespace EmberBastion {
 
  [Serializable] public sealed class ExpeditionData {
   public int version=1,stage,warmth,state,kills,pendingGold,grade;public bool abandonedCamp;
+  // True for runs started with roads (r43). Runs saved before that keep plain roads, so their battles still match.
+  public bool roads;
   // Fields in the order this run takes them (r40). Empty in saves made before the route choice: those follow the story order.
   public int[] route;
   public uint seed,randomState;
@@ -29,13 +31,35 @@ namespace EmberBastion {
   public Status State {get;private set;}
   bool abandonedCamp;uint randomState;readonly int[] boons=new int[Boon.Count];int[] offered=new int[0];readonly int[] peaks=new int[Route.Length];readonly int[] route={Route[0],-1,-1,-1};
   Expedition(){}
+  // Roads (r41/r43): the way to each field offered at a camp is plain, a supply road or a hard road, so that the choice
+  // of the next field is a trade and not only an order. Supply road: more gold for the battle, the detour costs warmth.
+  // Hard road: the enemy is one threat step stronger there, but the shelter on the way warms the ember.
+  public const int RoadPlain=0,RoadSupply=1,RoadHard=2;
+  public const int SupplyGold=100,SupplyWarmth=6,HardWarmth=15;
+  bool roads;
+  // A pure function of the seed and of the fields fought before `stage`: nothing extra is saved. With one field left the road is plain.
+  int RoadFor(int stage,int field){
+   if(!roads||stage<1||stage>=Route.Length)return RoadPlain;
+   var left=new List<int>();foreach(int f in Route){bool used=false;for(int i=0;i<stage;i++)if(route[i]==f)used=true;if(!used)left.Add(f);}
+   int index=left.IndexOf(field);if(left.Count<2||index<0)return RoadPlain;
+   uint h=StageSeed(stage+7);int special=(int)(h%(uint)left.Count),kind=((h>>8)&1)==0?RoadSupply:RoadHard;
+   // one option always has a special road; each other option has the other special road one time in three
+   if(index==special)return kind;
+   return ((h>>(12+index*4))&15)%3==0?(kind==RoadSupply?RoadHard:RoadSupply):RoadPlain;
+  }
+  // At a camp: the road to an offered field. Plain for anything else.
+  public int NextRoad(int field){return State==Status.Camp&&Array.IndexOf(NextFields(),field)>=0?RoadFor(Stage+1,field):RoadPlain;}
+  // The road taken to a stage already chosen.
+  public int RoadAt(int stage){if(stage<0||stage>=route.Length)throw new ArgumentOutOfRangeException("stage");return route[stage]<0?RoadPlain:RoadFor(stage,route[stage]);}
+  // At a camp: enemy health on an offered field, as a multiple of the same field in a free battle.
+  public double NextHealth(int field){return (1+Boon.ThreatHealth*(Stage+1+(NextRoad(field)==RoadHard?1:0)))*(1+Boon.GradeHealth*Grade);}
   // Ember grade (r43): a harder run for players who have won (Boon.GradeHealth more enemy health per grade, in every battle).
   public const int MaxGrade=Boon.MaxGrade;
   public int Grade {get;private set;}
   public static Expedition Start(uint seed){return Start(seed,0);}
-  public static Expedition Start(uint seed,int grade){if(grade<0||grade>MaxGrade)throw new ArgumentOutOfRangeException("grade");return new Expedition{Seed=seed,Grade=grade,Warmth=100,State=Status.Battle,randomState=seed^0x5EEDCA4Fu};}
+  public static Expedition Start(uint seed,int grade){if(grade<0||grade>MaxGrade)throw new ArgumentOutOfRangeException("grade");return new Expedition{Seed=seed,Grade=grade,roads=true,Warmth=100,State=Status.Battle,randomState=seed^0x5EEDCA4Fu};}
   // Enemy health of a stage of this run, as a multiple of the same field in a free battle.
-  public double HealthAt(int stage){if(stage<0||stage>=Route.Length)throw new ArgumentOutOfRangeException("stage");return (1+Boon.ThreatHealth*stage)*(1+Boon.GradeHealth*Grade);}
+  public double HealthAt(int stage){if(stage<0||stage>=Route.Length)throw new ArgumentOutOfRangeException("stage");return (1+Boon.ThreatHealth*(stage+(RoadAt(stage)==RoadHard?1:0)))*(1+Boon.GradeHealth*Grade);}
   public int Stages {get{return Route.Length;}}
   public int ClearedStages {get{return State==Status.Won?Stages:Stage+(State==Status.Camp||abandonedCamp?1:0);}}
   public int Field {get{return route[Math.Min(Stage,Route.Length-1)];}}
@@ -43,7 +67,7 @@ namespace EmberBastion {
   public int FieldAt(int stage){if(stage<0||stage>=route.Length)throw new ArgumentOutOfRangeException("stage");return route[stage];}
   // At a camp: the fields this run has not fought yet, in story order. Empty otherwise.
   public int[] NextFields(){if(State!=Status.Camp)return new int[0];var list=new List<int>();foreach(int field in Route){bool used=false;for(int i=0;i<=Stage;i++)if(route[i]==field)used=true;if(!used)list.Add(field);}return list.ToArray();}
-  public int Threat {get{return Stage;}}
+  public int Threat {get{return Stage+(RoadAt(Stage)==RoadHard?1:0);}}
   public int Count(int boon){if(boon<0||boon>=Boon.Count)throw new ArgumentOutOfRangeException("boon");return boons[boon];}
   public int Peak(int stage){if(stage<0||stage>=peaks.Length)throw new ArgumentOutOfRangeException("stage");return peaks[stage];}
   public int[] Offers(){return (int[])offered.Clone();}
@@ -76,11 +100,12 @@ namespace EmberBastion {
   // Takes a boon and marches to the chosen field. Threat follows the stage number, so a field fought later is harder.
   public bool Choose(int boon,int nextField){
    if(State!=Status.Camp||Array.IndexOf(offered,boon)<0||Array.IndexOf(NextFields(),nextField)<0)return false;
-   route[Stage+1]=nextField;
+   int road=RoadFor(Stage+1,nextField);route[Stage+1]=nextField;
    boons[boon]++;if(boon==Boon.Rekindle)Warmth=Math.Min(100,Warmth+Boon.RekindleWarmth);if(boon==Boon.WarChest)PendingGold=Boon.WarChestGold;
+   if(road==RoadSupply){PendingGold+=SupplyGold;Warmth=Math.Max(1,Warmth-SupplyWarmth);}else if(road==RoadHard)Warmth=Math.Min(100,Warmth+HardWarmth);
    offered=new int[0];Stage++;State=Status.Battle;return true;
   }
-  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,grade=Grade,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
+  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,grade=Grade,roads=roads,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
   public static Expedition Restore(ExpeditionData d){
    if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=Route.Length||d.state<0||d.state>3||d.stage<0||d.stage>=Route.Length||d.kills<0||d.warmth<0||d.warmth>100||d.grade<0||d.grade>MaxGrade)throw new ArgumentException("Invalid expedition");
    var status=(Status)d.state;int taken=0;
@@ -94,14 +119,16 @@ namespace EmberBastion {
    if(status==Status.Camp&&d.stage>=Route.Length-1)throw new ArgumentException("Invalid expedition camp");
    if((status==Status.Camp)!=(d.offered.Length==OffersPerCamp)||(status!=Status.Camp&&d.offered.Length!=0))throw new ArgumentException("Invalid expedition offer");
    var seen=new HashSet<int>();foreach(int boon in d.offered)if(boon<0||boon>=Boon.Count||!seen.Add(boon)||d.boons[boon]>=Boon.MaxStacks(boon))throw new ArgumentException("Invalid expedition offer");
-   if(d.pendingGold!=0&&(d.pendingGold!=Boon.WarChestGold||status!=Status.Battle||d.boons[Boon.WarChest]==0))throw new ArgumentException("Invalid expedition gold");
    for(int i=0;i<d.peaks.Length;i++)if(d.peaks[i]<0||d.peaks[i]>Balance.MaxAlive||(i>d.stage&&d.peaks[i]!=0))throw new ArgumentException("Invalid expedition record");
-   var e=new Expedition{Seed=d.seed,Grade=d.grade,Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
+   var e=new Expedition{Seed=d.seed,Grade=d.grade,roads=d.roads,Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
    Array.Copy(d.boons,e.boons,Boon.Count);Array.Copy(d.peaks,e.peaks,Route.Length);
    // Route: stage 0 is the gate, every stage reached so far has its own field, later stages are not chosen yet.
    if(d.route==null||d.route.Length==0){for(int i=1;i<Route.Length;i++)e.route[i]=i<=d.stage?Route[i]:-1;}
    else{if(d.route.Length!=Route.Length||d.route[0]!=Route[0])throw new ArgumentException("Invalid expedition route");
     for(int i=1;i<Route.Length;i++){int field=d.route[i];if(i>d.stage){if(field!=-1)throw new ArgumentException("Invalid expedition route");continue;}if(Array.IndexOf(Route,field)<0)throw new ArgumentException("Invalid expedition route");for(int j=0;j<i;j++)if(d.route[j]==field)throw new ArgumentException("Invalid expedition route");e.route[i]=field;}}
+   // Gold waiting for the battle: a supply road's share is always there during that battle; the war chest's share only if one was ever taken.
+   int roadGold=status==Status.Battle&&e.RoadAt(d.stage)==RoadSupply?SupplyGold:0,rest=d.pendingGold-roadGold;
+   if((d.pendingGold!=0&&status!=Status.Battle)||!(rest==0||(rest==Boon.WarChestGold&&d.boons[Boon.WarChest]>0)))throw new ArgumentException("Invalid expedition gold");
    return e;
   }
  }

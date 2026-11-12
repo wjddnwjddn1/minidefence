@@ -107,18 +107,20 @@ class ExpeditionProbe {
    }
    // EXPEDITION_GRADE=0..5 measures an ember grade (r43).
    int grade=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_GRADE")??"0",out grade);
+   // EXPEDITION_ROAD=0 plain, 1 supply, 2 hard: the road this policy takes whenever a camp offers it (r43).
+   int roadWanted=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_ROAD")??"0",out roadWanted);
    Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3");
    for(uint seed=1;seed<=seeds;seed++)foreach(int skill in new[]{0,1,2})foreach(int camp in new[]{0,1,2,3}){
-    var run=Expedition.Start(seed*7919,grade);var stages=new List<string>();
+    var run=Expedition.Start(seed*7919,grade);var stages=new List<string>();string roads="";
     while(run.State==Expedition.Status.Battle){
      var b=run.CreateBattle();int before=run.Warmth,laps,boss;Policy.Play(b,skill,out laps,out boss);
      if(!run.Complete(b))throw new Exception("complete failed");
      stages.Add(b.Phase.ToString().Substring(0,1)+"/w"+b.Wave+"/p"+b.PeakAlive+"/-"+(before-run.Warmth)+"/"+F(b.Time)+"s");
-     if(run.State==Expedition.Status.Camp&&!run.Choose(Policy.Camp(run,camp)))throw new Exception("choose failed");
+     if(run.State==Expedition.Status.Camp){int[] open=run.NextFields();int go=open[0];foreach(int f in open)if(run.NextRoad(f)==roadWanted){go=f;break;}if(roadWanted==0)foreach(int f in open)if(run.NextRoad(f)==0){go=f;break;}roads+=run.NextRoad(go);if(!run.Choose(Policy.Camp(run,camp),go))throw new Exception("choose failed");}
     }
     string boons="";for(int i=0;i<Boon.Count;i++)boons+=run.Count(i);
     while(stages.Count<4)stages.Add("");
-    Console.WriteLine(seed+","+skill+","+camp+","+run.State+","+run.Stage+","+run.Warmth+","+run.Kills+","+boons+","+string.Join(",",stages.ToArray()));
+    Console.WriteLine(seed+","+skill+","+camp+","+run.State+","+run.Stage+","+run.Warmth+","+run.Kills+","+boons+","+string.Join(",",stages.ToArray())+",roads "+roads);
    }
    return 0;
   }catch(Exception e){Console.Error.WriteLine(e);return 1;}

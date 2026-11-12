@@ -67,14 +67,22 @@ namespace EmberBastion {
     hud.alignment=TextAnchor.MiddleLeft;
     hud.fontSize=wide?15:12;
     hud.normal.textColor=uiGold;
-    int threat=Mathf.RoundToInt((float)(Boon.ThreatHealth*(run.Stage+1)*100));
+    int threat=Mathf.RoundToInt((float)((run.NextHealth(field)-1)*100)),road=run.NextRoad(field);
+    if(ExpeditionReview&&Event.current.type==EventType.Repaint&&debugRibbonLogged.Add("run-road|"+run.Stage+"|"+field))Debug.Log("RUN_ROAD|"+field+"|"+road+"|"+threat);
     var summary=RouteSummary(field);
     string title=Balance.Fields[field].Name+" · "+summary.waves+"웨이브 · 적 체력 +"+threat+"%";
     while(hud.fontSize>10&&MeasureText(hud,title).x>width)hud.fontSize--;
     GUI.Label(new Rect(x,card.y+3,width,card.height/2),title,hud);
     hud.fontSize=wide?13:11;
     hud.normal.textColor=uiText;
-    GUI.Label(new Rect(x,card.center.y,width,card.height/2-2),summary.enemies,hud);
+    // the road first, in its own colour, then the enemies
+    string roadText=ExpeditionText.RoadName(road)+(road==Expedition.RoadPlain?"":": "+ExpeditionText.RoadEffect(road)),line=roadText+"  |  "+summary.enemies;
+    while(hud.fontSize>9&&MeasureText(hud,line).x>width)hud.fontSize--;
+    float roadWidth=MeasureText(hud,roadText+"  |  ").x;
+    hud.normal.textColor=road==Expedition.RoadSupply?new Color(.55f,.9f,.72f):road==Expedition.RoadHard?new Color(1f,.6f,.45f):uiDisabled;
+    GUI.Label(new Rect(x,card.center.y,width,card.height/2-2),roadText,hud);
+    hud.normal.textColor=uiText;
+    GUI.Label(new Rect(x+roadWidth,card.center.y,width-roadWidth,card.height/2-2),summary.enemies,hud);
    }
    Rect back=new Rect(area.x,area.yMax-30,area.width,30);
    ExpeditionRect("routeBack",back);
