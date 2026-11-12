@@ -1,0 +1,171 @@
+{
+ "frames": [
+  {
+   "filename": "LaunchPowder 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 1",
+   "frame": {
+    "x": 84,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 2",
+   "frame": {
+    "x": 168,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 3",
+   "frame": {
+    "x": 0,
+    "y": 60,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 4",
+   "frame": {
+    "x": 84,
+    "y": 60,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 5",
+   "frame": {
+    "x": 168,
+    "y": 60,
+    "w": 84,
+    "h": 60
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 84,
+    "h": 60
+   },
+   "sourceSize": {
+    "w": 84,
+    "h": 60
+   },
+   "duration": 50
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "LaunchPowder.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 252,
+   "h": 120
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "LaunchPowder",
+    "from": 0,
+    "to": 5,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "projectiles/eb-launch",
+   "name": "Ember Bastion launch",
+   "fps": 20,
+   "loop": false,
+   "frames": 6,
+   "frameSize": [
+    84,
+    60
+   ],
+   "pivot": [
+    24,
+    30
+   ],
+   "columns": 3
+  }
+ }
+}

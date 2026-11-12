@@ -15,6 +15,8 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
   - 0.8~1.9초짜리 시트를 0.4초에 재생해서 프레임 대부분을 건너뛴다.
 - **다음 (Claude가 직접):** 25차 타격 이펙트와 같은 방식으로, 잉크 테두리가 있는 굵은 게임 전용 공격 이펙트를 `Tools/PixelFX/fx`에 만든다. 0.3~0.4초 길이로 맞추고 분기마다 모양을 다르게 한다. Codex의 `AttackEffect` 그리기 코드와 시트 이름은 그대로 쓰고 시트만 바꾼다.
 - **검사 공격 이펙트 교체 (23:4x, Claude 직접):** `Tools/PixelFX/fx/melee/eb-slash.js`를 만들어 `SwordSlash`·`SwordSweep`·`SwordBreaker` 시트를 바꿨다. 잉크 테두리가 있는 굵은 초승달이 0.35초(8프레임) 동안 지나간다. 기본은 앞을 한 번 베고(파랑), 다중은 몸 둘레를 한 바퀴 돌고(보라), 파쇄는 내려찍은 자리에서 땅이 터진다(주황). 정점 프레임의 불투명 픽셀이 약 2,200개다(원본 시트는 얇은 선). `Tools/PixelFX/attack-effects.mjs`가 시트 목록을 한 곳에 두고, `render-attacks.mjs`와 `Tests/PixelFxAttackEffects.mjs`가 함께 쓴다. 검사는 굵기(600px 초과)·길이(9프레임 이하)·끝 프레임 비움을 본다. TacticalWeb 빌드의 `attack-review` 화면에서 세 가지가 모래·풀 위에 또렷이 보이는 것을 확인했다. Codex의 그리기 코드는 고치지 않았다. **남은 것:** 궁수·화약병·빙결사의 발사 표시는 여전히 작다. 사람 확인(Windows에서 과하지 않은지).
+- **발사 이펙트 추가 (11-13 00:0x, Claude 직접):** `Tools/PixelFX/fx/projectiles/eb-launch.js`로 `LaunchArrow`(주황, 좁게 3갈래)·`LaunchPowder`(주황, 넓게 5갈래)·`LaunchFrost`(하늘색 4갈래)를 만들었다. 손에서 잉크 별이 터지고 쐐기가 쏘는 방향으로 뻗는다(0.25초). `BattleView.AttackEffects.cs`는 시트 이름·길이(0.2→0.25초)·배율(0.8~1.05→1.2~1.45)만 바꿨다. `attack-review` 화면에서 세 병과 모두 좌우 방향으로 보인다.
+- **Claude가 낸 회귀 1건:** 앞 커밋(`87a028a`)에서 검사 시트를 8프레임으로 바꾸면서 Codex의 `PresentationWeb`이 예전 시트의 7번 프레임을 기다리다 실패했다. 그 커밋 때 이 검사를 돌리지 않았다. 기대 프레임을 2번으로 고쳤고 지금은 통과한다. 표시 시트를 바꿀 때는 `PresentationWeb`도 함께 돌린다.
 - **확인하지 않은 것:** 타이핑 대사·움직이는 초상·타이핑 소리의 화면과 소리, 출력 장치 선택의 실제 동작. Codex 기록(타이핑 9, 이야기 42+3, 실제 출력 3개 선택)에만 근거한다.
 
 ## 2026-11-12 22:4x · Codex `c6f35c3` 검수 + r39 교리 직접 구현 42차 (Windows PC, Claude Fable 5.2)

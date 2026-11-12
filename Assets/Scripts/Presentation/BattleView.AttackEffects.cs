@@ -11,10 +11,10 @@ namespace EmberBastion {
    if(age>.42f||v.Cue.Source<0||v.Cue.Source>3)return;
    // Dense battles keep short release flashes but skip late smoke/trails. No simulation or damage changes.
    if(battle.Enemies.Count>=70&&age>.18f)return;
-   int kind=v.Cue.Source,branch=v.Branch;string name=kind==0?(branch==1?"SwordSweep":branch==2?"SwordBreaker":"SwordSlash"):kind==1?"HitArrow":kind==3?"HitFrost":branch==2?"Burn":"HitSteel";
-   var sheet=AttackFx(name);if(sheet==null)return;float duration=kind==0?.4f:.2f;if(age>=duration)return;
+   int kind=v.Cue.Source,branch=v.Branch;string name=kind==0?(branch==1?"SwordSweep":branch==2?"SwordBreaker":"SwordSlash"):kind==1?"LaunchArrow":kind==3?"LaunchFrost":"LaunchPowder";
+   var sheet=AttackFx(name);if(sheet==null)return;float duration=kind==0?.4f:.25f;if(age>=duration)return;
    int frame=Mathf.Min(sheet.data.frames.Length-1,(int)(age/duration*sheet.data.frames.Length));var r=sheet.data.frames[frame].frame;var pivot=sheet.data.meta.pixelfx.pivot;
-   float k=kind==0?(branch==1?1.5f:1.25f):branch==1?1.05f:branch==2?.95f:.8f;float x=(float)v.Cue.Position.X,y=(float)v.Cue.Position.Y;
+   float k=kind==0?(branch==1?1.5f:1.25f):branch==1?1.45f:branch==2?1.35f:1.2f;float x=(float)v.Cue.Position.X,y=(float)v.Cue.Position.Y;
    if(review){Texture2D[] bodies={warriorIdle,archerIdle,pawnLevel[0],frostIdle};var body=bodies[kind];if(body!=null){int bodyFrame=(int)(Time.unscaledTime/.16f)%Mathf.Max(1,body.width/192);TerrainView.Image(body,new Rect(x-72,y-100,144,144),bodyFrame*192,0,192,192);}}
    if(kind!=0){x+=v.Cue.Facing*20;y-=18;}else y+=8;
    Color before=GUI.color;if(kind==2)GUI.color=new Color(1,.7f,.3f,before.a);else if(kind==1&&branch==2)GUI.color=new Color(1,.6f,.45f,before.a);else if(kind==3&&branch==2)GUI.color=new Color(.8f,.6f,1,before.a);
