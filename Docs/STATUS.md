@@ -2,7 +2,7 @@
 
 - 사용자 요청4건 적용: 빠른 타이핑(클릭/Space 즉시 표시 후 다음 줄), 작은 합성 타이핑 소리, 기존 초상의 대기 애니메이션, PixelFX 검사3형태와 다른 병과 발사/잔상·분기 표시, 실제 Windows 출력 목록과 게임 전용 장치 선택.
 - Windows 실행판·QA·Web 빌드 성공. 타이핑9, 이야기42+메뉴3·경고40, 새 표시 통합 검사, PixelFX 기존4/새3종 일치 검사 PASS. Unity 실제 출력3개 선택·기본/원상 복구 PASS. 물리 청취·실제 장치 분리·고밀도 GPU 측정은 미실시.
-- 상세 `PRESENTATION-POLISH-20261112.md`, 증거 `presentation-polish-evidence-20261112/`. 실행 `Builds/Playable/EmberBastion.exe`. 현재 다른 세션의 미커밋 원정 변경도 포함한 로컬 빌드다. Core·원정 문구와 그 검사 변경은 보존한다. 사용자 요청에 따라 여기서 마무리하고 Claude 검수로 넘긴다.
+- 상세 `PRESENTATION-POLISH-20261112.md`, 증거 `presentation-polish-evidence-20261112/`. 실행 `Builds/Playable/EmberBastion.exe`. 빌드 당시 다른 세션의 미커밋 원정 변경도 포함했다. 해당 변경은 작업 도중 Claude가 57c27f0·c1a99bc로 별도 커밋했고, 최종 확인 시 해당 코어 파일의 미커밋 변경은 없다. Codex 표시 변경은85a36b0이며 원정 변경을 대신 커밋하지 않았다. 사용자 요청에 따라 여기서 마무리하고 Claude 검수로 넘긴다.
 
 ## 2026-11-12 · 사용자 요청 Windows 재빌드
 
