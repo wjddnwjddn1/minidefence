@@ -79,7 +79,7 @@ export function draw(p, t, o) {
     return;
   }
   // slash: one crescent from above the shoulder down across the front
-  const a0 = -Math.PI * 0.62, a1 = Math.PI * 0.5, lead = a0 + (a1 - a0) * ease.outCubic(clamp(t / 0.14)), tail = a0 + (a1 - a0) * ease.inOutQuad(clamp((t - 0.06) / 0.22));
+  const a0 = -Math.PI * 0.62, a1 = Math.PI * 0.5, lead = a0 + (a1 - a0) * ease.outCubic(clamp(t / 0.1)), tail = a0 + (a1 - a0) * ease.inOutQuad(clamp((t - 0.04) / 0.16));
   crescent(p, 0, 0, 54, 20, tail, lead, 1, C);
   chips(p, R, Math.cos(lead) * 54, Math.sin(lead) * 54, t, 0.06, 5, C, lead + Math.PI / 2);
   if (t < 0.08) p.glow(30, 0, 30, C[3], 0.3 * (1 - t / 0.08));
