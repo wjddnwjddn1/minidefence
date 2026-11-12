@@ -8,7 +8,7 @@ namespace EmberBastion {
  // still compiles on its own.
 
  [Serializable] public sealed class ExpeditionData {
-  public int version=1,stage,warmth,state,kills,pendingGold;public bool abandonedCamp;
+  public int version=1,stage,warmth,state,kills,pendingGold,grade;public bool abandonedCamp;
   // Fields in the order this run takes them (r40). Empty in saves made before the route choice: those follow the story order.
   public int[] route;
   public uint seed,randomState;
@@ -29,7 +29,13 @@ namespace EmberBastion {
   public Status State {get;private set;}
   bool abandonedCamp;uint randomState;readonly int[] boons=new int[Boon.Count];int[] offered=new int[0];readonly int[] peaks=new int[Route.Length];readonly int[] route={Route[0],-1,-1,-1};
   Expedition(){}
-  public static Expedition Start(uint seed){return new Expedition{Seed=seed,Warmth=100,State=Status.Battle,randomState=seed^0x5EEDCA4Fu};}
+  // Ember grade (r43): a harder run for players who have won (Boon.GradeHealth more enemy health per grade, in every battle).
+  public const int MaxGrade=Boon.MaxGrade;
+  public int Grade {get;private set;}
+  public static Expedition Start(uint seed){return Start(seed,0);}
+  public static Expedition Start(uint seed,int grade){if(grade<0||grade>MaxGrade)throw new ArgumentOutOfRangeException("grade");return new Expedition{Seed=seed,Grade=grade,Warmth=100,State=Status.Battle,randomState=seed^0x5EEDCA4Fu};}
+  // Enemy health of a stage of this run, as a multiple of the same field in a free battle.
+  public double HealthAt(int stage){if(stage<0||stage>=Route.Length)throw new ArgumentOutOfRangeException("stage");return (1+Boon.ThreatHealth*stage)*(1+Boon.GradeHealth*Grade);}
   public int Stages {get{return Route.Length;}}
   public int ClearedStages {get{return State==Status.Won?Stages:Stage+(State==Status.Camp||abandonedCamp?1:0);}}
   public int Field {get{return route[Math.Min(Stage,Route.Length-1)];}}
@@ -45,9 +51,9 @@ namespace EmberBastion {
   // Each stage fights on its own seed, so card offers and enemy pace differ from stage to stage and run to run.
   public uint StageSeed(int stage){unchecked{uint t=Seed+0x9E3779B9u*(uint)(stage+1);t=(t^(t>>16))*0x85EBCA6Bu;t=(t^(t>>13))*0xC2B2AE35u;t^=t>>16;return t==0?1u:t;}}
   int[] BattleBoons(){var list=new int[Boon.BattleCount];Array.Copy(boons,list,Boon.BattleCount);return list;}
-  public Battle CreateBattle(){if(State!=Status.Battle)throw new InvalidOperationException("No battle to fight");return Battle.CreateExpedition(StageSeed(Stage),Field,Warmth,BattleBoons(),Threat,PendingGold);}
+  public Battle CreateBattle(){if(State!=Status.Battle)throw new InvalidOperationException("No battle to fight");return Battle.CreateExpedition(StageSeed(Stage),Field,Warmth,BattleBoons(),Threat,PendingGold,Grade);}
   // True when the battle is this run's current stage with this run's boons. A finished or foreign battle never matches.
-  public bool Matches(Battle b){if(b==null||State!=Status.Battle||b.Mode!=BattleMode.Expedition||b.RulesVersion!=4||b.FieldIndex!=Field||b.Threat!=Threat)return false;for(int i=0;i<Boon.BattleCount;i++)if(b.BoonCount(i)!=boons[i])return false;return true;}
+  public bool Matches(Battle b){if(b==null||State!=Status.Battle||b.Mode!=BattleMode.Expedition||b.RulesVersion!=4||b.FieldIndex!=Field||b.Threat!=Threat||b.Grade!=Grade)return false;for(int i=0;i<Boon.BattleCount;i++)if(b.BoonCount(i)!=boons[i])return false;return true;}
   // Report the end of the current stage. A win moves to the camp (or ends the run after the last stage); a loss ends the run.
   public bool Complete(Battle b){
    if(!Matches(b)||(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost))return false;
@@ -74,9 +80,9 @@ namespace EmberBastion {
    boons[boon]++;if(boon==Boon.Rekindle)Warmth=Math.Min(100,Warmth+Boon.RekindleWarmth);if(boon==Boon.WarChest)PendingGold=Boon.WarChestGold;
    offered=new int[0];Stage++;State=Status.Battle;return true;
   }
-  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
+  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,grade=Grade,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
   public static Expedition Restore(ExpeditionData d){
-   if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=Route.Length||d.state<0||d.state>3||d.stage<0||d.stage>=Route.Length||d.kills<0||d.warmth<0||d.warmth>100)throw new ArgumentException("Invalid expedition");
+   if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=Route.Length||d.state<0||d.state>3||d.stage<0||d.stage>=Route.Length||d.kills<0||d.warmth<0||d.warmth>100||d.grade<0||d.grade>MaxGrade)throw new ArgumentException("Invalid expedition");
    var status=(Status)d.state;int taken=0;
    for(int i=0;i<Boon.Count;i++){if(d.boons[i]<0||d.boons[i]>Boon.MaxStacks(i))throw new ArgumentException("Invalid expedition boons");taken+=d.boons[i];}
    // One boon per camp passed, in every state: the boons taken always equal the stage number.
@@ -90,7 +96,7 @@ namespace EmberBastion {
    var seen=new HashSet<int>();foreach(int boon in d.offered)if(boon<0||boon>=Boon.Count||!seen.Add(boon)||d.boons[boon]>=Boon.MaxStacks(boon))throw new ArgumentException("Invalid expedition offer");
    if(d.pendingGold!=0&&(d.pendingGold!=Boon.WarChestGold||status!=Status.Battle||d.boons[Boon.WarChest]==0))throw new ArgumentException("Invalid expedition gold");
    for(int i=0;i<d.peaks.Length;i++)if(d.peaks[i]<0||d.peaks[i]>Balance.MaxAlive||(i>d.stage&&d.peaks[i]!=0))throw new ArgumentException("Invalid expedition record");
-   var e=new Expedition{Seed=d.seed,Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
+   var e=new Expedition{Seed=d.seed,Grade=d.grade,Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
    Array.Copy(d.boons,e.boons,Boon.Count);Array.Copy(d.peaks,e.peaks,Route.Length);
    // Route: stage 0 is the gate, every stage reached so far has its own field, later stages are not chosen yet.
    if(d.route==null||d.route.Length==0){for(int i=1;i<Route.Length;i++)e.route[i]=i<=d.stage?Route[i]:-1;}

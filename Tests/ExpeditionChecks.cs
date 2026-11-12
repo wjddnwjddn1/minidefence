@@ -303,6 +303,24 @@ class ExpeditionChecks {
    for(int i=0;i<live.Units.Count;i++)Check(copy.Units[i].HitCount==live.Units[i].HitCount&&copy.SkillCharge(copy.Units[i])==live.SkillCharge(live.Units[i]),"restored charge");
    Check(Finish(live)==Finish(copy),"skills replay the same after a restore");
   }
+  // --- ember grades (r43): the same run with more enemy health in every battle -------------------------------------
+  Check(Expedition.MaxGrade==Boon.MaxGrade&&Throws(()=>Expedition.Start(1,-1))&&Throws(()=>Expedition.Start(1,Expedition.MaxGrade+1)),"grade bounds");
+  Check(Throws(()=>Battle.CreateExpedition(1,0,100,NoBoons(),0,0,-1))&&Throws(()=>Battle.CreateExpedition(1,0,100,NoBoons(),0,0,Boon.MaxGrade+1)),"battle grade bounds");
+  for(int grade=0;grade<=Expedition.MaxGrade;grade++){
+   var run=Expedition.Start(404,grade);var plain=Expedition.Start(404);
+   Check(run.Grade==grade&&run.Threat==0&&plain.Grade==0,"grade is separate from threat");
+   var b=run.CreateBattle();var pb=plain.CreateBattle();
+   Check(b.Grade==grade&&b.Threat==0&&run.Matches(b)&&(grade==0)==plain.Matches(b),"a battle belongs to its grade "+grade);
+   Check(Near(run.HealthAt(0),1+Boon.GradeHealth*grade)&&Near(run.HealthAt(3),(1+3*Boon.ThreatHealth)*(1+Boon.GradeHealth*grade)),"health by stage and grade");
+   b.Place(0,0);pb.Place(0,0);b.Start();pb.Start();while(b.Enemies.Count==0){b.Step(Balance.Tick);pb.Step(Balance.Tick);}
+   Check(Near(b.Enemies[0].MaxHP,pb.Enemies[0].MaxHP*(1+Boon.GradeHealth*grade)),"grade "+grade+" raises enemy health");
+   var restored=Battle.ImportCombat(b.ExportCombat());Check(restored.Grade==grade&&run.Matches(restored),"grade survives a combat save");
+   var prep=Battle.RestorePreparation(run.CreateBattle().SavePreparation());Check(prep.Grade==grade,"grade survives a preparation save");
+   var again=Expedition.Restore(run.Export());Check(again.Grade==grade&&again.Matches(run.CreateBattle()),"grade survives a run save");
+   var bad=run.Export();bad.grade=Expedition.MaxGrade+1;Check(Throws(()=>Expedition.Restore(bad)),"grade above cap");bad.grade=-1;Check(Throws(()=>Expedition.Restore(bad)),"grade below zero");
+   var badBattle=run.CreateBattle().SavePreparation();badBattle.expedition.grade=Boon.MaxGrade+1;Check(Throws(()=>Battle.RestorePreparation(badBattle)),"battle grade above cap");
+  }
+  {var old=Expedition.Start(8).Export();old.grade=0;Check(Expedition.Restore(old).Grade==0,"saves from before grades are grade 0");}
   Console.WriteLine("PASS "+checks+" expedition checks: neutral mode, boons, threat, warmth, saves and the run");
  }
 }

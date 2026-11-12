@@ -105,9 +105,11 @@ class ExpeditionProbe {
     }
     return 0;
    }
+   // EXPEDITION_GRADE=0..5 measures an ember grade (r43).
+   int grade=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_GRADE")??"0",out grade);
    Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3");
    for(uint seed=1;seed<=seeds;seed++)foreach(int skill in new[]{0,1,2})foreach(int camp in new[]{0,1,2,3}){
-    var run=Expedition.Start(seed*7919);var stages=new List<string>();
+    var run=Expedition.Start(seed*7919,grade);var stages=new List<string>();
     while(run.State==Expedition.Status.Battle){
      var b=run.CreateBattle();int before=run.Warmth,laps,boss;Policy.Play(b,skill,out laps,out boss);
      if(!run.Complete(b))throw new Exception("complete failed");
