@@ -18,7 +18,7 @@ const output=path.resolve(__dirname,'bin/presentation-evidence');fs.mkdirSync(ou
  fs.writeFileSync(path.join(output,'typing.json'),JSON.stringify({logs,errors},null,2));
  await load('fx-smoke=attack-review&attack-fx-review=1');await wait(()=>new Set(logs.filter(l=>l.startsWith('ATTACK_FX|')).map(l=>l.split('|').slice(1,3).join('|'))).size===12,'all 4 classes x 3 branches');
  await wait(()=>logs.some(l=>l.includes('|SwordSweep|4')),'release frame');
- await wait(()=>['TrailArrow','TrailPowder','TrailFrost','arrow-land','state-unchanged'].every(id=>logs.includes('PROJECTILE_FX|'+id)),'projectile review and serialized state');await page.evaluate(()=>{for(const id of ['unity-container','unity-fullscreen-container','unity-canvas'])document.getElementById(id).style.cssText='width:1280px;height:720px';document.body.style.margin='0';});
+ await wait(()=>['TrailArrow','TrailPowder','TrailFrost','RoundBomb','arrow-land','state-unchanged'].every(id=>logs.includes('PROJECTILE_FX|'+id)),'projectile review and serialized state');await page.evaluate(()=>{for(const id of ['unity-container','unity-fullscreen-container','unity-canvas'])document.getElementById(id).style.cssText='width:1280px;height:720px';document.body.style.margin='0';});
  await page.waitForTimeout(500);await page.screenshot({path:path.join(output,'attacks.png')});assert(!errors.length);fs.writeFileSync(path.join(output,'attacks.json'),JSON.stringify({logs,errors},null,2));console.log('PASS PixelFX release effects, all four attackers and three branch states, right/left facing');
  await load('skill-preview=1');
  await wait(()=>['SkillSword','SkillArrow','SkillPowder','SkillFrost','SkillForge'].every(name=>logs.includes('PROJECTILE_FX|'+name)),'five skill effects');

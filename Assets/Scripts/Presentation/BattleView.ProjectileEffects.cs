@@ -23,6 +23,13 @@ namespace EmberBastion {
    DrawProjectileSheet(effect,position,target,scale,tint);
    if(preview)ProjectileReview(name);
   }
+  void DrawRoundBomb(Rect destination,bool animate){
+   var bomb=AttackFx("RoundBomb");
+   if(bomb==null)return;
+   int index=animate?(int)(visualClock*bomb.data.meta.pixelfx.fps)%bomb.data.frames.Length:0;
+   var frame=bomb.data.frames[index].frame;
+   TerrainView.Image(bomb.texture,destination,frame.x,frame.y,frame.w,frame.h);
+  }
   Texture2D projectileShadow;
   static Texture2D MakeProjectileShadow(){
    var tex=new Texture2D(16,16,TextureFormat.RGBA32,false){filterMode=FilterMode.Point};
@@ -66,7 +73,7 @@ namespace EmberBastion {
     var sample=new Shot{Kind=kind,Target=-1,Position=at,Destination=target};
     ProjectileTrail(sample,true);
     if(kind==1)DrawArrowTexture(at,target);
-    else if(kind==2)TerrainView.Image(dynamite,new Rect((float)at.X-48,(float)at.Y-48,96,96),0,0,64,64);
+    else if(kind==2){DrawRoundBomb(new Rect((float)at.X-26,(float)at.Y-31,52,52),true);ProjectileReview("RoundBomb");}
     else Box(new Rect((float)at.X-5,(float)at.Y-5,10,10),new Color(.66f,.91f,1));
    }
    DrawLandedArrow(new VisualCue{Cue=new Cue("arrow-land",new Point(1070,560)){Destination=new Point(1120,590)},Age=.2f});

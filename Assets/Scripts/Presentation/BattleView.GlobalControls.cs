@@ -34,7 +34,7 @@ namespace EmberBastion {
    if(card==ReinforcementDraft.EmberCooldown){if(emberRound!=null)GUI.DrawTexture(rect,emberRound,ScaleMode.ScaleToFit,true);}
    else if(card==ReinforcementDraft.SwordDamage||card==ReinforcementDraft.SwordTargets){if(iconSword!=null)GUI.DrawTexture(rect,iconSword,ScaleMode.ScaleToFit,true);}
    else if(card==ReinforcementDraft.GoldIncome){if(coin!=null)GUI.DrawTexture(rect,coin,ScaleMode.ScaleToFit,true);}
-   else if(card==ReinforcementDraft.BombRadius)TerrainView.Image(dynamite,rect,0,0,64,64);
+   else if(card==ReinforcementDraft.BombRadius)DrawRoundBomb(rect,false);
    else if(card==ReinforcementDraft.ArcherHaste)TerrainView.Image(arrow,rect,0,0,64,64);
    else {Color color=uiGold;float cx=rect.center.x,cy=rect.center.y;Box(new Rect(cx-15,cy-1,30,2),color);Box(new Rect(cx-1,cy-15,2,30),color);Box(new Rect(cx-8,cy-8,16,2),color);Box(new Rect(cx-8,cy+6,16,2),color);Box(new Rect(cx-8,cy-8,2,16),color);Box(new Rect(cx+6,cy-8,2,16),color);}
   }

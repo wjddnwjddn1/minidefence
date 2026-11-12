@@ -21,4 +21,5 @@ export const entries = [
   ['SkillPowder', 'projectiles/eb-skill', { mode: 'blast', palette: ['#251710','#853a23','#ef8430','#fff3b4'] }],
   ['SkillFrost', 'projectiles/eb-skill', { mode: 'frost', palette: ['#141c38','#37669c','#81d5f8','#e5fcff'] }],
   ['SkillForge', 'projectiles/eb-skill', { mode: 'forge', palette: ['#132a24','#305c50','#71c683','#e3f8bc'] }],
+  ['RoundBomb', 'projectiles/eb-round-bomb', {}],
 ];
