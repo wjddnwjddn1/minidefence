@@ -52,8 +52,11 @@ namespace EmberBastion {
   }
   public bool Abandon(){if(State==Status.Won||State==Status.Lost)return false;abandonedCamp=State==Status.Camp;State=Status.Lost;offered=new int[0];PendingGold=0;return true;}
   void Offer(){
-   var pool=new List<int>();for(int i=0;i<Boon.Count;i++){if(boons[i]>=Boon.MaxStacks(i))continue;if(i==Boon.Rekindle&&Warmth>=100)continue;pool.Add(i);}
-   offered=new int[OffersPerCamp];for(int i=0;i<offered.Length;i++){int pick=(int)(Next()%(uint)pool.Count);offered[i]=pool[pick];pool.RemoveAt(pick);}
+   var pool=new List<int>();var doctrines=new List<int>();for(int i=0;i<Boon.Count;i++){if(boons[i]>=Boon.MaxStacks(i))continue;if(i==Boon.Rekindle&&Warmth>=100)continue;pool.Add(i);if(Boon.IsDoctrine(i))doctrines.Add(i);}
+   offered=new int[OffersPerCamp];int first=0;
+   // Every camp shows at least one doctrine while any is left, so every camp can change the build.
+   if(doctrines.Count>0){int doctrine=doctrines[(int)(Next()%(uint)doctrines.Count)];offered[0]=doctrine;pool.Remove(doctrine);first=1;}
+   for(int i=first;i<offered.Length;i++){int pick=(int)(Next()%(uint)pool.Count);offered[i]=pool[pick];pool.RemoveAt(pick);}
   }
   public bool Choose(int boon){
    if(State!=Status.Camp||Array.IndexOf(offered,boon)<0)return false;

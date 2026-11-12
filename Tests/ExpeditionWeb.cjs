@@ -55,7 +55,7 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       const next = await t.until(l => l.state === 'Battle' && l.stage === 1, 'boon click did not start the next stage ' + w);
       const boon = camp.offers[pick];
       check(next.boons[boon] === '1' && [...next.boons].filter(c => c !== '0').length === 1, 'the clicked boon was taken ' + w + ': offers ' + camp.offers + ' boons ' + next.boons);
-      check(next.mode === 'Expedition' && next.field === 1 && next.hp === (boon === 7 ? 100 : 91) && next.gold === 200 + (boon === 8 ? 100 : 0), 'next battle carries the run ' + w + ': ' + JSON.stringify(next));
+      check(next.mode === 'Expedition' && next.field === 1 && next.hp === (boon === 14 ? 100 : 91) && next.gold === 200 + (boon === 15 ? 100 : 0), 'next battle carries the run ' + w + ': ' + JSON.stringify(next));
       check(t.errors.length === 0, 'browser errors ' + w + ': ' + t.errors.join(' | '));
       await t.context.close();
     }
@@ -68,7 +68,7 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       await t.page.screenshot({path: path.join(out, 'expedition-won-'+w+'.png')});
       regionCheck(t);await t.page.mouse.click(...panelButton(w, h, false));
       const fresh = await t.until(l => l.state === 'Battle' && l.stage === 0 && l.warmth === 100, 'new run did not start');
-      check(fresh.field === 0 && fresh.boons === '000000000' && fresh.gold === 200, 'fresh run: ' + JSON.stringify(fresh));
+      check(fresh.field === 0 && fresh.boons === '0'.repeat(16) && fresh.gold === 200, 'fresh run: ' + JSON.stringify(fresh));
       check(t.errors.length === 0, 'browser errors won: ' + t.errors.join(' | '));
       await t.context.close();
     }

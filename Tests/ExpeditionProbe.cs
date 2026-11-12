@@ -5,11 +5,32 @@ using EmberBastion;
 // r37 (Claude) measurement tool for the roguelite run, on the real engine. Automatic policies, not human play.
 //   ExpeditionProbe laps            how many laps enemies finish in ordinary rules-4 battles (to price warmth)
 //   ExpeditionProbe run [seeds]     whole expeditions under several buying and boon policies
+//   ExpeditionProbe doctrine [seeds] one battle per field with one doctrine and one army shape: does the doctrine change the best army?
+//   ExpeditionProbe build [seeds]    the same with three-boon builds
 static class Policy {
  static readonly Dictionary<int,int[]> cache=new Dictionary<int,int[]>();
  static double Cover(FieldDef f,Point s,double range,double min){int n=0,inside=0;for(double d=0;d<f.Perimeter;d+=16){n++;double dist=Point.Distance(f.Path(d),s);if(dist<=range&&dist>=min)inside++;}return (double)inside/n;}
  // Swords on the half of the slots that touch the most road in melee reach; the rest alternate archer, bomb and frost by long reach.
  public static int Kind(Battle b,int slot){int[] a;int key=b.FieldIndex*10+(int)b.Mode;if(!cache.TryGetValue(key,out a)){var f=b.Field;var S=f.Slots;int m=S.Length;var idx=new List<int>();for(int i=0;i<m;i++)idx.Add(i);idx.Sort((x,y)=>{int c=Cover(f,S[y],120,0).CompareTo(Cover(f,S[x],120,0));return c!=0?c:x.CompareTo(y);});a=new int[m];var rest=new List<int>();for(int i=0;i<m;i++){if(i<m/2)a[idx[i]]=0;else rest.Add(idx[i]);}rest.Sort((x,y)=>{int c=Cover(f,S[y],210,60).CompareTo(Cover(f,S[x],210,60));return c!=0?c:x.CompareTo(y);});int[] cycle={1,2,1,3};for(int i=0;i<rest.Count;i++)a[rest[i]]=cycle[i%cycle.Length];cache[key]=a;}return a[slot];}
+ // Army shapes for the doctrine experiment. 0 mix, 1 swords, 2 archers, 3 powder, 4 frost, 5 smith-centred.
+ public static readonly string[] Shapes={"mix","swords","archers","powder","frost","smith"};
+ static readonly Dictionary<int,int[]> shapeCache=new Dictionary<int,int[]>();
+ public static int ShapeKind(Battle b,int shape,int slot){
+  int[] a;int key=b.FieldIndex*100+shape;if(shapeCache.TryGetValue(key,out a))return a[slot];
+  var f=b.Field;var S=f.Slots;int m=S.Length;a=new int[m];var free=new List<int>();for(int i=0;i<m;i++)free.Add(i);
+  if(shape==5){var byNeighbours=new List<int>(free);byNeighbours.Sort((x,y)=>{int nx=0,ny=0;for(int i=0;i<m;i++){if(i!=x&&Point.Distance(S[x],S[i])<=160)nx++;if(i!=y&&Point.Distance(S[y],S[i])<=160)ny++;}return ny!=nx?ny.CompareTo(nx):x.CompareTo(y);});for(int i=0;i<2&&i<byNeighbours.Count;i++){a[byNeighbours[i]]=4;free.Remove(byNeighbours[i]);}}
+  free.Sort((x,y)=>{int c=Cover(f,S[y],120,0).CompareTo(Cover(f,S[x],120,0));return c!=0?c:x.CompareTo(y);});
+  int swords=shape==1?free.Count*3/4:shape==0||shape==5?free.Count/2:shape==4?free.Count/3:free.Count/4;var rest=new List<int>();for(int i=0;i<free.Count;i++){if(i<swords)a[free[i]]=0;else rest.Add(free[i]);}
+  rest.Sort((x,y)=>{int c=Cover(f,S[y],210,60).CompareTo(Cover(f,S[x],210,60));return c!=0?c:x.CompareTo(y);});
+  int[] cycle=shape==1||shape==2?new[]{1}:shape==3?new[]{2,2,1}:shape==4?new[]{3,1,1}:new[]{1,2,1,3};for(int i=0;i<rest.Count;i++)a[rest[i]]=cycle[i%cycle.Length];
+  shapeCache[key]=a;return a[slot];
+ }
+ public static void BuyShape(Battle b,int shape){
+  // attackers first: smiths join once four attackers stand, so the opening is never a smith with nobody to help
+  for(int pass=0;pass<2;pass++)for(int slot=0;slot<b.Field.Slots.Length;slot++)if(b.At(slot)==null){int kind=ShapeKind(b,shape,slot);if((kind==4)!=(pass==1))continue;if(kind==4&&b.Units.FindAll(u=>u.Kind!=4).Count<4)continue;if(b.Gold>=Balance.Troops[kind].Cost)b.Place(kind,slot);}
+  foreach(var u in b.Units){if(u.Level==1&&b.Gold>=50)b.Upgrade(u.Slot);else if(u.Level==2&&b.Gold>=90)b.UpgradeBranch(u.Slot,u.Kind==0?2:1);}
+ }
+ public static void PlayShape(Battle b,int shape){int ticks=0;while(b.Phase!=Phase.Won&&b.Phase!=Phase.Lost&&ticks<600000){if(ticks%60==0)BuyShape(b,shape);if(b.Phase==Phase.Preparation&&!b.Start())throw new Exception("start failed");if(b.ReinforcementPending)b.ChooseReinforcement(b.Reinforcements.Choices()[0]);b.Step(Balance.Tick);ticks++;}}
  // skill 0: three level-1 troops and nothing else. 1: fill and upgrade to level 2. 2: also take level-3 branches.
  public static void Buy(Battle b,int skill){
   int placed=b.Units.Count;
@@ -52,6 +73,26 @@ class ExpeditionProbe {
     return 0;
    }
    int seeds=args.Length>1?int.Parse(args[1]):8;
+   if(command=="doctrine"){
+    Console.WriteLine("field,doctrine,shape,seed,result,wave,peak,warmthLost,kills,seconds");
+    for(int field=0;field<Balance.Fields.Length;field++)for(int doctrine=-1;doctrine<Boon.BattleCount;doctrine++){if(doctrine>=0&&!Boon.IsDoctrine(doctrine))continue;
+     for(int shape=0;shape<Policy.Shapes.Length;shape++)for(uint seed=1;seed<=seeds;seed++){
+      var boons=new int[Boon.BattleCount];if(doctrine>=0)boons[doctrine]=1;var b=Battle.CreateExpedition(seed*7919+(uint)field,field,100,boons,field,0);Policy.PlayShape(b,shape);
+      Console.WriteLine(field+","+doctrine+","+Policy.Shapes[shape]+","+seed+","+b.Phase+","+b.Wave+","+b.PeakAlive+","+(b.Phase==Phase.Won?100-b.HP:100)+","+b.Kills+","+F(b.Time));
+     }}
+    return 0;
+   }
+   if(command=="build"){
+    // three-boon builds a run can end with, against every army shape: does a build have its own best army?
+    string[] names={"none","swordBuild","archerBuild","powderBuild","frostBuild","smithBuild"};
+    int[][] builds={new int[0],new[]{Boon.Phalanx,Boon.SwordDrill,Boon.WarDrum},new[]{Boon.RapidFire,Boon.StrongBow,Boon.Spyglass},new[]{Boon.ChainBlast,Boon.PowderMix,Boon.Spoils},new[]{Boon.DeepFrost,Boon.Shatter,Boon.FrostCore},new[]{Boon.FieldForge,Boon.WarDrum,Boon.SwordDrill}};
+    Console.WriteLine("field,doctrine,shape,seed,result,wave,peak,warmthLost,kills,seconds");
+    for(int field=0;field<Balance.Fields.Length;field++)for(int build=0;build<builds.Length;build++)for(int shape=0;shape<Policy.Shapes.Length;shape++)for(uint seed=1;seed<=seeds;seed++){
+     var boons=new int[Boon.BattleCount];foreach(int boon in builds[build])boons[boon]++;var b=Battle.CreateExpedition(seed*7919+(uint)field,field,100,boons,field,0);Policy.PlayShape(b,shape);
+     Console.WriteLine(field+","+names[build]+","+Policy.Shapes[shape]+","+seed+","+b.Phase+","+b.Wave+","+b.PeakAlive+","+(b.Phase==Phase.Won?100-b.HP:100)+","+b.Kills+","+F(b.Time));
+    }
+    return 0;
+   }
    Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3");
    for(uint seed=1;seed<=seeds;seed++)foreach(int skill in new[]{0,1,2})foreach(int camp in new[]{0,1,2,3}){
     var run=Expedition.Start(seed*7919);var stages=new List<string>();

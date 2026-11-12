@@ -2,7 +2,8 @@ namespace EmberBastion {
  // Words for the roguelite run (r37). Pure data like StoryScript: no Unity, Tests can compile it.
  // Each boon is proposed by one of the five companions, so the camp choice is also a small story beat.
  public static class ExpeditionText {
-  static readonly string[] names={"검술 교범","강궁","화약 개량","서리 결정","망원경","전리품 수레","전투 북","불씨 살리기","군자금"};
+  // Index order is Boon.* in Core: seven steady boons, seven doctrines, two camp-only boons.
+  static readonly string[] names={"검술 교범","강궁","화약 개량","서리 결정","망원경","전리품 수레","전투 북","검진","속사","유폭","혹한","쇄빙","야전 대장간","불씨 방벽","불씨 살리기","군자금"};
   static readonly string[] effects={
    "검사 피해 +15%",
    "궁수 피해 +15%",
@@ -11,10 +12,17 @@ namespace EmberBastion {
    "궁수·화약병·빙결사 사거리 +6%",
    "웨이브·대장 보상 +20%",
    "모든 병력 공격 속도 +7%",
+   "교리 · 검사는 곁에 선 검사 1명마다 피해 +12% (최대 +36%)",
+   "교리 · 궁수 공격 속도 +22%, 대신 궁수 사거리 -12%",
+   "교리 · 화약병이 처치한 적이 터져 주변에 그 적 체력의 30% 피해",
+   "교리 · 둔화된 적이 받는 추가 피해 +50% → +110%",
+   "교리 · 둔화된 적이 죽으면 주변 적도 3초 둔화",
+   "교리 · 대장장이가 지원하는 병력 피해 +30%",
+   "교리 · 온기 손실 감소 (5바퀴당 1 → 8바퀴당 1)",
    "잔불 온기 +20",
    "다음 전장 시작 골드 +100",
   };
-  static readonly Speaker[] speakers={Speaker.Rowen,Speaker.Mira,Speaker.Toto,Speaker.Serin,Speaker.Mira,Speaker.Bron,Speaker.Rowen,Speaker.Bron,Speaker.Toto};
+  static readonly Speaker[] speakers={Speaker.Rowen,Speaker.Mira,Speaker.Toto,Speaker.Serin,Speaker.Mira,Speaker.Bron,Speaker.Rowen,Speaker.Rowen,Speaker.Mira,Speaker.Toto,Speaker.Serin,Speaker.Serin,Speaker.Bron,Speaker.Bron,Speaker.Bron,Speaker.Toto};
   static readonly string[] quotes={
    "검 쥐는 법부터 다시 가르치겠습니다.",
    "시위를 더 팽팽하게 걸어 둘게요.",
@@ -23,6 +31,13 @@ namespace EmberBastion {
    "멀리서 먼저 보면 먼저 쏠 수 있죠.",
    "버리고 간 무기는 녹여서 다시 씁니다.",
    "북소리에 맞추면 손이 빨라집니다.",
+   "어깨를 붙이고 서면 검이 두 배로 무거워집니다.",
+   "멀리 쏘는 대신 빨리 쏠게요. 길 가까이에만 세워 주세요.",
+   "하나가 터지면 옆에도 터져요. 원래 그런 거예요!",
+   "얼어붙은 건 작은 충격에도 깨져요.",
+   "얼음은 깨질 때 옆으로 번져요.",
+   "제 모루 곁에 선 병사는 날이 다릅니다.",
+   "단지 둘레에 벽돌을 한 겹 더 쌓겠습니다.",
    "장작을 아끼지 않겠습니다. 단지부터 살려야죠.",
    "주운 거예요. 진짜로요.",
   };

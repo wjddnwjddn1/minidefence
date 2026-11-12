@@ -59,6 +59,42 @@ class ExpeditionChecks {
   Check(Throws(()=>Battle.CreateExpedition(1,0,0,NoBoons(),0,0))&&Throws(()=>Battle.CreateExpedition(1,0,101,NoBoons(),0,0))&&Throws(()=>Battle.CreateExpedition(1,0,100,new int[3],0,0))&&Throws(()=>Battle.CreateExpedition(1,0,100,NoBoons(),Boon.MaxThreat+1,0))&&Throws(()=>Battle.CreateExpedition(1,0,100,NoBoons(),0,-1)),"invalid expedition battles refused");
   {var over=NoBoons();over[Boon.SwordDrill]=Boon.MaxStacks(Boon.SwordDrill)+1;Check(Throws(()=>Battle.CreateExpedition(1,0,100,over,0,0)),"boon above its cap refused");}
 
+  // --- doctrines (r39): each one does what its text says --------------------------------------------------------
+  {
+   Func<int,Battle> With=boon=>{var list=NoBoons();if(boon>=0)list[boon]=1;var b=Battle.CreateExpedition(5,0,100,list,0,0);b.Gold=9000;return b;};
+   // phalanx: gate slots 0..4 stand 160 apart in a row, so a sword there has one or two swords within 170
+   {var none=With(-1);var b=With(Boon.Phalanx);foreach(var x in new[]{none,b}){x.Place(0,0);x.Place(0,1);x.Place(0,2);x.Place(0,9);x.Place(1,4);}
+    Check(Near(Damage(b,0),Damage(none,0)*(1+Boon.PhalanxPerSword)),"phalanx: one neighbour");
+    Check(Near(Damage(b,1),Damage(none,1)*(1+2*Boon.PhalanxPerSword)),"phalanx: two neighbours");
+    Check(Near(Damage(b,9),Damage(none,9))&&Near(Damage(b,4),Damage(none,4)),"phalanx: a lone sword and an archer gain nothing");}
+   // rapid fire: faster archers with a shorter reach, nobody else changes
+   {var none=With(-1);var b=With(Boon.RapidFire);foreach(var x in new[]{none,b}){x.Place(1,0);x.Place(2,1);x.Place(0,2);}
+    Check(Near(Interval(b,0),Interval(none,0)/Boon.RapidHaste)&&Near(Damage(b,0),Damage(none,0)),"rapid fire: faster archers, same damage");
+    Check(Near(b.AttackRange(b.At(0)),none.AttackRange(none.At(0))*Boon.RapidRange)&&Near(b.PlacementRange(1),none.PlacementRange(1)*Boon.RapidRange),"rapid fire: shorter reach");
+    Check(Near(Interval(b,2),Interval(none,2))&&Near(b.AttackRange(b.At(1)),none.AttackRange(none.At(1)))&&Near(b.PlacementRange(2),none.PlacementRange(2)),"rapid fire: other classes untouched");}
+   // field forge: only troops a smith reaches
+   {var none=With(-1);var b=With(Boon.FieldForge);foreach(var x in new[]{none,b}){x.Place(4,1);x.Place(0,0);x.Place(0,9);}
+    Check(Near(Damage(b,0),Damage(none,0)*Boon.ForgeDamage),"field forge: supported sword");Check(Near(Damage(b,9),Damage(none,9)),"field forge: unsupported sword");}
+   // deep frost: a slowed torch takes 20 x DeepFrostTaken from a sword, not 20 x 1.5
+   foreach(int deep in new[]{0,1}){var b=With(deep==1?Boon.DeepFrost:-1);b.Place(3,0);b.Place(0,1);b.Start();string seen=null;for(int t=0;t<60*40&&seen==null;t++){b.Step(Balance.Tick);foreach(var c in b.Cues)if(c.Kind=="hit"&&c.Brittle&&c.Source==0)seen=c.Text;}
+    Check(seen==(deep==1?Math.Round(20*Boon.DeepFrostTaken).ToString():"30"),"deep frost "+deep+": a slowed torch takes "+seen);}
+   // shatter: slowed enemies that die pass the slow on
+   {int[] frostCues=new int[2];for(int k=0;k<2;k++){var b=With(k==1?Boon.Shatter:-1);b.Place(3,0);b.Place(0,1);b.Place(0,2);b.Place(1,3);b.Start();for(int t=0;t<60*60;t++){b.Step(Balance.Tick);foreach(var c in b.Cues)if(c.Kind=="frost")frostCues[k]++;}}
+    Check(frostCues[1]>frostCues[0],"shatter spreads the slow: frost bursts "+frostCues[0]+" -> "+frostCues[1]);}
+   // chain blast: only powder kills burst, and only with the doctrine
+   {int[] chains=new int[2];for(int k=0;k<2;k++){var b=With(k==1?Boon.ChainBlast:-1);for(int slot=0;slot<5;slot++)b.Place(2,slot);b.Place(0,5);b.Start();for(int t=0;t<60*90;t++){b.Step(Balance.Tick);foreach(var c in b.Cues)if(c.Kind=="chain"){chains[k]++;Check(Near(c.Radius,Boon.ChainRadius),"chain radius");}}}
+    Check(chains[0]==0&&chains[1]>0,"chain blast only with the doctrine: "+chains[0]+" "+chains[1]);}
+   {var swords=With(Boon.ChainBlast);for(int slot=0;slot<5;slot++)swords.Place(0,slot);swords.Start();int chained=0;for(int t=0;t<60*60;t++){swords.Step(Balance.Tick);foreach(var c in swords.Cues)if(c.Kind=="chain")chained++;}Check(chained==0&&swords.Kills>0,"sword kills never burst");}
+   // ember ward: the same laps cost less warmth, and the larger lap-point range is valid only with the ward
+   {var ward=NoBoons();ward[Boon.EmberWard]=1;Check(Boon.PointsFor(NoBoons())==Boon.PointsPerWarmth&&Boon.PointsFor(ward)==Boon.PointsPerWarmth+Boon.WardPoints,"lap price");
+    var bare=Battle.CreateExpedition(13,0,100,NoBoons(),0,0);var warded=Battle.CreateExpedition(13,0,100,ward,0,0);foreach(var x in new[]{bare,warded}){x.Place(0,0);x.Start();}
+    while(bare.Phase==Phase.Fighting&&bare.HP>88){foreach(var x in new[]{bare,warded}){if(x.ReinforcementPending)x.ChooseReinforcement(x.Reinforcements.Choices()[0]);x.Step(Balance.Tick);}}
+    Check(bare.HP<=88&&warded.HP>bare.HP&&bare.Kills==warded.Kills,"the ward keeps more warmth in the same fight: "+bare.HP+" vs "+warded.HP);
+    var prep=Battle.CreateExpedition(1,0,100,ward,0,0).SavePreparation();prep.expedition.lapPoints=Boon.PointsPerWarmth+Boon.WardPoints-1;Check(Battle.RestorePreparation(prep).Mode==BattleMode.Expedition,"warded lap points restore");
+    prep.expedition.boons[Boon.EmberWard]=0;Check(Throws(()=>Battle.RestorePreparation(prep)),"the same lap points without the ward are refused");}
+   for(int boon=0;boon<Boon.Count;boon++)Check(Boon.IsDoctrine(boon)==(boon>=Boon.Phalanx&&boon<=Boon.EmberWard)&&(!Boon.IsDoctrine(boon)||Boon.MaxStacks(boon)==1),"doctrines are single");
+  }
+
   // --- warmth: goblins that finish a lap steal it; a cold ember loses the battle -------------------------------
   {
    var weak=Battle.CreateExpedition(13,0,30,NoBoons(),0,0);Check(weak.Place(0,0),"one sword");Check(!weak.SetDifficulty(1)&&!weak.EnableReinforcements()&&!weak.GrantSupply(20),"expedition keeps its own pacing and economy");
@@ -140,7 +176,7 @@ class ExpeditionChecks {
      b.Phase=Phase.Won;b.HP=Math.Max(1,run.Warmth-(int)(seed%4==0?0:(seed*7+(uint)stage*13)%45));Check(run.Complete(b),"win stage "+stage);
      Check(run.PendingGold==0,"war chest is spent by the battle it paid for");
      if(stage==run.Stages-1){Check(run.State==Expedition.Status.Won&&run.Offers().Length==0,"run won after the last stage");Check(Expedition.Restore(run.Export()).State==Expedition.Status.Won,"won run restores");break;}
-     var offers=run.Offers();foreach(int o in offers){Check(run.Count(o)<Boon.MaxStacks(o),"maxed boons are not offered");if(o==Boon.Rekindle)Check(run.Warmth<100,"rekindle is not offered to a full ember");}
+     var offers=run.Offers();bool doctrineOffered=false;foreach(int o in offers)if(Boon.IsDoctrine(o))doctrineOffered=true;Check(doctrineOffered,"every camp offers a doctrine");foreach(int o in offers){Check(run.Count(o)<Boon.MaxStacks(o),"maxed boons are not offered");if(o==Boon.Rekindle)Check(run.Warmth<100,"rekindle is not offered to a full ember");}
      int pick=offers[(int)((seed+(uint)stage)%3)];int warmth=run.Warmth;
      var again=Expedition.Restore(run.Export());Check(again.Choose(pick),"restored camp can choose");
      Check(run.Choose(pick),"choose");
@@ -149,7 +185,7 @@ class ExpeditionChecks {
      Check(Expedition.Restore(run.Export()).Stage==stage+1,"battle state restores");
     }
    }
-   Check(rekindleSeen>20&&chestSeen>20,"instant boons appear: "+rekindleSeen+" "+chestSeen);
+   Check(rekindleSeen>5&&chestSeen>5,"instant boons appear: "+rekindleSeen+" "+chestSeen);
   }
   // corrupt run data
   {
