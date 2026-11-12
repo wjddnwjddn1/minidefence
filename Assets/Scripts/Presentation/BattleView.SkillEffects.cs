@@ -22,7 +22,10 @@ namespace EmberBastion {
     GUI.matrix=previous*Matrix4x4.TRS(pivot,Quaternion.Euler(0,0,angle),Vector3.one)*Matrix4x4.Translate(-pivot);
    }
    float scale=kind<=1?1.55f:1.25f;
+   // the sword rift takes its branch colour, like the basic rift (blue, violet for the sweep branch, orange for the breaker)
+   Color before=GUI.color;if(kind==0&&visual.Cue.Slot>=0){var caster=battle.At(visual.Cue.Slot);int branch=caster==null?0:caster.Branch;GUI.color=branch==1?new Color(.86f,.7f,1,before.a):branch==2?new Color(1,.78f,.45f,before.a):new Color(.75f,.9f,1,before.a);}
    TerrainView.Image(sheet.texture,new Rect(pivot.x-origin[0]*scale,pivot.y-origin[1]*scale,frame.w*scale,frame.h*scale),frame.x,frame.y,frame.w,frame.h);
+   GUI.color=before;
    GUI.matrix=previous;
    if(preview)ProjectileReview(SkillSheets[kind]);
   }
