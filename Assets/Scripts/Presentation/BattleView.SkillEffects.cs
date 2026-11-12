@@ -29,7 +29,7 @@ namespace EmberBastion {
 
   // Charge comes from Battle.SkillCharge and Boon.SkillEvery; the last pip lights as the skill fires, so a full row is never shown.
   void DrawSkillPips(Point unit,int charged,int required){
-   if(required<3||required>5)return;
+   if(required<2||required>5)return;
    float x=(float)unit.X-(required*10-3)/2f,y=(float)unit.Y+22;
    for(int i=0;i<required;i++){
     Box(new Rect(x+i*10,y,7,7),new Color(.09f,.08f,.09f,.94f));

@@ -8,6 +8,8 @@ using EmberBastion;
 //   ExpeditionProbe doctrine [seeds] one battle per field with one doctrine and one army shape: does the doctrine change the best army?
 //   ExpeditionProbe build [seeds]    the same with three-boon builds
 static class Policy {
+  // EXPEDITION_MASTERY=0 keeps the level-3 policy for comparison (r43).
+  public static readonly bool Mastery=(Environment.GetEnvironmentVariable("EXPEDITION_MASTERY")??"1")!="0";
  static readonly Dictionary<int,int[]> cache=new Dictionary<int,int[]>();
  static double Cover(FieldDef f,Point s,double range,double min){int n=0,inside=0;for(double d=0;d<f.Perimeter;d+=16){n++;double dist=Point.Distance(f.Path(d),s);if(dist<=range&&dist>=min)inside++;}return (double)inside/n;}
  // Swords on the half of the slots that touch the most road in melee reach; the rest alternate archer, bomb and frost by long reach.
@@ -36,7 +38,7 @@ static class Policy {
   int placed=b.Units.Count;
   for(int slot=0;slot<b.Field.Slots.Length;slot++)if(b.At(slot)==null){if(skill==0&&placed>=3)break;int kind=Kind(b,slot);if(b.Gold>=Balance.Troops[kind].Cost&&b.Place(kind,slot))placed++;}
   if(skill==0)return;
-  foreach(var u in b.Units){if(u.Level==1&&b.Gold>=50)b.Upgrade(u.Slot);else if(skill>=2&&u.Level==2&&b.Gold>=90)b.UpgradeBranch(u.Slot,u.Kind==0?2:1);}
+  foreach(var u in b.Units){if(u.Level==1&&b.Gold>=50)b.Upgrade(u.Slot);else if(skill>=2&&u.Level==2&&b.Gold>=90)b.UpgradeBranch(u.Slot,u.Kind==0?2:1);else if(skill>=2&&Mastery&&u.Level==3)b.UpgradeMastery(u.Slot);}
  }
  // Plays one battle. Counts finished laps from outside so that ordinary battles can be measured too.
  public static void Play(Battle b,int skill,out int laps,out int bossLaps){

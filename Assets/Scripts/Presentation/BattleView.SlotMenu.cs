@@ -33,7 +33,7 @@ namespace EmberBastion {
    if(menuUnit==null){for(int k=0;k<5;k++)actions.Add(new SlotAction(k,RingRect(c,r,d,-90+72*k)));}
    else if(menuUnit.Level==1){actions.Add(new SlotAction(10,RingRect(c,r,d,180)));actions.Add(new SlotAction(13,RingRect(c,r,d,90)));}
    else if(menuUnit.Level==2){actions.Add(new SlotAction(11,RingRect(c,r,d,180)));actions.Add(new SlotAction(12,RingRect(c,r,d,0)));actions.Add(new SlotAction(13,RingRect(c,r,d,90)));}
-   else actions.Add(new SlotAction(13,RingRect(c,r,d,90)));
+   else{if(battle.SkillsActive&&menuUnit.Mastery==0)actions.Add(new SlotAction(16,RingRect(c,r,d,180)));actions.Add(new SlotAction(13,RingRect(c,r,d,90)));}
    if(menuUnit!=null&&(menuUnit.Kind==1||menuUnit.Kind==3))actions.Add(new SlotAction(14,RingRect(c,r,d,-90)));
    if(menuUnit==null)actions.Add(new SlotAction(15,new Rect(c.x-Mathf.Max(44,34*u)/2,c.y-Mathf.Max(44,34*u)/2,Mathf.Max(44,34*u),Mathf.Max(44,34*u))));else actions.Add(new SlotAction(15,RingRect(c,r,Mathf.Max(44,30*u),-45)));return actions;}
   Rect MenuInfoRect(){Vector2 c=MenuCenter();float u=MenuUnit(),w=Mathf.Min(270*u,Screen.width-16),h=104*u,reach=MenuRadius()+MenuButton()/2+10*u;if(MenuStacked(c.x))return new Rect((Screen.width-w)/2,Screen.height-h-8,w,h);float x=c.x+reach;if(x+w>Screen.width-8)x=c.x-reach-w;float y=c.y-h/2;if(x<8){x=Mathf.Clamp(c.x-w/2,8,Screen.width-w-8);y=c.y+reach+h+8>Screen.height?c.y-reach-h:c.y+reach;}return new Rect(x,Mathf.Clamp(y,HeaderHeight+4,Mathf.Max(HeaderHeight+4,Screen.height-FooterHeight-h-4)),w,h);}
@@ -58,20 +58,21 @@ namespace EmberBastion {
    if(e.type==EventType.MouseUp&&e.button==0){int down=menuDown;bool slid=menuSlid;menuDown=-1;menuSlid=false;if(hit>=0&&slid)SelectSlotAction(hit,false);else if(hit>=0&&hit==down)SelectSlotAction(hit,menuTouch);e.Use();return true;}
    if(e.type==EventType.ScrollWheel){e.Use();return true;}return false;
   }
-  bool SlotActionEnabled(int id){return id<5?battle.Gold>=Balance.Troops[id].Cost:id==10?battle.Gold>=50:id==11||id==12?battle.Gold>=90:true;}
-  string SlotActionLabel(int id){if(id==15)return "닫기";if(id<5)return Balance.Troops[id].Name+" "+Balance.Troops[id].Cost+"G";if(id==10)return "강화 50G";if(id==11||id==12)return BranchTitle(menuUnit.Kind,id-10)+" · 90G";if(id==13)return SaleLabel(menuUnit);return "목표: "+PriorityName(menuUnit.Priority);}
+  bool SlotActionEnabled(int id){return id<5?battle.Gold>=Balance.Troops[id].Cost:id==10?battle.Gold>=50:id==11||id==12?battle.Gold>=90:id==16?battle.Gold>=Boon.MasteryCost:true;}
+  string SlotActionLabel(int id){if(id==15)return "닫기";if(id<5)return Balance.Troops[id].Name+" "+Balance.Troops[id].Cost+"G";if(id==10)return "강화 50G";if(id==11||id==12)return BranchTitle(menuUnit.Kind,id-10)+" · 90G";if(id==13)return SaleLabel(menuUnit);if(id==16)return "숙련 "+Boon.MasteryCost+"G";return "목표: "+PriorityName(menuUnit.Priority);}
   string SlotActionInfo(int id){if(id==15)return "메뉴 닫기 · 전투는 계속됩니다.";if(id<0){
    if(menuUnit==null)return "병과 위에 올려 효과 확인 · 터치는 두 번 눌러 확정";
    battle.SupportBonuses(menuUnit,out double haste,out double damage);
    if(battle.SkillsActive)return "기술 · "+ExpeditionText.SkillName(menuUnit.Kind)+": "+ExpeditionText.SkillEffect(menuUnit.Kind)+(haste>0?" · 대장장이 지원 +"+Math.Round(haste*100)+"%":"");
    if(haste>0)return "초록색 + : 대장장이 지원 · 공격 속도 +"+Math.Round(haste*100)+"%"+(damage>0?" · 피해 +"+Math.Round(damage*100)+"%":"");
    return "누른 채 강화 쪽으로 끌어 놓기 · 바깥/Esc 닫기";
-  }if(id<5)return TroopDescription(id)+" · 사거리 "+Math.Round(battle.PlacementRange(id));if(id==10){double before,interval,after,next; battle.AttackStats(menuUnit,out before,out interval);var u=new Unit{Kind=menuUnit.Kind,Slot=menuSlot,Level=2};battle.AttackStats(u,out after,out next);return menuUnit.Kind==4?"주변 공격 속도 +25% → +35%":"피해 "+Math.Round(before,1)+" → "+Math.Round(after,1)+" · 간격 "+Math.Round(interval,2)+" → "+Math.Round(next,2)+"초 · 사거리 "+Math.Round(battle.AttackRange(u));}if(id==11||id==12)return BranchTitle(menuUnit.Kind,id-10)+" · "+BranchStats(menuUnit,id-10).Replace("\n"," · ");if(id==13)return "환급 "+Battle.SaleRefund(menuUnit)+"G · 손실 "+(menuUnit.Invested-Battle.SaleRefund(menuUnit))+"G"+(battle.Phase==Phase.Fighting?" · 손실이 있으면 두 번 확인":"");return "앞선 적 → 체력 높은 적 → 빠른 적 → 대장 우선";}
+  }if(id==16)return ExpeditionText.MasteryEffect(menuUnit.Kind);if(id<5)return TroopDescription(id)+" · 사거리 "+Math.Round(battle.PlacementRange(id));if(id==10){double before,interval,after,next; battle.AttackStats(menuUnit,out before,out interval);var u=new Unit{Kind=menuUnit.Kind,Slot=menuSlot,Level=2};battle.AttackStats(u,out after,out next);return menuUnit.Kind==4?"주변 공격 속도 +25% → +35%":"피해 "+Math.Round(before,1)+" → "+Math.Round(after,1)+" · 간격 "+Math.Round(interval,2)+" → "+Math.Round(next,2)+"초 · 사거리 "+Math.Round(battle.AttackRange(u));}if(id==11||id==12)return BranchTitle(menuUnit.Kind,id-10)+" · "+BranchStats(menuUnit,id-10).Replace("\n"," · ");if(id==13)return "환급 "+Battle.SaleRefund(menuUnit)+"G · 손실 "+(menuUnit.Invested-Battle.SaleRefund(menuUnit))+"G"+(battle.Phase==Phase.Fighting?" · 손실이 있으면 두 번 확인":"");return "앞선 적 → 체력 높은 적 → 빠른 적 → 대장 우선";}
   void SelectSlotAction(int id,bool touch){if(id==15){CloseSlotMenu();return;}if(!SlotActionEnabled(id)){menuPreview=id;notice="골드가 부족합니다.";return;}
    bool combatSale=id==13&&battle.Phase==Phase.Fighting&&menuUnit.Invested>Battle.SaleRefund(menuUnit);
    if(touch&&!combatSale&&menuTouchPreview!=id){menuTouchPreview=id;menuPreview=id;if(Debug.isDebugBuild)Debug.Log("SLOT_TOUCH_PREVIEW "+id);return;}menuPreview=id;
    if(id<5){if(battle.Place(id,menuSlot)){sound.Play("place");notice=Balance.Troops[id].Name+" 배치 완료";if(tutorialStage==1||tutorialStage==2){tutorialStage=3;if(Debug.isDebugBuild)Debug.Log("TUTORIAL_STAGE 3");}LogSlotAction(id);CloseSlotMenu();}}
    else if(id==10){if(battle.Upgrade(menuSlot)){UpgradeCue(menuUnit);notice="2레벨 강화 완료";LogSlotAction(id);CloseSlotMenu();}}
+   else if(id==16){if(battle.UpgradeMastery(menuSlot)){UpgradeCue(menuUnit);notice=Balance.Troops[menuUnit.Kind].Name+" 숙련 완료";LogSlotAction(id);CloseSlotMenu();}}
    else if(id==11||id==12){if(battle.UpgradeBranch(menuSlot,id-10)){UpgradeCue(menuUnit);notice="3레벨 "+BranchTitle(menuUnit.Kind,id-10);LogSlotAction(id);CloseSlotMenu();}}
    else if(id==13){SellSelected();LogSlotAction(id);if(battle.At(menuSlot)==null)CloseSlotMenu();}
    else {CyclePriority(menuUnit);LogSlotAction(id);}
@@ -84,9 +85,9 @@ namespace EmberBastion {
   Texture2D Disc(){if(disc!=null)return disc;const int n=64;disc=new Texture2D(n,n,TextureFormat.RGBA32,false);disc.filterMode=FilterMode.Bilinear;disc.wrapMode=TextureWrapMode.Clamp;var px=new Color32[n*n];for(int y=0;y<n;y++)for(int x=0;x<n;x++){float d=Mathf.Sqrt((x+.5f-n/2f)*(x+.5f-n/2f)+(y+.5f-n/2f)*(y+.5f-n/2f));px[y*n+x]=new Color32(255,255,255,(byte)(255*Mathf.Clamp01(n/2f-d)));}disc.SetPixels32(px);disc.Apply();return disc;}
   void Circle(Rect r,Color c){Color old=GUI.color;GUI.color=c;GUI.DrawTexture(r,Disc());GUI.color=old;}
   static Rect Inset(Rect r,float by){return new Rect(r.x+by,r.y+by,r.width-2*by,r.height-2*by);}
-  Color ActionEdge(int id){return id<0?uiGold:id==11?new Color(.78f,.5f,1):id==12?new Color(.62f,.66f,.74f):id==10?new Color(.98f,.83f,.3f):id==13?new Color(.9f,.55f,.35f):uiGold;}
-  string ActionShort(int id){if(id<0)return "";if(id<5)return Balance.Troops[id].Cost+"G";if(id==10)return "Lv2 · 50G";if(id==11||id==12)return (id==11?"보라":"검정")+" · 90G";if(id==13)return battle.Phase==Phase.Fighting&&saleSlot==menuSlot&&Time.unscaledTime<saleUntil?"재확인":"+"+Battle.SaleRefund(menuUnit)+"G";if(id==14)return PriorityName(menuUnit.Priority);return "";}
-  string ActionTitle(int id){if(id>=0&&id<5)return Balance.Troops[id].Name+" · "+Balance.Troops[id].Cost+"G";if(id==10)return Balance.Troops[menuUnit.Kind].Name+" 2레벨 · 50G";if(id==11||id==12)return (id==11?"◀ ":"▶ ")+BranchTitle(menuUnit.Kind,id-10)+" · 90G";if(id==13)return "판매 · "+SaleLabel(menuUnit);if(id==14)return "목표: "+PriorityName(menuUnit.Priority);if(id==15)return "닫기";return menuUnit==null?(menuSlot+1)+"번 자리 · 병과 선택":(menuSlot+1)+"번 · "+Balance.Troops[menuUnit.Kind].Name+" Lv"+menuUnit.Level+(menuUnit.Branch>0?" · "+BranchTitle(menuUnit.Kind,menuUnit.Branch):"");}
+  Color ActionEdge(int id){return id<0?uiGold:id==11?new Color(.78f,.5f,1):id==12?new Color(.62f,.66f,.74f):id==10?new Color(.98f,.83f,.3f):id==13?new Color(.9f,.55f,.35f):id==16?new Color(1f,.86f,.35f):uiGold;}
+  string ActionShort(int id){if(id<0)return "";if(id<5)return Balance.Troops[id].Cost+"G";if(id==10)return "Lv2 · 50G";if(id==11||id==12)return (id==11?"보라":"검정")+" · 90G";if(id==13)return battle.Phase==Phase.Fighting&&saleSlot==menuSlot&&Time.unscaledTime<saleUntil?"재확인":"+"+Battle.SaleRefund(menuUnit)+"G";if(id==14)return PriorityName(menuUnit.Priority);if(id==16)return "숙련 · "+Boon.MasteryCost+"G";return "";}
+  string ActionTitle(int id){if(id>=0&&id<5)return Balance.Troops[id].Name+" · "+Balance.Troops[id].Cost+"G";if(id==10)return Balance.Troops[menuUnit.Kind].Name+" 2레벨 · 50G";if(id==11||id==12)return (id==11?"◀ ":"▶ ")+BranchTitle(menuUnit.Kind,id-10)+" · 90G";if(id==13)return "판매 · "+SaleLabel(menuUnit);if(id==14)return "목표: "+PriorityName(menuUnit.Priority);if(id==15)return "닫기";if(id==16)return Balance.Troops[menuUnit.Kind].Name+" 숙련 · "+Boon.MasteryCost+"G";return menuUnit==null?(menuSlot+1)+"번 자리 · 병과 선택":(menuSlot+1)+"번 · "+Balance.Troops[menuUnit.Kind].Name+" Lv"+menuUnit.Level+(menuUnit.Branch>0?" · "+BranchTitle(menuUnit.Kind,menuUnit.Branch):"")+(menuUnit.Mastery>0?" · 숙련":"");}
   void SlotMenuPanel(){ValidateSlotMenu();if(menuSlot<0)return;Matrix4x4 matrix=GUI.matrix;GUI.matrix=Matrix4x4.identity;
    var actions=SlotActions();Vector2 c=MenuCenter();float u=MenuUnit(),r=MenuRadius(),d=MenuButton();
    int old=hud.fontSize;bool wrap=hud.wordWrap;TextAnchor align=hud.alignment;Color textColor=hud.normal.textColor;hud.wordWrap=false;hud.alignment=TextAnchor.MiddleCenter;
@@ -101,6 +102,7 @@ namespace EmberBastion {
     if(id<5){Texture2D[] icons={warriorIdle,archerIdle,pawn,frostIdle,smithIdle};TerrainView.Image(icons[id],icon,50,30,100,120);}
     else if(id==10){int k=menuUnit.Kind;Texture2D[] next={warriorIdleLevel[1],archerIdleLevel[1],pawnLevel[1],frostIdleLevel[1],smithIdleLevel[1]};TerrainView.Image(next[k],icon,50,30,100,120);}
     else if(id==11||id==12)TerrainView.Image(MenuPortrait(menuUnit.Kind,id-10),icon,50,30,100,120);
+    else if(id==16){TerrainView.Image(MenuPortrait(menuUnit.Kind,menuUnit.Branch),icon,50,30,100,120);hud.fontSize=Mathf.RoundToInt(16*u);hud.normal.textColor=new Color(1f,.86f,.35f);GUI.Label(new Rect(face.x,face.y,face.width*.45f,face.height*.4f),"★",hud);}
     else if(id==13){if(coin!=null)GUI.DrawTexture(new Rect(face.center.x-10*u,face.y+4*u,20*u,20*u),coin);hud.fontSize=Mathf.RoundToInt(12*u);hud.normal.textColor=new Color(1,.78f,.55f);GUI.Label(new Rect(face.x,face.y+face.height*.43f,face.width,face.height*.28f),"판매",hud);}
     else if(id==14){hud.fontSize=Mathf.RoundToInt(20*u);hud.normal.textColor=uiAccent;GUI.Label(new Rect(face.x,face.y+face.height*.1f,face.width,face.height*.5f),"◎",hud);}
     GUI.color=tint;
@@ -109,7 +111,7 @@ namespace EmberBastion {
    }
    // Current unit level badge in the middle of the unit menu (the unit itself stays visible under the ring centre).
    if(menuUnit!=null){int k=menuUnit.Kind,l=menuUnit.Level-1;Texture2D[] now={warriorIdleLevel[l],archerIdleLevel[l],pawnLevel[l],frostIdleLevel[l],smithIdleLevel[l]};Texture2D sheet=menuUnit.Level==3?MenuPortrait(k,menuUnit.Branch):now[k];float ps=58*u;Circle(new Rect(c.x-ps/2-3*u,c.y-ps/2-6*u,ps+6*u,ps+6*u),new Color(.06f,.07f,.08f,.75f));TerrainView.Image(sheet,FitMenuPortrait(new Rect(c.x-ps*.42f,c.y-ps*.55f,ps*.84f,ps*1.0f)),50,30,100,120);
-    hud.fontSize=Mathf.RoundToInt(11*u);hud.normal.textColor=uiTitle;Rect lv=new Rect(c.x-22*u,c.y+24*u,44*u,15*u);Box(lv,new Color(.06f,.07f,.08f,.85f));GUI.Label(lv,"Lv"+menuUnit.Level,hud);}
+    hud.fontSize=Mathf.RoundToInt(11*u);hud.normal.textColor=uiTitle;Rect lv=new Rect(c.x-22*u,c.y+24*u,44*u,15*u);Box(lv,new Color(.06f,.07f,.08f,.85f));GUI.Label(lv,"Lv"+menuUnit.Level+(menuUnit.Mastery>0?"★":""),hud);}
    menuPreview=preview;
    // Info card: title + effect text for the hovered/previewed action (before pressing).
    Rect info=MenuInfoRect();Box(new Rect(info.x-1,info.y-1,info.width+2,info.height+2),new Color(0,0,0,.5f));UiPlate(info);

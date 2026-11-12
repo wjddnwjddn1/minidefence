@@ -35,6 +35,9 @@ class ExpeditionTextChecks {
   Check(ExpeditionText.SkillEffect(1).Contains("+"+Pct(Boon.PierceDamage)),"pierce text");
   Check(ExpeditionText.SkillEffect(2).Contains("반경 +"+Pct(Boon.BigBlastRadius))&&ExpeditionText.SkillEffect(2).Contains("피해 +"+Pct(Boon.BigBlastDamage)),"blast text");
   Check(ExpeditionText.SkillEffect(3).Contains(Boon.NovaFreeze.ToString(CultureInfo.InvariantCulture)+"초"),"nova text");
+  // mastery (r43)
+  for(int kind=0;kind<4;kind++)Check(ExpeditionText.MasteryEffect(kind).Contains("+"+Pct(Boon.MasteryDamage))&&ExpeditionText.MasteryEffect(kind).Contains(ExpeditionText.SkillName(kind)),"mastery text "+kind);
+  Check(ExpeditionText.MasteryEffect(4).Contains("+"+Math.Round(Boon.MasteryHaste*100)+"%"),"smith mastery text");
   // roads (r43)
   for(int road=0;road<3;road++)Check(ExpeditionText.RoadName(road).Length>0&&ExpeditionText.RoadEffect(road).Length>0,"road "+road+" has words");
   Check(ExpeditionText.RoadEffect(Expedition.RoadSupply).Contains("+"+Expedition.SupplyGold)&&ExpeditionText.RoadEffect(Expedition.RoadSupply).Contains("-"+Expedition.SupplyWarmth),"supply road text");

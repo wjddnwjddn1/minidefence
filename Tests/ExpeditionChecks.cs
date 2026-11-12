@@ -356,6 +356,38 @@ class ExpeditionChecks {
    Check(seen[0]>50&&seen[1]>50&&seen[2]>50&&supplyChecked>50&&hardChecked>50,"all three roads are taken: "+seen[0]+" "+seen[1]+" "+seen[2]);
    var camp=Expedition.Start(3);var cb=camp.CreateBattle();cb.Phase=Phase.Won;camp.Complete(cb);var cd=camp.Export();cd.pendingGold=Expedition.SupplyGold;Check(Throws(()=>Expedition.Restore(cd)),"gold waiting at a camp");
   }
+  // --- mastery (r43): one more upgrade after the branch, expeditions only ----------------------------------------
+  {
+   var free=Battle.CreateForRules(3,0,4);free.Gold=5000;free.Place(0,0);free.Upgrade(0);free.UpgradeBranch(0,1);
+   Check(!free.UpgradeMastery(0)&&free.At(0).Mastery==0,"no mastery outside expeditions");
+   for(int kind=0;kind<5;kind++){
+    var b=Battle.CreateExpedition(3,0,100,NoBoons(),0,0);b.Gold=5000;Check(b.Place(kind,0)&&b.Place(0,1),"mastery army");
+    Check(!b.UpgradeMastery(0),"level 1 cannot master");b.Upgrade(0);Check(!b.UpgradeMastery(0),"level 2 cannot master");b.UpgradeBranch(0,2);
+    double before=kind<4?Damage(b,0):0,hasteBefore,hasteAfter,bonus;b.SupportBonuses(b.At(1),out hasteBefore,out bonus);
+    int gold=b.Gold,invested=b.At(0).Invested,every=b.SkillEvery(b.At(0));
+    b.Gold=Boon.MasteryCost-1;Check(!b.UpgradeMastery(0),"mastery needs its gold");b.Gold=gold;
+    Check(b.UpgradeMastery(0)&&b.At(0).Mastery==1&&b.At(0).Level==3&&b.At(0).Branch==2,"mastery keeps level and branch");
+    Check(b.Gold==gold-Boon.MasteryCost&&b.At(0).Invested==invested+Boon.MasteryCost&&b.At(0).PrepSpent==b.At(0).Invested,"mastery is paid and counted");
+    Check(!b.UpgradeMastery(0)&&!b.UpgradeMastery(7)&&b.Gold==gold-Boon.MasteryCost,"mastery only once");
+    if(kind<4){Check(Near(Damage(b,0),before*Boon.MasteryDamage),"mastery damage "+kind);Check(b.SkillEvery(b.At(0))==every-1&&every==Boon.SkillEvery(kind),"mastery brings the skill one attack sooner");}
+    else{b.SupportBonuses(b.At(1),out hasteAfter,out bonus);Check(Near(hasteBefore,.35)&&Near(hasteAfter,Boon.MasteryHaste)&&b.SkillEvery(b.At(0))==Boon.SkillEvery(4),"a master smith speeds troops up more");}
+    Check(Battle.SaleRefund(b.At(0))==b.At(0).Invested,"a mastery bought in preparation sells back in full");
+    var saved=Battle.RestorePreparation(b.SavePreparation());Check(saved.At(0).Mastery==1&&saved.At(0).Invested==b.At(0).Invested,"mastery survives a preparation save");
+    {var d=b.SavePreparation();d.units[0].mastery=2;Check(Throws(()=>Battle.RestorePreparation(d)),"mastery above one");}
+    {var d=b.SavePreparation();d.units[0].mastery=0;Check(Throws(()=>Battle.RestorePreparation(d)),"mastery gold without mastery");}
+    {var d=b.SavePreparation();d.units[1].mastery=1;d.units[1].invested+=Boon.MasteryCost;Check(Throws(()=>Battle.RestorePreparation(d)),"mastery below level 3");}
+    {var d=b.SavePreparation();d.mode=(int)BattleMode.Normal;d.expedition=null;Check(Throws(()=>Battle.RestorePreparation(d)),"mastery in a normal battle");}
+    b.Start();for(int t=0;t<60*30;t++)b.Step(Balance.Tick);
+    var live=Battle.ImportCombat(b.ExportCombat());Check(live.At(0).Mastery==1&&live.SkillCharge(live.At(0))==b.SkillCharge(b.At(0)),"mastery survives a combat save");
+    // bought during the fight it refunds like any combat purchase
+    var late=Battle.CreateExpedition(3,0,100,NoBoons(),0,0);late.Gold=5000;late.Place(kind,0);late.Upgrade(0);late.UpgradeBranch(0,1);late.Place(0,1);late.Start();late.Step(Balance.Tick);
+    int prep=late.At(0).PrepSpent;Check(late.UpgradeMastery(0)&&late.At(0).PrepSpent==prep&&Battle.SaleRefund(late.At(0))==(int)Math.Floor(prep+(late.At(0).Invested-prep)*.6)&&Battle.SaleRefund(late.At(0))<late.At(0).Invested,"mastery bought in combat is combat spending");
+   }
+   // a mastered sword uses its skill every third attack
+   var fast=Battle.CreateExpedition(77,0,100,NoBoons(),0,0);fast.Gold=20000;for(int slot=0;slot<6;slot++){fast.Place(0,slot);fast.Upgrade(slot);fast.UpgradeBranch(slot,2);fast.UpgradeMastery(slot);}fast.Start();
+   int skills=0;for(int t=0;t<60*60;t++){fast.Step(Balance.Tick);foreach(var c in fast.Cues)if(c.Kind=="skill")skills++;}
+   int expected=0;foreach(var u in fast.Units)expected+=u.HitCount/3;Check(skills==expected&&skills>0,"mastered swords: one skill per three attacks: "+skills+" vs "+expected);
+  }
   Console.WriteLine("PASS "+checks+" expedition checks: neutral mode, boons, threat, warmth, saves and the run");
  }
 }
