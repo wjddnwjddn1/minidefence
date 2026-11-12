@@ -197,7 +197,7 @@ namespace EmberBastion {
   public const int RekindleWarmth=20,WarChestGold=100;
   public const int MaxThreat=9;public const double ThreatHealth=.25;
   // Ember grade (r43): a harder run for players who have won. Every enemy of the run has GradeHealth more health per grade.
-  public const int MaxGrade=5;public const double GradeHealth=.08;
+  public const int MaxGrade=5;public const double GradeHealth=.05;
   // Skills (r43): in an expedition every Nth basic attack is a skill. Sword: a rift along the ground hits everything in a line.
   // Archer: the arrow goes through the whole line. Powder: a bigger blast. Frost: the hit freezes everything round the target.
   // Smith: every ForgeEvery seconds the troops in reach attack again at once.

@@ -91,7 +91,7 @@ class ExpeditionProbe {
     foreach(var order in orders)foreach(int skill in new[]{1,2})for(uint seed=1;seed<=seeds;seed++){
      var run=Expedition.Start(seed*7919);string losses="";
      while(run.State==Expedition.Status.Battle){var b=run.CreateBattle();int before=run.Warmth,laps,boss;Policy.Play(b,skill,out laps,out boss);if(!run.Complete(b))throw new Exception("complete failed");losses+=(losses.Length>0?"/":"")+(before-run.Warmth);
-      if(run.State==Expedition.Status.Camp&&!run.Choose(Policy.Camp(run,1),order[run.Stage]))throw new Exception("choose failed");}
+      if(run.State==Expedition.Status.Camp&&!run.Choose(Policy.Camp(run,1),run.FinaleNext?Expedition.FinaleField:order[run.Stage]))throw new Exception("choose failed");}
      Console.WriteLine(""+order[0]+order[1]+order[2]+","+skill+","+seed+","+run.State+","+run.ClearedStages+","+run.Warmth+","+losses);
     }
     return 0;
@@ -111,7 +111,7 @@ class ExpeditionProbe {
    int grade=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_GRADE")??"0",out grade);
    // EXPEDITION_ROAD=0 plain, 1 supply, 2 hard: the road this policy takes whenever a camp offers it (r43).
    int roadWanted=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_ROAD")??"0",out roadWanted);
-   Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3");
+   Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3,stage4");
    for(uint seed=1;seed<=seeds;seed++)foreach(int skill in new[]{0,1,2})foreach(int camp in new[]{0,1,2,3}){
     var run=Expedition.Start(seed*7919,grade);var stages=new List<string>();string roads="";
     while(run.State==Expedition.Status.Battle){

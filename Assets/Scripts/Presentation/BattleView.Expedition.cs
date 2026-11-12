@@ -26,7 +26,7 @@ namespace EmberBastion {
   // Starts the current stage of the run. OpenField resets every piece of view state the usual way; then the run's battle replaces it.
   void OpenExpeditionBattle(){
    if(!RefreshExpeditionCheckpoint())return;var next=expeditionSavedBattle??expedition.CreateBattle();expeditionSavedBattle=null;OpenField(next.FieldIndex);battle=next;BindBattle();paused=next.Phase==Phase.Fighting;SimulationSpeed=expeditionSavedSpeed;SaveExpedition();expeditionMenu=false;expeditionOpenAt=-1;
-   notice="원정 "+(expedition.Stage+1)+"/"+expedition.Stages+" · "+battle.Field.Name+" · 온기 "+battle.HP+" · 시작 "+battle.Gold+"G"+BattleHealthText(battle)+GradeText(battle.Grade)+(expedition.RoadAt(expedition.Stage)!=Expedition.RoadPlain?" · "+ExpeditionText.RoadName(expedition.RoadAt(expedition.Stage)):"");
+   notice="원정 "+(expedition.Stage+1)+"/"+expedition.Stages+" · "+(expedition.InFinale?ExpeditionText.FinaleName:battle.Field.Name)+" · 온기 "+battle.HP+" · 시작 "+battle.Gold+"G"+BattleHealthText(battle)+GradeText(battle.Grade)+(expedition.RoadAt(expedition.Stage)!=Expedition.RoadPlain?" · "+ExpeditionText.RoadName(expedition.RoadAt(expedition.Stage)):"");
    ExpeditionLog();
   }
   void OpenExpeditionMenu(){expeditionMenu=true;fieldMenu=true;expeditionAbandonUntil=0;held.Clear();pressed=false;}
@@ -69,15 +69,15 @@ namespace EmberBastion {
    bool wide=Screen.width>=640&&Screen.height>=420;
    float width=Math.Min(Screen.width-24,wide?700:480),height=Math.Min(Screen.height-16,camp?(wide?324:340):250),x=(Screen.width-width)/2,y=(Screen.height-height)/2,left=x+18,inner=width-36;
    Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.72f));UiPlate(new Rect(x,y,width,height));
-   string heading=run==null?"불씨 원정":camp?(pendingCampBoon>=0?"다음 전장 선택":"야영지 · "+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
+   string heading=run==null?"불씨 원정":camp?(pendingCampBoon>=0?"다음 전장 선택":(run.FinaleNext?"귀환 전 야영지 · ":"야영지 · ")+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
    UiTitle(new Rect(x+12,y+4,width-24,34),heading,title);ExpeditionRect("panel",new Rect(x,y,width,height));
    int oldHud=hud.fontSize,oldButton=button.fontSize;bool oldWrap=hud.wordWrap;TextAnchor oldAlign=hud.alignment;Color oldColor=hud.normal.textColor;
    hud.wordWrap=false;hud.alignment=TextAnchor.MiddleLeft;hud.fontSize=wide?16:12;
    if(run==null){GUI.Label(new Rect(left,y+50,inner,24),"진행 중인 원정이 없습니다.",hud);button.fontSize=wide?15:13;GradePicker(new Rect(left,y+96,inner,36));float nh=(inner-8)/2;if(MenuButton(new Rect(left,y+height-52,nh,40),"새 원정")){CloseExpeditionMenu();StartExpedition();}if(MenuButton(new Rect(left+nh+8,y+height-52,nh,40),"닫기")){CloseExpeditionMenu();if(ExpeditionBattle)OpenField(0);}}
    else{
-    string status=camp?"잔불 온기 "+run.Warmth+"/100 · "+(pendingCampBoon>=0?"선택한 준비: "+ExpeditionText.Name(pendingCampBoon):"준비 하나를 고르세요")
+    string status=camp?"잔불 온기 "+run.Warmth+"/100 · "+(pendingCampBoon>=0?"선택한 준비: "+ExpeditionText.Name(pendingCampBoon):run.FinaleNext?"다음: "+ExpeditionText.FinaleName+HealthText(run.NextHealth(Expedition.FinaleField))+" · 귀환 온기 +"+Expedition.FinaleWarmth:"준비 하나를 고르세요")
      :over?"통과한 전장 "+RunCleared(run)+"/"+run.Stages+" · 남은 온기 "+run.Warmth+" · 처치 "+run.Kills+GradeText(run.Grade)
-     :"잔불 온기 "+(ExpeditionBattle&&run.Matches(battle)?battle.HP:run.Warmth)+"/100 · "+Balance.Fields[run.Field].Name+HealthText(run.HealthAt(run.Stage))+GradeText(run.Grade);
+     :"잔불 온기 "+(ExpeditionBattle&&run.Matches(battle)?battle.HP:run.Warmth)+"/100 · "+(run.InFinale?ExpeditionText.FinaleName:Balance.Fields[run.Field].Name)+HealthText(run.HealthAt(run.Stage))+GradeText(run.Grade);
     while(hud.fontSize>10&&MeasureText(hud,status).x>inner)hud.fontSize--;GUI.Label(new Rect(left,y+44,inner,20),status,hud);
     hud.fontSize=wide?14:11;hud.normal.textColor=uiDisabled;hud.wordWrap=true;string taken="준비: "+BoonSummary(run);Rect takenRect=new Rect(left,y+66,inner,26);while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(taken),inner)>takenRect.height)hud.fontSize--;ExpeditionFit(takenRect,taken);GUI.Label(takenRect,taken,hud);hud.wordWrap=false;hud.normal.textColor=oldColor;
     if(camp&&pendingCampBoon>=0){DrawCampRoutes(run,new Rect(left,y+94,inner,height-104),wide);}
@@ -102,12 +102,12 @@ namespace EmberBastion {
      button.fontSize=wide?15:13;float by=y+height-56,half=(inner-8)/2;
      if(over){
       hud.fontSize=wide?14:11;hud.normal.textColor=uiDisabled;int best=ExpeditionBest;if(best>0)GUI.Label(new Rect(left,y+90,inner,22),"최고 기록: 전장 "+(best/1000)+"/"+run.Stages+" · 온기 "+(best%1000),hud);hud.normal.textColor=oldColor;
-      string peaks="";for(int s=0;s<run.Stages&&s<=run.Stage;s++)if(run.Peak(s)>0)peaks+=(peaks.Length>0?" · ":"")+ShortFieldName(run.FieldAt(s))+" 최대 "+run.Peak(s);if(peaks.Length>0){hud.fontSize=wide?14:11;while(hud.fontSize>9&&MeasureText(hud,peaks).x>inner)hud.fontSize--;GUI.Label(new Rect(left,y+112,inner,22),peaks,hud);}
+      string peaks="";for(int s=0;s<run.Stages&&s<=run.Stage;s++)if(run.Peak(s)>0)peaks+=(peaks.Length>0?" · ":"")+(run.HasFinale&&s==run.Stages-1?"귀환":ShortFieldName(run.FieldAt(s)))+" 최대 "+run.Peak(s);if(peaks.Length>0){hud.fontSize=wide?14:11;while(hud.fontSize>9&&MeasureText(hud,peaks).x>inner)hud.fontSize--;GUI.Label(new Rect(left,y+112,inner,22),peaks,hud);}
       GradePicker(new Rect(left,y+142,inner,36));
       ExpeditionRect("left",new Rect(left,by,half,44));ExpeditionRect("right",new Rect(left+half+8,by,half,44));if(MenuButton(new Rect(left,by,half,44),ExpeditionGrade>0?"새 원정 · 등급 "+ExpeditionGrade:"새 원정"))StartExpedition();
       if(MenuButton(new Rect(left+half+8,by,half,44),"자유 전투"))AbandonExpedition();
      }else{
-      hud.wordWrap=true;hud.fontSize=wide?14:11;hud.normal.textColor=uiDisabled;GUI.Label(new Rect(left,y+92,inner,56),"전장을 지킬 때마다 야영지에서 준비 하나를 고릅니다. 온기는 다음 전장으로 이어지고, 꺼지면 원정이 끝납니다. 원정에서는 '웨이브 다시'가 없습니다.",hud);hud.normal.textColor=oldColor;hud.wordWrap=false;
+      hud.wordWrap=true;hud.fontSize=wide?14:11;hud.normal.textColor=uiDisabled;GUI.Label(new Rect(left,y+92,inner,56),(run.HasFinale?"네 전장을 돌고 성문으로 돌아와 "+ExpeditionText.FinaleName+"까지 치릅니다. ":"")+"전장을 지킬 때마다 야영지에서 준비 하나를 고릅니다. 온기는 다음 전장으로 이어지고, 꺼지면 원정이 끝납니다. 원정에서는 '웨이브 다시'가 없습니다.",hud);hud.normal.textColor=oldColor;hud.wordWrap=false;
       bool armed=Time.unscaledTime<expeditionAbandonUntil;
       ExpeditionRect("left",new Rect(left,by,half,44));ExpeditionRect("right",new Rect(left+half+8,by,half,44));if(MenuButton(new Rect(left,by,half,44),armed?"한 번 더 누르면 포기":"원정 포기")){if(armed)AbandonExpedition();else expeditionAbandonUntil=Time.unscaledTime+3;}
       if(MenuButton(new Rect(left+half+8,by,half,44),"닫기"))CloseExpeditionMenu();
@@ -118,12 +118,13 @@ namespace EmberBastion {
   }
 
   // Development fixtures for the debug Web build: ?fx-smoke=expedition[-camp|-won|-lost] starts a fixed-seed run in a known state.
+  // &camp-wins=N (1..4) puts the camp after the Nth battle: 4 is the camp before the last stand (r44).
   void ExpeditionFixtures(){
    if(!Debug.isDebugBuild||Application.platform!=RuntimePlatform.WebGLPlayer)return;string url=Application.absoluteURL;if(url.Contains("run-review=1")){tutorialStage=0;titleMenu=false;}
    if(!url.Contains("fx-smoke=expedition"))return;
    StartExpedition(2026);
    if(url.Contains("fx-smoke=expedition-camp")||url.Contains("fx-smoke=expedition-won")||url.Contains("fx-smoke=expedition-lost")){
-    int wins=url.Contains("fx-smoke=expedition-won")?expedition.Stages:1;
+    int wins=url.Contains("fx-smoke=expedition-won")?expedition.Stages:url.Contains("camp-wins=")?Mathf.Clamp(url[url.IndexOf("camp-wins=")+10]-'0',1,expedition.Stages-1):1;
     for(int i=0;i<wins;i++){battle.Kills=120+i;battle.PeakAlive=40+i;battle.HP=Mathf.Max(1,battle.HP-9);battle.Phase=url.Contains("fx-smoke=expedition-lost")?Phase.Lost:Phase.Won;if(battle.Phase==Phase.Lost)battle.HP=0;
      expedition.Complete(battle);if(expedition.State==Expedition.Status.Camp&&i<wins-1){expedition.Choose(expedition.Offers()[0]);var next=expedition.CreateBattle();battle=next;BindBattle();}}
     if(expedition.State==Expedition.Status.Camp){CaptureCampComposition(battle);SaveExpedition();}

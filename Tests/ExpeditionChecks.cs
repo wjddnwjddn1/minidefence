@@ -143,7 +143,7 @@ class ExpeditionChecks {
   // --- the run -------------------------------------------------------------------------------------------------
   {
    var run=Expedition.Start(2026);
-   Check(run.State==Expedition.Status.Battle&&run.Stage==0&&run.Warmth==100&&run.Stages==4&&run.Field==0&&run.Offers().Length==0,"fresh run");
+   Check(run.State==Expedition.Status.Battle&&run.Stage==0&&run.Warmth==100&&run.Stages==5&&run.HasFinale&&!run.InFinale&&run.Field==0&&run.Offers().Length==0,"fresh run");
    Check(!run.Choose(Boon.SwordDrill),"no camp before the first battle");
    var seeds=new HashSet<uint>();for(int s=0;s<run.Stages;s++){Check(run.StageSeed(s)!=0&&seeds.Add(run.StageSeed(s)),"stage seeds differ");}
    Check(Expedition.Start(2027).StageSeed(0)!=run.StageSeed(0),"runs fight on different seeds");
@@ -185,6 +185,7 @@ class ExpeditionChecks {
      var again=Expedition.Restore(run.Export());Check(again.Choose(pick),"restored camp can choose");
      Check(run.Choose(pick),"choose");
      if(pick==Boon.Rekindle){rekindleSeen++;warmth=Math.Min(100,warmth+Boon.RekindleWarmth);}
+     if(stage==3)warmth=Math.Min(100,warmth+Expedition.FinaleWarmth);
      // the road to the next field (r43): a supply road costs warmth and pays gold, a hard road warms the ember and raises the threat
      Check(run.Warmth==(road==Expedition.RoadSupply?Math.Max(1,warmth-Expedition.SupplyWarmth):road==Expedition.RoadHard?Math.Min(100,warmth+Expedition.HardWarmth):warmth),"boon and road set the warmth");
      Check(run.RoadAt(run.Stage)==road&&run.Threat==run.Stage+(road==Expedition.RoadHard?1:0),"the road taken is remembered and a hard road raises the threat");
@@ -206,7 +207,7 @@ class ExpeditionChecks {
    {var d=D();d.boons[Boon.SwordDrill]=1;Check(Throws(()=>Expedition.Restore(d)),"a boon nobody chose");}
    {var d=D();d.warmth=0;Check(Throws(()=>Expedition.Restore(d)),"camping on a cold ember");}
    {var d=D();d.warmth=101;Check(Throws(()=>Expedition.Restore(d)),"too much warmth");}
-   {var d=D();d.stage=4;Check(Throws(()=>Expedition.Restore(d)),"stage past the route");}
+   {var d=D();d.stage=5;Check(Throws(()=>Expedition.Restore(d)),"stage past the route");}
    {var d=D();d.state=2;Check(Throws(()=>Expedition.Restore(d)),"won before the last stage");}
    {var d=D();d.pendingGold=100;Check(Throws(()=>Expedition.Restore(d)),"gold nobody earned");}
    {var d=D();d.peaks[2]=10;Check(Throws(()=>Expedition.Restore(d)),"a record from the future");}
@@ -226,20 +227,21 @@ class ExpeditionChecks {
    foreach(var order in orders){
     var run=Expedition.Start(77);
     for(int stage=0;stage<run.Stages;stage++){
-     var b=run.CreateBattle();Check(b.FieldIndex==(stage==0?0:order[stage-1])&&b.Threat==stage+(run.RoadAt(stage)==Expedition.RoadHard?1:0)&&run.Matches(b),"stage "+stage+" fights on the chosen field");
+     int target=stage<3?order[stage]:Expedition.FinaleField;
+     var b=run.CreateBattle();Check(b.FieldIndex==(stage==0||stage==4?0:order[stage-1])&&b.Threat==stage+(run.RoadAt(stage)==Expedition.RoadHard?1:0)&&run.Matches(b),"stage "+stage+" fights on the chosen field");
      b.Phase=Phase.Won;Check(run.Complete(b),"win");if(stage==run.Stages-1)break;
-     var next=run.NextFields();Check(next.Length==run.Stages-1-stage&&Array.IndexOf(next,order[stage])>=0,"the chosen field is still open");
-     foreach(int visited in new[]{0})Check(Array.IndexOf(next,visited)<0,"the gate is never offered again");
+     var next=run.NextFields();Check(next.Length==(stage==3?1:3-stage)&&Array.IndexOf(next,target)>=0,"the chosen field is still open");
+     Check((Array.IndexOf(next,0)>=0)==(stage==3)&&run.FinaleNext==(stage==3),"the gate is offered again only for the last stand");
      var saved=Expedition.Restore(run.Export());Check(saved.NextFields().Length==next.Length&&saved.FieldAt(stage)==run.FieldAt(stage)&&saved.FieldAt(stage+1)==-1,"camp restore keeps the route so far");
-     Check(run.Choose(run.Offers()[0],order[stage])&&run.Field==order[stage],"march to field "+order[stage]);
-     Check(Expedition.Restore(run.Export()).Field==order[stage],"battle restore keeps the chosen field");
+     Check(run.Choose(run.Offers()[0],target)&&run.Field==target,"march to field "+target);
+     Check(Expedition.Restore(run.Export()).Field==target&&Expedition.Restore(run.Export()).InFinale==(stage==3),"battle restore keeps the chosen field");
      if(stage>0)Check(!Expedition.Restore(run.Export()).Matches(Battle.CreateExpedition(1,order[stage-1],run.Warmth,new int[Boon.BattleCount],run.Threat,0)),"a battle on an earlier field is not this stage");
     }
     Check(run.State==Expedition.Status.Won,"route "+order[0]+order[1]+order[2]+" finishes");
    }
    // corrupt routes
    var mid=Expedition.Start(5);Win(mid);mid.Choose(mid.Offers()[0],2);Func<ExpeditionData> R=()=>mid.Export();
-   Check(R().route.Length==4&&R().route[0]==0&&R().route[1]==2&&R().route[2]==-1,"exported route");
+   Check(R().route.Length==5&&R().route[0]==0&&R().route[1]==2&&R().route[2]==-1,"exported route");
    {var d=R();d.route[0]=1;Check(Throws(()=>Expedition.Restore(d)),"a run that did not start at the gate");}
    {var d=R();d.route[1]=0;Check(Throws(()=>Expedition.Restore(d)),"the gate twice");}
    {var d=R();d.route[1]=7;Check(Throws(()=>Expedition.Restore(d)),"an unknown field");}
@@ -247,7 +249,29 @@ class ExpeditionChecks {
    {var d=R();d.route[2]=3;Check(Throws(()=>Expedition.Restore(d)),"a field chosen before its camp");}
    {var d=R();d.route=new int[3];Check(Throws(()=>Expedition.Restore(d)),"a short route");}
    // saves made before the route choice have no route and follow the story order
-   {var d=R();d.route=null;d.roads=false;d.pendingGold=0;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
+   {var d=R();d.route=null;Check(Throws(()=>Expedition.Restore(d)),"a run with a last stand always has a route");d.finale=false;d.peaks=new int[4];d.roads=false;d.pendingGold=0;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
+  }
+
+  // --- the last stand (r44): a fifth battle back at the gate; runs saved before it end after four ---------------
+  {
+   Func<Expedition,bool> Win=run=>{var b=run.CreateBattle();b.Phase=Phase.Won;return run.Complete(b);};
+   var run5=Expedition.Start(404);for(int i=0;i<3;i++){Win(run5);run5.Choose(run5.Offers()[0]);}
+   Check(run5.Stage==3&&!run5.FinaleNext&&!run5.InFinale,"the fourth field is not the last stand");
+   Check(Win(run5)&&run5.State==Expedition.Status.Camp&&run5.FinaleNext&&run5.NextFields().Length==1&&run5.NextFields()[0]==Expedition.FinaleField&&run5.Offers().Length==Expedition.OffersPerCamp,"a fourth camp leads to the last stand");
+   Check(run5.NextRoad(Expedition.FinaleField)==Expedition.RoadPlain&&Near(run5.NextHealth(Expedition.FinaleField),1+Boon.ThreatHealth*4),"the way home is plain and the threat is the highest");
+   Check(!run5.Choose(run5.Offers()[0],1)&&Expedition.Restore(run5.Export()).FinaleNext,"only the gate is left");
+   {var cold=Expedition.Restore(run5.Export());var d=cold.Export();d.warmth=30;cold=Expedition.Restore(d);int pick=-1;foreach(int o in cold.Offers())if(o!=Boon.Rekindle)pick=o;Check(cold.Choose(pick)&&cold.Warmth==30+Expedition.FinaleWarmth,"coming home warms the ember");}
+   Check(run5.Choose(run5.Offers()[0],Expedition.FinaleField)&&run5.InFinale&&run5.Stage==4&&run5.Field==0&&run5.Threat==4&&run5.ClearedStages==4,"the last stand is stage five at the gate");
+   var last=run5.CreateBattle();Check(last.FieldIndex==0&&last.Threat==4&&run5.Matches(last),"last stand battle");
+   {var d=run5.Export();Check(d.finale&&d.route.Length==5&&d.route[4]==0&&d.peaks.Length==5&&Expedition.Restore(d).InFinale,"last stand save");}
+   {var d=run5.Export();d.route[4]=1;Check(Throws(()=>Expedition.Restore(d)),"the last stand anywhere but the gate");}
+   {var d=run5.Export();d.finale=false;Check(Throws(()=>Expedition.Restore(d)),"a fifth stage without a last stand");}
+   {var d=run5.Export();d.state=2;Check(Expedition.Restore(d).State==Expedition.Status.Won,"won on the fifth stage");d.stage=3;Check(Throws(()=>Expedition.Restore(d)),"won before the last stand");}
+   last.Phase=Phase.Won;last.HP=33;Check(run5.Complete(last)&&run5.State==Expedition.Status.Won&&run5.ClearedStages==5&&run5.Warmth==33&&run5.InFinale,"the run ends after the last stand");
+   // a run saved before the last stand existed still ends after the fourth field
+   var run4=Expedition.Start(404);for(int i=0;i<3;i++){Win(run4);run4.Choose(run4.Offers()[0]);}
+   {var d=run4.Export();d.finale=false;d.peaks=new int[4];d.route=new[]{d.route[0],d.route[1],d.route[2],d.route[3]};var old=Expedition.Restore(d);
+    Check(!old.HasFinale&&old.Stages==4&&Win(old)&&old.State==Expedition.Status.Won&&old.ClearedStages==4&&!Expedition.Restore(old.Export()).HasFinale,"an old run ends after four fields");}
   }
 
   // --- a whole run on the real engine, twice -------------------------------------------------------------------
@@ -346,7 +370,7 @@ class ExpeditionChecks {
       var d=run.Export();d.pendingGold=0;Check(Throws(()=>Expedition.Restore(d)),"a supply road battle without its gold");d.pendingGold=Expedition.SupplyGold+Boon.WarChestGold;Check(Throws(()=>Expedition.Restore(d)),"war chest gold without a war chest");}
      else{Check(run.PendingGold==0,"no gold on other roads");var d=run.Export();d.pendingGold=Expedition.SupplyGold;Check(Throws(()=>Expedition.Restore(d)),"supply gold without a supply road");}
      if(taken==Expedition.RoadHard){hardChecked++;Check(run.Warmth==Math.Min(100,warmth+Expedition.HardWarmth),"hard road: warmth for threat");}
-     if(taken==Expedition.RoadPlain)Check(run.Warmth==warmth,"plain road changes nothing");
+     if(taken==Expedition.RoadPlain)Check(run.Warmth==(stage==3?Math.Min(100,warmth+Expedition.FinaleWarmth):warmth),"plain road changes nothing but the way home");
      Check(Expedition.Restore(run.Export()).Matches(fight),"a restored run still matches its road battle");
      // the same run saved before roads existed keeps plain roads and its old threat
      var before=run.Export();before.roads=false;before.pendingGold=0;var old=Expedition.Restore(before);

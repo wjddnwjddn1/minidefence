@@ -80,7 +80,7 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
     for(const [w,h] of [[1280,720],[844,390],[740,360]]){
       const t = await open('fx-smoke=expedition-won&run-review=1', w, h);
       const won = await t.until(l => l.state === 'Won', 'won run did not show');
-      check(won.stage === 3 && won.warmth > 0 && [...won.boons].reduce((n, c) => n + (+c), 0) === 3, 'won state: ' + JSON.stringify(won));
+      check(won.stage === 4 && won.warmth > 0 && [...won.boons].reduce((n, c) => n + (+c), 0) === 4, 'won state: ' + JSON.stringify(won));
       await t.page.waitForTimeout(1200);
       await t.page.screenshot({path: path.join(out, 'expedition-won-'+w+'.png')});
       regionCheck(t);await t.page.mouse.click(...panelButton(w, h, false));

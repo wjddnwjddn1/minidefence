@@ -51,19 +51,20 @@ namespace EmberBastion {
    }
    try{view.ReviewRunReload();var before=JsonUtility.FromJson<CombatSaveData>(File.ReadAllText(Path.Combine(folder,"cold-checkpoint.json"),utf8));double error;Require(RuntimeCombatComparison.Equivalent(before,view.SmokeState.ExportCombat(),out error),"Cold application restart changed checkpoint");Require(view.SmokePaused,"Cold resume did not pause");view.ReviewRunFreeReturn();Require(RuntimeCombatComparison.Equivalent(before,view.SmokeState.ExportCombat(),out error),"Leaving to free battle reset expedition checkpoint");}catch(Exception e){Fail(e);yield break;}
    var rows=new StringBuilder("stage,outcome,warmth,peak,kills,seconds\n");
-   for(int stage=0;stage<4;stage++){
+   int stages=view.ReviewRun.Stages;
+   for(int stage=0;stage<stages;stage++){
     Battle b=view.SmokeState;if(b.Phase==Phase.Preparation){NativeExpeditionPolicy.Buy(b,2);view.ReviewRunStartWave();}
     for(int tick=0;tick<600000&&b.Phase==Phase.Fighting;tick++){
      if(tick%60==0)NativeExpeditionPolicy.Buy(b,2);if(b.ReinforcementPending)b.ChooseReinforcement(b.Reinforcements.Choices()[0]);b.Step(Balance.Tick);
      if(tick==600){try{ReloadCheck();b=view.SmokeState;}catch(Exception e){Fail(e);yield break;}}
      if(tick%1800==0)yield return null;
     }
-    try{Require(b.Phase==Phase.Won,"Natural expedition did not win stage "+stage);rows.Append(stage).Append(',').Append(b.Phase).Append(',').Append(b.HP).Append(',').Append(b.PeakAlive).Append(',').Append(b.Kills).Append(',').Append(b.Time.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)).Append('\n');view.ReviewRunComplete();if(stage<3){Require(view.ReviewRun.State==Expedition.Status.Camp,"Camp missing");view.ReviewRunChoose(NativeExpeditionPolicy.Camp(view.ReviewRun,2));}else Require(view.ReviewRun.State==Expedition.Status.Won,"Whole run did not finish");}catch(Exception e){Fail(e);yield break;}
+    try{Require(b.Phase==Phase.Won,"Natural expedition did not win stage "+stage);rows.Append(stage).Append(',').Append(b.Phase).Append(',').Append(b.HP).Append(',').Append(b.PeakAlive).Append(',').Append(b.Kills).Append(',').Append(b.Time.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)).Append('\n');view.ReviewRunComplete();if(stage<stages-1){Require(view.ReviewRun.State==Expedition.Status.Camp,"Camp missing");view.ReviewRunChoose(NativeExpeditionPolicy.Camp(view.ReviewRun,2));}else Require(view.ReviewRun.State==Expedition.Status.Won,"Whole run did not finish");}catch(Exception e){Fail(e);yield break;}
    }
    try{File.WriteAllText(Path.Combine(folder,"natural-run.csv"),rows.ToString(),utf8);File.WriteAllText(Path.Combine(folder,"won-run.json"),JsonUtility.ToJson(view.ReviewRun.Export(),true),utf8);view.ReviewRunSave();
     view.ReviewRunStart(29);NativeExpeditionPolicy.Buy(view.SmokeState,2);view.ReviewRunStartWave();view.ReviewRunAbandon();Require(view.ReviewRun.State==Expedition.Status.Lost,"Abandon was not a loss");bool rejected=false;try{view.ReviewRunReload();}catch(Exception){rejected=true;}Require(rejected&&view.ReviewRun.State==Expedition.Status.Lost,"Abandoned run resumed");
     view.ReviewPreDoctrineSaves();
-    File.WriteAllText(Path.Combine(folder,"PASS.txt"),"PASS actual Windows two-process PlayerPrefs cold resume, exact discrete/tolerant-double combat state, paused reload at every stage, natural-economy four-stage win, abandon persisted as loss, both pre-doctrine formats removed and new run available. Automated policy; not human play or performance.",utf8);view.ReviewRunForget();Application.Quit(0);
+    File.WriteAllText(Path.Combine(folder,"PASS.txt"),"PASS actual Windows two-process PlayerPrefs cold resume, exact discrete/tolerant-double combat state, paused reload at every stage, natural-economy whole-run win (four fields and the last stand), abandon persisted as loss, both pre-doctrine formats removed and new run available. Automated policy; not human play or performance.",utf8);view.ReviewRunForget();Application.Quit(0);
    }catch(Exception e){Fail(e);}
   }
   void Fail(Exception e){File.WriteAllText(Path.Combine(folder,"failure.txt"),e.ToString(),utf8);Debug.LogError(e);if(view!=null)view.ReviewRunForget();Application.Quit(1);}

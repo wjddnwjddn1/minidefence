@@ -22,6 +22,8 @@ namespace EmberBastion {
   static readonly string[] roadEffects={"변화 없음","시작 골드 +100 · 온기 -6","온기 +15 · 적 체력 한 단계 더"};
   public static string RoadName(int road){return roadNames[road];}
   public static string RoadEffect(int road){return roadEffects[road];}
+  // The last stand (r44).
+  public const string FinaleName="최후의 방어전";
   static readonly string[] effects={
    "검사 피해 +15%",
    "궁수 피해 +15%",
@@ -69,20 +71,21 @@ namespace EmberBastion {
   // Shown the first time an expedition starts.
   public static readonly StoryLine[] Intro={
    L(Speaker.Narrator,"나루 건너에 불빛 하나가 켜진 뒤에도 겨울은 물러가지 않았다. 얼어붙은 다른 부족들이 잔불 소문을 듣고 내려오기 시작했다."),
-   L(Speaker.Bron,"화덕의 불씨를 단지에 옮겨 담았습니다. 이 단지 하나로 네 전장을 차례로 지켜야 합니다. 꺼지면 처음부터 다시입니다."),
+   L(Speaker.Bron,"화덕의 불씨를 단지에 옮겨 담았습니다. 이 단지 하나로 네 전장을 돌고, 성문으로 돌아와 마지막 행렬까지 막아야 합니다. 꺼지면 처음부터 다시입니다."),
    L(Speaker.Serin,"고블린이 성채를 한 바퀴 돌 때마다 단지의 온기를 조금씩 가져가요. 오래 돌게 두지 마세요."),
    L(Speaker.Rowen,"전장을 하나 지킬 때마다 야영지에서 한 가지를 준비하겠습니다. 무엇을 고르느냐에 따라 다음 싸움이 달라집니다."),
   };
   // One line when a later expedition starts.
   public static readonly StoryLine Again=L(Speaker.Mira,"같은 길은 두 번 없어요. 이번엔 뭐가 나올지 가 봐야 알죠.");
-  // Camp greeting by the stage just cleared (0..2).
+  // Camp greeting by the stage just cleared (0..3). The fourth camp is the one before the last stand.
   public static readonly StoryLine[] Camp={
    L(Speaker.Rowen,"성문은 지켰습니다. 숲길로 들어가기 전에 한 가지만 준비하시죠."),
    L(Speaker.Mira,"숲을 빠져나왔어요. 고개는 양쪽에서 올라오니까 준비를 잘 골라야 해요."),
-   L(Speaker.Serin,"마지막은 나루예요. 단지가 식지 않게, 필요한 걸 골라 주세요."),
+   L(Speaker.Serin,"전장이 하나 남았어요. 단지가 식지 않게, 필요한 걸 골라 주세요."),
+   L(Speaker.Bron,"이제 성채로 돌아갑니다. 화로 곁에서 단지를 데우겠지만, 가장 큰 행렬이 성문으로 오고 있습니다."),
   };
   public static readonly StoryLine[] Won={
-   L(Speaker.Narrator,"불씨 단지는 네 전장을 지나는 동안 끝내 꺼지지 않았다."),
+   L(Speaker.Narrator,"불씨 단지는 네 전장을 돌아 성문으로 돌아올 때까지 끝내 꺼지지 않았다."),
    L(Speaker.Bron,"단지가 아직 따뜻합니다. 이 불로 화덕 몇 개는 더 살릴 수 있겠어요."),
    L(Speaker.Rowen,"수고하셨습니다, 사령관님. 하지만 겨울은 길고, 다음 행렬은 또 옵니다."),
   };
