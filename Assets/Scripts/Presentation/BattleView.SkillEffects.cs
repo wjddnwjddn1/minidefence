@@ -27,7 +27,7 @@ namespace EmberBastion {
    if(preview)ProjectileReview(SkillSheets[kind]);
   }
 
-  // The core will supply the charge count and threshold when the ability rules are ready.
+  // Charge comes from Battle.SkillCharge and Boon.SkillEvery; the last pip lights as the skill fires, so a full row is never shown.
   void DrawSkillPips(Point unit,int charged,int required){
    if(required<3||required>5)return;
    float x=(float)unit.X-(required*10-3)/2f,y=(float)unit.Y+22;

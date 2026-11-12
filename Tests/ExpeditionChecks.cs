@@ -15,6 +15,7 @@ class ExpeditionChecks {
   while(b.Phase==Phase.Fighting&&ticks<600000){if(b.ReinforcementPending)Check(b.ChooseReinforcement(b.Reinforcements.Choices()[0]),"card");b.Step(Balance.Tick);ticks++;if(trace!=null&&ticks%300==0)trace.Add(b.Wave+" "+b.Kills+" "+b.Gold+" "+b.PeakAlive+" "+b.Enemies.Count);}
   return b.Phase+" wave "+b.Wave+" kills "+b.Kills+" gold "+b.Gold+" peak "+b.PeakAlive+" warmth "+b.HP;
  }
+ static int SkillMask(Battle b,int ticks){Check(b.Start(),"start");int mask=0;for(int i=0;i<ticks&&b.Phase==Phase.Fighting;i++){b.Step(Balance.Tick);foreach(var c in b.Cues)if(c.Kind=="skill")mask|=1<<c.Source;}return mask;}
  static double Damage(Battle b,int slot){double d,i;b.AttackStats(b.At(slot),out d,out i);return d;}
  static double Interval(Battle b,int slot){double d,i;b.AttackStats(b.At(slot),out d,out i);return i;}
  static bool Near(double a,double b){return Math.Abs(a-b)<1e-9;}
@@ -29,8 +30,11 @@ class ExpeditionChecks {
    var plain=Battle.CreateExpedition(41,field,100,NoBoons(),0,0);Arm(plain);
    var a=new List<string>();var b=new List<string>();string endNormal=Finish(normal,a),endPlain=Finish(plain,b);
    Check(normal.HP==100&&normal.Leaks==0,"normal battles never lose warmth (field "+field+")");
-   int same=Math.Min(a.Count,b.Count);for(int i=0;i<same;i++)Check(a[i]==b[i],"field "+field+" trace diverged at "+i+": "+a[i]+" | "+b[i]);
-   if(plain.Phase==Phase.Won)Check(endPlain.Replace(" warmth "+plain.HP,"")==endNormal.Replace(" warmth 100",""),"field "+field+" same ending: "+endPlain+" | "+endNormal);
+   // skills (r43) belong to the expedition: the same army in a normal battle never uses one
+   {var n2=Battle.CreateForRules(41,field,4);Arm(n2);var e2=Battle.CreateExpedition(41,field,100,NoBoons(),0,0);Arm(e2);
+    Check(!n2.SkillsActive&&e2.SkillsActive,"skills only in expeditions");
+    Check(SkillMask(n2,3000)==0,"normal battles use no skills (field "+field+")");foreach(var u in n2.Units)Check(u.Kind!=0||u.HitCount==0,"normal swords do not count attacks");
+    int used=SkillMask(e2,12000);Check(used==11,"expedition swords, archers and frost use skills (field "+field+"): "+used);}
    Check(plain.Leaks==100-plain.HP||plain.HP==0,"leaks account for the lost warmth");
   }
   // legacy rules cannot be expedition battles
@@ -253,6 +257,51 @@ class ExpeditionChecks {
    Check(lines[0]==lines[1],"a run is deterministic:\n"+lines[0]+"\n"+lines[1]);
    Check(lines[0].StartsWith("Won stage 3")||lines[0].StartsWith("Lost stage"),"the run ends one way or the other: "+lines[0]);
    Console.WriteLine(lines[0]);
+  }
+  // --- skills (r43): every Nth basic attack ------------------------------------------------------------------
+  Check(Boon.SkillEvery(0)==4&&Boon.SkillEvery(1)==5&&Boon.SkillEvery(2)==3&&Boon.SkillEvery(3)==5&&Boon.SkillEvery(4)==4,"skill thresholds");
+  Check(Throws(()=>Boon.SkillEvery(5))&&Throws(()=>Boon.SkillEvery(-1)),"skill threshold bounds");
+  for(int kind=0;kind<4;kind++){
+   // the same single-class army, same seed: the expedition one uses skills and kills at least as much
+   var plain=Battle.CreateForRules(77,0,4);var run=Battle.CreateExpedition(77,0,100,NoBoons(),0,0);
+   foreach(var b in new[]{plain,run}){b.Gold=20000;for(int slot=0;slot<6;slot++)Check(b.Place(kind,slot),"skill army "+kind);Check(b.Start(),"skill start");}
+   int[] cues=new int[5];int pips=0;
+   for(int t=0;t<60*80;t++){
+    plain.Step(Balance.Tick);run.Step(Balance.Tick);
+    foreach(var c in plain.Cues)Check(c.Kind!="skill","no skills outside expeditions");
+    foreach(var c in run.Cues)if(c.Kind=="skill"){
+     Check(c.Source>=0&&c.Source<5,"skill source");cues[c.Source]++;
+     if(c.Source==2)Check(Near(c.Radius,Balance.Troops[2].Radius*Boon.BigBlastRadius),"big blast radius "+c.Radius);
+     if(c.Source==3)foreach(var e in run.Enemies)if(e.HP>0&&Point.Distance(e.Position,c.Position)<=Boon.NovaRadius)Check(e.FreezeTime>=Boon.NovaFreeze-1e-9&&e.SlowTime>0,"nova freezes and slows everything in reach");
+     if(c.Source<=1)Check(Point.Distance(c.Position,c.Destination)>100,"line skills point somewhere");
+    }
+    foreach(var u in run.Units){int charge=run.SkillCharge(u);Check(charge>=0&&charge<Boon.SkillEvery(u.Kind),"charge in range");pips+=charge;}
+   }
+   for(int other=0;other<5;other++)Check(other==kind?cues[other]>0:cues[other]==0,"class "+kind+" uses only its own skill: "+other+"="+cues[other]);
+   if(kind<2){int expected=0;foreach(var u in run.Units)expected+=u.HitCount/Boon.SkillEvery(kind);Check(cues[kind]==expected,"one skill per "+Boon.SkillEvery(kind)+" attacks: "+cues[kind]+" vs "+expected);}
+   Check(pips>0,"charges are visible");Check(plain.SkillCharge(plain.Units[0])==0,"no charge outside expeditions");
+   if(kind<3)Check(run.Kills>=plain.Kills,"skills never make class "+kind+" weaker: "+run.Kills+" vs "+plain.Kills);
+  }
+  {
+   // smiths: a pulse every ForgeEvery seconds while troops in reach are between attacks; a smith alone does nothing
+   var alone=Battle.CreateExpedition(77,0,100,NoBoons(),0,0);alone.Gold=20000;alone.Place(4,0);alone.Place(0,alone.Field.Slots.Length-1);
+   var team=Battle.CreateExpedition(77,0,100,NoBoons(),0,0);team.Gold=20000;for(int slot=0;slot<6;slot++)team.Place(slot==2?4:0,slot);
+   double reach=Point.Distance(alone.Field.Slots[0],alone.Field.Slots[alone.Field.Slots.Length-1]);
+   alone.Start();team.Start();int lonely=0,pulses=0;
+   for(int t=0;t<60*80;t++){alone.Step(Balance.Tick);team.Step(Balance.Tick);foreach(var c in alone.Cues)if(c.Kind=="skill"&&c.Source==4)lonely++;foreach(var c in team.Cues)if(c.Kind=="skill"&&c.Source==4)pulses++;}
+   if(reach>Balance.Troops[4].Range)Check(lonely==0,"a smith with nobody in reach never pulses");
+   Check(pulses>0&&pulses<=80/(int)Boon.ForgeEvery,"smith pulses at most once per "+Boon.ForgeEvery+"s: "+pulses);
+  }
+  {
+   // a save in the middle of a battle keeps counts and flying skill shots: both copies end the same
+   var live=Battle.CreateExpedition(91,1,100,NoBoons(),2,0);live.Gold=20000;for(int slot=0;slot<live.Field.Slots.Length;slot++)live.Place(slot%5,slot);live.Start();
+   for(int t=0;t<60*40;t++)live.Step(Balance.Tick);
+   bool flying=false;foreach(var shot in live.Shots)flying|=shot.Skill;
+   for(int t=0;t<600&&!flying&&live.Phase==Phase.Fighting;t++){live.Step(Balance.Tick);foreach(var shot in live.Shots)flying|=shot.Skill;}
+   Check(flying,"a skill shot is in the air at the save");
+   var copy=Battle.ImportCombat(live.ExportCombat());
+   for(int i=0;i<live.Units.Count;i++)Check(copy.Units[i].HitCount==live.Units[i].HitCount&&copy.SkillCharge(copy.Units[i])==live.SkillCharge(live.Units[i]),"restored charge");
+   Check(Finish(live)==Finish(copy),"skills replay the same after a restore");
   }
   Console.WriteLine("PASS "+checks+" expedition checks: neutral mode, boons, threat, warmth, saves and the run");
  }
