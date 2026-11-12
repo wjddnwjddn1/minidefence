@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "stage": 3,
+    "warmth": 42,
+    "state": 2,
+    "kills": 1774,
+    "pendingGold": 0,
+    "abandonedCamp": false,
+    "seed": 7919,
+    "randomState": 896867901,
+    "boons": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+    ],
+    "offered": [],
+    "peaks": [
+        78,
+        79,
+        71,
+        57
+    ]
+}

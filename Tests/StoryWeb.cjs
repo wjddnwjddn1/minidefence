@@ -1,6 +1,7 @@
+// r38: portrait gameplay retired; low landscape fixtures replace portrait cases.
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r36-story-evidence');
+const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/r38-story-evidence');
 const types={'.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.html':'text/html; charset=utf-8'};
 const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+new URL(req.url,'http://localhost').pathname.replace(/\/$/,'/index.html'));if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}fs.readFile(file,(e,data)=>{if(e){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
 const summary=[];
@@ -14,7 +15,7 @@ function layout(d){for(const r of d.rects){assert(r.x>=-.5&&r.y>=-.5&&r.x+r.w<=d
  async function save(d,name){assert(!d.errors.length,d.errors.join('|'));layout(d);await d.page.screenshot({path:path.join(out,name+'.png')});fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify({messages:d.log,rects:d.rects},null,2));summary.push(name);console.log('PASS '+name);}
  async function openSettings(d){await d.page.keyboard.press('Escape');await until(d,()=>d.log.includes('TOOLS_OPEN'),'actual Esc menu');const width=Math.min(d.w-24,440),height=Math.min(d.h-24,324),step=Math.min(42,(height-96)/5),bh=Math.min(36,step-5);await d.page.mouse.click((d.w-width)/2+24+(width-64)/4,(d.h-height)/2+48+3*step+bh/2-11);await until(d,()=>d.controls.speech,'actual story settings button');}
  async function control(d,id){await until(d,()=>d.controls[id],'control '+id);const r=d.controls[id];await d.page.mouse.click(r[0]+r[2]/2,r[1]+r[3]/2);await d.page.waitForTimeout(200);}
- for(const [w,h] of [[1280,720],[844,390],[390,844]]){if(process.env.STORY_WIDTH&&+process.env.STORY_WIDTH!==w)continue;
+ for(const [w,h] of [[1280,720],[844,390],[740,360]]){if(process.env.STORY_WIDTH&&+process.env.STORY_WIDTH!==w)continue;
   const context=await browser.newContext({viewport:{width:w,height:h}}),page=await context.newPage(),d={page,w,h,log:[],errors:[],rects:[],controls:{}};
   page.on('console',m=>{const t=m.text().trim();d.log.push(t);if(m.type()==='error')d.errors.push(t);if(t.startsWith('WARN_LAYOUT|'))d.rects=t.slice(12).split(';').filter(Boolean).map(s=>{const [name,x,y,w,h]=s.split(',');return {name,x:+x,y:+y,w:+w,h:+h};});if(t.startsWith('STORY_CONTROL|')){const a=t.split('|');d.controls[a[1]]=a[2].split(',').map(Number);}});page.on('pageerror',e=>d.errors.push(e.message));
   if(process.env.STORY_MENU){await load(d,'story=1&story-case=frost&story-reset=1');await openSettings(d);await control(d,'speech');assert(d.log.includes('STORY_SETTING|0|True'),'actual menu toggle');await save(d,'menu-entry-'+w);await context.close();continue;}

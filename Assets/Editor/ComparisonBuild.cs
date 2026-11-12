@@ -13,6 +13,8 @@ namespace EmberBastion.Editor {
   public static void Windows(){Build(BuildTarget.StandaloneWindows64,"Builds/Windows/EmberBastion.exe");}
   public static void RulesMigrationQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/RulesMigrationQA/EmberBastion.exe",true,"EmberBastionRulesMigrationQA");}
   public static void R36LocalValidation(){PerformanceQA();StoryReview();TacticalCandidate();WindowsPlayable();}
+  public static void R37LocalValidation(){ExpeditionQA();TacticalCandidate();WindowsPlayable();}
+  public static void ExpeditionQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/ExpeditionQA/EmberBastion.exe",true,"EmberBastionExpeditionQA");}
   public static void StoryReview(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/StoryReview/EmberBastion.exe",true,"EmberBastionStoryReview");}
   public static void PerformanceQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/PerformanceQA/EmberBastion.exe",true,"EmberBastionPerformanceQA");}
   public static void TacticalWeb(){PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Disabled;Build(BuildTarget.WebGL,"Tests/bin/TacticalWeb",true,"EmberBastionTacticalCandidate");}

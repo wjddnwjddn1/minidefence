@@ -99,14 +99,14 @@ namespace EmberBastion {
     hud.wordWrap=false;hud.fontSize=12;hud.alignment=TextAnchor.LowerRight;hud.normal.textColor=uiDisabled;GUI.Label(new Rect(tx,r.yMax-22,tw,18),(sceneIndex+1)+"/"+sceneLines.Length+" · 클릭 또는 Space ▶",hud);
     Rect skip=SceneSkipRect();Box(skip,new Color(.1f,.12f,.14f,.92f));hud.alignment=TextAnchor.MiddleCenter;hud.normal.textColor=uiText;hud.fontSize=13;GUI.Label(skip,"건너뛰기 (Esc)",hud);
     hud.fontSize=oldSize;hud.wordWrap=oldWrap;hud.normal.textColor=oldColor;hud.alignment=oldAlign;return;}
-   if(!StorySpeech||battle.ReinforcementPending||titleMenu||toolsMenu||fieldMenu||guideMenu||branchMenu)return;
+   if(!StorySpeech||menuSlot>=0||battle.ReinforcementPending||titleMenu||toolsMenu||fieldMenu||guideMenu||branchMenu)return;
    // Goblin bark bubble over the enemy.
    if(barkEnemy>=0&&!paused){var e=battle.Enemies.Find(x=>x.Id==barkEnemy&&x.HP>0);if(e!=null){int old=hud.fontSize;Color oc=hud.normal.textColor;TextAnchor oa=hud.alignment;hud.fontSize=Screen.width<480?10:12;hud.alignment=TextAnchor.MiddleCenter;hud.normal.textColor=new Color(.12f,.08f,.06f);
      float w=MeasureText(hud,barkText).x+12,h=20,cx=ox+(float)e.Position.X*scale,cy=oy+(float)(e.Position.Y-46)*scale;Rect b=PlaceWarning(new Rect(cx-w/2-1,cy-h-1,w+2,h+7),true);b=new Rect(b.x+1,b.y+1,b.width-2,b.height-7);if(b.width<=0){hud.fontSize=old;hud.normal.textColor=oc;hud.alignment=oa;return;}ReserveWarning("story-bark",new Rect(b.x-1,b.y-1,b.width+2,b.height+7));StoryRender("bark");
      Box(new Rect(b.x-1,b.y-1,b.width+2,b.height+2),new Color(.2f,.12f,.08f,.9f));Box(b,new Color(1f,.96f,.88f,.95f));Box(new Rect(Mathf.Clamp(cx-3,b.x+4,b.xMax-10),b.yMax,6,5),new Color(1f,.96f,.88f,.95f));GUI.Label(b,barkText,hud);
      hud.fontSize=old;hud.normal.textColor=oc;hud.alignment=oa;}}
    // Combat speech strip at the bottom-left of the board.
-   if(sayLine!=null&&Time.unscaledTime<sayUntil&&menuSlot<0){float fade=Mathf.Clamp01((sayUntil-Time.unscaledTime)/.5f);float bw=1280*scale,w=Mathf.Min(420,bw-12),h=58;Rect r=PlaceWarning(new Rect(ox+6,Mathf.Min(oy+768*scale,Screen.height-64)-h-34,w,h),true);if(r.width<=0)return;ReserveWarning("story-speech",r);StoryRender("speech");
+   if(sayLine!=null&&Time.unscaledTime<sayUntil&&menuSlot<0){float fade=Mathf.Clamp01((sayUntil-Time.unscaledTime)/.5f);float bw=1280*scale,w=Mathf.Min(LowLandscape?350:420,bw-12),h=58;Rect r=PlaceWarning(new Rect(ox+6,Mathf.Min(oy+768*scale,Screen.height-FooterHeight)-h-12,w,h),true);if(r.width<=0)return;ReserveWarning("story-speech",r);StoryRender("speech");
     Color old=GUI.color;GUI.color=new Color(1,1,1,fade);Box(r,new Color(.05f,.07f,.08f,.9f));Box(new Rect(r.x,r.y,3,r.height),SpeakerColor(sayLine.Who));
     float ps=StoryScript.Portrait(sayLine.Who)>=0?h-10:0;StoryPortrait(sayLine.Who,new Rect(r.x+8,r.y+5,ps,ps));float tx=r.x+12+(ps>0?ps+6:0),tw=r.xMax-tx-8;
     int oldSize=hud.fontSize;bool oldWrap=hud.wordWrap;Color oc=hud.normal.textColor;TextAnchor oa=hud.alignment;hud.alignment=TextAnchor.UpperLeft;hud.fontSize=12;hud.normal.textColor=SpeakerColor(sayLine.Who);GUI.Label(new Rect(tx,r.y+4,tw,16),StoryScript.Name(sayLine.Who),hud);

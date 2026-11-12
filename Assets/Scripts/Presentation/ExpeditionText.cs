@@ -1,0 +1,59 @@
+namespace EmberBastion {
+ // Words for the roguelite run (r37). Pure data like StoryScript: no Unity, Tests can compile it.
+ // Each boon is proposed by one of the five companions, so the camp choice is also a small story beat.
+ public static class ExpeditionText {
+  static readonly string[] names={"검술 교범","강궁","화약 개량","서리 결정","망원경","전리품 수레","전투 북","불씨 살리기","군자금"};
+  static readonly string[] effects={
+   "검사 피해 +15%",
+   "궁수 피해 +15%",
+   "화약병 피해 +15%",
+   "빙결 둔화 시간 +1초",
+   "궁수·화약병·빙결사 사거리 +6%",
+   "웨이브·대장 보상 +20%",
+   "모든 병력 공격 속도 +7%",
+   "잔불 온기 +20",
+   "다음 전장 시작 골드 +100",
+  };
+  static readonly Speaker[] speakers={Speaker.Rowen,Speaker.Mira,Speaker.Toto,Speaker.Serin,Speaker.Mira,Speaker.Bron,Speaker.Rowen,Speaker.Bron,Speaker.Toto};
+  static readonly string[] quotes={
+   "검 쥐는 법부터 다시 가르치겠습니다.",
+   "시위를 더 팽팽하게 걸어 둘게요.",
+   "새 배합이에요! 아마 안전할 거예요.",
+   "더 오래 묶어 둘게요. 그동안 더 아프게 맞을 거예요.",
+   "멀리서 먼저 보면 먼저 쏠 수 있죠.",
+   "버리고 간 무기는 녹여서 다시 씁니다.",
+   "북소리에 맞추면 손이 빨라집니다.",
+   "장작을 아끼지 않겠습니다. 단지부터 살려야죠.",
+   "주운 거예요. 진짜로요.",
+  };
+  public static string Name(int boon){return names[boon];}
+  public static string Effect(int boon){return effects[boon];}
+  public static Speaker Proposer(int boon){return speakers[boon];}
+  public static string Quote(int boon){return quotes[boon];}
+  public static int Count {get{return names.Length;}}
+
+  static StoryLine L(Speaker s,string t){return new StoryLine(s,t);}
+  // Shown the first time an expedition starts.
+  public static readonly StoryLine[] Intro={
+   L(Speaker.Narrator,"나루 건너에 불빛 하나가 켜진 뒤에도 겨울은 물러가지 않았다. 얼어붙은 다른 부족들이 잔불 소문을 듣고 내려오기 시작했다."),
+   L(Speaker.Bron,"화덕의 불씨를 단지에 옮겨 담았습니다. 이 단지 하나로 네 전장을 차례로 지켜야 합니다. 꺼지면 처음부터 다시입니다."),
+   L(Speaker.Serin,"고블린이 성채를 한 바퀴 돌 때마다 단지의 온기를 조금씩 가져가요. 오래 돌게 두지 마세요."),
+   L(Speaker.Rowen,"전장을 하나 지킬 때마다 야영지에서 한 가지를 준비하겠습니다. 무엇을 고르느냐에 따라 다음 싸움이 달라집니다."),
+  };
+  // One line when a later expedition starts.
+  public static readonly StoryLine Again=L(Speaker.Mira,"같은 길은 두 번 없어요. 이번엔 뭐가 나올지 가 봐야 알죠.");
+  // Camp greeting by the stage just cleared (0..2).
+  public static readonly StoryLine[] Camp={
+   L(Speaker.Rowen,"성문은 지켰습니다. 숲길로 들어가기 전에 한 가지만 준비하시죠."),
+   L(Speaker.Mira,"숲을 빠져나왔어요. 고개는 양쪽에서 올라오니까 준비를 잘 골라야 해요."),
+   L(Speaker.Serin,"마지막은 나루예요. 단지가 식지 않게, 필요한 걸 골라 주세요."),
+  };
+  public static readonly StoryLine[] Won={
+   L(Speaker.Narrator,"불씨 단지는 네 전장을 지나는 동안 끝내 꺼지지 않았다."),
+   L(Speaker.Bron,"단지가 아직 따뜻합니다. 이 불로 화덕 몇 개는 더 살릴 수 있겠어요."),
+   L(Speaker.Rowen,"수고하셨습니다, 사령관님. 하지만 겨울은 길고, 다음 행렬은 또 옵니다."),
+  };
+  public static readonly StoryLine LostCold=L(Speaker.Bron,"…단지가 식었습니다. 화덕으로 돌아가 불씨를 다시 받아 오겠습니다.");
+  public static readonly StoryLine LostCrowd=L(Speaker.Rowen,"전장을 내줬습니다. 원정대를 물리겠습니다. 다음엔 다른 준비로 가 보죠.");
+ }
+}

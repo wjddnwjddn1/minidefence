@@ -1,0 +1,40 @@
+{
+  "saved": {
+    "state": "Battle",
+    "stage": 0,
+    "warmth": 100,
+    "offers": [],
+    "mode": "Expedition",
+    "field": 0,
+    "hp": 85,
+    "gold": 1390,
+    "boons": "000000000",
+    "phase": "Fighting",
+    "time": 0.7833,
+    "wave": 1,
+    "paused": true
+  },
+  "resumed": {
+    "state": "Battle",
+    "stage": 0,
+    "warmth": 100,
+    "offers": [],
+    "mode": "Expedition",
+    "field": 0,
+    "hp": 85,
+    "gold": 1390,
+    "boons": "000000000",
+    "phase": "Fighting",
+    "time": 0.7833,
+    "wave": 1,
+    "paused": true
+  },
+  "rects": {
+    "entry": [
+      660,
+      4,
+      72,
+      36
+    ]
+  }
+}

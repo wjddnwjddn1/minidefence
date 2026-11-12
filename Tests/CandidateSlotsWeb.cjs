@@ -1,3 +1,4 @@
+// r38: portrait gameplay retired; low landscape fixtures replace portrait cases.
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root=path.resolve(__dirname,'bin/TacticalWeb'),out=path.resolve(__dirname,'bin/candidate-slots-evidence');
@@ -6,7 +7,7 @@ const server=http.createServer((req,res)=>{const relative=decodeURIComponent(new
 (async()=>{let browser;try{
  fs.mkdirSync(out,{recursive:true});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
- for(const [w,h,extra,count] of [[320,300,'',10],[800,500,'',10],[1280,720,'',10],[1920,1080,'',10],[390,844,'',10],[1280,720,'&legacy=1',8],[1280,720,'&reinforcement=1',8]]){
+ for(const [w,h,extra,count] of [[320,300,'',10],[800,500,'',10],[1280,720,'',10],[1920,1080,'',10],[740,360,'',10],[1280,720,'&legacy=1',8],[1280,720,'&reinforcement=1',8]]){
   const context=await browser.newContext({viewport:{width:w,height:h}}),page=await context.newPage(),messages=[],errors=[];let state;
   page.on('console',m=>{const t=m.text().trim();messages.push(t);if(m.type()==='error')errors.push(t);if(t.startsWith('REVIEW_STATE|'))state=t.split('|');});page.on('pageerror',e=>errors.push(e.message));
   await page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=candidateslots&review-flow=1'+extra,{waitUntil:'domcontentloaded'});

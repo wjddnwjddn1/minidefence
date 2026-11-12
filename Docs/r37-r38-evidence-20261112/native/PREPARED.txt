@@ -1,0 +1,1 @@
+Natural economy, 11 seconds, actual session PlayerPrefs; application now exits without deleting checkpoint.

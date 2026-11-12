@@ -1,0 +1,535 @@
+[
+  {
+    "name": "flow-740-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-800-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1280-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-1920-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-740-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "flow-844-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-1",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-2",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 755,
+      "units": [
+        [
+          9,
+          2,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-3",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          3,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "branch-kind-4",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 770,
+      "units": [
+        [
+          9,
+          4,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "sale-false",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "wave": 1,
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "sale-true",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "wave": 1,
+      "time": 0,
+      "gold": 954,
+      "units": []
+    }
+  },
+  {
+    "name": "running-priority",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "wave": 1,
+      "time": 3.2,
+      "gold": 775,
+      "units": [
+        [
+          9,
+          1,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "poor-branch",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 45,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-stun",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "close-reload",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "menu-drag-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "menu-drag-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 915,
+      "units": [
+        [
+          9,
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-upgrade-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-branch-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-sale-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "unit-hold-cancel-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 935,
+      "units": [
+        [
+          9,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-upgrade-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 885,
+      "units": [
+        [
+          9,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-branch-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 795,
+      "units": [
+        [
+          9,
+          0,
+          3,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "name": "unit-hold-sale-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "unit-hold-cancel-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 935,
+      "units": [
+        [
+          9,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "empty-no-purchase-false",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "empty-no-purchase-true",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  },
+  {
+    "name": "tutorial-map-false",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "wave": 3,
+      "time": 65.2,
+      "gold": 154,
+      "units": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          4,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "tutorial-map-true",
+    "state": {
+      "rules": 4,
+      "phase": "Fighting",
+      "wave": 3,
+      "time": 65.4,
+      "gold": 154,
+      "units": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          4,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "name": "menu-escape",
+    "state": {
+      "rules": 4,
+      "phase": "Preparation",
+      "wave": 0,
+      "time": 0,
+      "gold": 1000,
+      "units": []
+    }
+  }
+]

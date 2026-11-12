@@ -1,14 +1,15 @@
+// r38: portrait gameplay retired; low landscape fixtures replace portrait cases.
 // Validate title bounds without writing screenshots or using the player's browser profile.
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const root=path.resolve(__dirname,'../Builds/Web');
+const root=path.resolve(__dirname,'bin/TacticalWeb');
 const captureDir=process.env.R19_CAPTURE_DIR;if(captureDir)fs.mkdirSync(captureDir,{recursive:true});
 const types={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};
 const server=http.createServer((req,res)=>{const rel=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname).replace(/^\/+/,''),file=path.resolve(root,rel||'index.html');if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}fs.readFile(file,(error,data)=>{if(error){res.writeHead(404).end();return;}res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(data);});});
 (async()=>{let browser;try{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--enable-unsafe-swiftshader']});
- for(const [width,height] of [[320,300],[390,844],[640,360],[800,500],[1280,720],[1920,1080]]){
+ for(const [width,height] of [[320,300],[740,360],[640,360],[800,500],[1280,720],[1920,1080]]){
   const context=await browser.newContext({viewport:{width,height}}),page=await context.newPage(),messages=[],errors=[];
   page.on('pageerror',error=>errors.push(error.message));page.on('console',message=>{messages.push(message.text());if(message.type()==='error')errors.push(message.text());});
   for(const [query,expected,shot] of [['fx-smoke=ribbon-layout','','header'],['fx-smoke=ribbon-layout-menu','메뉴','menu'],['fx-smoke=ribbon-layout&fx-smoke=sortie','출정 준비','sortie'],['fx-smoke=ribbon-layout&fx-smoke=reinforcement','증원 선택','reinforcement']]){

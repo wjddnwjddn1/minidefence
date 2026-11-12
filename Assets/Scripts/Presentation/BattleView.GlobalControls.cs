@@ -1,16 +1,17 @@
 using UnityEngine;
 namespace EmberBastion {
  public sealed partial class BattleView {
-  void GlobalControls(){
+  void GlobalControls(){if(LowLandscape){CompactControls();return;}
    bool ended=battle.Phase==Phase.Won||battle.Phase==Phase.Lost,prep=battle.Phase==Phase.Preparation;
    float y=Screen.height-64;UiPlate(new Rect(2,y,Screen.width-4,62));int old=button.fontSize;button.fontSize=Screen.width<600?13:16;
-   bool retry=battle.Phase==Phase.Lost&&(checkpoint!=null||waveCheckpoint!=null),next=ended&&battle.Phase==Phase.Won&&battle.FieldIndex<Balance.Fields.Length-1,early=!prep&&!ended&&EarlyAvailable();
-   float width=retry?Mathf.Min(300,(Screen.width-32)/2):Mathf.Min(300,Screen.width-(battle.Phase==Phase.Fighting?132:24));Rect primary=new Rect(Screen.width-width-12,y+10,width,44);
+   bool retry=!ExpeditionBattle&&battle.Phase==Phase.Lost&&(checkpoint!=null||waveCheckpoint!=null),next=!ExpeditionBattle&&ended&&battle.Phase==Phase.Won&&battle.FieldIndex<Balance.Fields.Length-1,early=!prep&&!ended&&EarlyAvailable();
+   float width=retry?Mathf.Min(300,(Screen.width-32)/2):Mathf.Min(300,Screen.width-((battle.Phase==Phase.Fighting||Screen.width<700&&prep&&battle.Wave==0)?132:24));Rect primary=new Rect(Screen.width-width-12,y+10,width,44);
    if(battle.Phase==Phase.Fighting&&Button(new Rect(12,y+10,100,44),paused?"이어가기 (P)":"전투 정지 (P)"))TogglePause();
+   if(Screen.width<700&&prep&&battle.Wave==0)ExpeditionEntry(y);
    if(retry&&Button(new Rect(12,y+10,width,44),"웨이브 다시"))RetryCheckpoint();
-   else if(!retry&&Screen.width>=700)GUI.Label(new Rect(battle.Phase==Phase.Fighting?128:16,y+18,Screen.width-width-160,30),"빈 자리: 병과 선택   ·   병력 자리: 강화 / 판매",hud);
-   string action=ended?(next?"다음 전장":"재도전"):prep?"전투 시작":battle.Decided?(quickClear?"원래 속도":"빠른 소탕"):early?EarlyLabel():"다음 호출 대기";
-   if(PrimaryButton(primary,action,ended||(prep?battle.Units.Exists(unit=>unit.Kind!=4):battle.Decided?!paused:early))){if(next)OpenField(battle.FieldIndex+1);else if(ended)ResetRun();else if(prep)StartWave();else if(battle.Decided)ToggleQuickClear();else EarlyAction();}
+   else if(!retry&&Screen.width>=700){float entry=ExpeditionEntry(y);GUI.Label(new Rect((battle.Phase==Phase.Fighting?128:16)+entry,y+18,Screen.width-width-160-entry,30),ExpeditionBattle&&!prep?ExpeditionHint():"빈 자리: 병과 선택   ·   병력 자리: 강화 / 판매",hud);}
+   string action=ended?(ExpeditionBattle?"원정 화면":next?"다음 전장":"재도전"):prep?"전투 시작":battle.Decided?(quickClear?"원래 속도":"빠른 소탕"):early?EarlyLabel():"다음 호출 대기";
+   if(PrimaryButton(primary,action,ended||(prep?battle.Units.Exists(unit=>unit.Kind!=4):battle.Decided?!paused:early))){if(ended&&ExpeditionBattle)OpenExpeditionMenu();else if(next)OpenField(battle.FieldIndex+1);else if(ended)ResetRun();else if(prep)StartWave();else if(battle.Decided)ToggleQuickClear();else EarlyAction();}
    button.fontSize=old;
   }
   int[] ActiveTacticalChoices(){return System.Array.FindAll(battle.Reinforcements.Choices(),card=>card!=ReinforcementDraft.EmberCooldown);}
