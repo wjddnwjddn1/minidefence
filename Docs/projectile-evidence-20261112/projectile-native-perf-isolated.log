@@ -1,0 +1,2 @@
+PERFORMANCE_OUTPUT C:\minidefence\Tests\bin\PerformanceQA\PerformanceEvidence\20261112-142306-290
+PASS native save/replay. Frame groups=4. Check visibility/GPU/input validity before interpreting performance.

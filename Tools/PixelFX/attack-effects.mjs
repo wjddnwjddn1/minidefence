@@ -13,4 +13,7 @@ export const entries = [
   ['LaunchArrow', 'projectiles/eb-launch', { palette: ['#1d1012', '#a8321c', '#e8662a', '#ffc46a', '#ffffff'], spread: 0.3, wedges: 3, seed: 2 }],
   ['LaunchPowder', 'projectiles/eb-launch', { palette: ['#241308', '#8a3a10', '#e07a1e', '#ffd070', '#ffffff'], spread: 0.9, wedges: 5, seed: 5 }],
   ['LaunchFrost', 'projectiles/eb-launch', { palette: ['#0e1830', '#2f6aa8', '#58b4e6', '#c8f2ff', '#ffffff'], spread: 0.6, wedges: 4, seed: 8 }],
+  ['TrailArrow', 'projectiles/eb-trail', {}],
+  ['TrailPowder', 'projectiles/eb-trail', { mode: 'powder', palette: ['#211512','#9b3717','#ef7a22','#ffdb75'] }],
+  ['TrailFrost', 'projectiles/eb-trail', { mode: 'frost', palette: ['#111d37','#3668a1','#75c5ed','#dbf8ff'] }],
 ];

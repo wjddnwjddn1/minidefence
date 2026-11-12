@@ -29,6 +29,5 @@ namespace EmberBastion {
   }
   void ReviewAttackEffects(){if(!Debug.isDebugBuild||Application.platform!=RuntimePlatform.WebGLPlayer||!Application.absoluteURL.Contains("fx-smoke=attack-review"))return;
    if(visuals.Exists(v=>v.Cue.Kind=="attack"))return;for(int kind=0;kind<4;kind++)for(int branch=0;branch<3;branch++)visuals.Add(new VisualCue{Cue=new Cue("attack",new Point(180+kind*280,220+branch*185)){Source=kind,Facing=kind%2==0?1:-1,Destination=new Point(180+kind*280+(kind%2==0?110:-110),220+branch*185+40)},Branch=branch});}
-  void ProjectileTrail(Shot shot){if(battle.Enemies.Count>=70)return;float dx=(float)(shot.Destination.X-shot.Position.X),dy=(float)(shot.Destination.Y-shot.Position.Y),length=Mathf.Sqrt(dx*dx+dy*dy);if(length<1)return;dx/=length;dy/=length;Color c=shot.Kind==1?(shot.BossMult>1?new Color(1,.45f,.25f):new Color(1,.85f,.45f)):shot.Kind==3?(shot.Freezing?new Color(.8f,.6f,1):new Color(.45f,.85f,1)):new Color(1,.55f,.2f);for(int i=1;i<=4;i++){c.a=(5-i)*.14f;float size=shot.Kind==1?3:5;Box(new Rect((float)shot.Position.X-dx*i*5-size/2,(float)shot.Position.Y-dy*i*5-size/2,size,size),c);}}
  }
 }
