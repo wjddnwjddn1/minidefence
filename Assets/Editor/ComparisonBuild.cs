@@ -14,6 +14,8 @@ namespace EmberBastion.Editor {
   public static void RulesMigrationQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/RulesMigrationQA/EmberBastion.exe",true,"EmberBastionRulesMigrationQA");}
   public static void R36LocalValidation(){PerformanceQA();StoryReview();TacticalCandidate();WindowsPlayable();}
   public static void R37LocalValidation(){ExpeditionQA();TacticalCandidate();WindowsPlayable();}
+  public static void PresentationQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/PresentationQA/EmberBastion.exe",true,"EmberBastionPresentationQA");}
+  public static void PresentationLocalValidation(){PresentationQA();WindowsPlayable();TacticalWeb();}
   public static void ExpeditionQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/ExpeditionQA/EmberBastion.exe",true,"EmberBastionExpeditionQA");}
   public static void StoryReview(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/StoryReview/EmberBastion.exe",true,"EmberBastionStoryReview");}
   public static void PerformanceQA(){Build(BuildTarget.StandaloneWindows64,"Tests/bin/PerformanceQA/EmberBastion.exe",true,"EmberBastionPerformanceQA");}

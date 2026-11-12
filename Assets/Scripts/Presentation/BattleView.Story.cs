@@ -27,9 +27,9 @@ namespace EmberBastion {
   bool StorySceneOpen {get{return sceneLines!=null;}}
   bool StorySeen(string id){if(storySeen.Contains(id))return true;if(!PreferencesAllowed())return false;try{return PlayerPrefs.GetInt(StoryKey+id,0)!=0;}catch(Exception){return false;}}
   void MarkStory(string id){storySeen.Add(id);if(!PreferencesAllowed())return;try{PlayerPrefs.SetInt(StoryKey+id,1);PlayerPrefs.Save();}catch(Exception){}}
-  void OpenScene(string id,StoryLine[] lines){if(lines==null||lines.Length==0)return;sceneId=id;sceneLines=lines;sceneIndex=0;sayLine=null;sayNext=null;held.Clear();pressed=false;MarkStory(id);StoryLog("STORY_SCENE|"+id+"|0");}
-  void AdvanceScene(bool skip){if(!StorySceneOpen)return;sceneIndex++;if(skip||sceneIndex>=sceneLines.Length){if(skip&&sceneId=="opening")MarkStory("field"+battle.FieldIndex);StoryLog("STORY_SCENE_END|"+sceneId+(skip?"|skip":""));sceneLines=null;sceneId="";return;}StoryLog("STORY_SCENE|"+sceneId+"|"+sceneIndex);}
-  void Say(StoryLine line){if(line==null)return;sayLine=line;sayUntil=Time.unscaledTime+4.5f;StoryLog("STORY_SAY|"+line.Who+"|"+line.Text);}
+  void OpenScene(string id,StoryLine[] lines){if(lines==null||lines.Length==0)return;sceneId=id;sceneLines=lines;sceneIndex=0;sceneTyping.Reset(lines[0].Text);sayLine=null;sayNext=null;held.Clear();pressed=false;MarkStory(id);StoryLog("STORY_SCENE|"+id+"|0");}
+  void AdvanceScene(bool skip){if(!StorySceneOpen)return;if(!skip&&!sceneTyping.Finished){sceneTyping.Complete();StoryLog("STORY_TYPE_REVEAL|"+sceneId+"|"+sceneIndex);return;}sceneIndex++;if(skip||sceneIndex>=sceneLines.Length){if(skip&&sceneId=="opening")MarkStory("field"+battle.FieldIndex);StoryLog("STORY_SCENE_END|"+sceneId+(skip?"|skip":""));sceneLines=null;sceneId="";return;}sceneTyping.Reset(sceneLines[sceneIndex].Text);StoryLog("STORY_SCENE|"+sceneId+"|"+sceneIndex);}
+  void Say(StoryLine line){if(line==null)return;sayLine=line;speechTypingText=line.Text;speechTyping.Reset(line.Text);sayUntil=Time.unscaledTime+4.5f;StoryLog("STORY_SAY|"+line.Who+"|"+line.Text);}
   void StoryLog(string line){if(Debug.isDebugBuild&&(Application.platform==RuntimePlatform.WebGLPlayer||StoryReview))Debug.Log(line);}
   static T Pick<T>(T[] list,int index){return list[((index%list.Length)+list.Length)%list.Length];}
 
@@ -66,7 +66,7 @@ namespace EmberBastion {
    if(!paused&&!battle.ReinforcementPending&&Time.unscaledTime>=nextBarkAt&&battle.Enemies.Count>=3){
     nextBarkAt=Time.unscaledTime+UnityEngine.Random.Range(5f,9f);
     var pool=battle.Enemies.FindAll(x=>x.HP>0&&x.Kind<4&&x.Position.X>40&&x.Position.X<1240&&x.Position.Y>60&&x.Position.Y<740);
-    if(pool.Count>0){var e=pool[UnityEngine.Random.Range(0,pool.Count)];barkEnemy=e.Id;barkText=StoryScript.Barks[e.Kind][UnityEngine.Random.Range(0,StoryScript.Barks[e.Kind].Length)];barkUntil=Time.unscaledTime+2.4f;StoryLog("STORY_BARK|"+e.Kind+"|"+barkText);}}
+    if(pool.Count>0){var e=pool[UnityEngine.Random.Range(0,pool.Count)];barkEnemy=e.Id;barkText=StoryScript.Barks[e.Kind][UnityEngine.Random.Range(0,StoryScript.Barks[e.Kind].Length)];barkTypingText=barkText;barkTyping.Reset(barkText);barkUntil=Time.unscaledTime+2.4f;StoryLog("STORY_BARK|"+e.Kind+"|"+barkText);}}
   }
 
   // Returns true when the event belongs to an open scene (blocks map clicks and shortcuts underneath).
@@ -82,9 +82,9 @@ namespace EmberBastion {
   Color SpeakerColor(Speaker s){return s==Speaker.Grnak||s==Speaker.Goblin?new Color(1f,.45f,.35f):s==Speaker.Narrator?uiText:uiAccent;}
   void StoryPortrait(Speaker s,Rect area){int p=StoryScript.Portrait(s);if(p<0)return;
    Box(area,new Color(.06f,.07f,.08f,.85f));
-   if(p==14&&enemyBoss!=null){float height=area.height-4,width=height*88/96;TerrainView.Image(enemyBoss,new Rect(area.center.x-width/2,area.y+2,width,height),48,44,88,96);}
-   else if(p<10){Texture2D[][] levels={warriorIdleLevel,archerIdleLevel,pawnLevel,frostIdleLevel,smithIdleLevel};var tex=levels[p]!=null&&levels[p].Length>0?levels[p][0]:null;if(tex!=null)TerrainView.Image(tex,new Rect(area.x+2,area.y+2,area.width-4,area.height-4),58,44,84,84);}
-   else{Texture2D tex=p==14?enemyBoss:torch;if(tex!=null){TerrainView.Image(tex,new Rect(area.x+2,area.y+2,area.width-4,area.height-4),40,232,112,112);}}}
+   if(p==14&&enemyBoss!=null){float height=area.height-4,width=height*88/96;int frame=(int)(Time.unscaledTime/.16f)%6;StoryIdleLog(s,frame);TerrainView.Image(enemyBoss,new Rect(area.center.x-width/2,area.y+2,width,height),frame*192+48,44,88,96);}
+   else if(p<10){Texture2D[][] levels={warriorIdleLevel,archerIdleLevel,pawnLevel,frostIdleLevel,smithIdleLevel};var tex=levels[p]!=null&&levels[p].Length>0?levels[p][0]:null;if(tex!=null){int frame=(int)(Time.unscaledTime/.16f)%Mathf.Max(1,tex.width/192);StoryIdleLog(s,frame);TerrainView.Image(tex,new Rect(area.x+2,area.y+2,area.width-4,area.height-4),frame*192+58,44,84,84);}}
+   else{Texture2D tex=p==14?enemyBoss:torch;if(tex!=null){int frame=(int)(Time.unscaledTime/.16f)%6;StoryIdleLog(s,frame);TerrainView.Image(tex,new Rect(area.x+2,area.y+2,area.width-4,area.height-4),frame*192+40,232,112,112);}}}
 
   void DrawStory(){
    if(!StoryEnabled)return;
@@ -95,22 +95,22 @@ namespace EmberBastion {
     int oldSize=hud.fontSize;bool oldWrap=hud.wordWrap;Color oldColor=hud.normal.textColor;TextAnchor oldAlign=hud.alignment;hud.alignment=TextAnchor.UpperLeft;
     string name=StoryScript.Name(line.Who);if(name.Length>0){hud.fontSize=Screen.width<480?13:16;hud.normal.textColor=SpeakerColor(line.Who);GUI.Label(new Rect(tx,r.y+pad-2,tw,24),name,hud);}
     hud.wordWrap=true;hud.normal.textColor=uiText;hud.fontSize=Screen.width<480?13:17;Rect body=new Rect(tx,r.y+pad+(name.Length>0?24:4),tw,r.height-pad*2-(name.Length>0?24:4)-18);
-    while(hud.fontSize>11&&hud.CalcHeight(new GUIContent(line.Text),body.width)>body.height)hud.fontSize--;GUI.Label(body,line.Text,hud);StoryReviewScene(body,line.Text);
-    hud.wordWrap=false;hud.fontSize=12;hud.alignment=TextAnchor.LowerRight;hud.normal.textColor=uiDisabled;GUI.Label(new Rect(tx,r.yMax-22,tw,18),(sceneIndex+1)+"/"+sceneLines.Length+" · 클릭 또는 Space ▶",hud);
+    while(hud.fontSize>11&&hud.CalcHeight(new GUIContent(line.Text),body.width)>body.height)hud.fontSize--;GUI.Label(body,TypedStory(sceneTyping,"scene"),hud);StoryReviewScene(body,line.Text);
+    hud.wordWrap=false;hud.fontSize=12;hud.alignment=TextAnchor.LowerRight;hud.normal.textColor=uiDisabled;GUI.Label(new Rect(tx,r.yMax-22,tw,18),(sceneIndex+1)+"/"+sceneLines.Length+(sceneTyping.Finished?" · 클릭 또는 Space ▶":" · 클릭 또는 Space: 바로 표시"),hud);
     Rect skip=SceneSkipRect();Box(skip,new Color(.1f,.12f,.14f,.92f));hud.alignment=TextAnchor.MiddleCenter;hud.normal.textColor=uiText;hud.fontSize=13;GUI.Label(skip,"건너뛰기 (Esc)",hud);
     hud.fontSize=oldSize;hud.wordWrap=oldWrap;hud.normal.textColor=oldColor;hud.alignment=oldAlign;return;}
    if(!StorySpeech||menuSlot>=0||battle.ReinforcementPending||titleMenu||toolsMenu||fieldMenu||guideMenu||branchMenu)return;
    // Goblin bark bubble over the enemy.
    if(barkEnemy>=0&&!paused){var e=battle.Enemies.Find(x=>x.Id==barkEnemy&&x.HP>0);if(e!=null){int old=hud.fontSize;Color oc=hud.normal.textColor;TextAnchor oa=hud.alignment;hud.fontSize=Screen.width<480?10:12;hud.alignment=TextAnchor.MiddleCenter;hud.normal.textColor=new Color(.12f,.08f,.06f);
      float w=MeasureText(hud,barkText).x+12,h=20,cx=ox+(float)e.Position.X*scale,cy=oy+(float)(e.Position.Y-46)*scale;Rect b=PlaceWarning(new Rect(cx-w/2-1,cy-h-1,w+2,h+7),true);b=new Rect(b.x+1,b.y+1,b.width-2,b.height-7);if(b.width<=0){hud.fontSize=old;hud.normal.textColor=oc;hud.alignment=oa;return;}ReserveWarning("story-bark",new Rect(b.x-1,b.y-1,b.width+2,b.height+7));StoryRender("bark");
-     Box(new Rect(b.x-1,b.y-1,b.width+2,b.height+2),new Color(.2f,.12f,.08f,.9f));Box(b,new Color(1f,.96f,.88f,.95f));Box(new Rect(Mathf.Clamp(cx-3,b.x+4,b.xMax-10),b.yMax,6,5),new Color(1f,.96f,.88f,.95f));GUI.Label(b,barkText,hud);
+     Box(new Rect(b.x-1,b.y-1,b.width+2,b.height+2),new Color(.2f,.12f,.08f,.9f));Box(b,new Color(1f,.96f,.88f,.95f));Box(new Rect(Mathf.Clamp(cx-3,b.x+4,b.xMax-10),b.yMax,6,5),new Color(1f,.96f,.88f,.95f));if(barkTypingText!=barkText){barkTypingText=barkText;barkTyping.Reset(barkText);}GUI.Label(b,TypedStory(barkTyping,"bark"),hud);
      hud.fontSize=old;hud.normal.textColor=oc;hud.alignment=oa;}}
    // Combat speech strip at the bottom-left of the board.
    if(sayLine!=null&&Time.unscaledTime<sayUntil&&menuSlot<0){float fade=Mathf.Clamp01((sayUntil-Time.unscaledTime)/.5f);float bw=1280*scale,w=Mathf.Min(LowLandscape?350:420,bw-12),h=58;Rect r=PlaceWarning(new Rect(ox+6,Mathf.Min(oy+768*scale,Screen.height-FooterHeight)-h-12,w,h),true);if(r.width<=0)return;ReserveWarning("story-speech",r);StoryRender("speech");
     Color old=GUI.color;GUI.color=new Color(1,1,1,fade);Box(r,new Color(.05f,.07f,.08f,.9f));Box(new Rect(r.x,r.y,3,r.height),SpeakerColor(sayLine.Who));
     float ps=StoryScript.Portrait(sayLine.Who)>=0?h-10:0;StoryPortrait(sayLine.Who,new Rect(r.x+8,r.y+5,ps,ps));float tx=r.x+12+(ps>0?ps+6:0),tw=r.xMax-tx-8;
     int oldSize=hud.fontSize;bool oldWrap=hud.wordWrap;Color oc=hud.normal.textColor;TextAnchor oa=hud.alignment;hud.alignment=TextAnchor.UpperLeft;hud.fontSize=12;hud.normal.textColor=SpeakerColor(sayLine.Who);GUI.Label(new Rect(tx,r.y+4,tw,16),StoryScript.Name(sayLine.Who),hud);
-    hud.wordWrap=true;hud.normal.textColor=uiText;hud.fontSize=Screen.width<480?12:13;Rect body=new Rect(tx,r.y+20,tw,h-22);while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(sayLine.Text),body.width)>body.height)hud.fontSize--;GUI.Label(body,sayLine.Text,hud);
+    hud.wordWrap=true;hud.normal.textColor=uiText;hud.fontSize=Screen.width<480?12:13;Rect body=new Rect(tx,r.y+20,tw,h-22);while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(sayLine.Text),body.width)>body.height)hud.fontSize--;if(speechTypingText!=sayLine.Text){speechTypingText=sayLine.Text;speechTyping.Reset(sayLine.Text);}GUI.Label(body,TypedStory(speechTyping,"speech"),hud);
     hud.fontSize=oldSize;hud.wordWrap=oldWrap;hud.normal.textColor=oc;hud.alignment=oa;GUI.color=old;}
   }
  }

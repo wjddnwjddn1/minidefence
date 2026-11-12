@@ -1,0 +1,7 @@
+OUTPUT_COUNT 3
+Speakers(NVIDIA Broadcast)
+스피커(Realtek(R) Audio)
+스피커(Captain 300)
+CURRENT
+PASS select actual endpoint and read back process policy
+PASS restore own process route; system default untouched

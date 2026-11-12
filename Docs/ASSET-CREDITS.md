@@ -92,3 +92,8 @@ Tiny Swords (Free Pack)의 기존 이용 조건을 적용한다. 필요한 시�
 | `Assets/Resources/FrostCastBlack.png` | `Units/Black Units/Monk/Heal.png` | `d49cdb581fc4b79343ff0aa56b90a1a8a01e0f9e372a59e52e7e3dc388e9fd65` |
 | `Assets/Resources/SmithIdleBlack.png` | `Units/Black Units/Pawn/Pawn_Idle Hammer.png` | `ed171cb9acff69b262bd44e1d5641afc90190f7af3ec72444a476d7bbd9fb71f` |
 | `Assets/Resources/PawnBlack.png` | `Units/Black Units/Pawn/Pawn_Idle.png` | `14fc39548b1047ccbbe4c724c56abd38eb67dfb99d6080cbf7e6759905cc90ff` |
+
+## 2026-11-12 공격 효과와 출력 장치
+
+- `SwordSlash`, `SwordSweep`, `SwordBreaker`: 고정 PixelFX0.3.0의 `melee/sword-slash`, `spin-slash`, `heavy-cleave`를 액터 없이 렌더. Patch/Hugo Duprez 및 Sprite Fusion slash 각색의 기존 MIT 고지를 적용한다. 회전 베기 팔레트만 프로젝트에서 변경했다. 재생 속도·몸 기준점은 게임 표시 계층에서 맞춘다. `Tools/PixelFX/render-attacks.mjs`로 PNG+JSON을 재생성한다. 갤러리/Patch Pixel 폰트는 게임 에셋에 사용하지 않는다.
+- `WindowsAudioOutputs.cs`: Windows MMDevice API와 앱별 출력 설정 ABI를 직접 호출하는 프로젝트 코드다. API 서명·IID·장치 경로 형식 참고: [EarTrumpet AudioPolicyConfig](https://github.com/File-New-Project/EarTrumpet/blob/master/EarTrumpet/DataModel/WindowsAudio/Internal/AudioPolicyConfigService.cs), [IAudioPolicyConfigFactoryVariantFor21H2](https://github.com/File-New-Project/EarTrumpet/blob/master/EarTrumpet/Interop/MMDeviceAPI/IAudioPolicyConfigFactoryVariantFor21H2.cs). 외부 바이너리나 구현 소스를 가져오지 않았다. 이 앱의 PID에만 적용하며 시스템 기본 장치나 다른 앱은 바꾸지 않는다.

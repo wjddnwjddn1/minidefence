@@ -16,15 +16,19 @@ namespace EmberBastion {
   }
   int[] ActiveTacticalChoices(){return System.Array.FindAll(battle.Reinforcements.Choices(),card=>card!=ReinforcementDraft.EmberCooldown);}
   bool audioMenu;
-  void OpenAudioMenu(){audioMenu=true;if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("review-flow=1"))Debug.Log("AUDIO_OPEN");}
+  void OpenAudioMenu(){audioMenu=true;audioOutputList=false;RefreshAudioOutputs();if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("review-flow=1"))Debug.Log("AUDIO_OPEN");}
   void AudioPanel(){
-   float width=Mathf.Min(420,Screen.width-24),height=Mathf.Min(280,Screen.height-24),x=(Screen.width-width)/2,y=(Screen.height-height)/2;Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.75f));UiPlate(new Rect(x,y,width,height));UiTitle(new Rect(x+12,y+5,width-24,36),"소리 · 출력 장치",smallTitle);
-   if(MenuButton(new Rect(x+16,y+48,width-32,40),sound.VolumeLabel+" · 음량 변경")){sound.Toggle();if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("review-flow=1"))Debug.Log("AUDIO_VOLUME|"+sound.VolumeLabel);}
-   if(MenuButton(new Rect(x+16,y+96,width-32,40),"테스트 소리",!sound.Muted))sound.Play("upgrade");
+   float width=Mathf.Min(560,Screen.width-24),height=Mathf.Min(audioOutputList?440:310,Screen.height-24),x=(Screen.width-width)/2,y=(Screen.height-height)/2;Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.75f));UiPlate(new Rect(x,y,width,height));UiTitle(new Rect(x+12,y+5,width-24,36),"소리 · 출력 장치",smallTitle);
    bool windows=Application.platform==RuntimePlatform.WindowsPlayer;
-   if(MenuButton(new Rect(x+16,y+144,width-32,40),windows?"출력 장치 선택 · Windows":"출력 장치 · Windows 실행판에서 선택",windows)){if(Debug.isDebugBuild)Debug.Log("AUDIO_OUTPUT_OPEN");Application.OpenURL("ms-settings:apps-volume");notice="Windows 볼륨 믹서에서 이 게임의 출력 장치를 고르세요.";}
-   bool wrap=menuNotice.wordWrap;int size=menuNotice.fontSize;menuNotice.fontSize=12;menuNotice.wordWrap=true;GUI.Label(new Rect(x+16,y+190,width-32,42),"Windows 볼륨 믹서 → 앱 → 이 게임의 출력 장치. 다른 앱의 장치는 바꾸지 않습니다.",menuNotice);menuNotice.wordWrap=wrap;menuNotice.fontSize=size;
-   if(MenuButton(new Rect(x+16,y+height-42,width-32,32),"뒤로"))audioMenu=false;
+   if(audioOutputList){if(MenuButton(new Rect(x+width-112,y+8,96,30),"새로고침"))RefreshAudioOutputs();AudioOutputChoices(x+16,y+48,width-32,height-104);}
+   else{
+    float row=height<290?38:46,bh=row-6;
+    if(MenuButton(new Rect(x+16,y+48,width-32,bh),sound.VolumeLabel+" · 음량 변경")){sound.Toggle();if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("review-flow=1"))Debug.Log("AUDIO_VOLUME|"+sound.VolumeLabel);}
+    if(MenuButton(new Rect(x+16,y+48+row,width-32,bh),"테스트 소리",!sound.Muted))sound.Play("upgrade");
+    int old=button.fontSize;button.fontSize=12;if(MenuButton(new Rect(x+16,y+48+row*2,width-32,bh),windows?"출력: "+AudioOutputName()+" ▾":"출력 장치 · Windows 실행판에서 선택",windows)){RefreshAudioOutputs();audioOutputList=true;}button.fontSize=old;
+    bool wrap=menuNotice.wordWrap;int size=menuNotice.fontSize;menuNotice.fontSize=12;menuNotice.wordWrap=true;GUI.Label(new Rect(x+16,y+48+row*3,width-32,40),audioOutputMessage.Length>0?audioOutputMessage:"이 게임의 출력만 바꿉니다. 장치를 연결한 뒤 목록을 새로고침하세요.",menuNotice);menuNotice.wordWrap=wrap;menuNotice.fontSize=size;
+   }
+   if(MenuButton(new Rect(x+16,y+height-42,width-32,32),"뒤로")){if(audioOutputList)audioOutputList=false;else audioMenu=false;}
   }
   void TacticalCardIcon(int card,Rect rect){
    if(card==ReinforcementDraft.EmberCooldown){if(emberRound!=null)GUI.DrawTexture(rect,emberRound,ScaleMode.ScaleToFit,true);}
