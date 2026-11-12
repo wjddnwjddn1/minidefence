@@ -9,13 +9,16 @@ namespace EmberBastion {
 
  [Serializable] public sealed class ExpeditionData {
   public int version=1,stage,warmth,state,kills,pendingGold;public bool abandonedCamp;
+  // Fields in the order this run takes them (r40). Empty in saves made before the route choice: those follow the story order.
+  public int[] route;
   public uint seed,randomState;
   public int[] boons,offered,peaks;
  }
 
  public sealed class Expedition {
   public enum Status {Battle=0,Camp=1,Won=2,Lost=3}
-  // v1 route follows the story: gate, forest road, rocky pass, marsh ferry.
+  // The story order: gate, forest road, rocky pass, marsh ferry. A run always starts at the gate; from each camp the
+  // player picks the next field among those not yet fought (r40), so this is only the default order.
   public static readonly int[] Route={0,1,2,3};
   public const int OffersPerCamp=3;
   public uint Seed {get;private set;}
@@ -24,12 +27,16 @@ namespace EmberBastion {
   public int Kills {get;private set;}
   public int PendingGold {get;private set;}
   public Status State {get;private set;}
-  bool abandonedCamp;uint randomState;readonly int[] boons=new int[Boon.Count];int[] offered=new int[0];readonly int[] peaks=new int[Route.Length];
+  bool abandonedCamp;uint randomState;readonly int[] boons=new int[Boon.Count];int[] offered=new int[0];readonly int[] peaks=new int[Route.Length];readonly int[] route={Route[0],-1,-1,-1};
   Expedition(){}
   public static Expedition Start(uint seed){return new Expedition{Seed=seed,Warmth=100,State=Status.Battle,randomState=seed^0x5EEDCA4Fu};}
   public int Stages {get{return Route.Length;}}
   public int ClearedStages {get{return State==Status.Won?Stages:Stage+(State==Status.Camp||abandonedCamp?1:0);}}
-  public int Field {get{return Route[Math.Min(Stage,Route.Length-1)];}}
+  public int Field {get{return route[Math.Min(Stage,Route.Length-1)];}}
+  // The field fought at a stage, or -1 when that stage has not been chosen yet.
+  public int FieldAt(int stage){if(stage<0||stage>=route.Length)throw new ArgumentOutOfRangeException("stage");return route[stage];}
+  // At a camp: the fields this run has not fought yet, in story order. Empty otherwise.
+  public int[] NextFields(){if(State!=Status.Camp)return new int[0];var list=new List<int>();foreach(int field in Route){bool used=false;for(int i=0;i<=Stage;i++)if(route[i]==field)used=true;if(!used)list.Add(field);}return list.ToArray();}
   public int Threat {get{return Stage;}}
   public int Count(int boon){if(boon<0||boon>=Boon.Count)throw new ArgumentOutOfRangeException("boon");return boons[boon];}
   public int Peak(int stage){if(stage<0||stage>=peaks.Length)throw new ArgumentOutOfRangeException("stage");return peaks[stage];}
@@ -58,12 +65,16 @@ namespace EmberBastion {
    if(doctrines.Count>0){int doctrine=doctrines[(int)(Next()%(uint)doctrines.Count)];offered[0]=doctrine;pool.Remove(doctrine);first=1;}
    for(int i=first;i<offered.Length;i++){int pick=(int)(Next()%(uint)pool.Count);offered[i]=pool[pick];pool.RemoveAt(pick);}
   }
-  public bool Choose(int boon){
-   if(State!=Status.Camp||Array.IndexOf(offered,boon)<0)return false;
+  // Takes a boon and marches on in story order.
+  public bool Choose(int boon){var next=NextFields();return next.Length>0&&Choose(boon,next[0]);}
+  // Takes a boon and marches to the chosen field. Threat follows the stage number, so a field fought later is harder.
+  public bool Choose(int boon,int nextField){
+   if(State!=Status.Camp||Array.IndexOf(offered,boon)<0||Array.IndexOf(NextFields(),nextField)<0)return false;
+   route[Stage+1]=nextField;
    boons[boon]++;if(boon==Boon.Rekindle)Warmth=Math.Min(100,Warmth+Boon.RekindleWarmth);if(boon==Boon.WarChest)PendingGold=Boon.WarChestGold;
    offered=new int[0];Stage++;State=Status.Battle;return true;
   }
-  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone()};}
+  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
   public static Expedition Restore(ExpeditionData d){
    if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=Route.Length||d.state<0||d.state>3||d.stage<0||d.stage>=Route.Length||d.kills<0||d.warmth<0||d.warmth>100)throw new ArgumentException("Invalid expedition");
    var status=(Status)d.state;int taken=0;
@@ -80,7 +91,12 @@ namespace EmberBastion {
    if(d.pendingGold!=0&&(d.pendingGold!=Boon.WarChestGold||status!=Status.Battle||d.boons[Boon.WarChest]==0))throw new ArgumentException("Invalid expedition gold");
    for(int i=0;i<d.peaks.Length;i++)if(d.peaks[i]<0||d.peaks[i]>Balance.MaxAlive||(i>d.stage&&d.peaks[i]!=0))throw new ArgumentException("Invalid expedition record");
    var e=new Expedition{Seed=d.seed,Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
-   Array.Copy(d.boons,e.boons,Boon.Count);Array.Copy(d.peaks,e.peaks,Route.Length);return e;
+   Array.Copy(d.boons,e.boons,Boon.Count);Array.Copy(d.peaks,e.peaks,Route.Length);
+   // Route: stage 0 is the gate, every stage reached so far has its own field, later stages are not chosen yet.
+   if(d.route==null||d.route.Length==0){for(int i=1;i<Route.Length;i++)e.route[i]=i<=d.stage?Route[i]:-1;}
+   else{if(d.route.Length!=Route.Length||d.route[0]!=Route[0])throw new ArgumentException("Invalid expedition route");
+    for(int i=1;i<Route.Length;i++){int field=d.route[i];if(i>d.stage){if(field!=-1)throw new ArgumentException("Invalid expedition route");continue;}if(Array.IndexOf(Route,field)<0)throw new ArgumentException("Invalid expedition route");for(int j=0;j<i;j++)if(d.route[j]==field)throw new ArgumentException("Invalid expedition route");e.route[i]=field;}}
+   return e;
   }
  }
 }

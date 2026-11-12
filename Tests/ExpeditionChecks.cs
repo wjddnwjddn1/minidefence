@@ -206,6 +206,42 @@ class ExpeditionChecks {
    Check(Throws(()=>Expedition.Restore(null)),"null run");
   }
 
+  // --- the route (r40): the gate first, then the player picks each next field ----------------------------------
+  {
+   Func<Expedition,bool> Win=run=>{var b=run.CreateBattle();b.Phase=Phase.Won;return run.Complete(b);};
+   var story=Expedition.Start(9);Check(story.FieldAt(0)==0&&story.FieldAt(1)==-1&&story.NextFields().Length==0,"a run starts at the gate with nothing chosen");
+   Win(story);var options=story.NextFields();Check(options.Length==3&&options[0]==1&&options[1]==2&&options[2]==3,"three fields to choose from after the gate");
+   Check(!story.Choose(story.Offers()[0],0)&&!story.Choose(story.Offers()[0],4)&&!story.Choose(story.Offers()[0],-1),"the gate again or an unknown field is refused");
+   Check(story.Choose(story.Offers()[0])&&story.Field==1&&story.FieldAt(1)==1,"the plain choice follows the story order");
+   // every order of the three later fields can be marched, and the battle is always on the chosen field at the stage's threat
+   int[][] orders={new[]{1,2,3},new[]{1,3,2},new[]{2,1,3},new[]{2,3,1},new[]{3,1,2},new[]{3,2,1}};
+   foreach(var order in orders){
+    var run=Expedition.Start(77);
+    for(int stage=0;stage<run.Stages;stage++){
+     var b=run.CreateBattle();Check(b.FieldIndex==(stage==0?0:order[stage-1])&&b.Threat==stage&&run.Matches(b),"stage "+stage+" fights on the chosen field");
+     b.Phase=Phase.Won;Check(run.Complete(b),"win");if(stage==run.Stages-1)break;
+     var next=run.NextFields();Check(next.Length==run.Stages-1-stage&&Array.IndexOf(next,order[stage])>=0,"the chosen field is still open");
+     foreach(int visited in new[]{0})Check(Array.IndexOf(next,visited)<0,"the gate is never offered again");
+     var saved=Expedition.Restore(run.Export());Check(saved.NextFields().Length==next.Length&&saved.FieldAt(stage)==run.FieldAt(stage)&&saved.FieldAt(stage+1)==-1,"camp restore keeps the route so far");
+     Check(run.Choose(run.Offers()[0],order[stage])&&run.Field==order[stage],"march to field "+order[stage]);
+     Check(Expedition.Restore(run.Export()).Field==order[stage],"battle restore keeps the chosen field");
+     if(stage>0)Check(!Expedition.Restore(run.Export()).Matches(Battle.CreateExpedition(1,order[stage-1],run.Warmth,new int[Boon.BattleCount],run.Threat,0)),"a battle on an earlier field is not this stage");
+    }
+    Check(run.State==Expedition.Status.Won,"route "+order[0]+order[1]+order[2]+" finishes");
+   }
+   // corrupt routes
+   var mid=Expedition.Start(5);Win(mid);mid.Choose(mid.Offers()[0],2);Func<ExpeditionData> R=()=>mid.Export();
+   Check(R().route.Length==4&&R().route[0]==0&&R().route[1]==2&&R().route[2]==-1,"exported route");
+   {var d=R();d.route[0]=1;Check(Throws(()=>Expedition.Restore(d)),"a run that did not start at the gate");}
+   {var d=R();d.route[1]=0;Check(Throws(()=>Expedition.Restore(d)),"the gate twice");}
+   {var d=R();d.route[1]=7;Check(Throws(()=>Expedition.Restore(d)),"an unknown field");}
+   {var d=R();d.route[1]=-1;Check(Throws(()=>Expedition.Restore(d)),"the current stage has no field");}
+   {var d=R();d.route[2]=3;Check(Throws(()=>Expedition.Restore(d)),"a field chosen before its camp");}
+   {var d=R();d.route=new int[3];Check(Throws(()=>Expedition.Restore(d)),"a short route");}
+   // saves made before the route choice have no route and follow the story order
+   {var d=R();d.route=null;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
+  }
+
   // --- a whole run on the real engine, twice -------------------------------------------------------------------
   {
    string[] lines=new string[2];
