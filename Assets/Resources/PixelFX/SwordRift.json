@@ -1,0 +1,215 @@
+{
+ "frames": [
+  {
+   "filename": "SwordRift 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 1",
+   "frame": {
+    "x": 156,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 2",
+   "frame": {
+    "x": 312,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 3",
+   "frame": {
+    "x": 468,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 4",
+   "frame": {
+    "x": 0,
+    "y": 200,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 5",
+   "frame": {
+    "x": 156,
+    "y": 200,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 6",
+   "frame": {
+    "x": 312,
+    "y": 200,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordRift 7",
+   "frame": {
+    "x": 468,
+    "y": 200,
+    "w": 156,
+    "h": 200
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 156,
+    "h": 200
+   },
+   "sourceSize": {
+    "w": 156,
+    "h": 200
+   },
+   "duration": 50
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "SwordRift.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 624,
+   "h": 400
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "SwordRift",
+    "from": 0,
+    "to": 7,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "melee/eb-rift",
+   "name": "Ember Bastion ground rift",
+   "fps": 20,
+   "loop": false,
+   "frames": 8,
+   "frameSize": [
+    156,
+    200
+   ],
+   "pivot": [
+    12,
+    100
+   ],
+   "columns": 4
+  }
+ }
+}
