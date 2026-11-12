@@ -3,6 +3,29 @@ using System;
 namespace EmberBastion {
  // Pure, deterministic diagnostic setup. Uses the real economy and waves.
  public static class PerformanceScenario {
+  public static Battle CaptureChainBlast(){
+   var boons=new int[Boon.BattleCount];
+   boons[Boon.ChainBlast]=1;
+   // Fixed QA budget for four powder troops. Enemies and chain hits come from the real engine.
+   var battle=Battle.CreateExpedition(1,0,100,boons,1,500);
+   for(int slot=0;slot<4;slot++)battle.Place(2,slot);
+   battle.Start();
+   for(int tick=0;tick<60000&&battle.Phase==Phase.Fighting;tick++){
+    if(battle.ReinforcementPending)battle.ChooseReinforcement(battle.Reinforcements.Choices()[0]);
+    battle.Step(Balance.Tick);
+    if(tick%10!=0||battle.Enemies.Count<80||battle.Enemies.Count>95)continue;
+    var sample=battle.CopyCombat();
+    int chainHits=0,firstChainTick=-1;
+    bool sustained=true;
+    for(int i=0;i<180;i++){
+     sample.Step(Balance.Tick);
+     if(sample.Phase!=Phase.Fighting||sample.Enemies.Count<80||sample.Enemies.Count>99||sample.ReinforcementPending){sustained=false;break;}
+     foreach(var cue in sample.Cues)if(cue.Kind=="chain"){if(firstChainTick<0)firstChainTick=i;chainHits++;}
+    }
+    if(sustained&&chainHits>=2&&firstChainTick>=0&&firstChainTick<=18)return battle.CopyCombat();
+   }
+   throw new InvalidOperationException("No dense chain blast scenario found");
+  }
   public static Battle Capture(int minimumEnemies=85){
    if(minimumEnemies<80||minimumEnemies>99)throw new ArgumentOutOfRangeException("minimumEnemies");
    var b=Battle.CreateForRules(29,0,4);b.Place(0,0);b.Place(0,10);b.Start();

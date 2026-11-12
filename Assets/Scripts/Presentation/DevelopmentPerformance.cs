@@ -34,7 +34,8 @@ namespace EmberBastion {
    yield return null;
    var view=FindAnyObjectByType<BattleView>();if(view==null){Fail("No battle view");yield break;}
    Application.runInBackground=true;Application.targetFrameRate=-1;QualitySettings.vSyncCount=0;PerformanceCounters.Active=true;
-   Battle snapshot=null;try{snapshot=PerformanceScenario.Capture(85);}catch(Exception e){Fail(e.Message);yield break;}
+   bool chainBlast=Array.IndexOf(Environment.GetCommandLineArgs(),"--chain-blast-performance")>=0;
+   Battle snapshot=null;try{snapshot=chainBlast?PerformanceScenario.CaptureChainBlast():PerformanceScenario.Capture(85);}catch(Exception e){Fail(e.Message);yield break;}
    File.WriteAllText(Path.Combine(folder,"snapshot.json"),JsonUtility.ToJson(snapshot.ExportCombat()),new UTF8Encoding(false));
    WriteMetadata("environment",0);MeasureLogic(snapshot);
    bool storageOnly=Array.IndexOf(Environment.GetCommandLineArgs(),"--storage-only")>=0;
@@ -43,6 +44,8 @@ namespace EmberBastion {
      int height=width==1280?720:1080;Screen.SetResolution(width,height,FullScreenMode.Windowed);view.LoadPerformanceState(snapshot,selection);
      float warm=Time.realtimeSinceStartup+2;while(Time.realtimeSinceStartup<warm){if(view.SmokeState.Phase!=Phase.Fighting||view.SmokeState.Enemies.Count<80)view.LoadPerformanceState(snapshot,selection);yield return null;}
      var samples=new List<Sample>(900);var timings=new List<Timing>(900);ulong lastStamp=0;int safeFrames=0,resets=0;float timeout=Time.realtimeSinceStartup+90;
+     if(chainBlast)view.LoadPerformanceState(snapshot,selection);
+     int chainBefore=PerformanceCounters.ChainFrames;
      while(samples.Count<900&&Time.realtimeSinceStartup<timeout){
       if(view.SmokeState.Phase!=Phase.Fighting||view.SmokeState.Enemies.Count<80||view.SmokeState.Enemies.Count>99||view.SmokeState.ReinforcementPending){view.LoadPerformanceState(snapshot,selection);safeFrames=0;resets++;}
       yield return new WaitForEndOfFrame();
@@ -57,6 +60,11 @@ namespace EmberBastion {
       }
      }
      string label=width+(selection<0?"-battle":"-selected");WriteSamples(label,samples,timings,resets);
+     if(chainBlast){
+      int drawn=PerformanceCounters.ChainFrames-chainBefore;
+      File.AppendAllText(Path.Combine(folder,"chain-render.csv"),label+","+drawn+"\n",new UTF8Encoding(false));
+      if(drawn==0){Fail("No chain blast rendered during "+label);yield break;}
+     }
      if(samples.Count<900){Fail("Insufficient high-density frames: "+label);yield break;}
     }
    }

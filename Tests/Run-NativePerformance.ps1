@@ -1,4 +1,4 @@
-param([switch]$Visible,[switch]$Story,[ValidateSet('d3d11','d3d12')][string]$Graphics='d3d11')
+param([switch]$Visible,[switch]$Story,[switch]$ChainBlast,[ValidateSet('d3d11','d3d12')][string]$Graphics='d3d11')
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
 $executable=Join-Path $PSScriptRoot 'bin\PerformanceQA\EmberBastion.exe'
@@ -10,6 +10,7 @@ $arguments=@('--performance-smoke',('-force-'+$Graphics),'-screen-width','1280',
 # Hidden mode cannot measure rendering, so it runs only CPU/save diagnostics.
 if(-not $Visible){$arguments+='--storage-only'}
 if($Story){$arguments+='--story-performance'}
+if($ChainBlast){$arguments+='--chain-blast-performance'}
 $style=if($Visible){'Normal'}else{'Hidden'}
 $process=Start-Process -FilePath $executable -ArgumentList $arguments -WindowStyle $style -PassThru
 if(-not $process.WaitForExit(600000)){if(-not $process.HasExited){Stop-Process -Id $process.Id -Force};throw 'Own diagnostic exceeded 10 minute timeout'}

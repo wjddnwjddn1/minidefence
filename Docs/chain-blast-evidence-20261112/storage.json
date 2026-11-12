@@ -1,0 +1,16 @@
+{
+    "jsonEqual": false,
+    "stateEquivalent": true,
+    "replayEqual": true,
+    "pausedLoad": true,
+    "realCheckpointPreserved": true,
+    "partialCheckpointRejected": true,
+    "enemies": 89,
+    "steps": 120,
+    "jsonBytes": 28422,
+    "saveMs": 4.0034,
+    "loadMs": 1.1319000000000001,
+    "restoreMaxError": 9.094947017729282e-13,
+    "replayMaxError": 9.094947017729282e-13,
+    "checkpointMaxError": 9.094947017729282e-13
+}

@@ -16,6 +16,11 @@ namespace EmberBastion {
 #endif
    DrawInterface();
   }
+  void RecordChainDraw(){
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
+   if(PerformanceCounters.Active&&Event.current.type==EventType.Repaint&&battle.Enemies.Count>=80&&battle.Enemies.Count<=99)PerformanceCounters.ChainFrames++;
+#endif
+  }
   void AdvanceBattle(float delta,float speed){
 #if DEVELOPMENT_BUILD || UNITY_EDITOR
    if(PerformanceCounters.Active){long start=Stopwatch.GetTimestamp();try{AdvanceBattleCore(delta,speed);}finally{PerformanceCounters.CoreTicks+=Stopwatch.GetTimestamp()-start;}return;}
@@ -30,7 +35,7 @@ namespace EmberBastion {
  internal static class PerformanceCounters {
   public static bool Active;
   public static long UpdateTicks,GuiTicks,CoreTicks,InputTicks;
-  public static int GuiCalls;
+  public static int GuiCalls,ChainFrames;
   public static string InputKey="";
   public static bool InputArmed;
   public static readonly System.Collections.Generic.List<string> InputEvents=new System.Collections.Generic.List<string>();
