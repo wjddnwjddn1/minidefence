@@ -1,7 +1,7 @@
 using System;
 namespace EmberBastion {
  [Serializable] public sealed class ExpeditionSessionData {
-  public int version=1,speed=1;public ExpeditionData run;public bool started;public string combat,preparation;
+  public int version=1,speed=1;public ExpeditionData run;public bool started;public string combat,preparation;public int[] campDoctrineCounts;
  }
  public sealed class ExpeditionSession {
   public Expedition Run;public Battle Battle;public int Speed;

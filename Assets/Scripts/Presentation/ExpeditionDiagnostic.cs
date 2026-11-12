@@ -32,9 +32,9 @@ static class NativeExpeditionPolicy {
  // Camp choice. 0 first offer, 1 damage for the classes in use, 2 keep the ember warm, 3 economy.
  public static int Camp(Expedition run,int style){
   var offers=run.Offers();int[] order;
-  if(style==1)order=new[]{Boon.SwordDrill,Boon.StrongBow,Boon.WarDrum,Boon.PowderMix,Boon.FrostCore,Boon.Spyglass,Boon.Rekindle,Boon.Spoils,Boon.WarChest};
-  else if(style==2)order=run.Warmth<=80?new[]{Boon.Rekindle,Boon.FrostCore,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.Spyglass,Boon.Spoils,Boon.WarChest}:new[]{Boon.FrostCore,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.Spyglass,Boon.Spoils,Boon.WarChest,Boon.Rekindle};
-  else if(style==3)order=new[]{Boon.Spoils,Boon.WarChest,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.FrostCore,Boon.Spyglass,Boon.Rekindle};
+  if(style==1)order=new[]{Boon.Phalanx,Boon.RapidFire,Boon.FieldForge,Boon.SwordDrill,Boon.StrongBow,Boon.WarDrum,Boon.PowderMix,Boon.FrostCore,Boon.Spyglass,Boon.Rekindle,Boon.Spoils,Boon.WarChest};
+  else if(style==2)order=run.Warmth<=80?new[]{Boon.Rekindle,Boon.EmberWard,Boon.DeepFrost,Boon.Shatter,Boon.FrostCore,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.Spyglass,Boon.Spoils,Boon.WarChest}:new[]{Boon.DeepFrost,Boon.Shatter,Boon.ChainBlast,Boon.FieldForge,Boon.FrostCore,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.Spyglass,Boon.Spoils,Boon.WarChest,Boon.Rekindle};
+  else if(style==3)order=new[]{Boon.Spoils,Boon.WarChest,Boon.FieldForge,Boon.ChainBlast,Boon.WarDrum,Boon.SwordDrill,Boon.StrongBow,Boon.PowderMix,Boon.FrostCore,Boon.Spyglass,Boon.Rekindle};
   else return offers[0];
   foreach(int boon in order)if(Array.IndexOf(offers,boon)>=0)return boon;return offers[0];
  }

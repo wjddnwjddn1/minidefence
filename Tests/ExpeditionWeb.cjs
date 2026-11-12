@@ -44,7 +44,7 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
     if(!process.env.RUN_RESUME_ONLY){
     // 1. camp, wide: three offers, click the second card, the next battle carries that boon
     for (const [w, h, pick] of [[1280, 720, 1], [844, 390, 2], [740, 360, 0]]) {
-      const t = await open('fx-smoke=expedition-camp&run-review=1', w, h);
+      const t = await open('fx-smoke=expedition-camp&run-review=1&fx-smoke=remember', w, h);
       const camp = await t.until(l => l.state === 'Camp', 'camp did not open ' + w);
       check(camp.stage === 0 && camp.warmth === 91 && camp.offers.length === 3 && new Set(camp.offers).size === 3, 'camp state ' + w + ': ' + JSON.stringify(camp));
       await t.page.waitForTimeout(1200);
@@ -52,10 +52,27 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       if (w === 390) await t.page.screenshot({path: path.join(out, 'expedition-camp-390.png')});
       regionCheck(t);const [cx, cy] = campCard(w, h, pick);
       await t.page.mouse.click(cx, cy);
+      for(let i=0;i<60&&!t.rects.route2;i++)await t.page.waitForTimeout(100);
+      check(t.last().state==='Camp','boon selection must wait for route');
+      const route=t.rects.route2;check(!!route,'rock pass route available '+w);
+      await t.page.screenshot({path:path.join(out,'expedition-route-'+w+'.png')});
+      await t.page.mouse.click(route[0]+route[2]/2,route[1]+route[3]/2);
       const next = await t.until(l => l.state === 'Battle' && l.stage === 1, 'boon click did not start the next stage ' + w);
       const boon = camp.offers[pick];
       check(next.boons[boon] === '1' && [...next.boons].filter(c => c !== '0').length === 1, 'the clicked boon was taken ' + w + ': offers ' + camp.offers + ' boons ' + next.boons);
-      check(next.mode === 'Expedition' && next.field === 1 && next.hp === (boon === 14 ? 100 : 91) && next.gold === 200 + (boon === 15 ? 100 : 0), 'next battle carries the run ' + w + ': ' + JSON.stringify(next));
+      check(next.mode === 'Expedition' && next.field === 2 && next.hp === (boon === 14 ? 100 : 91) && next.gold === 340 + (boon === 15 ? 100 : 0), 'next battle carries the run ' + w + ': ' + JSON.stringify(next));
+      await t.page.waitForTimeout(1500);
+      delete t.rects.entry;
+      await t.page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=remember&run-review=1',{waitUntil:'domcontentloaded'});
+      await t.page.waitForFunction(()=>[...document.querySelectorAll('#unity-build-title button')].some(b=>b.textContent==='Unload'),null,{timeout:120000});
+      await t.page.evaluate(({w, h}) => { const c = document.querySelector('#unity-container'), v = document.querySelector('#unity-canvas'), f = document.querySelector('#unity-fullscreen-container'), s = 'width:' + w + 'px;height:' + h + 'px'; c.style.cssText = 'position:fixed;left:0;top:0;transform:none;' + s; f.style.cssText = s; v.style.cssText = s; document.querySelector('#unity-footer').style.display = 'none'; }, {w, h});
+      await t.page.waitForTimeout(800);
+      for(let i=0;i<250&&!t.rects.entry;i++)await t.page.waitForTimeout(100);
+      const entry=t.rects.entry;check(!!entry,'resume entry available '+w);
+      t.lines.length=0;
+      await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);
+      const restored=await t.until(l=>l.state==='Battle'&&l.stage===1,'route reload '+w);
+      check(restored.field===2,'chosen route persisted '+w);
       check(t.errors.length === 0, 'browser errors ' + w + ': ' + t.errors.join(' | '));
       await t.context.close();
     }

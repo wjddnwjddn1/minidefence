@@ -1,0 +1,190 @@
+[
+  {
+    "name": "Run-BadgeChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-BattleModeChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-BossPriorityChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-BossTelegraphChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-BurnDamageChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CandidateSlotChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CandidateWaveIsolationChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CombatProgressHintChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CombatRetryChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CombatSaveChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CoreChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-CrisisAdviceChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-EmberUpgradeChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-EmptyCheckpointChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-EnemyWeaknessChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ExpeditionChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ExpeditionSessionChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ExpeditionTextChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-FastPriorityChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-FieldFourChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-FrostReworkChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-HardModeChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-LossEnemySummaryChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-LossRetryInfoChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-NextWaveAdviceChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-PerformanceScenarioChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ProgressVersionChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-QuickClearChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-R12Checks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-R25ExtendedChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-R25LegacyCandidateChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-R30InteractionChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ReinforcementCombatChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ReinforcementDraftChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ReinforcementEffectsChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-ReinforcementPlaythroughChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-RuleParityChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-RuntimeCombatComparisonChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-SpawnForecastChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-StoryScriptChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-StoryTypingChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-SupplyChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-SupportCoverageChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-SupportStunChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-SurrenderChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-TacticalDraftChecks.ps1",
+    "exit": 0
+  },
+  {
+    "name": "Run-WaveVersionChecks.ps1",
+    "exit": 0
+  }
+]

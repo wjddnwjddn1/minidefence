@@ -12,7 +12,7 @@ namespace EmberBastion {
    try{
     if(PlayerPrefs.HasKey(ExpeditionSessionKey)){
      data=JsonUtility.FromJson<ExpeditionSessionData>(PlayerPrefs.GetString(ExpeditionSessionKey));
-     var restored=ExpeditionSession.Restore(data,DecodeRunCombat,DecodeRunPreparation);expedition=restored.Run;expeditionSavedBattle=restored.Battle;expeditionSavedSpeed=restored.Speed;
+     var restored=ExpeditionSession.Restore(data,DecodeRunCombat,DecodeRunPreparation);expedition=restored.Run;expeditionSavedBattle=restored.Battle;expeditionSavedSpeed=restored.Speed;campDoctrineCounts=data.campDoctrineCounts;
     }else if(PlayerPrefs.HasKey(ExpeditionKey)){
      expedition=Expedition.Restore(JsonUtility.FromJson<ExpeditionData>(PlayerPrefs.GetString(ExpeditionKey)));
      // Old run-only saves cannot prove whether this stage was already started. Never grant a fresh retry.
@@ -39,9 +39,10 @@ namespace EmberBastion {
     else{
      if(expedition.State==Expedition.Status.Battle&&!ExpeditionBattle)return true;
      Battle current=ExpeditionBattle&&expedition.Matches(battle)?battle:expeditionSavedBattle;
-     if(current!=null&&expedition.State==Expedition.Status.Battle&&(current.Phase==Phase.Won||current.Phase==Phase.Lost)){expedition.Complete(current);RecordExpeditionBest(expedition);}
+     if(current!=null&&expedition.State==Expedition.Status.Battle&&(current.Phase==Phase.Won||current.Phase==Phase.Lost)){expedition.Complete(current);if(expedition.State==Expedition.Status.Camp)CaptureCampComposition(current);RecordExpeditionBest(expedition);}
      if(expedition.State==Expedition.Status.Battle&&current==null)return true; // A free battle never overwrites the saved expedition checkpoint.
      var data=ExpeditionSession.Capture(expedition,current,Mathf.Clamp((int)SimulationSpeed,1,3),b=>JsonUtility.ToJson(b.ExportCombat()),b=>JsonUtility.ToJson(b.SavePreparation()));
+     if(expedition.State==Expedition.Status.Camp)data.campDoctrineCounts=campDoctrineCounts;
      string json=JsonUtility.ToJson(data);ExpeditionSession.Restore(JsonUtility.FromJson<ExpeditionSessionData>(json),DecodeRunCombat,DecodeRunPreparation);
      PlayerPrefs.SetString(ExpeditionSessionKey,json);PlayerPrefs.DeleteKey(ExpeditionKey);
     }
