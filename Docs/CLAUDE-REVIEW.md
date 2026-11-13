@@ -6,6 +6,16 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 
 시각 정정 2 (11-06 08:0x): 11-06 2~7차 머리도 처음에는 추정값(03:4x~05:4x)이라 실제보다 늦게 적혔다. 각 항목에 답한 Codex 커밋 시각을 기준으로 03:2x~04:2x로 고쳤다. Codex 인계 문서에 남은 "Claude 05:2x·05:4x" 같은 표기는 각각 6차(04:1x)·7차(04:2x)를 가리킨다. 순서는 위치로 읽는다.
 
+## 2026-11-14 0x:xx · 깨져 있던 Web 검사 5개 수리 47차 (Claude Opus, Windows PC)
+
+46차에서 Codex 몫으로 남긴 5개를 Codex의 새 커밋이 없어 Claude가 고쳤다. 게임 코드는 바꾸지 않았고 검사만 고쳤다. 모두 가로 전용 화면(`eb3bdc8`, `c6f35c3`) 이후 검사가 옛 배치를 가정해서 깨진 것이다.
+
+- `RibbonTitleLayoutWeb`: 높이 480 미만(320×300, 740×360, 640×360)은 압축 가로 화면이라 제목 띠 없이 숫자 한 줄만 나온다. 그 크기에서는 제목 띠 측정을 건너뛰고, 창 제목 검사는 그대로 둔다.
+- `PauseResumeButtonWeb`: 잔불 수동 조준은 `7653354`에서 게임에서 빠졌다(E 키가 아무것도 하지 않는다). 조준 부분을 지우고, 정지 버튼으로 두 번 재개하는 것과 재개 클릭이 판에 아무것도 쏘지 않는 것을 본다.
+- `InspectWeb`, `ChallengeInspectWeb`: 작은 창(640×320)과 넓은 창(2560×1440)에서 옛 배치 공식으로 판 위치를 계산해 적을 눌렀다. 이제 화면이 기록하는 `SLOT_VIEW|배율|x|y`(주소에 `review-flow=1`)를 읽어 누른다.
+- `CandidateSlotsWeb`: 같은 이유로 판 위치를 `SLOT_VIEW`에서 읽고, 빈 자리를 누르면 병과 고리 메뉴가 열리는 지금 방식에 맞춰 `SLOT_MENU` 로그의 검사 버튼을 누른다.
+- **결과:** `bin/TacticalWeb`을 쓰는 Web 검사 17종을 하나씩 다시 돌려 모두 통과했다(ArrowLaunch, AudioSettings, CandidateSlots, ChallengeInspect, Expedition 133, Inspect, Landscape, Layout, PauseResumeButton, Presentation, RibbonTitleLayout, SlotMenu, Story, SupportCoverage, Tactical, Warlord, Warnings). `NaturalReviewWeb`과 `WebSmoke`는 돌리지 않았다.
+
 ## 2026-11-14 01:xx · Web 검사 전체 회귀 확인 46차 (Claude Opus, Windows PC)
 
 이번 세션(r44~r47)에서 화면 코드를 여러 번 바꿔서 `bin/TacticalWeb`을 쓰는 Web 검사 19종을 하나씩 돌렸다.

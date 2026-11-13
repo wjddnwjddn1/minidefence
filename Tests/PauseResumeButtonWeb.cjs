@@ -1,5 +1,5 @@
 // r38: portrait gameplay retired; low landscape fixtures replace portrait cases.
-// Regression: the pause overlay resumes on mouse/touch without firing an aimed ability.
+// Regression: the pause overlay's button resumes on mouse/touch (the aimed Ember ability it once guarded is retired).
 const fs=require('fs'),path=require('path'),http=require('http');
 const {chromium}=require('C:/Users/snome/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root=path.resolve(__dirname,'bin/TacticalWeb'),out=process.env.RESUME_CAPTURE_DIR?path.resolve(process.env.RESUME_CAPTURE_DIR):null,mime={'.html':'text/html; charset=utf-8','.js':'application/javascript','.wasm':'application/wasm','.data':'application/octet-stream','.css':'text/css'};if(out)fs.mkdirSync(out,{recursive:true});
@@ -13,11 +13,16 @@ const server=http.createServer((req,res)=>{const rel=decodeURIComponent(new URL(
   await page.keyboard.press('p');let geometry;for(let i=0;i<30;i++){geometry=messages.find(m=>m.startsWith('PAUSE_RESUME_RECT|'+width+'x'+height+'|'));if(geometry)break;await page.waitForTimeout(200);}if(!geometry||!messages.some(m=>m.includes('PAUSE_STATE True')))throw Error('pause or button missing '+width);
   const fields=geometry.split('|'),x=Number(fields[2]),y=Number(fields[3]),w=Number(fields[4]),h=Number(fields[5]);if(!(w>=100&&h>=40&&x>=0&&y>=0&&x+w<=width+.2&&y+h<=height+.2))throw Error('button bounds invalid '+geometry);
   if(out)await page.screenshot({path:path.join(out,'resume-'+width+'x'+height+'.png')});
-  await page.keyboard.press('e');await page.waitForTimeout(150);if(!messages.some(m=>m.includes('EMBER_BUTTON_ARMED')))throw Error('aim did not arm '+width);
-  const click=async()=>{if(touch)await page.touchscreen.tap(x+w/2,y+h/2);else await page.mouse.click(x+w/2,y+h/2);await page.waitForTimeout(300);};await click();
-  if(!messages.some(m=>m.includes('PAUSE_STATE False')))throw Error('resume button did not resume '+width);if(messages.some(m=>m.includes('EMBER_BUTTON_FIRE')))throw Error('resume click leaked to map aim '+width);
-  await page.keyboard.press('p');await page.waitForTimeout(100);await page.keyboard.press('Space');await page.waitForTimeout(150);if(messages.filter(m=>m.includes('EMBER_BUTTON_FIRE')).length!==1)throw Error('queued aim not confirmed '+width);await click();await page.waitForTimeout(500);
-  if(messages.filter(m=>m.includes('PAUSE_STATE False')).length!==2||messages.filter(m=>m.includes('RESUME_QUEUED_APPLIED True')).length!==1)throw Error('queued aim did not apply exactly once '+width+' '+messages.slice(-12).join(' | '));
-  if(errors.length)throw Error(errors.join(' | '));await context.close();console.log('PASS resume button, aim isolation and queued cast '+width+'x'+height+(touch?' touch':' mouse'));
+  // The manual Ember aim was retired (7653354): E does nothing now, so only the button's own resume is checked (Claude, r47).
+  const click=async()=>{if(touch)await page.touchscreen.tap(x+w/2,y+h/2);else await page.mouse.click(x+w/2,y+h/2);await page.waitForTimeout(300);};
+  await click();
+  if(!messages.some(m=>m.includes('PAUSE_STATE False')))throw Error('resume button did not resume '+width);
+  await page.keyboard.press('p');await page.waitForTimeout(300);
+  if(messages.filter(m=>m.includes('PAUSE_STATE True')).length!==2)throw Error('second pause missing '+width);
+  await click();await page.waitForTimeout(300);
+  if(messages.filter(m=>m.includes('PAUSE_STATE False')).length!==2)throw Error('second resume missing '+width);
+  if(messages.some(m=>m.includes('EMBER_BUTTON_FIRE')))throw Error('a resume click fired something on the map '+width);
+
+  if(errors.length)throw Error(errors.join(' | '));await context.close();console.log('PASS resume button pauses and resumes twice '+width+'x'+height+(touch?' touch':' mouse'));
  }
 }catch(e){console.error(e);process.exitCode=1;}finally{if(browser)await browser.close();server.close();}})();
