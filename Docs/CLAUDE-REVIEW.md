@@ -16,7 +16,7 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 - `CandidateSlotsWeb`: 같은 이유로 판 위치를 `SLOT_VIEW`에서 읽고, 빈 자리를 누르면 병과 고리 메뉴가 열리는 지금 방식에 맞춰 `SLOT_MENU` 로그의 검사 버튼을 누른다.
 - **결과:** `bin/TacticalWeb`을 쓰는 Web 검사 17종을 하나씩 다시 돌려 모두 통과했다(ArrowLaunch, AudioSettings, CandidateSlots, ChallengeInspect, Expedition 133, Inspect, Landscape, Layout, PauseResumeButton, Presentation, RibbonTitleLayout, SlotMenu, Story, SupportCoverage, Tactical, Warlord, Warnings). 이어서 나머지 두 개도 돌렸다.
 - `WebSmoke`: 568×320에서 메뉴를 옛 위치(오른쪽에서 192)로 눌러 열리지 않았고, 그 사이 **Claude가 r45에 넣은 성문 차원문이 정지와 상관없이 화면 시계로 움직여** "메뉴를 열면 화면이 멈춘다" 픽셀 비교가 깨졌다. 차원문을 전투 시계(`visualClock`, 정지·메뉴 중 멈춤)로 돌리게 고치고, 누르는 위치를 지금 메뉴 버튼(오른쪽 끝)으로 고쳐 통과했다.
-- `NaturalReviewWeb`: **아직 실패.** 시작 규칙을 3으로 기대하고(지금 기본은 4), 옛 배치 좌표에 숫자 키로 바로 배치하며, 성문 앞에 대장장이를 놓는다(r45부터 성문에서는 못 놓는다). 고치려면 거의 새로 써야 해서 손대지 않았다. 사람 흐름을 흉내 내는 검사라 원정 위주로 다시 쓰는 편이 낫다.
+- `NaturalReviewWeb`: **아직 실패.** 시작 규칙을 3으로 기대하고(지금 기본은 4), 옛 배치 좌표에 숫자 키로 바로 배치하며, 성문 앞에 대장장이를 놓는다(r45부터 성문에서는 못 놓는다). → 다음 재개에서 다시 썼다: 규칙 4 시작, `SLOT_VIEW`로 판 위치, 빈 자리·병력의 고리 메뉴(`SLOT_MENU`)로 배치와 강화, 대장장이 대신 궁수. 자연 골드로 3웨이브까지 가며 고리 메뉴 강화가 실제로 적용되는지도 본다. 통과(배치 2, 강화 2, 3웨이브). 이로써 `bin/TacticalWeb`을 쓰는 Web 검사 19종이 모두 통과한다.
 
 ## 2026-11-14 01:xx · Web 검사 전체 회귀 확인 46차 (Claude Opus, Windows PC)
 
