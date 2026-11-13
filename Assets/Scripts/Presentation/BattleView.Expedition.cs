@@ -78,7 +78,13 @@ namespace EmberBastion {
     string status=camp?"잔불 온기 "+run.Warmth+"/100 · "+(pendingCampBoon>=0?"선택한 준비: "+ExpeditionText.Name(pendingCampBoon):run.FinaleNext?"다음: "+ExpeditionText.FinaleName+HealthText(run.NextHealth(Expedition.FinaleField))+" · 귀환 온기 +"+Expedition.FinaleWarmth:"준비 하나를 고르세요")
      :over?"통과한 전장 "+RunCleared(run)+"/"+run.Stages+" · 남은 온기 "+run.Warmth+" · 처치 "+run.Kills+GradeText(run.Grade)
      :"잔불 온기 "+(ExpeditionBattle&&run.Matches(battle)?battle.HP:run.Warmth)+"/100 · "+(run.InFinale?ExpeditionText.FinaleName:Balance.Fields[run.Field].Name)+HealthText(run.HealthAt(run.Stage))+GradeText(run.Grade);
-    while(hud.fontSize>10&&MeasureText(hud,status).x>inner)hud.fontSize--;GUI.Label(new Rect(left,y+44,inner,20),status,hud);
+    while(hud.fontSize>10&&MeasureText(hud,status).x>inner)hud.fontSize--;
+    Rect statusRect=new Rect(left,y+44,inner,20);
+    GUI.Label(statusRect,status,hud);
+    if(camp&&run.FinaleNext&&ExpeditionReview&&Event.current.type==EventType.Repaint){
+     if(MeasureText(hud,status).x>inner+.5f)Debug.LogError("FINALE_STATUS_OVERFLOW");
+     if(debugRibbonLogged.Add("finale-camp|"+Screen.width+"x"+Screen.height))Debug.Log("FINALE_CAMP|"+heading+"|"+status+"|"+hud.fontSize+"|"+Screen.width+"|"+Screen.height);
+    }
     hud.fontSize=wide?14:11;hud.normal.textColor=uiDisabled;hud.wordWrap=true;string taken="준비: "+BoonSummary(run);Rect takenRect=new Rect(left,y+66,inner,26);while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(taken),inner)>takenRect.height)hud.fontSize--;ExpeditionFit(takenRect,taken);GUI.Label(takenRect,taken,hud);hud.wordWrap=false;hud.normal.textColor=oldColor;
     if(camp&&pendingCampBoon>=0){DrawCampRoutes(run,new Rect(left,y+94,inner,height-104),wide);}
     else if(camp){

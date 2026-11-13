@@ -76,6 +76,46 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       check(t.errors.length === 0, 'browser errors ' + w + ': ' + t.errors.join(' | '));
       await t.context.close();
     }
+    // The fourth camp returns straight to the gate with the finale's warmth bonus.
+    for (const [w,h] of [[1280,720],[740,360]]) {
+      const t=await open('fx-smoke=expedition-camp&camp-wins=4&run-review=1&fx-smoke=remember',w,h);
+      const camp=await t.until(l=>l.state==='Camp'&&l.stage===3,'return camp');
+      let deadline=Date.now()+15000;
+      const finalLabel=()=>t.traces.find(line=>line.startsWith('FINALE_CAMP|')&&line.endsWith('|'+w+'|'+h));
+      while(!finalLabel()&&Date.now()<deadline)await t.page.waitForTimeout(80);
+      const label=finalLabel();
+      check(label&&label.includes('귀환 전 야영지')&&label.includes('귀환 온기 +20')&&label.includes('최후의 방어전')&&label.includes('+100%'),'readable finale title/status '+w);
+      const pick=camp.offers.findIndex(id=>id!==14&&id!==15);
+      check(pick>=0,'ordinary preparation available');
+      await t.page.screenshot({path:path.join(out,'finale-camp-'+w+'.png')});
+      await t.page.mouse.click(...campCard(w,h,pick));
+      const finale=await t.until(l=>l.state==='Battle'&&l.stage===4,'direct return to final stand');
+      check(finale.field===0&&finale.hp===Math.min(100,camp.warmth+20),'gate and return warmth '+w);
+      check(!Object.keys(t.rects).some(key=>/^route\d/.test(key)),'finale needs no route picker');
+      await t.page.waitForTimeout(1500);
+      t.lines.length=0;
+      for(const key of Object.keys(t.rects))delete t.rects[key];
+      await t.page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=remember&run-review=1');
+      await t.page.waitForFunction(()=>[...document.querySelectorAll('#unity-build-title button')].some(b=>b.textContent==='Unload'),null,{timeout:120000});
+      await t.page.evaluate(([w,h])=>{
+        for(const id of ['unity-container','unity-fullscreen-container','unity-canvas'])document.getElementById(id).style.cssText='width:'+w+'px;height:'+h+'px';
+        document.querySelector('#unity-container').style.position='fixed';
+        document.querySelector('#unity-container').style.left='0';
+        document.querySelector('#unity-container').style.top='0';
+        document.querySelector('#unity-container').style.transform='none';
+        document.querySelector('#unity-footer').style.display='none';
+      },[w,h]);
+      deadline=Date.now()+30000;
+      while(!t.rects.entry&&Date.now()<deadline)await t.page.waitForTimeout(80);
+      const entry=t.rects.entry;
+      check(!!entry,'finale resume button');
+      await t.page.waitForTimeout(600);
+      await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);
+      const restored=await t.until(l=>l.state==='Battle'&&l.stage===4,'restored final stand');
+      check(restored.field===0&&restored.hp===finale.hp&&restored.boons===finale.boons,'finale checkpoint preserved');
+      check(t.errors.length===0,'finale browser errors '+t.errors.join('|'));
+      await t.context.close();
+    }
     // 2. a won run: result window, then a new run starts from the gate with a full ember
     for(const [w,h] of [[1280,720],[844,390],[740,360]]){
       const t = await open('fx-smoke=expedition-won&run-review=1', w, h);

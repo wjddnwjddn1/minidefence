@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "stage": 4,
+    "warmth": 14,
+    "state": 2,
+    "kills": 2189,
+    "pendingGold": 0,
+    "grade": 0,
+    "abandonedCamp": false,
+    "roads": true,
+    "finale": true,
+    "route": [
+        0,
+        2,
+        3,
+        1,
+        0
+    ],
+    "seed": 7919,
+    "randomState": 2096598044,
+    "boons": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "offered": [],
+    "peaks": [
+        69,
+        60,
+        53,
+        78,
+        87
+    ]
+}

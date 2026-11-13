@@ -14,7 +14,7 @@ namespace EmberBastion {
   internal void ReviewRunReload(){expedition=null;expeditionSavedBattle=null;expeditionLoaded=false;LoadExpedition();if(expedition==null||expedition.State!=Expedition.Status.Battle)throw new Exception("No resumable run");OpenExpeditionBattle();SimulationSpeed=0;titleMenu=false;}
   internal void ReviewRunFreeReturn(){ReviewRunSave();OpenField(0);OpenExpeditionBattle();SimulationSpeed=0;}
   internal void ReviewRunComplete(){UpdateExpedition();}
-  internal void ReviewRunChoose(int boon){if(!expedition.Choose(boon))throw new Exception("Camp choice failed");OpenExpeditionBattle();SimulationSpeed=0;}
+  internal void ReviewRunChoose(int boon,int field){if(!expedition.Choose(boon,field))throw new Exception("Camp choice failed");OpenExpeditionBattle();SimulationSpeed=0;}
   internal void ReviewRunAbandon(){AbandonExpedition();}
   internal void ReviewPreDoctrineSaves(){
    var old=Expedition.Start(29).Export();
