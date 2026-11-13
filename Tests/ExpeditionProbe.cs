@@ -113,7 +113,10 @@ class ExpeditionProbe {
    int roadWanted=0;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_ROAD")??"0",out roadWanted);
    Console.WriteLine("seed,skill,camp,result,stage,warmth,kills,boons,stage0,stage1,stage2,stage3,stage4");
    for(uint seed=1;seed<=seeds;seed++)foreach(int skill in new[]{0,1,2})foreach(int camp in new[]{0,1,2,3}){
-    var run=Expedition.Start(seed*7919,grade);var stages=new List<string>();string roads="";
+    // EXPEDITION_MUSTER=0 starts straight at the gate (before r47); 1 takes the first doctrine offered, 2 the one for the policy's swords and archers if offered.
+    int muster=1;int.TryParse(Environment.GetEnvironmentVariable("EXPEDITION_MUSTER")??"1",out muster);
+    var run=muster==0?Expedition.Start(seed*7919,grade):Expedition.StartMuster(seed*7919,grade);var stages=new List<string>();string roads="";
+    if(muster>0){var first=run.Offers();int pick=first[0];if(muster==2)foreach(int want in new[]{Boon.Phalanx,Boon.RapidFire,Boon.EmberWard})if(Array.IndexOf(first,want)>=0){pick=want;break;}if(!run.Choose(pick))throw new Exception("muster failed");}
     while(run.State==Expedition.Status.Battle){
      var b=run.CreateBattle();int before=run.Warmth,laps,boss;Policy.Play(b,skill,out laps,out boss);
      if(!run.Complete(b))throw new Exception("complete failed");

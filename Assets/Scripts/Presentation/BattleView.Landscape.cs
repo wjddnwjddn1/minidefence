@@ -12,7 +12,7 @@ namespace EmberBastion {
    float available=Screen.width-204;while(hud.fontSize>9&&MeasureText(hud,info).x>available)hud.fontSize--;GUI.Label(new Rect(8,9,available,26),info,hud);hud.fontSize=old;hud.wordWrap=wrap;
    Rect middle=new Rect(Screen.width-184,4,72,36),menu=new Rect(Screen.width-104,4,96,36);int prior=button.fontSize;button.fontSize=13;
    if(ExpeditionBattle){ExpeditionRect("entry",middle);if(Button(middle,"원정 상태"))OpenExpeditionMenu();}
-   else if(battle.Phase==Phase.Preparation&&battle.Wave==0){ExpeditionRect("entry",middle);if(Button(middle,RunActive?"원정 계속":"불씨 원정",battle.Units.Count==0)){if(RunActive){if(Run.State==Expedition.Status.Camp)OpenExpeditionMenu();else OpenExpeditionBattle();}else StartExpedition();}}
+   else if(battle.Phase==Phase.Preparation&&battle.Wave==0){ExpeditionRect("entry",middle);if(Button(middle,RunActive?"원정 계속":"불씨 원정",battle.Units.Count==0)){if(RunActive){if(Choosing(Run))OpenExpeditionMenu();else OpenExpeditionBattle();}else StartExpedition();}}
    else if(battle.Phase==Phase.Lost&&(checkpoint!=null||waveCheckpoint!=null)){button.fontSize=11;if(Button(middle,"웨이브복원"))RetryCheckpoint();}else if(Button(middle,SimulationSpeed+"배속",SpeedAvailable()))CycleSpeed();
    if(Button(menu,"메뉴 (Esc)"))OpenTools();button.fontSize=prior;
    if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("landscape-review=1")&&Event.current.type==EventType.Repaint&&debugRibbonLogged.Add("compact|"+Screen.width+"x"+Screen.height))Debug.Log("COMPACT_BARS|"+HeaderHeight+"|"+FooterHeight+"|"+scale+"|"+ox+"|"+oy);

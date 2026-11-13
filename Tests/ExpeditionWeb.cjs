@@ -84,13 +84,13 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       const finalLabel=()=>t.traces.find(line=>line.startsWith('FINALE_CAMP|')&&line.endsWith('|'+w+'|'+h));
       while(!finalLabel()&&Date.now()<deadline)await t.page.waitForTimeout(80);
       const label=finalLabel();
-      check(label&&label.includes('귀환 전 야영지')&&label.includes('귀환 온기 +30')&&label.includes('최후의 방어전')&&label.includes('+100%'),'readable finale title/status '+w);
+      check(label&&label.includes('귀환 전 야영지')&&label.includes('귀환 온기 +20')&&label.includes('최후의 방어전')&&label.includes('+100%'),'readable finale title/status '+w);
       const pick=camp.offers.findIndex(id=>id!==14&&id!==15);
       check(pick>=0,'ordinary preparation available');
       await t.page.screenshot({path:path.join(out,'finale-camp-'+w+'.png')});
       await t.page.mouse.click(...campCard(w,h,pick));
       const finale=await t.until(l=>l.state==='Battle'&&l.stage===4,'direct return to final stand');
-      check(finale.field===0&&finale.hp===Math.min(100,camp.warmth+30),'gate and return warmth '+w);
+      check(finale.field===0&&finale.hp===Math.min(100,camp.warmth+20),'gate and return warmth '+w);
       check(!Object.keys(t.rects).some(key=>/^route\d/.test(key)),'finale needs no route picker');
       await t.page.waitForTimeout(1500);
       t.lines.length=0;
@@ -124,8 +124,13 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       await t.page.waitForTimeout(1200);
       await t.page.screenshot({path: path.join(out, 'expedition-won-'+w+'.png')});
       regionCheck(t);await t.page.mouse.click(...panelButton(w, h, false));
-      const fresh = await t.until(l => l.state === 'Battle' && l.stage === 0 && l.warmth === 100, 'new run did not start');
-      check(fresh.field === 0 && fresh.boons === '0'.repeat(16) && fresh.gold === 200, 'fresh run: ' + JSON.stringify(fresh));
+      // a new run opens with the muster: three doctrines, then the gate with the one chosen (r47)
+      const muster = await t.until(l => l.state === 'Muster' && l.stage === 0 && l.warmth === 100, 'new run did not open the muster');
+      check(muster.offers.length === 3 && new Set(muster.offers).size === 3 && muster.offers.every(id => id >= 7 && id <= 13) && muster.boons === '0'.repeat(16), 'muster offers three doctrines: ' + JSON.stringify(muster));
+      await t.page.waitForTimeout(600);await t.page.screenshot({path: path.join(out, 'expedition-muster-'+w+'.png')});
+      await t.page.mouse.click(...campCard(w, h, 1));
+      const fresh = await t.until(l => l.state === 'Battle' && l.stage === 0 && l.warmth === 100, 'muster choice did not start the run');
+      check(fresh.field === 0 && fresh.gold === 200 && [...fresh.boons].reduce((n, c) => n + (+c), 0) === 1 && fresh.boons[muster.offers[1]] === '1', 'fresh run with its doctrine: ' + JSON.stringify(fresh));
       check(t.errors.length === 0, 'browser errors won: ' + t.errors.join(' | '));
       await t.context.close();
     }
@@ -148,7 +153,9 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       await t.page.waitForTimeout(4000);
       check(!t.lines.some(l=>l.state!=='None'), 'no run before the button is pressed');
       const entry=t.rects.entry;check(entry,'entry geometry');await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);
-      const started = await t.until(l => l.state === 'Battle', 'entry button did not start a run');
+      const mustering = await t.until(l => l.state === 'Muster', 'entry button did not open the muster');
+      await t.page.waitForTimeout(600);await t.page.mouse.click(...campCard(w, h, 0));
+      const started = await t.until(l => l.state === 'Battle', 'muster choice did not start a run');
       check(started.mode === 'Expedition' && started.stage === 0 && started.warmth === 100 && started.field === 0, 'started: ' + JSON.stringify(started));
       await t.page.waitForTimeout(600);
       await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);              // the same spot now opens the status window

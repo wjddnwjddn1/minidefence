@@ -13,6 +13,8 @@ namespace EmberBastion {
   public bool roads;
   // True for runs with the last stand (r44): a fifth battle back at the gate. Runs saved before that end after four.
   public bool finale;
+  // True for runs that began with a muster (r47): one doctrine chosen before the first battle.
+  public bool muster;
   // Fields in the order this run takes them (r40). Empty in saves made before the route choice: those follow the story order.
   public int[] route;
   public uint seed,randomState;
@@ -20,7 +22,7 @@ namespace EmberBastion {
  }
 
  public sealed class Expedition {
-  public enum Status {Battle=0,Camp=1,Won=2,Lost=3}
+  public enum Status {Battle=0,Camp=1,Won=2,Lost=3,Muster=4}
   // The story order: gate, forest road, rocky pass, marsh ferry. A run always starts at the gate; from each camp the
   // player picks the next field among those not yet fought (r40), so this is only the default order.
   public static readonly int[] Route={0,1,2,3};
@@ -55,6 +57,13 @@ namespace EmberBastion {
   public int RoadAt(int stage){if(stage<0||stage>=route.Length)throw new ArgumentOutOfRangeException("stage");return route[stage]<0?RoadPlain:RoadFor(stage,route[stage]);}
   // At a camp: enemy health on an offered field, as a multiple of the same field in a free battle.
   public double NextHealth(int field){return (1+Boon.ThreatHealth*(Stage+1+(NextRoad(field)==RoadHard?1:0)))*(1+Boon.GradeHealth*Grade);}
+  // Muster (r47): a run may begin by choosing one of three doctrines, so the army has a direction from the first battle.
+  // StartMuster opens that choice; Start goes straight to the gate as before (tests, tools and old flows).
+  bool muster;
+  public bool HasMuster {get{return muster;}}
+  public static Expedition StartMuster(uint seed,int grade){var e=Start(seed,grade);e.muster=true;e.State=Status.Muster;
+   var doctrines=new List<int>();for(int i=0;i<Boon.Count;i++)if(Boon.IsDoctrine(i)&&i!=Boon.FieldForge)doctrines.Add(i); // the smith does not join at the gate, so his doctrine waits for a camp
+   e.offered=new int[OffersPerCamp];for(int i=0;i<e.offered.Length;i++){int pick=(int)(e.Next()%(uint)doctrines.Count);e.offered[i]=doctrines[pick];doctrines.RemoveAt(pick);}return e;}
   // Ember grade (r43): a harder run for players who have won (Boon.GradeHealth more enemy health per grade, in every battle).
   public const int MaxGrade=Boon.MaxGrade;
   public int Grade {get;private set;}
@@ -62,7 +71,7 @@ namespace EmberBastion {
   // The last stand (r44): after the four fields the run comes home and holds the gate once more, at the highest threat.
   // It is one more camp (a fourth boon) and one more battle, so a build has a place to pay off.
   // Coming home warms the ember before the last battle.
-  public const int FinaleField=0,FinaleWarmth=30;
+  public const int FinaleField=0,FinaleWarmth=20;
   bool finale;
   public bool HasFinale {get{return finale;}}
   // True while the run stands in (or has finished on) its last stand.
@@ -108,9 +117,10 @@ namespace EmberBastion {
    for(int i=first;i<offered.Length;i++){int pick=(int)(Next()%(uint)pool.Count);offered[i]=pool[pick];pool.RemoveAt(pick);}
   }
   // Takes a boon and marches on in story order.
-  public bool Choose(int boon){var next=NextFields();return next.Length>0&&Choose(boon,next[0]);}
+  public bool Choose(int boon){if(State==Status.Muster){if(Array.IndexOf(offered,boon)<0)return false;boons[boon]++;offered=new int[0];State=Status.Battle;return true;}var next=NextFields();return next.Length>0&&Choose(boon,next[0]);}
   // Takes a boon and marches to the chosen field. Threat follows the stage number, so a field fought later is harder.
   public bool Choose(int boon,int nextField){
+   if(State==Status.Muster)return false;
    if(State!=Status.Camp||Array.IndexOf(offered,boon)<0||Array.IndexOf(NextFields(),nextField)<0)return false;
    int road=RoadFor(Stage+1,nextField);route[Stage+1]=nextField;
    boons[boon]++;if(boon==Boon.Rekindle)Warmth=Math.Min(100,Warmth+Boon.RekindleWarmth);if(boon==Boon.WarChest)PendingGold=Boon.WarChestGold;
@@ -118,23 +128,27 @@ namespace EmberBastion {
    if(finale&&Stage+1==Route.Length)Warmth=Math.Min(100,Warmth+FinaleWarmth);
    offered=new int[0];Stage++;State=Status.Battle;return true;
   }
-  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,grade=Grade,roads=roads,finale=finale,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
+  public ExpeditionData Export(){return new ExpeditionData{seed=Seed,stage=Stage,abandonedCamp=abandonedCamp,warmth=Warmth,state=(int)State,kills=Kills,pendingGold=PendingGold,randomState=randomState,grade=Grade,roads=roads,finale=finale,muster=muster,boons=(int[])boons.Clone(),offered=Offers(),peaks=(int[])peaks.Clone(),route=(int[])route.Clone()};}
   public static Expedition Restore(ExpeditionData d){
    int stages=d==null?0:Route.Length+(d.finale?1:0);
-   if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=stages||d.state<0||d.state>3||d.stage<0||d.stage>=stages||d.kills<0||d.warmth<0||d.warmth>100||d.grade<0||d.grade>MaxGrade)throw new ArgumentException("Invalid expedition");
+   if(d==null||d.version!=1||d.boons==null||d.boons.Length!=Boon.Count||d.offered==null||d.peaks==null||d.peaks.Length!=stages||d.state<0||d.state>4||d.stage<0||d.stage>=stages||d.kills<0||d.warmth<0||d.warmth>100||d.grade<0||d.grade>MaxGrade)throw new ArgumentException("Invalid expedition");
    var status=(Status)d.state;int taken=0;
    for(int i=0;i<Boon.Count;i++){if(d.boons[i]<0||d.boons[i]>Boon.MaxStacks(i))throw new ArgumentException("Invalid expedition boons");taken+=d.boons[i];}
    // One boon per camp passed, in every state: the boons taken always equal the stage number.
-   if(taken!=d.stage)throw new ArgumentException("Invalid expedition boon count");
+   // A mustered run has one more, taken before the first battle. A muster given up before choosing has none.
+   bool unmustered=d.muster&&d.stage==0&&taken==0&&(status==Status.Muster||(status==Status.Lost&&d.peaks[0]==0&&d.kills==0));
+   if(status==Status.Muster&&(!d.muster||d.stage!=0||taken!=0||d.warmth!=100||d.kills!=0||d.pendingGold!=0))throw new ArgumentException("Invalid expedition muster");
+   if(taken!=d.stage+(d.muster&&!unmustered?1:0))throw new ArgumentException("Invalid expedition boon count");
    // Only a lost run may have a cold ember (a run can also be lost to a crowd with warmth left).
    if(status!=Status.Lost&&d.warmth<1)throw new ArgumentException("Invalid expedition warmth");
    if(d.abandonedCamp&&(status!=Status.Lost||d.peaks[d.stage]<=0||d.warmth<=0))throw new ArgumentException("Invalid camp abandonment");
    if(status==Status.Won&&d.stage!=stages-1)throw new ArgumentException("Invalid expedition end");
    if(status==Status.Camp&&d.stage>=stages-1)throw new ArgumentException("Invalid expedition camp");
-   if((status==Status.Camp)!=(d.offered.Length==OffersPerCamp)||(status!=Status.Camp&&d.offered.Length!=0))throw new ArgumentException("Invalid expedition offer");
-   var seen=new HashSet<int>();foreach(int boon in d.offered)if(boon<0||boon>=Boon.Count||!seen.Add(boon)||d.boons[boon]>=Boon.MaxStacks(boon))throw new ArgumentException("Invalid expedition offer");
+   bool choosing=status==Status.Camp||status==Status.Muster;
+   if(choosing!=(d.offered.Length==OffersPerCamp)||(!choosing&&d.offered.Length!=0))throw new ArgumentException("Invalid expedition offer");
+   var seen=new HashSet<int>();foreach(int boon in d.offered)if(boon<0||boon>=Boon.Count||!seen.Add(boon)||d.boons[boon]>=Boon.MaxStacks(boon)||(status==Status.Muster&&!Boon.IsDoctrine(boon)))throw new ArgumentException("Invalid expedition offer");
    for(int i=0;i<d.peaks.Length;i++)if(d.peaks[i]<0||d.peaks[i]>Balance.MaxAlive||(i>d.stage&&d.peaks[i]!=0))throw new ArgumentException("Invalid expedition record");
-   var e=new Expedition{Seed=d.seed,Grade=d.grade,roads=d.roads,finale=d.finale,peaks=new int[stages],route=new int[stages],Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
+   var e=new Expedition{Seed=d.seed,Grade=d.grade,roads=d.roads,finale=d.finale,muster=d.muster,peaks=new int[stages],route=new int[stages],Stage=d.stage,abandonedCamp=d.abandonedCamp,Warmth=d.warmth,State=status,Kills=d.kills,PendingGold=d.pendingGold,randomState=d.randomState,offered=(int[])d.offered.Clone()};
    Array.Copy(d.boons,e.boons,Boon.Count);Array.Copy(d.peaks,e.peaks,stages);e.route[0]=Route[0];for(int i=1;i<stages;i++)e.route[i]=-1;
    // Route: stage 0 is the gate, every stage reached so far has its own field, later stages are not chosen yet.
    if(d.route==null||d.route.Length==0){if(d.finale)throw new ArgumentException("Invalid expedition route");for(int i=1;i<Route.Length;i++)e.route[i]=i<=d.stage?Route[i]:-1;}

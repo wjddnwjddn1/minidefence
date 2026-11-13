@@ -9,7 +9,9 @@ namespace EmberBastion {
   Expedition expedition;bool expeditionLoaded,expeditionMenu,expeditionFixture;float expeditionOpenAt=-1,expeditionAbandonUntil;
   bool ExpeditionBattle {get{return battle.Mode==BattleMode.Expedition;}}
   Expedition Run {get{LoadExpedition();return expedition;}}
-  bool RunActive {get{var run=Run;return run!=null&&(run.State==Expedition.Status.Battle||run.State==Expedition.Status.Camp);}}
+  bool RunActive {get{var run=Run;return run!=null&&(run.State==Expedition.Status.Battle||Choosing(run));}}
+  // A camp or the muster before the first battle (r47): the panel shows three cards to choose from.
+  static bool Choosing(Expedition run){return run!=null&&(run.State==Expedition.Status.Camp||run.State==Expedition.Status.Muster);}
   static int RunCleared(Expedition run){return run.ClearedStages;}
 
   // Best finished run: stages cleared first, then warmth left.
@@ -19,8 +21,11 @@ namespace EmberBastion {
   static string BoonDigits(Expedition run){string digits="";if(run!=null)for(int i=0;i<Boon.Count;i++)digits+=run.Count(i);return digits;}
 
   void StartExpedition(uint seed=0){
+   bool muster=seed==0;
    if(seed==0){unchecked{seed=(uint)DateTime.UtcNow.Ticks^(uint)(Time.realtimeSinceStartup*1000)^0x9E3779B9u;}if(seed==0)seed=1;}
-   pendingCampBoon=-1;campDoctrineCounts=null;expedition=Expedition.Start(seed,ExpeditionGrade);expeditionLoaded=true;expeditionSavedBattle=null;OpenExpeditionBattle();
+   // A run the player starts opens with the muster (one of three doctrines). Fixed-seed runs of fixtures and reviews go straight to the gate.
+   pendingCampBoon=-1;campDoctrineCounts=null;expedition=muster?Expedition.StartMuster(seed,ExpeditionGrade):Expedition.Start(seed,ExpeditionGrade);expeditionLoaded=true;expeditionSavedBattle=null;
+   if(muster){if(ExpeditionBattle)OpenField(0);SaveExpedition();OpenExpeditionMenu();notice="출정 준비 · 교리 하나를 고르세요";ExpeditionLog();}else OpenExpeditionBattle();
    if(StoryEnabled&&StorySpeech){if(!StorySeen("expedition"))OpenScene("expedition",ExpeditionText.Intro);else if(StorySpeech)Say(ExpeditionText.Again);}
   }
   // Starts the current stage of the run. OpenField resets every piece of view state the usual way; then the run's battle replaces it.
@@ -54,7 +59,7 @@ namespace EmberBastion {
    if(battle.Phase!=Phase.Preparation||battle.Wave!=0)return 0;
    var run=Run;float w=Screen.width<700?100:Screen.width>=1000?210:170;Rect r=new Rect(12,y+10,w,44);ExpeditionRect("entry",r);
    if(ExpeditionBattle){if(Button(r,(Screen.width<700?"원정 상태":"원정 "+(run!=null&&run.Matches(battle)?(run.Stage+1)+"/"+run.Stages:"")+" · 온기 "+battle.HP)))OpenExpeditionMenu();return w+12;}
-   if(RunActive){if(Button(r,(Screen.width<700?"원정 계속":"원정 이어가기 "+(run.Stage+1)+"/"+run.Stages),battle.Units.Count==0)){if(run.State==Expedition.Status.Camp)OpenExpeditionMenu();else OpenExpeditionBattle();}return w+12;}
+   if(RunActive){if(Button(r,(Screen.width<700?"원정 계속":"원정 이어가기 "+(run.Stage+1)+"/"+run.Stages),battle.Units.Count==0)){if(Choosing(run))OpenExpeditionMenu();else OpenExpeditionBattle();}return w+12;}
    // Once a grade is open the button opens the panel, where the grade for the next run is picked.
    if(Button(r,ExpeditionGradeOpen>0&&Screen.width>=700?"불씨 원정 · 등급 "+ExpeditionGrade:"불씨 원정",battle.Units.Count==0)){if(ExpeditionGradeOpen>0)OpenExpeditionMenu();else StartExpedition();}return w+12;
   }
@@ -65,17 +70,17 @@ namespace EmberBastion {
 
   void ExpeditionPanel(){
    if(StorySceneOpen)return;
-   var run=Run;bool camp=run!=null&&run.State==Expedition.Status.Camp,over=run!=null&&(run.State==Expedition.Status.Won||run.State==Expedition.Status.Lost);
+   var run=Run;bool camp=Choosing(run),muster=run!=null&&run.State==Expedition.Status.Muster,over=run!=null&&(run.State==Expedition.Status.Won||run.State==Expedition.Status.Lost);
    bool wide=Screen.width>=640&&Screen.height>=420;
    float width=Math.Min(Screen.width-24,wide?700:480),height=Math.Min(Screen.height-16,camp?(wide?324:340):250),x=(Screen.width-width)/2,y=(Screen.height-height)/2,left=x+18,inner=width-36;
    Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.72f));UiPlate(new Rect(x,y,width,height));
-   string heading=run==null?"불씨 원정":camp?(pendingCampBoon>=0?"다음 전장 선택":(run.FinaleNext?"귀환 전 야영지 · ":"야영지 · ")+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
+   string heading=run==null?"불씨 원정":muster?"출정 준비 · 원정대의 교리":camp?(pendingCampBoon>=0?"다음 전장 선택":(run.FinaleNext?"귀환 전 야영지 · ":"야영지 · ")+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
    UiTitle(new Rect(x+12,y+4,width-24,34),heading,title);ExpeditionRect("panel",new Rect(x,y,width,height));
    int oldHud=hud.fontSize,oldButton=button.fontSize;bool oldWrap=hud.wordWrap;TextAnchor oldAlign=hud.alignment;Color oldColor=hud.normal.textColor;
    hud.wordWrap=false;hud.alignment=TextAnchor.MiddleLeft;hud.fontSize=wide?16:12;
    if(run==null){GUI.Label(new Rect(left,y+50,inner,24),"진행 중인 원정이 없습니다.",hud);button.fontSize=wide?15:13;GradePicker(new Rect(left,y+96,inner,36));float nh=(inner-8)/2;if(MenuButton(new Rect(left,y+height-52,nh,40),"새 원정")){CloseExpeditionMenu();StartExpedition();}if(MenuButton(new Rect(left+nh+8,y+height-52,nh,40),"닫기")){CloseExpeditionMenu();if(ExpeditionBattle)OpenField(0);}}
    else{
-    string status=camp?"잔불 온기 "+run.Warmth+"/100 · "+(pendingCampBoon>=0?"선택한 준비: "+ExpeditionText.Name(pendingCampBoon):run.FinaleNext?"다음: "+ExpeditionText.FinaleName+HealthText(run.NextHealth(Expedition.FinaleField))+" · 귀환 온기 +"+Expedition.FinaleWarmth:"준비 하나를 고르세요")
+    string status=muster?"잔불 온기 "+run.Warmth+"/100 · 첫 전투 전에 교리 하나를 고르세요"+GradeText(run.Grade):camp?"잔불 온기 "+run.Warmth+"/100 · "+(pendingCampBoon>=0?"선택한 준비: "+ExpeditionText.Name(pendingCampBoon):run.FinaleNext?"다음: "+ExpeditionText.FinaleName+HealthText(run.NextHealth(Expedition.FinaleField))+" · 귀환 온기 +"+Expedition.FinaleWarmth:"준비 하나를 고르세요")
      :over?"통과한 전장 "+RunCleared(run)+"/"+run.Stages+" · 남은 온기 "+run.Warmth+" · 처치 "+run.Kills+GradeText(run.Grade)
      :"잔불 온기 "+(ExpeditionBattle&&run.Matches(battle)?battle.HP:run.Warmth)+"/100 · "+(run.InFinale?ExpeditionText.FinaleName:Balance.Fields[run.Field].Name)+HealthText(run.HealthAt(run.Stage))+GradeText(run.Grade);
     while(hud.fontSize>10&&MeasureText(hud,status).x>inner)hud.fontSize--;
@@ -97,13 +102,14 @@ namespace EmberBastion {
       Speaker who=ExpeditionText.Proposer(boon);float ps=wide?56:Mathf.Min(48,card.height-10);StoryPortrait(who,new Rect(card.x+8,card.y+8,ps,ps));
       float tx=card.x+16+ps,tw=card.xMax-tx-8;
       hud.wordWrap=false;hud.alignment=TextAnchor.UpperLeft;hud.normal.textColor=uiGold;hud.fontSize=wide?18:14;string name=(doctrine?"[교리] ":"")+ExpeditionText.Name(boon)+(run.Count(boon)>0&&boon<Boon.BattleCount?" +"+run.Count(boon):"");while(hud.fontSize>10&&MeasureText(hud,name).x>tw)hud.fontSize--;GUI.Label(new Rect(tx,card.y+8,tw,26),name,hud);
-      hud.normal.textColor=SpeakerColor(who);hud.fontSize=wide?12:10;GUI.Label(new Rect(tx,card.y+(wide?34:25),tw,18),doctrine?DoctrineComposition(boon):StoryScript.Name(who),hud);
+      hud.normal.textColor=SpeakerColor(who);hud.fontSize=wide?12:10;GUI.Label(new Rect(tx,card.y+(wide?34:25),tw,18),doctrine&&!muster?DoctrineComposition(boon):StoryScript.Name(who),hud);
       hud.wordWrap=true;hud.normal.textColor=uiText;hud.fontSize=wide?16:12;
       Rect effect=wide?new Rect(card.x+10,card.y+74,card.width-20,52):new Rect(tx,card.y+(card.height>=64?42:40),tw,card.height-44);
       while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(ExpeditionText.Effect(boon)),effect.width)>effect.height)hud.fontSize--;ExpeditionFit(effect,ExpeditionText.Effect(boon));GUI.Label(effect,ExpeditionText.Effect(boon),hud);
       if(wide){hud.normal.textColor=uiDisabled;hud.fontSize=13;Rect quote=new Rect(card.x+10,card.y+130,card.width-20,card.height-140);string said="“"+ExpeditionText.Quote(boon)+"”";while(hud.fontSize>10&&hud.CalcHeight(new GUIContent(said),quote.width)>quote.height)hud.fontSize--;GUI.Label(quote,said,hud);}
      }
-     if(picked>=0)ChooseCampPreparation(run,picked);
+     if(picked>=0&&muster){if(run.Choose(picked)){campDoctrineCounts=null;sound.Play("upgrade");OpenExpeditionBattle();}}
+     else if(picked>=0)ChooseCampPreparation(run,picked);
     }else{
      button.fontSize=wide?15:13;float by=y+height-56,half=(inner-8)/2;
      if(over){

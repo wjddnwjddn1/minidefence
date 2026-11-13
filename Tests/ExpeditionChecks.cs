@@ -252,6 +252,36 @@ class ExpeditionChecks {
    {var d=R();d.route=null;Check(Throws(()=>Expedition.Restore(d)),"a run with a last stand always has a route");d.finale=false;d.peaks=new int[4];d.roads=false;d.pendingGold=0;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
   }
 
+  // --- muster (r47): one of three doctrines before the first battle ------------------------------------------------
+  {
+   for(uint seed=1;seed<=200;seed++){
+    var run=Expedition.StartMuster(seed,(int)(seed%3));var offers=run.Offers();var seen=new HashSet<int>();
+    Check(run.State==Expedition.Status.Muster&&run.HasMuster&&run.Stage==0&&run.Warmth==100&&offers.Length==Expedition.OffersPerCamp,"a mustering run");
+    foreach(int o in offers)Check(Boon.IsDoctrine(o)&&o!=Boon.FieldForge&&seen.Add(o),"three different doctrines, none for the absent smith");
+    Check(Throws(()=>run.CreateBattle())&&run.NextFields().Length==0&&!run.Choose(offers[0],1)&&!run.Choose(Boon.SwordDrill)&&run.ClearedStages==0,"no battle and no march before the choice");
+    var twin=Expedition.Restore(run.Export());Check(twin.State==Expedition.Status.Muster&&twin.Offers()[2]==offers[2],"a muster survives a save");
+    int pick=offers[(int)(seed%3)];Check(run.Choose(pick)&&run.State==Expedition.Status.Battle&&run.Count(pick)==1&&run.Offers().Length==0&&!run.Choose(pick),"the doctrine is taken once");
+    var b=run.CreateBattle();Check(b.BoonCount(pick)==1&&b.Threat==0&&run.Matches(b)&&Expedition.Restore(run.Export()).Matches(b),"the first battle fights with it");
+    // the whole run: every camp still works and the run ends with one boon more than its camps
+    int camps=0;while(run.State==Expedition.Status.Battle){var fight=run.CreateBattle();fight.Phase=Phase.Won;Check(run.Complete(fight),"win");if(run.State==Expedition.Status.Camp){camps++;Check(Expedition.Restore(run.Export()).State==Expedition.Status.Camp,"camp of a mustered run restores");Check(run.Choose(run.Offers()[0]),"camp choice");Check(Expedition.Restore(run.Export()).Stage==run.Stage,"battle of a mustered run restores");}}
+    int taken=0;for(int i=0;i<Boon.Count;i++)taken+=run.Count(i);Check(run.State==Expedition.Status.Won&&camps==4&&taken==5&&Expedition.Restore(run.Export()).State==Expedition.Status.Won,"a mustered run ends with five boons");
+   }
+   // giving up: at the muster, and in the first battle
+   {var run=Expedition.StartMuster(7,0);Check(run.Abandon()&&run.State==Expedition.Status.Lost&&run.ClearedStages==0&&Expedition.Restore(run.Export()).State==Expedition.Status.Lost,"a muster can be given up");}
+   {var run=Expedition.StartMuster(7,0);run.Choose(run.Offers()[0]);Check(run.Abandon()&&Expedition.Restore(run.Export()).State==Expedition.Status.Lost,"the first battle of a mustered run can be given up");}
+   // corrupt musters
+   Func<ExpeditionData> M=()=>Expedition.StartMuster(7,0).Export();
+   {var d=M();d.muster=false;Check(Throws(()=>Expedition.Restore(d)),"a muster in a run without one");}
+   {var d=M();d.offered[0]=Boon.SwordDrill;Check(Throws(()=>Expedition.Restore(d)),"a muster offering an ordinary boon");}
+   {var d=M();d.offered=new int[0];Check(Throws(()=>Expedition.Restore(d)),"a muster without an offer");}
+   {var d=M();d.boons[d.offered[0]]=1;Check(Throws(()=>Expedition.Restore(d)),"a muster with a doctrine already taken");}
+   {var d=M();d.warmth=90;Check(Throws(()=>Expedition.Restore(d)),"a muster on a cooled ember");}
+   {var d=M();d.stage=1;Check(Throws(()=>Expedition.Restore(d)),"a muster after the first battle");}
+   {var run=Expedition.StartMuster(7,0);run.Choose(run.Offers()[0]);var d=run.Export();d.boons[run.Offers().Length==0?Boon.SwordDrill:0]++;Check(Throws(()=>Expedition.Restore(d)),"a boon too many");var e=run.Export();for(int i=0;i<Boon.Count;i++)e.boons[i]=0;Check(Throws(()=>Expedition.Restore(e)),"a mustered battle without its doctrine");}
+   // a run started the old way has no muster and no extra boon
+   {var plain=Expedition.Start(7);Check(!plain.HasMuster&&plain.State==Expedition.Status.Battle&&!plain.Export().muster,"Start goes straight to the gate");var d=plain.Export();d.boons[Boon.Phalanx]=1;Check(Throws(()=>Expedition.Restore(d)),"an unmustered run with a doctrine nobody chose");}
+  }
+
   // --- the goblin king (r46): the last wave of the last stand brings one warlord far stronger than any other ------
   {
    var plain=Battle.CreateExpedition(9,0,100,NoBoons(),4,0);var last=Battle.CreateExpedition(9,0,100,NoBoons(),4,0,0,true);int final=last.WaveCount-1;
