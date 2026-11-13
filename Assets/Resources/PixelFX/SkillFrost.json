@@ -5,198 +5,374 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 1",
    "frame": {
-    "x": 196,
+    "x": 288,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 2",
    "frame": {
-    "x": 392,
+    "x": 576,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 3",
    "frame": {
-    "x": 0,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 864,
+    "y": 0,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 4",
    "frame": {
-    "x": 196,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 0,
+    "y": 192,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 5",
    "frame": {
-    "x": 392,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 288,
+    "y": 192,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 6",
    "frame": {
-    "x": 0,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 576,
+    "y": 192,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 7",
    "frame": {
-    "x": 196,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 864,
+    "y": 192,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillFrost 8",
    "frame": {
-    "x": 392,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 0,
+    "y": 384,
+    "w": 288,
+    "h": 192
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 288,
+    "h": 192
    },
-   "duration": 56
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 9",
+   "frame": {
+    "x": 288,
+    "y": 384,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 10",
+   "frame": {
+    "x": 576,
+    "y": 384,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 11",
+   "frame": {
+    "x": 864,
+    "y": 384,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 12",
+   "frame": {
+    "x": 0,
+    "y": 576,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 13",
+   "frame": {
+    "x": 288,
+    "y": 576,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 14",
+   "frame": {
+    "x": 576,
+    "y": 576,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 15",
+   "frame": {
+    "x": 864,
+    "y": 576,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillFrost 16",
+   "frame": {
+    "x": 0,
+    "y": 768,
+    "w": 288,
+    "h": 192
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 288,
+    "h": 192
+   },
+   "sourceSize": {
+    "w": 288,
+    "h": 192
+   },
+   "duration": 50
   }
  ],
  "meta": {
@@ -205,33 +381,33 @@
   "image": "SkillFrost.png",
   "format": "RGBA8888",
   "size": {
-   "w": 588,
-   "h": 432
+   "w": 1152,
+   "h": 960
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "SkillFrost",
     "from": 0,
-    "to": 8,
+    "to": 16,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "projectiles/eb-skill",
-   "name": "Ember Bastion skill burst",
-   "fps": 18,
+   "id": "projectiles/eb-nova",
+   "name": "Ember Bastion frost nova",
+   "fps": 20,
    "loop": false,
-   "frames": 9,
+   "frames": 17,
    "frameSize": [
-    196,
-    144
+    288,
+    192
    ],
    "pivot": [
-    58,
-    72
+    144,
+    150
    ],
-   "columns": 3
+   "columns": 4
   }
  }
 }

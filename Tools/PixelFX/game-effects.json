@@ -6,6 +6,7 @@
   { "name": "HitFrost", "id": "impacts/eb-hit", "use": "frost bolt hits", "opts": { "palette": ["#0e1830", "#1e3a66", "#2f6aa8", "#58b4e6", "#a8e8ff", "#e6fbff", "#ffffff"], "seed": 11 } },
   { "name": "Burn", "id": "status/eb-burn", "use": "burning enemies (loop)", "opts": {} },
   { "name": "GatePortal", "id": "spawn/eb-gate", "use": "enemy gate marker (loop)", "opts": {} },
-  { "name": "SwordWind", "id": "melee/eb-wind", "use": "sword cut travelling to the target (loop)", "opts": {} }
+  { "name": "SwordWind", "id": "melee/eb-wind", "use": "sword cut travelling to the target (loop)", "opts": {} },
+  { "name": "PierceShot", "id": "projectiles/eb-pierce", "use": "archer skill flying down its line (loop)", "opts": {} }
  ]
 }

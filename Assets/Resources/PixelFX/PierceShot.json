@@ -1,0 +1,435 @@
+{
+ "frames": [
+  {
+   "filename": "PierceShot 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 1",
+   "frame": {
+    "x": 200,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 2",
+   "frame": {
+    "x": 0,
+    "y": 40,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 3",
+   "frame": {
+    "x": 200,
+    "y": 40,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 4",
+   "frame": {
+    "x": 0,
+    "y": 80,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 5",
+   "frame": {
+    "x": 200,
+    "y": 80,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 6",
+   "frame": {
+    "x": 0,
+    "y": 120,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 7",
+   "frame": {
+    "x": 200,
+    "y": 120,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 8",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 9",
+   "frame": {
+    "x": 200,
+    "y": 160,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 10",
+   "frame": {
+    "x": 0,
+    "y": 200,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 11",
+   "frame": {
+    "x": 200,
+    "y": 200,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 12",
+   "frame": {
+    "x": 0,
+    "y": 240,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 13",
+   "frame": {
+    "x": 200,
+    "y": 240,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 14",
+   "frame": {
+    "x": 0,
+    "y": 280,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 15",
+   "frame": {
+    "x": 200,
+    "y": 280,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 16",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  },
+  {
+   "filename": "PierceShot 17",
+   "frame": {
+    "x": 200,
+    "y": 320,
+    "w": 200,
+    "h": 40
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 200,
+    "h": 40
+   },
+   "sourceSize": {
+    "w": 200,
+    "h": 40
+   },
+   "duration": 33
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "PierceShot.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 400,
+   "h": 360
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "PierceShot",
+    "from": 0,
+    "to": 17,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "projectiles/eb-pierce",
+   "name": "Ember Bastion piercing arrow",
+   "fps": 30,
+   "loop": true,
+   "frames": 18,
+   "frameSize": [
+    200,
+    40
+   ],
+   "pivot": [
+    184,
+    18
+   ],
+   "columns": 2
+  }
+ }
+}

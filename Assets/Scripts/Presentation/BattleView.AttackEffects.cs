@@ -7,8 +7,8 @@ namespace EmberBastion {
   readonly Dictionary<string,AttackSheet> attackSheets=new Dictionary<string,AttackSheet>();
   AttackSheet AttackFx(string name){AttackSheet sheet;if(attackSheets.TryGetValue(name,out sheet))return sheet;var tex=Resources.Load<Texture2D>("PixelFX/"+name);var json=Resources.Load<TextAsset>("PixelFX/"+name);sheet=tex==null||json==null?null:new AttackSheet{texture=tex,data=SheetReader.Read(json,tex)};attackSheets[name]=sheet;return sheet;}
   // The sword wind sheet faces right with its pivot at the blade; it flies `from+start` to `from+reach` along `angle` while `travel` runs 0..1 and fades at the end.
-  void DrawSwordWind(Vector2 from,float angle,float travel,float start,float reach,float k,Color tint){
-   if(travel<0||travel>=1)return;var wind=AttackFx("SwordWind");if(wind==null)return;
+  void DrawSwordWind(Vector2 from,float angle,float travel,float start,float reach,float k,Color tint,string sheet="SwordWind"){
+   if(travel<0||travel>=1)return;var wind=AttackFx(sheet);if(wind==null)return;
    float eased=1-(1-travel)*(1-travel),along=start+(reach-start)*eased,rad=angle*Mathf.Deg2Rad,x=from.x+Mathf.Cos(rad)*along,y=from.y+Mathf.Sin(rad)*along;
    var f=wind.data.frames[(int)(travel*.3f*wind.data.meta.pixelfx.fps*2)%wind.data.frames.Length].frame;var pivot=wind.data.meta.pixelfx.pivot;
    Matrix4x4 m=GUI.matrix;Color c=GUI.color;var at=new Vector3(x,y,0);GUI.matrix=m*Matrix4x4.TRS(at,Quaternion.Euler(0,0,angle),Vector3.one)*Matrix4x4.Translate(-at);

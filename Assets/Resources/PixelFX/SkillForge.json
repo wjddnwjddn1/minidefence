@@ -5,198 +5,286 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 1",
    "frame": {
-    "x": 196,
+    "x": 208,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 2",
    "frame": {
-    "x": 392,
+    "x": 416,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 3",
    "frame": {
     "x": 0,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "y": 112,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 4",
    "frame": {
-    "x": 196,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 208,
+    "y": 112,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 5",
    "frame": {
-    "x": 392,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 416,
+    "y": 112,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 6",
    "frame": {
     "x": 0,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "y": 224,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 7",
    "frame": {
-    "x": 196,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 208,
+    "y": 224,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillForge 8",
    "frame": {
-    "x": 392,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 416,
+    "y": 224,
+    "w": 208,
+    "h": 112
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 208,
+    "h": 112
    },
-   "duration": 56
+   "duration": 50
+  },
+  {
+   "filename": "SkillForge 9",
+   "frame": {
+    "x": 0,
+    "y": 336,
+    "w": 208,
+    "h": 112
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 112
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 112
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillForge 10",
+   "frame": {
+    "x": 208,
+    "y": 336,
+    "w": 208,
+    "h": 112
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 112
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 112
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillForge 11",
+   "frame": {
+    "x": 416,
+    "y": 336,
+    "w": 208,
+    "h": 112
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 112
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 112
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillForge 12",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 208,
+    "h": 112
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 112
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 112
+   },
+   "duration": 50
   }
  ],
  "meta": {
@@ -205,31 +293,31 @@
   "image": "SkillForge.png",
   "format": "RGBA8888",
   "size": {
-   "w": 588,
-   "h": 432
+   "w": 624,
+   "h": 560
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "SkillForge",
     "from": 0,
-    "to": 8,
+    "to": 12,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "projectiles/eb-skill",
-   "name": "Ember Bastion skill burst",
-   "fps": 18,
+   "id": "melee/eb-forge",
+   "name": "Ember Bastion hammer signal",
+   "fps": 20,
    "loop": false,
-   "frames": 9,
+   "frames": 13,
    "frameSize": [
-    196,
-    144
+    208,
+    112
    ],
    "pivot": [
-    58,
-    72
+    80,
+    92
    ],
    "columns": 3
   }

@@ -5,198 +5,330 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 1",
    "frame": {
-    "x": 196,
+    "x": 300,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 2",
    "frame": {
-    "x": 392,
+    "x": 600,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 3",
    "frame": {
-    "x": 0,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 900,
+    "y": 0,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 4",
    "frame": {
-    "x": 196,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 0,
+    "y": 240,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 5",
    "frame": {
-    "x": 392,
-    "y": 144,
-    "w": 196,
-    "h": 144
+    "x": 300,
+    "y": 240,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 6",
    "frame": {
-    "x": 0,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 600,
+    "y": 240,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 7",
    "frame": {
-    "x": 196,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 900,
+    "y": 240,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
   },
   {
    "filename": "SkillPowder 8",
    "frame": {
-    "x": 392,
-    "y": 288,
-    "w": 196,
-    "h": 144
+    "x": 0,
+    "y": 480,
+    "w": 300,
+    "h": 240
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
    "sourceSize": {
-    "w": 196,
-    "h": 144
+    "w": 300,
+    "h": 240
    },
-   "duration": 56
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 9",
+   "frame": {
+    "x": 300,
+    "y": 480,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 10",
+   "frame": {
+    "x": 600,
+    "y": 480,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 11",
+   "frame": {
+    "x": 900,
+    "y": 480,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 12",
+   "frame": {
+    "x": 0,
+    "y": 720,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 13",
+   "frame": {
+    "x": 300,
+    "y": 720,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SkillPowder 14",
+   "frame": {
+    "x": 600,
+    "y": 720,
+    "w": 300,
+    "h": 240
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 300,
+    "h": 240
+   },
+   "sourceSize": {
+    "w": 300,
+    "h": 240
+   },
+   "duration": 50
   }
  ],
  "meta": {
@@ -205,33 +337,33 @@
   "image": "SkillPowder.png",
   "format": "RGBA8888",
   "size": {
-   "w": 588,
-   "h": 432
+   "w": 1200,
+   "h": 960
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "SkillPowder",
     "from": 0,
-    "to": 8,
+    "to": 14,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "projectiles/eb-skill",
-   "name": "Ember Bastion skill burst",
-   "fps": 18,
+   "id": "projectiles/eb-blast",
+   "name": "Ember Bastion big blast",
+   "fps": 20,
    "loop": false,
-   "frames": 9,
+   "frames": 15,
    "frameSize": [
-    196,
-    144
+    300,
+    240
    ],
    "pivot": [
-    58,
-    72
+    150,
+    196
    ],
-   "columns": 3
+   "columns": 4
   }
  }
 }
