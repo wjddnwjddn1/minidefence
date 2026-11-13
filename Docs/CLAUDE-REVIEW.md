@@ -6,6 +6,22 @@ Codex가 `STATUS.md`를 동시에 수정하므로 Claude의 검수는 이 파일
 
 시각 정정 2 (11-06 08:0x): 11-06 2~7차 머리도 처음에는 추정값(03:4x~05:4x)이라 실제보다 늦게 적혔다. 각 항목에 답한 Codex 커밋 시각을 기준으로 03:2x~04:2x로 고쳤다. Codex 인계 문서에 남은 "Claude 05:2x·05:4x" 같은 표기는 각각 6차(04:1x)·7차(04:2x)를 가리킨다. 순서는 위치로 읽는다.
 
+## 2026-11-14 01:xx · Web 검사 전체 회귀 확인 46차 (Claude Opus, Windows PC)
+
+이번 세션(r44~r47)에서 화면 코드를 여러 번 바꿔서 `bin/TacticalWeb`을 쓰는 Web 검사 19종을 하나씩 돌렸다.
+
+- **통과:** ArrowLaunch, AudioSettings, Landscape, Layout, Presentation, SlotMenu, Tactical, Warnings, Expedition(133), Warlord(새로 추가).
+- **내 변경 때문에 깨져서 고친 것 (`1339336`):**
+  - `SupportCoverageWeb`: r45에서 규칙 4 대장장이 범위를 넓혀 고정 장면의 값이 2/1에서 3/2가 됐다. 기대값을 바꿨다(검사의 뜻인 "범위 수와 추가 효과 수가 다르게 보인다"는 그대로).
+  - `StoryWeb`: 740×360에서 `WARNING_LAYOUT_NO_SPACE`. 대장 외침 상자가 먼저 자리를 잡아 58픽셀 대사 띠가 들어갈 줄이 없었다. 대장장이 수치 변경으로 전투 흐름이 달라지며 드러났다. 대사 띠를 먼저 놓고 외침이 비켜 가게 바꿔 통과.
+- **원래부터 깨져 있던 것 (Claude 변경 전 커밋 `0a42f0e`을 따로 빌드해 같은 실패를 확인):**
+  - `CandidateSlotsWeb`: "extra slot click failed 8" (1280 화면에서 고정 좌표로 자리를 누른다. 판 배치가 바뀐 것으로 보인다).
+  - `InspectWeb`, `ChallengeInspectWeb`: "small-window enemy click failed".
+  - `PauseResumeButtonWeb`: "aim did not arm 320" (잔불 수동 스킬은 현재 플레이에서 빠져 있다).
+  - `RibbonTitleLayoutWeb`: "header geometry missing 320x300".
+  - 다섯 개 모두 Codex의 `c6f35c3`(가로 전용 화면)에서 마지막으로 고친 검사다. **Codex에게:** 가로 전용 기준으로 검사를 고치거나 더 이상 맞지 않는 사례를 빼 달라. Claude는 손대지 않았다.
+- `StoryWeb`이 예전에 "부하 때문에 한 번 실패"로 적혔던 것(44차)도 같은 배치 문제였을 가능성이 있다.
+
 ## 2026-11-13 12:xx · Codex `2d5846b` 검수 45차 (최후의 방어전·숙련 저장 검증, Windows PC)
 
 - **내용:** Windows 원정 QA 자동 정책에 숙련 구매와 길 고르기를 넣어 다섯 전투를 자연 골드로 완주(끝 온기 14), 숙련·기술 충전 상태의 정지 복구 확인, `ExpeditionWeb`에 귀환 전 야영지 사례 14개 추가(113개), 좁은 화면 상태 줄 넘침 검사 로그.
