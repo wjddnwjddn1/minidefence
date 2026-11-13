@@ -17,7 +17,7 @@ namespace EmberBastion {
   // Best finished run: stages cleared first, then warmth left.
   int ExpeditionBest {get{if(!PreferencesAllowed())return 0;try{return PlayerPrefs.GetInt(ExpeditionBestKey,0);}catch(Exception){return 0;}}}
   bool RecordExpeditionBest(Expedition run){int score=RunCleared(run)*1000+run.Warmth;if(score<=ExpeditionBest||!PreferencesAllowed())return false;try{PlayerPrefs.SetInt(ExpeditionBestKey,score);PlayerPrefs.Save();return true;}catch(Exception){return false;}}
-  void ExpeditionLog(){if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer){var run=expedition;Debug.Log("EXPEDITION|"+(run==null?"None":run.State.ToString())+"|"+(run==null?0:run.Stage)+"|"+(run==null?0:run.Warmth)+"|"+(run==null?"":string.Join(",",Array.ConvertAll(run.Offers(),o=>o.ToString())))+"|"+battle.Mode+"|"+battle.FieldIndex+"|"+battle.HP+"|"+battle.Gold+"|"+BoonDigits(run)+"|"+battle.Phase+"|"+battle.Time.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)+"|"+battle.Wave+"|"+paused);}}
+  void ExpeditionLog(){if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer){var run=expedition;Debug.Log("EXPEDITION|"+(run==null?"None":run.State.ToString())+"|"+(run==null?0:run.Stage)+"|"+(run==null?0:run.Warmth)+"|"+(run==null?"":string.Join(",",Array.ConvertAll(run.Offers(),o=>o.ToString())))+"|"+battle.Mode+"|"+battle.FieldIndex+"|"+battle.HP+"|"+battle.Gold+"|"+BoonDigits(run)+"|"+battle.Phase+"|"+battle.Time.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)+"|"+battle.Wave+"|"+paused+"|"+(run==null?-1:run.Grade));}}
   static string BoonDigits(Expedition run){string digits="";if(run!=null)for(int i=0;i<Boon.Count;i++)digits+=run.Count(i);return digits;}
 
   void StartExpedition(uint seed=0){

@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
 let checks = 0;
 const check = (ok, what) => { checks++; if (!ok) throw new Error(what); };
 // EXPEDITION|state|stage|warmth|offers|mode|field|hp|gold|boons
-const parse = line => { const p = line.trim().split('|'); return {state: p[1], stage: +p[2], warmth: +p[3], offers: p[4] ? p[4].split(',').map(Number) : [], mode: p[5], field: +p[6], hp: +p[7], gold: +p[8], boons: p[9] || '', phase:p[10], time:+p[11], wave:+p[12], paused:p[13]==='True'}; };
+const parse = line => { const p = line.trim().split('|'); return {state: p[1], stage: +p[2], warmth: +p[3], offers: p[4] ? p[4].split(',').map(Number) : [], mode: p[5], field: +p[6], hp: +p[7], gold: +p[8], boons: p[9] || '', phase:p[10], time:+p[11], wave:+p[12], paused:p[13]==='True', grade:p[14]===undefined?-1:+p[14]}; };
 
 (async () => {
   let browser;
@@ -114,6 +114,24 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       const restored=await t.until(l=>l.state==='Battle'&&l.stage===4,'restored final stand');
       check(restored.field===0&&restored.hp===finale.hp&&restored.boons===finale.boons,'finale checkpoint preserved');
       check(t.errors.length===0,'finale browser errors '+t.errors.join('|'));
+      await t.context.close();
+    }
+    // 2b. the grade row: with grade 3 open, '-' lowers the grade and the next run fights at the grade shown (r43/r47)
+    {
+      const [w,h]=[1280,720];
+      const t = await open('fx-smoke=expedition-won&grade-open=3&run-review=1', w, h);
+      await t.until(l => l.state === 'Won', 'won run for the grade row');
+      const gradeLines=()=>t.traces.filter(x=>x.startsWith('EXPEDITION_GRADE|')).map(x=>x.split('|').map(Number));
+      for(let i=0;i<100&&!(t.rects['grade-minus']&&gradeLines().length);i++)await t.page.waitForTimeout(100);
+      const before=gradeLines().pop();check(before&&before[1]>=3,'grade 3 is open: '+before);
+      const minus=t.rects['grade-minus'],plus=t.rects['grade-plus'];check(minus&&plus,'grade buttons drawn');
+      if(before[2]===0)await t.page.mouse.click(plus[0]+plus[2]/2,plus[1]+plus[3]/2);
+      await t.page.waitForTimeout(400);await t.page.mouse.click(minus[0]+minus[2]/2,minus[1]+minus[3]/2);await t.page.waitForTimeout(400);
+      const after=gradeLines().pop();check(after[2]===Math.max(0,before[2]===0?0:before[2]-1),'minus lowers the grade: '+before+' -> '+after);
+      await t.page.mouse.click(...panelButton(w, h, false));
+      const muster=await t.until(l=>l.state==='Muster','new run at the chosen grade');
+      check(muster.grade===after[2],'the new run has the grade shown: '+muster.grade+' vs '+after[2]);
+      check(t.errors.length === 0, 'browser errors grade row: ' + t.errors.join(' | '));
       await t.context.close();
     }
     // 2. a won run: result window, then a new run starts from the gate with a full ember
