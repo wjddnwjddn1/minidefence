@@ -1,0 +1,699 @@
+{
+ "frames": [
+  {
+   "filename": "KingCrown 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 1",
+   "frame": {
+    "x": 56,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 2",
+   "frame": {
+    "x": 112,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 3",
+   "frame": {
+    "x": 168,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 4",
+   "frame": {
+    "x": 224,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 5",
+   "frame": {
+    "x": 280,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 6",
+   "frame": {
+    "x": 336,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 7",
+   "frame": {
+    "x": 0,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 8",
+   "frame": {
+    "x": 56,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 9",
+   "frame": {
+    "x": 112,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 10",
+   "frame": {
+    "x": 168,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 11",
+   "frame": {
+    "x": 224,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 12",
+   "frame": {
+    "x": 280,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 13",
+   "frame": {
+    "x": 336,
+    "y": 80,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 14",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 15",
+   "frame": {
+    "x": 56,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 16",
+   "frame": {
+    "x": 112,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 17",
+   "frame": {
+    "x": 168,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 18",
+   "frame": {
+    "x": 224,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 19",
+   "frame": {
+    "x": 280,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 20",
+   "frame": {
+    "x": 336,
+    "y": 160,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 21",
+   "frame": {
+    "x": 0,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 22",
+   "frame": {
+    "x": 56,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 23",
+   "frame": {
+    "x": 112,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 24",
+   "frame": {
+    "x": 168,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 25",
+   "frame": {
+    "x": 224,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 26",
+   "frame": {
+    "x": 280,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 27",
+   "frame": {
+    "x": 336,
+    "y": 240,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 28",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  },
+  {
+   "filename": "KingCrown 29",
+   "frame": {
+    "x": 56,
+    "y": 320,
+    "w": 56,
+    "h": 80
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 80
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 80
+   },
+   "duration": 67
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "KingCrown.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 392,
+   "h": 400
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "KingCrown",
+    "from": 0,
+    "to": 29,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "status/eb-crown",
+   "name": "Ember Bastion king's crown",
+   "fps": 15,
+   "loop": true,
+   "frames": 30,
+   "frameSize": [
+    56,
+    80
+   ],
+   "pivot": [
+    28,
+    70
+   ],
+   "columns": 7
+  }
+ }
+}

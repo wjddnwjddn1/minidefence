@@ -18,6 +18,7 @@ const expected = {
   GatePortal: [29, 152, 116, 12, true],
   SwordWind: [15, 120, 52, 30, true],
   PierceShot: [18, 200, 40, 30, true],
+  KingCrown: [30, 56, 80, 15, true],
 };
 assert.deepEqual(manifest.effects.map(e => e.name), Object.keys(expected));
 const opaque = rgba => rgba.reduce((n, v, i) => n + (i % 4 === 3 && v > 8 ? 1 : 0), 0);

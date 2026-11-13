@@ -7,6 +7,7 @@
   { "name": "Burn", "id": "status/eb-burn", "use": "burning enemies (loop)", "opts": {} },
   { "name": "GatePortal", "id": "spawn/eb-gate", "use": "enemy gate marker (loop)", "opts": {} },
   { "name": "SwordWind", "id": "melee/eb-wind", "use": "sword cut travelling to the target (loop)", "opts": {} },
-  { "name": "PierceShot", "id": "projectiles/eb-pierce", "use": "archer skill flying down its line (loop)", "opts": {} }
+  { "name": "PierceShot", "id": "projectiles/eb-pierce", "use": "archer skill flying down its line (loop)", "opts": {} },
+  { "name": "KingCrown", "id": "status/eb-crown", "use": "ring over the goblin king (loop)", "opts": {} }
  ]
 }
