@@ -20,7 +20,7 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchPowder 1",
@@ -42,7 +42,7 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchPowder 2",
@@ -64,13 +64,13 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchPowder 3",
    "frame": {
-    "x": 0,
-    "y": 72,
+    "x": 288,
+    "y": 0,
     "w": 96,
     "h": 72
    },
@@ -86,12 +86,12 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchPowder 4",
    "frame": {
-    "x": 96,
+    "x": 0,
     "y": 72,
     "w": 96,
     "h": 72
@@ -108,11 +108,33 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchPowder 5",
    "frame": {
+    "x": 96,
+    "y": 72,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchPowder 6",
+   "frame": {
     "x": 192,
     "y": 72,
     "w": 96,
@@ -130,10 +152,32 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
-   "filename": "LaunchPowder 6",
+   "filename": "LaunchPowder 7",
+   "frame": {
+    "x": 288,
+    "y": 72,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchPowder 8",
    "frame": {
     "x": 0,
     "y": 144,
@@ -152,10 +196,10 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
-   "filename": "LaunchPowder 7",
+   "filename": "LaunchPowder 9",
    "frame": {
     "x": 96,
     "y": 144,
@@ -174,10 +218,10 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
-   "filename": "LaunchPowder 8",
+   "filename": "LaunchPowder 10",
    "frame": {
     "x": 192,
     "y": 144,
@@ -196,10 +240,32 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
-   "filename": "LaunchPowder 9",
+   "filename": "LaunchPowder 11",
+   "frame": {
+    "x": 288,
+    "y": 144,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchPowder 12",
    "frame": {
     "x": 0,
     "y": 216,
@@ -218,10 +284,10 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
   },
   {
-   "filename": "LaunchPowder 10",
+   "filename": "LaunchPowder 13",
    "frame": {
     "x": 96,
     "y": 216,
@@ -240,7 +306,51 @@
     "w": 96,
     "h": 72
    },
-   "duration": 50
+   "duration": 33
+  },
+  {
+   "filename": "LaunchPowder 14",
+   "frame": {
+    "x": 192,
+    "y": 216,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchPowder 15",
+   "frame": {
+    "x": 288,
+    "y": 216,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 33
   }
  ],
  "meta": {
@@ -249,7 +359,7 @@
   "image": "LaunchPowder.png",
   "format": "RGBA8888",
   "size": {
-   "w": 288,
+   "w": 384,
    "h": 288
   },
   "scale": "1",
@@ -257,16 +367,16 @@
    {
     "name": "LaunchPowder",
     "from": 0,
-    "to": 10,
+    "to": 15,
     "direction": "forward"
    }
   ],
   "pixelfx": {
    "id": "projectiles/eb-shot",
    "name": "Ember Bastion powder shot",
-   "fps": 20,
+   "fps": 30,
    "loop": false,
-   "frames": 11,
+   "frames": 16,
    "frameSize": [
     96,
     72
@@ -275,7 +385,7 @@
     44,
     40
    ],
-   "columns": 3
+   "columns": 4
   }
  }
 }

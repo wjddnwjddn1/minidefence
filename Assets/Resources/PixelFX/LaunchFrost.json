@@ -20,7 +20,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 1",
@@ -42,7 +42,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 2",
@@ -64,7 +64,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 3",
@@ -86,7 +86,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 4",
@@ -108,7 +108,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 5",
@@ -130,7 +130,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 6",
@@ -152,7 +152,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 7",
@@ -174,7 +174,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 8",
@@ -196,7 +196,7 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
   },
   {
    "filename": "LaunchFrost 9",
@@ -218,7 +218,117 @@
     "w": 112,
     "h": 108
    },
-   "duration": 50
+   "duration": 33
+  },
+  {
+   "filename": "LaunchFrost 10",
+   "frame": {
+    "x": 224,
+    "y": 216,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchFrost 11",
+   "frame": {
+    "x": 336,
+    "y": 216,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchFrost 12",
+   "frame": {
+    "x": 0,
+    "y": 324,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchFrost 13",
+   "frame": {
+    "x": 112,
+    "y": 324,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 33
+  },
+  {
+   "filename": "LaunchFrost 14",
+   "frame": {
+    "x": 224,
+    "y": 324,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 33
   }
  ],
  "meta": {
@@ -228,23 +338,23 @@
   "format": "RGBA8888",
   "size": {
    "w": 448,
-   "h": 324
+   "h": 432
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "LaunchFrost",
     "from": 0,
-    "to": 9,
+    "to": 14,
     "direction": "forward"
    }
   ],
   "pixelfx": {
    "id": "projectiles/eb-loose",
    "name": "Ember Bastion release glint",
-   "fps": 20,
+   "fps": 30,
    "loop": false,
-   "frames": 10,
+   "frames": 15,
    "frameSize": [
     112,
     108

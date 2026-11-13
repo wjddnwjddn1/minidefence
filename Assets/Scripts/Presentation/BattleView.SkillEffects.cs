@@ -9,6 +9,11 @@ namespace EmberBastion {
    if(!ExpeditionBattle&&!preview)return;
    int kind=visual.Cue.Source;
    if(kind<0||kind>=SkillSheets.Length||visual.Age>=SkillEffectSeconds)return;
+   // the sword skill is a big blade of air running the whole rift, with two smaller ones behind it (r45)
+   if(kind==0){var caster=visual.Cue.Slot>=0?battle.At(visual.Cue.Slot):null;int branch=caster==null?0:caster.Branch;Color tint=branch==1?new Color(.86f,.7f,1):branch==2?new Color(1,.78f,.45f):new Color(.75f,.9f,1);
+    Point a=visual.Cue.Position,b=visual.Cue.Destination;float deg=Mathf.Atan2((float)(b.Y-a.Y),(float)(b.X-a.X))*Mathf.Rad2Deg,run=visual.Age/SkillEffectSeconds;var from=new Vector2((float)a.X,(float)a.Y+10);
+    DrawSwordWind(from,deg,run-.24f,20,(float)Boon.RiftLength-30,1.1f,tint);DrawSwordWind(from,deg,run-.12f,20,(float)Boon.RiftLength-12,1.4f,tint);DrawSwordWind(from,deg,run,20,(float)Boon.RiftLength,1.9f,tint);
+    if(preview)ProjectileReview(SkillSheets[kind]);return;}
    var sheet=AttackFx(SkillSheets[kind]);
    if(sheet==null)return;
    int index=Mathf.Min(sheet.data.frames.Length-1,(int)(visual.Age/SkillEffectSeconds*sheet.data.frames.Length));
