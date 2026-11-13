@@ -8,7 +8,7 @@ class SupportCoverageChecks {
    var b=new Battle(29,f);b.Gold=10000;for(int i=0;i<b.Field.Slots.Length;i++)b.Place(i==0||i==2?4:i%4,i);
    b.Upgrade(0);b.UpgradeBranch(0,branch);b.Upgrade(2);b.UpgradeBranch(2,2);var smith=b.At(0);smith.Stun=stun;
    int covered,additional;b.SupportCoverage(smith,out covered,out additional);int actual=0,expectedCovered=0;
-   foreach(var ally in b.Units.ToArray())if(ally.Kind!=4){if(Point.Distance(b.Field.Slots[smith.Slot],b.Field.Slots[ally.Slot])<=Battle.UnitRange(smith))expectedCovered++;
+   foreach(var ally in b.Units.ToArray())if(ally.Kind!=4){if(Point.Distance(b.Field.Slots[smith.Slot],b.Field.Slots[ally.Slot])<=b.SupportRange(smith))expectedCovered++;
     double beforeH,beforeD,afterH,afterD;b.SupportBonuses(ally,out beforeH,out beforeD);
     int index=b.Units.IndexOf(smith);b.Units.RemoveAt(index);b.SupportBonuses(ally,out afterH,out afterD);b.Units.Insert(index,smith);
     if(beforeH>afterH||beforeD>afterD)actual++;

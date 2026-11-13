@@ -37,7 +37,7 @@ class ExpeditionTextChecks {
   Check(ExpeditionText.SkillEffect(3).Contains(Boon.NovaFreeze.ToString(CultureInfo.InvariantCulture)+"초"),"nova text");
   // mastery (r43)
   for(int kind=0;kind<4;kind++)Check(ExpeditionText.MasteryEffect(kind).Contains("+"+Pct(Boon.MasteryDamage))&&ExpeditionText.MasteryEffect(kind).Contains(ExpeditionText.SkillName(kind)),"mastery text "+kind);
-  Check(ExpeditionText.MasteryEffect(4).Contains("+"+Math.Round(Boon.MasteryHaste*100)+"%"),"smith mastery text");
+  Check(ExpeditionText.MasteryEffect(4).Contains("+"+Math.Round(Battle.SmithHasteLevel2*100)+"% → +"+Math.Round(Boon.MasteryHaste*100)+"%"),"smith mastery text");
   // the last stand (r44)
   Check(ExpeditionText.FinaleName.Length>0,"last stand text");
   Check(ExpeditionText.Camp.Length==Expedition.Route.Length,"a camp greeting for every camp");

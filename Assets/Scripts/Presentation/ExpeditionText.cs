@@ -16,7 +16,7 @@ namespace EmberBastion {
   public static string SkillName(int troopKind){return skillNames[troopKind];}
   public static string SkillEffect(int troopKind){return skillEffects[troopKind];}
   // Mastery (r43): what the upgrade after the branch does, by troop kind.
-  public static string MasteryEffect(int troopKind){return troopKind==4?"숙련 · 주변 공격 속도 +35% → +45%":"숙련 · 피해 +25% · "+SkillName(troopKind)+"을 기본 공격 1회 더 빨리 씁니다";}
+  public static string MasteryEffect(int troopKind){return troopKind==4?"숙련 · 주변 공격 속도 +40% → +50%":"숙련 · 피해 +25% · "+SkillName(troopKind)+"을 기본 공격 1회 더 빨리 씁니다";}
   // Roads to the next field (r43), by Expedition.Road*. ExpeditionTextChecks holds the numbers to the Core constants.
   static readonly string[] roadNames={"평탄한 길","보급로","험로"};
   static readonly string[] roadEffects={"변화 없음","시작 골드 +100 · 온기 -6","온기 +15 · 적 체력 한 단계 더"};

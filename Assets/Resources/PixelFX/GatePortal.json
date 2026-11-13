@@ -1,0 +1,677 @@
+{
+ "frames": [
+  {
+   "filename": "GatePortal 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 1",
+   "frame": {
+    "x": 152,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 2",
+   "frame": {
+    "x": 304,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 3",
+   "frame": {
+    "x": 456,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 4",
+   "frame": {
+    "x": 608,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 5",
+   "frame": {
+    "x": 0,
+    "y": 116,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 6",
+   "frame": {
+    "x": 152,
+    "y": 116,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 7",
+   "frame": {
+    "x": 304,
+    "y": 116,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 8",
+   "frame": {
+    "x": 456,
+    "y": 116,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 9",
+   "frame": {
+    "x": 608,
+    "y": 116,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 10",
+   "frame": {
+    "x": 0,
+    "y": 232,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 11",
+   "frame": {
+    "x": 152,
+    "y": 232,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 12",
+   "frame": {
+    "x": 304,
+    "y": 232,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 13",
+   "frame": {
+    "x": 456,
+    "y": 232,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 14",
+   "frame": {
+    "x": 608,
+    "y": 232,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 15",
+   "frame": {
+    "x": 0,
+    "y": 348,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 16",
+   "frame": {
+    "x": 152,
+    "y": 348,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 17",
+   "frame": {
+    "x": 304,
+    "y": 348,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 18",
+   "frame": {
+    "x": 456,
+    "y": 348,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 19",
+   "frame": {
+    "x": 608,
+    "y": 348,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 20",
+   "frame": {
+    "x": 0,
+    "y": 464,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 21",
+   "frame": {
+    "x": 152,
+    "y": 464,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 22",
+   "frame": {
+    "x": 304,
+    "y": 464,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 23",
+   "frame": {
+    "x": 456,
+    "y": 464,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 24",
+   "frame": {
+    "x": 608,
+    "y": 464,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 25",
+   "frame": {
+    "x": 0,
+    "y": 580,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 26",
+   "frame": {
+    "x": 152,
+    "y": 580,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 27",
+   "frame": {
+    "x": 304,
+    "y": 580,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  },
+  {
+   "filename": "GatePortal 28",
+   "frame": {
+    "x": 456,
+    "y": 580,
+    "w": 152,
+    "h": 116
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 152,
+    "h": 116
+   },
+   "sourceSize": {
+    "w": 152,
+    "h": 116
+   },
+   "duration": 83
+  }
+ ],
+ "meta": {
+  "app": "https://github.com/patch-gg/pixelfx",
+  "version": "1",
+  "image": "GatePortal.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 760,
+   "h": 696
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "GatePortal",
+    "from": 0,
+    "to": 28,
+    "direction": "forward"
+   }
+  ],
+  "pixelfx": {
+   "id": "spawn/eb-gate",
+   "name": "Ember Bastion enemy gate",
+   "fps": 12,
+   "loop": true,
+   "frames": 29,
+   "frameSize": [
+    152,
+    116
+   ],
+   "pivot": [
+    76,
+    106
+   ],
+   "columns": 5
+  }
+ }
+}

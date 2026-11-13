@@ -252,6 +252,19 @@ class ExpeditionChecks {
    {var d=R();d.route=null;Check(Throws(()=>Expedition.Restore(d)),"a run with a last stand always has a route");d.finale=false;d.peaks=new int[4];d.roads=false;d.pendingGold=0;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
   }
 
+  // --- smith (r45): wider reach and a stronger push under rules 4; older rules keep theirs ----------------------
+  {
+   var now=Battle.CreateForRules(3,1,4);var old=Battle.CreateForRules(3,1,3);
+   foreach(var b in new[]{now,old}){b.Gold=5000;b.Place(4,0);b.Place(0,1);}
+   Check(Near(now.SupportRange(now.At(0)),Battle.SmithRange)&&Near(now.PlacementRange(4),Battle.SmithRange)&&Near(old.SupportRange(old.At(0)),160)&&Near(old.PlacementRange(4),160),"smith reach by rules");
+   Check(Near(now.SupportHaste(now.At(0)),Battle.SmithHaste)&&Near(old.SupportHaste(old.At(0)),.25),"smith haste by rules");
+   now.Upgrade(0);old.Upgrade(0);Check(Near(now.SupportHaste(now.At(0)),Battle.SmithHasteLevel2)&&Near(old.SupportHaste(old.At(0)),.35),"level 2 smith haste by rules");
+   now.UpgradeBranch(0,1);old.UpgradeBranch(0,1);Check(Near(now.SupportRange(now.At(0)),Battle.SmithWideRange)&&Near(old.SupportRange(old.At(0)),220),"wide smith reach by rules");
+   // reach decides who is helped: a troop between the old and the new reach is helped only under rules 4
+   int far=-1;for(int s=1;s<now.Field.Slots.Length;s++){double d=Point.Distance(now.Field.Slots[0],now.Field.Slots[s]);if(d>220&&d<=Battle.SmithWideRange)far=s;}
+   if(far>0){double hn,ho,dmg;if(now.At(far)==null){now.Place(1,far);old.Place(1,far);}now.SupportBonuses(now.At(far),out hn,out dmg);old.SupportBonuses(old.At(far),out ho,out dmg);Check(Near(hn,Battle.SmithHasteLevel2)&&Near(ho,0),"the wider reach helps a farther troop");}
+  }
+
   // --- the last stand (r44): a fifth battle back at the gate; runs saved before it end after four ---------------
   {
    Func<Expedition,bool> Win=run=>{var b=run.CreateBattle();b.Phase=Phase.Won;return run.Complete(b);};
@@ -317,7 +330,7 @@ class ExpeditionChecks {
    double reach=Point.Distance(alone.Field.Slots[0],alone.Field.Slots[alone.Field.Slots.Length-1]);
    alone.Start();team.Start();int lonely=0,pulses=0;
    for(int t=0;t<60*80;t++){alone.Step(Balance.Tick);team.Step(Balance.Tick);foreach(var c in alone.Cues)if(c.Kind=="skill"&&c.Source==4)lonely++;foreach(var c in team.Cues)if(c.Kind=="skill"&&c.Source==4)pulses++;}
-   if(reach>Balance.Troops[4].Range)Check(lonely==0,"a smith with nobody in reach never pulses");
+   Check(reach>Battle.SmithWideRange,"the lonely smith is out of reach");Check(lonely==0,"a smith with nobody in reach never pulses");
    Check(pulses>0&&pulses<=80/(int)Boon.ForgeEvery,"smith pulses at most once per "+Boon.ForgeEvery+"s: "+pulses);
   }
   {
@@ -394,7 +407,7 @@ class ExpeditionChecks {
     Check(b.Gold==gold-Boon.MasteryCost&&b.At(0).Invested==invested+Boon.MasteryCost&&b.At(0).PrepSpent==b.At(0).Invested,"mastery is paid and counted");
     Check(!b.UpgradeMastery(0)&&!b.UpgradeMastery(7)&&b.Gold==gold-Boon.MasteryCost,"mastery only once");
     if(kind<4){Check(Near(Damage(b,0),before*Boon.MasteryDamage),"mastery damage "+kind);Check(b.SkillEvery(b.At(0))==every-1&&every==Boon.SkillEvery(kind),"mastery brings the skill one attack sooner");}
-    else{b.SupportBonuses(b.At(1),out hasteAfter,out bonus);Check(Near(hasteBefore,.35)&&Near(hasteAfter,Boon.MasteryHaste)&&b.SkillEvery(b.At(0))==Boon.SkillEvery(4),"a master smith speeds troops up more");}
+    else{b.SupportBonuses(b.At(1),out hasteAfter,out bonus);Check(Near(hasteBefore,Battle.SmithHasteLevel2)&&Near(hasteAfter,Boon.MasteryHaste)&&Boon.MasteryHaste>Battle.SmithHasteLevel2&&b.SkillEvery(b.At(0))==Boon.SkillEvery(4),"a master smith speeds troops up more");}
     Check(Battle.SaleRefund(b.At(0))==b.At(0).Invested,"a mastery bought in preparation sells back in full");
     var saved=Battle.RestorePreparation(b.SavePreparation());Check(saved.At(0).Mastery==1&&saved.At(0).Invested==b.At(0).Invested,"mastery survives a preparation save");
     {var d=b.SavePreparation();d.units[0].mastery=2;Check(Throws(()=>Battle.RestorePreparation(d)),"mastery above one");}
