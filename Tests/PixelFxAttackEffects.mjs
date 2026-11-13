@@ -11,4 +11,4 @@ for(const [name,id,options] of entries){const fx=await loadEffect(id,fileURLToPa
   continue;
  }
  // a sword cut must be bold (hundreds of solid pixels at its peak), short enough to play whole in 0.4 s, and end empty
- assert(Math.max(...r.frames.map(opaque))>(name.startsWith('Trail')?90:name.startsWith('Launch')||name.startsWith('SwordRift')?250:600),name+' too thin: '+Math.max(...r.frames.map(opaque)));assert(r.n<=(name.startsWith('Skill')?10:9),name+' too many frames: '+r.n);assert(opaque(r.frames[r.n-1])<12,name+' must end empty');console.log('PASS '+name+' deterministic actor-free PNG+JSON, bold release '+Math.max(...r.frames.map(opaque))+' px, '+r.n+' frames, empty ending');}
+ assert(Math.max(...r.frames.map(opaque))>(name.startsWith('Trail')?90:name.startsWith('Launch')||name.startsWith('SwordRift')?250:600),name+' too thin: '+Math.max(...r.frames.map(opaque)));assert(r.n<=12,name+' too many frames: '+r.n);assert(opaque(r.frames[r.n-1])<12,name+' must end empty');console.log('PASS '+name+' deterministic actor-free PNG+JSON, bold release '+Math.max(...r.frames.map(opaque))+' px, '+r.n+' frames, empty ending');}

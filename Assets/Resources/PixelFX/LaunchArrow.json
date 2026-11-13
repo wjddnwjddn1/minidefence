@@ -5,130 +5,218 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   },
   {
    "filename": "LaunchArrow 1",
    "frame": {
-    "x": 84,
+    "x": 112,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   },
   {
    "filename": "LaunchArrow 2",
    "frame": {
-    "x": 168,
+    "x": 224,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   },
   {
    "filename": "LaunchArrow 3",
    "frame": {
-    "x": 0,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "x": 336,
+    "y": 0,
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   },
   {
    "filename": "LaunchArrow 4",
    "frame": {
-    "x": 84,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "x": 0,
+    "y": 108,
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   },
   {
    "filename": "LaunchArrow 5",
    "frame": {
-    "x": 168,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "x": 112,
+    "y": 108,
+    "w": 112,
+    "h": 108
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 112,
+    "h": 108
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchArrow 6",
+   "frame": {
+    "x": 224,
+    "y": 108,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchArrow 7",
+   "frame": {
+    "x": 336,
+    "y": 108,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchArrow 8",
+   "frame": {
+    "x": 0,
+    "y": 216,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchArrow 9",
+   "frame": {
+    "x": 112,
+    "y": 216,
+    "w": 112,
+    "h": 108
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 112,
+    "h": 108
+   },
+   "sourceSize": {
+    "w": 112,
+    "h": 108
    },
    "duration": 50
   }
@@ -139,33 +227,33 @@
   "image": "LaunchArrow.png",
   "format": "RGBA8888",
   "size": {
-   "w": 252,
-   "h": 120
+   "w": 448,
+   "h": 324
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "LaunchArrow",
     "from": 0,
-    "to": 5,
+    "to": 9,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "projectiles/eb-launch",
-   "name": "Ember Bastion launch",
+   "id": "projectiles/eb-loose",
+   "name": "Ember Bastion release glint",
    "fps": 20,
    "loop": false,
-   "frames": 6,
+   "frames": 10,
    "frameSize": [
-    84,
-    60
+    112,
+    108
    ],
    "pivot": [
-    24,
-    30
+    56,
+    64
    ],
-   "columns": 3
+   "columns": 4
   }
  }
 }

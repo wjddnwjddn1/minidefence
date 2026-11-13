@@ -8,18 +8,19 @@ namespace EmberBastion {
   AttackSheet AttackFx(string name){AttackSheet sheet;if(attackSheets.TryGetValue(name,out sheet))return sheet;var tex=Resources.Load<Texture2D>("PixelFX/"+name);var json=Resources.Load<TextAsset>("PixelFX/"+name);sheet=tex==null||json==null?null:new AttackSheet{texture=tex,data=SheetReader.Read(json,tex)};attackSheets[name]=sheet;return sheet;}
   void AttackEffect(VisualCue v){
    bool review=Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Application.absoluteURL.Contains("fx-smoke=attack-review");float age=review?.2f:v.Age;
-   if(age>.42f||v.Cue.Source<0||v.Cue.Source>3)return;
+   if(age>.55f||v.Cue.Source<0||v.Cue.Source>3)return;
    // Dense battles keep short release flashes but skip late smoke/trails. No simulation or damage changes.
    if(battle.Enemies.Count>=70&&age>.18f)return;
    int kind=v.Cue.Source,branch=v.Branch;string name=kind==0?(branch==1?"SwordSweep":branch==2?"SwordBreaker":"SwordSlash"):kind==1?"LaunchArrow":kind==3?"LaunchFrost":"LaunchPowder";
-   var sheet=AttackFx(name);if(sheet==null)return;float duration=kind==0?.4f:.25f;if(age>=duration)return;
+   // r45 (user: the attack tells looked cheap): the sheets are the library's hand-made cut, whirl, muzzle flash and glint, each played whole.
+   var sheet=AttackFx(name);if(sheet==null)return;float duration=sheet.data.frames.Length/Mathf.Max(1f,sheet.data.meta.pixelfx.fps);if(age>=duration)return;
    int frame=Mathf.Min(sheet.data.frames.Length-1,(int)(age/duration*sheet.data.frames.Length));var r=sheet.data.frames[frame].frame;var pivot=sheet.data.meta.pixelfx.pivot;
-   float k=kind==0?(branch==1?1.5f:1.25f):branch==1?1.45f:branch==2?1.35f:1.2f;float x=(float)v.Cue.Position.X,y=(float)v.Cue.Position.Y;
+   float k=kind==0?(branch==1?1.3f:branch==2?1.7f:1.5f):kind==1?.75f:kind==3?(branch==0?.85f:1f):1.5f;float x=(float)v.Cue.Position.X,y=(float)v.Cue.Position.Y;
    if(review){Texture2D[] bodies={warriorIdle,archerIdle,pawnLevel[0],frostIdle};var body=bodies[kind];if(body!=null){int bodyFrame=(int)(Time.unscaledTime/.16f)%Mathf.Max(1,body.width/192);TerrainView.Image(body,new Rect(x-72,y-100,144,144),bodyFrame*192,0,192,192);}}
-   if(kind!=0){x+=v.Cue.Facing*20;y-=18;}else y+=8;
+   if(kind!=0){x+=v.Cue.Facing*20;y-=18;}else y+=34;
    // Sword cuts also travel: ground streaks run from the swordsman towards the target (r42, user request). Display only.
    if(kind==0&&age>=.1f){var rift=AttackFx(branch==1?"SwordRiftWide":"SwordRift");if(rift!=null){float px=(float)v.Cue.Position.X,py=(float)v.Cue.Position.Y+14,tx=(float)v.Cue.Destination.X-px,ty=(float)v.Cue.Destination.Y-py;float angle=tx*tx+ty*ty<1?(v.Cue.Facing<0?180:0):Mathf.Atan2(ty,tx)*Mathf.Rad2Deg;px+=Mathf.Cos(angle*Mathf.Deg2Rad)*34;py+=Mathf.Sin(angle*Mathf.Deg2Rad)*34;int rf=Mathf.Min(rift.data.frames.Length-1,(int)((age-.1f)/.32f*rift.data.frames.Length));var rr=rift.data.frames[rf].frame;var rp=rift.data.meta.pixelfx.pivot;float rk=1f;Matrix4x4 riftMatrix=GUI.matrix;Color riftColor=GUI.color;GUI.matrix=riftMatrix*Matrix4x4.TRS(new Vector3(px,py,0),Quaternion.Euler(0,0,angle),Vector3.one)*Matrix4x4.Translate(new Vector3(-px,-py,0));GUI.color=branch==1?new Color(.86f,.7f,1,riftColor.a):branch==2?new Color(1,.78f,.45f,riftColor.a):new Color(.75f,.9f,1,riftColor.a);TerrainView.Image(rift.texture,new Rect(px-rp[0]*rk,py-rp[1]*rk,rr.w*rk,rr.h*rk),rr.x,rr.y,rr.w,rr.h);GUI.color=riftColor;GUI.matrix=riftMatrix;}}
-   Color before=GUI.color;if(kind==2)GUI.color=new Color(1,.7f,.3f,before.a);else if(kind==1&&branch==2)GUI.color=new Color(1,.6f,.45f,before.a);else if(kind==3&&branch==2)GUI.color=new Color(.8f,.6f,1,before.a);
+   Color before=GUI.color;if(kind==1&&branch==2)GUI.color=new Color(1,.6f,.45f,before.a);else if(kind==3&&branch==2)GUI.color=new Color(.8f,.6f,1,before.a);
    Matrix4x4 matrix=GUI.matrix;
    var release=new Vector3(x,y,0);
    if(kind==0&&v.Cue.Facing<0){

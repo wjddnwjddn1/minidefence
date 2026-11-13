@@ -5,64 +5,64 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSlash 1",
    "frame": {
-    "x": 152,
+    "x": 136,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSlash 2",
    "frame": {
-    "x": 304,
+    "x": 272,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
@@ -70,65 +70,65 @@
    "filename": "SwordSlash 3",
    "frame": {
     "x": 0,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "y": 104,
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSlash 4",
    "frame": {
-    "x": 152,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "x": 136,
+    "y": 104,
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSlash 5",
    "frame": {
-    "x": 304,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "x": 272,
+    "y": 104,
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
@@ -136,43 +136,109 @@
    "filename": "SwordSlash 6",
    "frame": {
     "x": 0,
-    "y": 300,
-    "w": 152,
-    "h": 150
+    "y": 208,
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSlash 7",
    "frame": {
-    "x": 152,
-    "y": 300,
-    "w": 152,
-    "h": 150
+    "x": 136,
+    "y": 208,
+    "w": 136,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 136,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSlash 8",
+   "frame": {
+    "x": 272,
+    "y": 208,
+    "w": 136,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 136,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 136,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSlash 9",
+   "frame": {
+    "x": 0,
+    "y": 312,
+    "w": 136,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 136,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 136,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSlash 10",
+   "frame": {
+    "x": 136,
+    "y": 312,
+    "w": 136,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 136,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 136,
+    "h": 104
    },
    "duration": 50
   }
@@ -183,31 +249,31 @@
   "image": "SwordSlash.png",
   "format": "RGBA8888",
   "size": {
-   "w": 456,
-   "h": 450
+   "w": 408,
+   "h": 416
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "SwordSlash",
     "from": 0,
-    "to": 7,
+    "to": 10,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "melee/eb-slash",
+   "id": "melee/eb-cut",
    "name": "Ember Bastion sword cut",
    "fps": 20,
    "loop": false,
-   "frames": 8,
+   "frames": 11,
    "frameSize": [
-    152,
-    150
+    136,
+    104
    ],
    "pivot": [
-    64,
-    86
+    44,
+    92
    ],
    "columns": 3
   }

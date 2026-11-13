@@ -5,64 +5,64 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSweep 1",
    "frame": {
-    "x": 152,
+    "x": 208,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSweep 2",
    "frame": {
-    "x": 304,
+    "x": 416,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
@@ -70,65 +70,65 @@
    "filename": "SwordSweep 3",
    "frame": {
     "x": 0,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "y": 104,
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSweep 4",
    "frame": {
-    "x": 152,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "x": 208,
+    "y": 104,
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSweep 5",
    "frame": {
-    "x": 304,
-    "y": 150,
-    "w": 152,
-    "h": 150
+    "x": 416,
+    "y": 104,
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
@@ -136,43 +136,109 @@
    "filename": "SwordSweep 6",
    "frame": {
     "x": 0,
-    "y": 300,
-    "w": 152,
-    "h": 150
+    "y": 208,
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   },
   {
    "filename": "SwordSweep 7",
    "frame": {
-    "x": 152,
-    "y": 300,
-    "w": 152,
-    "h": 150
+    "x": 208,
+    "y": 208,
+    "w": 208,
+    "h": 104
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
    },
    "sourceSize": {
-    "w": 152,
-    "h": 150
+    "w": 208,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSweep 8",
+   "frame": {
+    "x": 416,
+    "y": 208,
+    "w": 208,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSweep 9",
+   "frame": {
+    "x": 0,
+    "y": 312,
+    "w": 208,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 104
+   },
+   "duration": 50
+  },
+  {
+   "filename": "SwordSweep 10",
+   "frame": {
+    "x": 208,
+    "y": 312,
+    "w": 208,
+    "h": 104
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 208,
+    "h": 104
+   },
+   "sourceSize": {
+    "w": 208,
+    "h": 104
    },
    "duration": 50
   }
@@ -183,31 +249,31 @@
   "image": "SwordSweep.png",
   "format": "RGBA8888",
   "size": {
-   "w": 456,
-   "h": 450
+   "w": 624,
+   "h": 416
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "SwordSweep",
     "from": 0,
-    "to": 7,
+    "to": 10,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "melee/eb-slash",
-   "name": "Ember Bastion sword cut",
+   "id": "melee/eb-whirl",
+   "name": "Ember Bastion sweeping cut",
    "fps": 20,
    "loop": false,
-   "frames": 8,
+   "frames": 11,
    "frameSize": [
-    152,
-    150
+    208,
+    104
    ],
    "pivot": [
-    64,
-    86
+    104,
+    84
    ],
    "columns": 3
   }

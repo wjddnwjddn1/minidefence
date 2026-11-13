@@ -5,64 +5,64 @@
    "frame": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   },
   {
    "filename": "LaunchPowder 1",
    "frame": {
-    "x": 84,
+    "x": 96,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   },
   {
    "filename": "LaunchPowder 2",
    "frame": {
-    "x": 168,
+    "x": 192,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   },
@@ -70,65 +70,175 @@
    "filename": "LaunchPowder 3",
    "frame": {
     "x": 0,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "y": 72,
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   },
   {
    "filename": "LaunchPowder 4",
    "frame": {
-    "x": 84,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "x": 96,
+    "y": 72,
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   },
   {
    "filename": "LaunchPowder 5",
    "frame": {
-    "x": 168,
-    "y": 60,
-    "w": 84,
-    "h": 60
+    "x": 192,
+    "y": 72,
+    "w": 96,
+    "h": 72
    },
    "rotated": false,
    "trimmed": false,
    "spriteSourceSize": {
     "x": 0,
     "y": 0,
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
    },
    "sourceSize": {
-    "w": 84,
-    "h": 60
+    "w": 96,
+    "h": 72
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 6",
+   "frame": {
+    "x": 0,
+    "y": 144,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 7",
+   "frame": {
+    "x": 96,
+    "y": 144,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 8",
+   "frame": {
+    "x": 192,
+    "y": 144,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 9",
+   "frame": {
+    "x": 0,
+    "y": 216,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
+   },
+   "duration": 50
+  },
+  {
+   "filename": "LaunchPowder 10",
+   "frame": {
+    "x": 96,
+    "y": 216,
+    "w": 96,
+    "h": 72
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 96,
+    "h": 72
+   },
+   "sourceSize": {
+    "w": 96,
+    "h": 72
    },
    "duration": 50
   }
@@ -139,31 +249,31 @@
   "image": "LaunchPowder.png",
   "format": "RGBA8888",
   "size": {
-   "w": 252,
-   "h": 120
+   "w": 288,
+   "h": 288
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "LaunchPowder",
     "from": 0,
-    "to": 5,
+    "to": 10,
     "direction": "forward"
    }
   ],
   "pixelfx": {
-   "id": "projectiles/eb-launch",
-   "name": "Ember Bastion launch",
+   "id": "projectiles/eb-shot",
+   "name": "Ember Bastion powder shot",
    "fps": 20,
    "loop": false,
-   "frames": 6,
+   "frames": 11,
    "frameSize": [
-    84,
-    60
+    96,
+    72
    ],
    "pivot": [
-    24,
-    30
+    44,
+    40
    ],
    "columns": 3
   }
