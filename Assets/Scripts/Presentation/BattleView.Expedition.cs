@@ -25,7 +25,7 @@ namespace EmberBastion {
    if(seed==0){unchecked{seed=(uint)DateTime.UtcNow.Ticks^(uint)(Time.realtimeSinceStartup*1000)^0x9E3779B9u;}if(seed==0)seed=1;}
    // A run the player starts opens with the muster (one of three doctrines). Fixed-seed runs of fixtures and reviews go straight to the gate.
    pendingCampBoon=-1;campDoctrineCounts=null;expedition=muster?Expedition.StartMuster(seed,ExpeditionGrade):Expedition.Start(seed,ExpeditionGrade);expeditionLoaded=true;expeditionSavedBattle=null;
-   if(muster){if(ExpeditionBattle)OpenField(0);SaveExpedition();OpenExpeditionMenu();notice="출정 준비 · 교리 하나를 고르세요";ExpeditionLog();}else OpenExpeditionBattle();
+   if(muster){if(ExpeditionBattle)OpenField(0);SaveExpedition();OpenExpeditionMenu();notice="원정 출발 · 교리 하나를 고르세요";ExpeditionLog();}else OpenExpeditionBattle();
    if(StoryEnabled&&StorySpeech){if(!StorySeen("expedition"))OpenScene("expedition",ExpeditionText.Intro);else if(StorySpeech)Say(ExpeditionText.Again);}
   }
   // Starts the current stage of the run. OpenField resets every piece of view state the usual way; then the run's battle replaces it.
@@ -74,7 +74,7 @@ namespace EmberBastion {
    bool wide=Screen.width>=640&&Screen.height>=420;
    float width=Math.Min(Screen.width-24,wide?700:480),height=Math.Min(Screen.height-16,camp?(wide?324:340):250),x=(Screen.width-width)/2,y=(Screen.height-height)/2,left=x+18,inner=width-36;
    Box(new Rect(0,0,Screen.width,Screen.height),new Color(0,0,0,.72f));UiPlate(new Rect(x,y,width,height));
-   string heading=run==null?"불씨 원정":muster?"출정 준비 · 원정대의 교리":camp?(pendingCampBoon>=0?"다음 전장 선택":(run.FinaleNext?"귀환 전 야영지 · ":"야영지 · ")+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
+   string heading=run==null?"불씨 원정":muster?"원정 출발 · 원정대의 교리":camp?(pendingCampBoon>=0?"다음 전장 선택":(run.FinaleNext?"귀환 전 야영지 · ":"야영지 · ")+ShortFieldName(run.Field)+" 방어 성공"):run.State==Expedition.Status.Won?"원정 성공":run.State==Expedition.Status.Lost?"원정 실패":"불씨 원정 · "+(run.Stage+1)+"/"+run.Stages;
    UiTitle(new Rect(x+12,y+4,width-24,34),heading,title);ExpeditionRect("panel",new Rect(x,y,width,height));
    int oldHud=hud.fontSize,oldButton=button.fontSize;bool oldWrap=hud.wordWrap;TextAnchor oldAlign=hud.alignment;Color oldColor=hud.normal.textColor;
    hud.wordWrap=false;hud.alignment=TextAnchor.MiddleLeft;hud.fontSize=wide?16:12;
