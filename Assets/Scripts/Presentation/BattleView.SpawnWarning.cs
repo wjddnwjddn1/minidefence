@@ -16,15 +16,15 @@ namespace EmberBastion {
   Point GatePoint(int gate){double d=battle.Field.Gates[gate];return battle.FieldIndex==0?Balance.Path(d):battle.Field.Path(d);}
   // Enemy gates (r45, user: the dotted ring looked cheap): a rift stands on the road where each gate lets enemies out.
   // Dim while nothing is due there, bright for the next wave's gate, red and swelling in the last seconds before a group.
-  // Board coordinates, drawn under the enemies. Display only.
+  // Board coordinates, drawn under the enemies. Display only. Runs on visualClock so a paused game or an open menu freezes it.
   void DrawGatePortals(){
    if(battle.Phase!=Phase.Preparation&&battle.Phase!=Phase.Fighting)return;
    var sheet=AttackFx("GatePortal");if(sheet==null)return;
    var due=SpawnForecast.Build(battle,SpawnLead);int count=sheet.data.frames.Length;var pivot=sheet.data.meta.pixelfx.pivot;Color before=GUI.color;
    for(int gate=0;gate<battle.Field.Gates.Length;gate++){
     bool listed=false,soon=false;double eta=0;foreach(var f in due)if(f.Gate==gate){listed=true;if(f.Eta>=0){soon=true;eta=f.Eta;}}
-    Point p=GatePoint(gate);float pulse=soon?Mathf.PingPong(Time.unscaledTime*(eta<1.5?4:2),1):0,k=soon?1.25f+.12f*pulse:listed?1.15f:1f;
-    var r=sheet.data.frames[(int)(Time.unscaledTime*sheet.data.meta.pixelfx.fps+gate*7)%count].frame;
+    Point p=GatePoint(gate);float pulse=soon?Mathf.PingPong(visualClock*(eta<1.5?4:2),1):0,k=soon?1.25f+.12f*pulse:listed?1.15f:1f;
+    var r=sheet.data.frames[(int)(visualClock*sheet.data.meta.pixelfx.fps+gate*7)%count].frame;
     GUI.color=soon?new Color(1f,.55f+.15f*pulse,.5f,before.a):listed?before:new Color(.8f,.8f,.9f,before.a*.55f);
     TerrainView.Image(sheet.texture,new Rect((float)p.X-pivot[0]*k,(float)p.Y+24-pivot[1]*k,r.w*k,r.h*k),r.x,r.y,r.w,r.h);
     if(Debug.isDebugBuild&&Application.platform==RuntimePlatform.WebGLPlayer&&Event.current.type==EventType.Repaint&&debugRibbonLogged.Add("gate-portal|"+gate+"|"+(soon?2:listed?1:0)))Debug.Log("GATE_PORTAL|"+gate+"|"+(soon?"soon":listed?"next":"idle"));
