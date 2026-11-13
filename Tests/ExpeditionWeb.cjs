@@ -134,6 +134,27 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       check(t.errors.length === 0, 'browser errors grade row: ' + t.errors.join(' | '));
       await t.context.close();
     }
+    // 1b. roads (r43): a supply road pays 100 gold and costs 6 warmth, a hard road warms the ember by 15 and is one threat step harder
+    {
+      const [w,h]=[1280,720],startGold=[200,200,340,360];
+      const t = await open('fx-smoke=expedition-camp&run-review=1', w, h);
+      const camp = await t.until(l => l.state === 'Camp', 'camp for roads');
+      const pick = camp.offers.findIndex(id => id !== 14 && id !== 15);check(pick >= 0, 'an ordinary boon to take');
+      await t.page.waitForTimeout(1200);await t.page.mouse.click(...campCard(w, h, pick));
+      const roads=()=>t.traces.filter(x=>x.startsWith('RUN_ROAD|')).map(x=>x.split('|').map(Number));
+      for(let i=0;i<80&&roads().length<3;i++)await t.page.waitForTimeout(100);
+      const offered=roads();check(offered.length===3,'three roads logged: '+JSON.stringify(offered));
+      const special=offered.find(r=>r[2]!==0);check(!!special,'one road is special');
+      const [ , field, road, threat]=special;const rect=t.rects['route'+field];check(!!rect,'route card for field '+field);
+      check(threat===(road===2?50:25),'the card shows the threat of its road: '+special);
+      await t.page.mouse.click(rect[0]+rect[2]/2,rect[1]+rect[3]/2);
+      const next=await t.until(l=>l.state==='Battle'&&l.stage===1,'the special road did not start the next battle');
+      check(next.field===field,'the battle is on the chosen field');
+      if(road===1)check(next.gold===startGold[field]+100&&next.hp===camp.warmth-6,'supply road: +100 gold, -6 warmth: '+JSON.stringify(next));
+      else check(next.gold===startGold[field]&&next.hp===Math.min(100,camp.warmth+15),'hard road: +15 warmth: '+JSON.stringify(next));
+      check(t.errors.length === 0, 'browser errors roads: ' + t.errors.join(' | '));
+      await t.context.close();
+    }
     // 2. a won run: result window, then a new run starts from the gate with a full ember
     for(const [w,h] of [[1280,720],[844,390],[740,360]]){
       const t = await open('fx-smoke=expedition-won&run-review=1', w, h);
