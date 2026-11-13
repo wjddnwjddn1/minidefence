@@ -39,7 +39,7 @@ class ExpeditionTextChecks {
   for(int kind=0;kind<4;kind++)Check(ExpeditionText.MasteryEffect(kind).Contains("+"+Pct(Boon.MasteryDamage))&&ExpeditionText.MasteryEffect(kind).Contains(ExpeditionText.SkillName(kind)),"mastery text "+kind);
   Check(ExpeditionText.MasteryEffect(4).Contains("+"+Math.Round(Battle.SmithHasteLevel2*100)+"% → +"+Math.Round(Boon.MasteryHaste*100)+"%"),"smith mastery text");
   // the last stand (r44)
-  Check(ExpeditionText.FinaleName.Length>0,"last stand text");
+  Check(ExpeditionText.FinaleName.Length>0&&ExpeditionText.KingName.Length>0&&ExpeditionText.Camp[Expedition.Route.Length-1].Text.Contains(ExpeditionText.KingName),"last stand text");
   Check(ExpeditionText.Camp.Length==Expedition.Route.Length,"a camp greeting for every camp");
   // roads (r43)
   for(int road=0;road<3;road++)Check(ExpeditionText.RoadName(road).Length>0&&ExpeditionText.RoadEffect(road).Length>0,"road "+road+" has words");

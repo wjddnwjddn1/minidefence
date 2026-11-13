@@ -24,6 +24,8 @@ namespace EmberBastion {
   public static string RoadEffect(int road){return roadEffects[road];}
   // The last stand (r44).
   public const string FinaleName="최후의 방어전";
+  // The goblin king (r46) comes with the last wave of the last stand.
+  public const string KingName="고블린 왕";
   static readonly string[] effects={
    "검사 피해 +15%",
    "궁수 피해 +15%",
@@ -82,7 +84,7 @@ namespace EmberBastion {
    L(Speaker.Rowen,"성문은 지켰습니다. 숲길로 들어가기 전에 한 가지만 준비하시죠."),
    L(Speaker.Mira,"숲을 빠져나왔어요. 고개는 양쪽에서 올라오니까 준비를 잘 골라야 해요."),
    L(Speaker.Serin,"전장이 하나 남았어요. 단지가 식지 않게, 필요한 걸 골라 주세요."),
-   L(Speaker.Bron,"이제 성채로 돌아갑니다. 화로 곁에서 단지를 데우겠지만, 가장 큰 행렬이 성문으로 오고 있습니다."),
+   L(Speaker.Bron,"이제 성채로 돌아갑니다. 화로 곁에서 단지를 데우겠지만, 가장 큰 행렬이 성문으로 오고 있습니다. 마지막에는 고블린 왕이 직접 옵니다."),
   };
   public static readonly StoryLine[] Won={
    L(Speaker.Narrator,"불씨 단지는 네 전장을 돌아 성문으로 돌아올 때까지 끝내 꺼지지 않았다."),

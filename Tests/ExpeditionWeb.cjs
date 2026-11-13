@@ -84,13 +84,13 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       const finalLabel=()=>t.traces.find(line=>line.startsWith('FINALE_CAMP|')&&line.endsWith('|'+w+'|'+h));
       while(!finalLabel()&&Date.now()<deadline)await t.page.waitForTimeout(80);
       const label=finalLabel();
-      check(label&&label.includes('귀환 전 야영지')&&label.includes('귀환 온기 +20')&&label.includes('최후의 방어전')&&label.includes('+100%'),'readable finale title/status '+w);
+      check(label&&label.includes('귀환 전 야영지')&&label.includes('귀환 온기 +30')&&label.includes('최후의 방어전')&&label.includes('+100%'),'readable finale title/status '+w);
       const pick=camp.offers.findIndex(id=>id!==14&&id!==15);
       check(pick>=0,'ordinary preparation available');
       await t.page.screenshot({path:path.join(out,'finale-camp-'+w+'.png')});
       await t.page.mouse.click(...campCard(w,h,pick));
       const finale=await t.until(l=>l.state==='Battle'&&l.stage===4,'direct return to final stand');
-      check(finale.field===0&&finale.hp===Math.min(100,camp.warmth+20),'gate and return warmth '+w);
+      check(finale.field===0&&finale.hp===Math.min(100,camp.warmth+30),'gate and return warmth '+w);
       check(!Object.keys(t.rects).some(key=>/^route\d/.test(key)),'finale needs no route picker');
       await t.page.waitForTimeout(1500);
       t.lines.length=0;

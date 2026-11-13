@@ -26,7 +26,7 @@ namespace EmberBastion {
   // Starts the current stage of the run. OpenField resets every piece of view state the usual way; then the run's battle replaces it.
   void OpenExpeditionBattle(){
    if(!RefreshExpeditionCheckpoint())return;var next=expeditionSavedBattle??expedition.CreateBattle();expeditionSavedBattle=null;OpenField(next.FieldIndex);battle=next;BindBattle();paused=next.Phase==Phase.Fighting;SimulationSpeed=expeditionSavedSpeed;SaveExpedition();expeditionMenu=false;expeditionOpenAt=-1;
-   notice="원정 "+(expedition.Stage+1)+"/"+expedition.Stages+" · "+(expedition.InFinale?ExpeditionText.FinaleName:battle.Field.Name)+" · 온기 "+battle.HP+" · 시작 "+battle.Gold+"G"+BattleHealthText(battle)+GradeText(battle.Grade)+(expedition.RoadAt(expedition.Stage)!=Expedition.RoadPlain?" · "+ExpeditionText.RoadName(expedition.RoadAt(expedition.Stage)):"");
+   notice="원정 "+(expedition.Stage+1)+"/"+expedition.Stages+" · "+(expedition.InFinale?ExpeditionText.FinaleName+(battle.Finale?" · 마지막 웨이브에 "+ExpeditionText.KingName:""):battle.Field.Name)+" · 온기 "+battle.HP+" · 시작 "+battle.Gold+"G"+BattleHealthText(battle)+GradeText(battle.Grade)+(expedition.RoadAt(expedition.Stage)!=Expedition.RoadPlain?" · "+ExpeditionText.RoadName(expedition.RoadAt(expedition.Stage)):"");
    ExpeditionLog();
   }
   void OpenExpeditionMenu(){expeditionMenu=true;fieldMenu=true;expeditionAbandonUntil=0;held.Clear();pressed=false;}
@@ -137,6 +137,9 @@ namespace EmberBastion {
     if(url.Contains("grade-open="))expeditionGradeOpenSession=Mathf.Clamp(url[url.IndexOf("grade-open=")+11]-'0',0,Expedition.MaxGrade);UnlockExpeditionGrade(expedition);
     expeditionOpenAt=Time.unscaledTime;notice="원정 화면 격리 테스트";ExpeditionLog();ExpeditionGradeLog();
    }
+   // ?fx-smoke=expedition-king: the last wave of the last stand with a full army, to see the goblin king (r46)
+   if(url.Contains("fx-smoke=expedition-king")){for(int i=0;i<expedition.Stages-1;i++){battle.Phase=Phase.Won;battle.HP=Mathf.Max(1,battle.HP-5);expedition.Complete(battle);expedition.Choose(expedition.Offers()[0]);battle=expedition.CreateBattle();BindBattle();}
+    battle.Gold+=6000;for(int slot=0;slot<battle.Field.Slots.Length;slot++){battle.Place(slot%3==2?3:slot%2,slot);battle.Upgrade(slot);}battle.Wave=battle.WaveCount-1;StartWave();notice="고블린 왕 격리 테스트";ExpeditionLog();}
    if(url.Contains("fx-smoke=expedition-play")){battle.Gold+=3000;for(int slot=0;slot<battle.Field.Slots.Length;slot++){battle.Place(slot%3==2?3:slot%2,slot);battle.Upgrade(slot);}StartWave();notice="원정 전투 격리 테스트";}
   }
  }

@@ -62,7 +62,7 @@ namespace EmberBastion {
   // The last stand (r44): after the four fields the run comes home and holds the gate once more, at the highest threat.
   // It is one more camp (a fourth boon) and one more battle, so a build has a place to pay off.
   // Coming home warms the ember before the last battle.
-  public const int FinaleField=0,FinaleWarmth=20;
+  public const int FinaleField=0,FinaleWarmth=30;
   bool finale;
   public bool HasFinale {get{return finale;}}
   // True while the run stands in (or has finished on) its last stand.
@@ -87,7 +87,7 @@ namespace EmberBastion {
   // Each stage fights on its own seed, so card offers and enemy pace differ from stage to stage and run to run.
   public uint StageSeed(int stage){unchecked{uint t=Seed+0x9E3779B9u*(uint)(stage+1);t=(t^(t>>16))*0x85EBCA6Bu;t=(t^(t>>13))*0xC2B2AE35u;t^=t>>16;return t==0?1u:t;}}
   int[] BattleBoons(){var list=new int[Boon.BattleCount];Array.Copy(boons,list,Boon.BattleCount);return list;}
-  public Battle CreateBattle(){if(State!=Status.Battle)throw new InvalidOperationException("No battle to fight");return Battle.CreateExpedition(StageSeed(Stage),Field,Warmth,BattleBoons(),Threat,PendingGold,Grade);}
+  public Battle CreateBattle(){if(State!=Status.Battle)throw new InvalidOperationException("No battle to fight");return Battle.CreateExpedition(StageSeed(Stage),Field,Warmth,BattleBoons(),Threat,PendingGold,Grade,InFinale);}
   // True when the battle is this run's current stage with this run's boons. A finished or foreign battle never matches.
   public bool Matches(Battle b){if(b==null||State!=Status.Battle||b.Mode!=BattleMode.Expedition||b.RulesVersion!=4||b.FieldIndex!=Field||b.Threat!=Threat||b.Grade!=Grade)return false;for(int i=0;i<Boon.BattleCount;i++)if(b.BoonCount(i)!=boons[i])return false;return true;}
   // Report the end of the current stage. A win moves to the camp (or ends the run after the last stage); a loss ends the run.

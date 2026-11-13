@@ -252,6 +252,31 @@ class ExpeditionChecks {
    {var d=R();d.route=null;Check(Throws(()=>Expedition.Restore(d)),"a run with a last stand always has a route");d.finale=false;d.peaks=new int[4];d.roads=false;d.pendingGold=0;var old=Expedition.Restore(d);Check(old.FieldAt(0)==0&&old.FieldAt(1)==1&&old.FieldAt(2)==-1,"an old save follows the story order");d.route=new int[0];Check(Expedition.Restore(d).Field==1,"an empty route is the same");}
   }
 
+  // --- the goblin king (r46): the last wave of the last stand brings one warlord far stronger than any other ------
+  {
+   var plain=Battle.CreateExpedition(9,0,100,NoBoons(),4,0);var last=Battle.CreateExpedition(9,0,100,NoBoons(),4,0,0,true);int final=last.WaveCount-1;
+   Check(!plain.Finale&&last.Finale&&last.WaveGroups(final).Length==plain.WaveGroups(final).Length+1,"the last stand's last wave has one more group");
+   var king=last.WaveGroups(final)[last.WaveGroups(final).Length-1];Check(king.Kind==4&&king.Count==1&&Near(king.Multiplier,Boon.KingHealth)&&Near(king.Delay,Boon.KingDelay),"that group is the king");
+   for(int w=0;w<final;w++)Check(last.WaveGroups(w).Length==plain.WaveGroups(w).Length,"earlier waves are the same");
+   foreach(var g in plain.WaveGroups(final))Check(g.Multiplier<Boon.KingHealth*.99,"no ordinary group is as strong as the king");
+   Check(Near(last.KingMaxHP,Balance.Enemies[4].HP*Boon.KingHealth*Math.Pow(1.09,final)*(1+Boon.ThreatHealth*4))&&last.IsKing(new Enemy{Kind=4,MaxHP=last.KingMaxHP})&&!last.IsKing(new Enemy{Kind=4,MaxHP=last.KingMaxHP/Boon.KingHealth*1.5})&&!last.IsKing(new Enemy{Kind=0,MaxHP=1e9})&&!plain.IsKing(new Enemy{Kind=4,MaxHP=1e9})&&!last.IsKing(null),"the king is told by his health in a last stand");
+   // saved and restored
+   Check(Battle.RestorePreparation(last.SavePreparation()).Finale&&!Battle.RestorePreparation(plain.SavePreparation()).Finale,"the last stand survives a preparation save");
+   {var old=last.SavePreparation();old.expedition.finale=false;Check(!Battle.RestorePreparation(old).Finale,"a last stand saved before the king has none");}
+   last.Gold=20000;Arm(last);last.Start();for(int t=0;t<600;t++)last.Step(Balance.Tick);
+   // the last wave on its own: exactly one enemy is the king, and he spawns with KingMaxHP
+   {var whole=Battle.CreateExpedition(9,0,100,NoBoons(),4,0,0,true);Arm(whole);whole.Wave=whole.WaveCount-1;Check(whole.Start()&&whole.Wave==whole.WaveCount,"last wave starts");var kings=new HashSet<int>();double kingHp=0;int bosses=0;var seenBoss=new HashSet<int>();for(int t=0;t<60*20&&whole.Phase==Phase.Fighting;t++){whole.Step(Balance.Tick);foreach(var e in whole.Enemies){if(e.Kind==4&&seenBoss.Add(e.Id))bosses++;if(whole.IsKing(e)&&kings.Add(e.Id))kingHp=e.MaxHP;}}Check(kings.Count==1&&bosses>1&&Near(kingHp,whole.KingMaxHP),"one king among "+bosses+" warlords: "+kings.Count);}
+   // the run hands the flag to its fifth battle only
+   var run=Expedition.Start(31);for(int i=0;i<4;i++){var b=run.CreateBattle();Check(!b.Finale,"no king before the last stand");b.Phase=Phase.Won;run.Complete(b);run.Choose(run.Offers()[0]);}
+   var stand=run.CreateBattle();Check(stand.Finale&&run.Matches(stand)&&run.Matches(Battle.RestorePreparation(stand.SavePreparation())),"the fifth battle is the king's");
+   // a king's lap costs KingLapPoints, a warlord's five
+   foreach(bool crowned in new[]{false,true}){var b=Battle.CreateExpedition(9,0,100,NoBoons(),0,0,0,true);Check(b.Place(0,0)&&b.Start(),"lap battle starts");b.Enemies.Clear();
+    b.Enemies.Add(new Enemy{Id=9001,Kind=4,Gate=0,HP=1e9,MaxHP=crowned?b.KingMaxHP:b.KingMaxHP/Boon.KingHealth*1.5,Speed=4000});int before=b.HP;
+    for(int t=0;t<60&&b.Enemies.Find(e=>e.Id==9001).Laps<1;t++)b.Step(Balance.Tick);int laps=b.Enemies.Find(e=>e.Id==9001).Laps;
+    Check(laps>=1&&before-b.HP>=laps*(crowned?Boon.KingLapPoints:Boon.PointsPerWarmth)/Boon.PointsPerWarmth,"lap cost "+(crowned?"king":"warlord")+": "+(before-b.HP)+" for "+laps);
+    if(crowned)Check(Boon.KingLapPoints>Boon.PointsPerWarmth,"the king costs more than a warlord");}
+  }
+
   // --- smith (r45): wider reach and a stronger push under rules 4; older rules keep theirs ----------------------
   {
    var now=Battle.CreateForRules(3,1,4);var old=Battle.CreateForRules(3,1,3);
