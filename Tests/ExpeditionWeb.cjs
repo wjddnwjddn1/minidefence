@@ -147,6 +147,29 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       check(t.errors.length === 0, 'browser errors lost: ' + t.errors.join(' | '));
       await t.context.close();
     }
+    // 3b. the muster survives a reload: the same three doctrines come back and the chosen one fights (r47)
+    {
+      const [w,h]=[1280,720];
+      const t = await open('run-review=1&fx-smoke=remember', w, h);
+      await t.page.waitForTimeout(4000);
+      const entry=t.rects.entry;check(entry,'muster entry geometry');await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);
+      const mustering = await t.until(l => l.state === 'Muster', 'entry button did not open the muster before a reload');
+      await t.page.waitForTimeout(1500);
+      delete t.rects.entry;
+      await t.page.goto('http://127.0.0.1:'+server.address().port+'/?fx-smoke=remember&run-review=1',{waitUntil:'domcontentloaded'});
+      await t.page.waitForFunction(()=>[...document.querySelectorAll('#unity-build-title button')].some(b=>b.textContent==='Unload'),null,{timeout:120000});
+      await t.page.evaluate(({w, h}) => { const c = document.querySelector('#unity-container'), v = document.querySelector('#unity-canvas'), f = document.querySelector('#unity-fullscreen-container'), s = 'width:' + w + 'px;height:' + h + 'px'; c.style.cssText = 'position:fixed;left:0;top:0;transform:none;' + s; f.style.cssText = s; v.style.cssText = s; document.querySelector('#unity-footer').style.display = 'none'; }, {w, h});
+      for(let i=0;i<250&&!t.rects.entry;i++)await t.page.waitForTimeout(100);
+      const again=t.rects.entry;check(!!again,'muster resume entry after a reload');
+      t.lines.length=0;
+      await t.page.mouse.click(again[0]+again[2]/2,again[1]+again[3]/2);
+      await t.page.waitForTimeout(900);
+      await t.page.mouse.click(...campCard(w, h, 2));
+      const fought = await t.until(l => l.state === 'Battle' && l.stage === 0, 'the reloaded muster did not start the run');
+      check(fought.boons[mustering.offers[2]] === '1' && [...fought.boons].reduce((n, c) => n + (+c), 0) === 1 && fought.warmth === 100, 'the reloaded muster kept its offers: ' + mustering.offers + ' -> ' + fought.boons);
+      check(t.errors.length === 0, 'browser errors muster reload: ' + t.errors.join(' | '));
+      await t.context.close();
+    }
     // 4. entry from an ordinary preparation, status window, abandon with a second click
     for(const [w,h] of [[1280,720],[844,390],[740,360]]){
       const t = await open('run-review=1', w, h);
