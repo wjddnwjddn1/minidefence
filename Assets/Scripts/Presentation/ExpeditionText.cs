@@ -75,7 +75,7 @@ namespace EmberBastion {
    L(Speaker.Narrator,"나루 건너에 불빛 하나가 켜진 뒤에도 겨울은 물러가지 않았다. 얼어붙은 다른 부족들이 잔불 소문을 듣고 내려오기 시작했다."),
    L(Speaker.Bron,"화덕의 불씨를 단지에 옮겨 담았습니다. 이 단지 하나로 네 전장을 돌고, 성문으로 돌아와 마지막 행렬까지 막아야 합니다. 꺼지면 처음부터 다시입니다."),
    L(Speaker.Serin,"고블린이 성채를 한 바퀴 돌 때마다 단지의 온기를 조금씩 가져가요. 오래 돌게 두지 마세요."),
-   L(Speaker.Rowen,"전장을 하나 지킬 때마다 야영지에서 한 가지를 준비하겠습니다. 무엇을 고르느냐에 따라 다음 싸움이 달라집니다."),
+   L(Speaker.Rowen,"떠나기 전에 원정대의 교리를 하나 정하시죠. 전장을 지킬 때마다 야영지에서도 하나씩 준비합니다. 무엇을 고르느냐에 따라 다음 싸움이 달라집니다."),
   };
   // One line when a later expedition starts.
   public static readonly StoryLine Again=L(Speaker.Mira,"같은 길은 두 번 없어요. 이번엔 뭐가 나올지 가 봐야 알죠.");
