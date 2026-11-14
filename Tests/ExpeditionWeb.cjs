@@ -155,6 +155,25 @@ const parse = line => { const p = line.trim().split('|'); return {state: p[1], s
       check(t.errors.length === 0, 'browser errors roads: ' + t.errors.join(' | '));
       await t.context.close();
     }
+    // 2c. compact landscape (740x360): with a grade open, the header's expedition button opens the grade panel first, like the wide entry (Codex repro, r47)
+    {
+      const [w,h]=[740,360];
+      const t = await open('fx-smoke=expedition-won&grade-open=3&run-review=1', w, h);
+      await t.until(l => l.state === 'Won', 'won run for the compact entry');
+      await t.page.waitForTimeout(800);await t.page.mouse.click(...panelButton(w, h, true));
+      await t.until(l => l.mode === 'Normal', 'free battle after the won run');
+      // the game logs a rect once per position, so the entry logged after the free battle is the one to press
+      for(let i=0;i<60&&!t.rects.entry;i++)await t.page.waitForTimeout(100);
+      const entry=t.rects.entry;check(!!entry,'compact expedition button drawn');
+      const before=t.lines.length;await t.page.mouse.click(entry[0]+entry[2]/2,entry[1]+entry[3]/2);
+      await t.page.waitForTimeout(1500);
+      check(!t.lines.slice(before).some(l=>l.state==='Muster'),'the button opens the grade panel, not a muster');
+      await t.page.mouse.click(...panelButton(w, h, false));
+      const muster=await t.until(l=>l.state==='Muster','new run from the compact grade panel');
+      check(muster.grade>=0,'muster after choosing in the panel: grade '+muster.grade);
+      check(t.errors.length === 0, 'browser errors compact entry: ' + t.errors.join(' | '));
+      await t.context.close();
+    }
     // 2. a won run: result window, then a new run starts from the gate with a full ember
     for(const [w,h] of [[1280,720],[844,390],[740,360]]){
       const t = await open('fx-smoke=expedition-won&run-review=1', w, h);
